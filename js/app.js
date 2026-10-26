@@ -129,9 +129,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!mdText) return '';
     let text = mdText.trim();
 
-    // 1. 抽取並保護 HTML 區塊（例如 SVG 黑板 <div class="blackboard-container">...</div>）
+    // 1. 抽取並保護 HTML 區塊（例如 <iframe>, <div class="...">...</div>, <svg>...</svg>）
     const htmlBlocks = [];
-    text = text.replace(/<div[\s\S]*?<\/div>/gi, (match) => {
+    text = text.replace(/<(div|iframe|svg|table)[\s\S]*?<\/\1>/gi, (match) => {
       const token = `@@HTML_BLOCK_${htmlBlocks.length}@@`;
       htmlBlocks.push(match);
       return token;
@@ -706,13 +706,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     mainContent.innerHTML = html;
 
-    // 更新頂部導覽列的 Desmos 跳轉連結
-    const topNavDesmos = document.querySelector('.navbar .btn-desmos-jump');
-    if (topNavDesmos) {
-      topNavDesmos.href = desmosTarget;
-      topNavDesmos.title = `在新分頁開啟【${unit.id}】Desmos 互動教材`;
-    }
-
     // 觸發 KaTeX 渲染數學公式（支援非同步重試機制）
     triggerMathRender(mainContent);
 
@@ -730,109 +723,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // 初始化隨堂線上互動學習單
     initWorksheet(unit);
 
-    // 初始化 2-1 拍頻動態行進波畫布
-    if (unitId === '2-1') {
-      initBeatWaveSimulation();
-    } else if (waveAnimFrame) {
-      cancelAnimationFrame(waveAnimFrame);
-      waveAnimFrame = null;
-    }
-
     // 滾動回頂端
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
-  // 3.5 動態行進波與拍頻模擬畫布引擎
-  let waveAnimFrame = null;
-  function initBeatWaveSimulation() {
-    if (waveAnimFrame) {
-      cancelAnimationFrame(waveAnimFrame);
-      waveAnimFrame = null;
-    }
-    const canvas = document.getElementById('beat-wave-canvas');
-    if (!canvas) return;
-
-    const ctx = canvas.getContext('2d');
-    const dpr = window.devicePixelRatio || 1;
-
-    function resize() {
-      const rect = canvas.getBoundingClientRect();
-      canvas.width = rect.width * dpr;
-      canvas.height = rect.height * dpr;
-    }
-    resize();
-
-    let t = 0;
-    function draw() {
-      const w = canvas.width;
-      const h = canvas.height;
-      ctx.clearRect(0, 0, w, h);
-
-      const isDark = document.body.classList.contains('dark-mode');
-      const axisColor = isDark ? 'rgba(255, 255, 255, 0.12)' : 'rgba(0, 0, 0, 0.08)';
-
-      const hUpper = h * 0.44;
-      const midUpper = hUpper * 0.52;
-      const hLower = h * 0.56;
-      const midLower = hUpper + hLower * 0.5;
-
-      // 基準軸線
-      ctx.strokeStyle = axisColor;
-      ctx.lineWidth = 1 * dpr;
-      ctx.beginPath();
-      ctx.moveTo(0, midUpper);
-      ctx.lineTo(w, midUpper);
-      ctx.moveTo(0, midLower);
-      ctx.lineTo(w, midLower);
-      ctx.stroke();
-
-      const k = (2 * Math.PI) / (w * 0.28);
-      const w1 = 0.04;
-      const w2 = 0.045; // 頻率微差約 12.5%
-      const amp1 = hUpper * 0.32;
-      const amp2 = hUpper * 0.32;
-
-      // 1. 波 1 (藍染青灰)
-      ctx.strokeStyle = isDark ? '#7a9cb8' : '#3b5a75';
-      ctx.lineWidth = 1.8 * dpr;
-      ctx.beginPath();
-      for (let x = 0; x < w; x += 2) {
-        const y = midUpper - amp1 * Math.sin(k * x - w1 * t);
-        if (x === 0) ctx.moveTo(x, y);
-        else ctx.lineTo(x, y);
-      }
-      ctx.stroke();
-
-      // 2. 波 2 (抹茶青)
-      ctx.strokeStyle = isDark ? '#7ba28b' : '#456854';
-      ctx.lineWidth = 1.8 * dpr;
-      ctx.beginPath();
-      for (let x = 0; x < w; x += 2) {
-        const y = midUpper - amp2 * Math.sin(k * x - w2 * t);
-        if (x === 0) ctx.moveTo(x, y);
-        else ctx.lineTo(x, y);
-      }
-      ctx.stroke();
-
-      // 3. 合成波 y1 + y2 (琥珀色，展示大波包拍頻)
-      ctx.strokeStyle = isDark ? '#e08b52' : '#c06933';
-      ctx.lineWidth = 2.4 * dpr;
-      ctx.beginPath();
-      for (let x = 0; x < w; x += 2) {
-        const val1 = Math.sin(k * x - w1 * t);
-        const val2 = Math.sin(k * x - w2 * t);
-        const sum = (val1 + val2) * 0.5;
-        const y = midLower - sum * (hLower * 0.42);
-        if (x === 0) ctx.moveTo(x, y);
-        else ctx.lineTo(x, y);
-      }
-      ctx.stroke();
-
-      t += 1;
-      waveAnimFrame = requestAnimationFrame(draw);
-    }
-
-    draw();
   }
 
   // 4. 切換單元

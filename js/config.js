@@ -197,32 +197,18 @@ $$L = [440, 880, 220, 110, 1760], \\quad t = 1, \\quad \\operatorname{tone}(L[t]
       mathModel: `
 **拍頻（Beats）的物理本質：波形週期性同相與反相**
 
-<div class="wave-canvas-card">
-  <div class="wave-canvas-header">
-    <div class="wave-legend">
-      <span class="legend-item"><span class="legend-dot wave1"></span> 波 1（藍線）</span>
-      <span class="legend-item"><span class="legend-dot wave2"></span> 波 2（綠線，頻率微差）</span>
-      <span class="legend-item"><span class="legend-dot sum"></span> 下方：合成波（紅線，拍頻起伏）</span>
-    </div>
-  </div>
-  <canvas id="beat-wave-canvas"></canvas>
-  <div class="wave-canvas-caption">
-    💡 <strong>動態觀察</strong>：上方兩道波向前傳播時，下方合成波週期性出現「波峰重合相長（變大聲）」與「波峰撞波谷相消（變小聲）」，形成呼吸般的音量起伏！
-  </div>
+<div class="desmos-embed-container">
+  <iframe src="https://www.desmos.com/calculator/j4sqzyfwfx?embed" class="desmos-iframe" frameborder="0"></iframe>
 </div>
 
-**Desmos 行進波干涉模型**：
-$$\\begin{aligned}
-y_1 &= \\sin(f_1(x - t)) + 2 \\quad \\text{（藍線：第 1 道聲波）} \\\\
-y_2 &= \\sin(f_2(x - t)) + 2 \\quad \\text{（綠線：第 2 道聲波）} \\\\
-y_3 &= y_1 + y_2 - 4 = \\sin(f_1(x - t)) + \\sin(f_2(x - t)) - 2 \\quad \\text{（紅線：疊加合成波）}
-\\end{aligned}$$
-- **波峰撞波峰（相長）**：振幅疊加變大，聲音最響亮。
-- **波峰撞波谷（相消）**：兩波完全抵消抹平，聲音變微弱或無聲。
+**Desmos 動態波形圖解說明**：
+- 🔵 **上方藍線（波 1）**：基準頻率 $f_1 = 1$ 的第 1 道聲波，持續向右傳播。
+- 🟢 **上方綠線（波 2）**：頻率微差 $f_2 = 1.1$ 的第 2 道聲波。因為頻率稍微高一點點，波峰隨時間慢慢「超車」藍線。
+- 🔴 **下方紅線（合成波 $y_3$）**：兩道聲波在空氣中碰撞疊加的真實振動結果（$y_3 = y_1 + y_2 - 4$）。
+  - **波峰撞波峰（相長干涉）**：兩道波的波峰重疊，振幅瞬間疊加暴增，耳朵聽見**「聲音變大」**！
+  - **波峰撞波谷（相消干涉）**：兩道波錯開、波峰剛好對上波谷，兩波互相抵消被抹平成一條直線，耳朵聽見**「聲音變小甚至無聲」**！
 
-**拍頻頻率公式**：
-$$f_{\\text{beat}} = |f_1 - f_2|$$
-- 兩音頻率相差幾赫茲，每秒音量就忽大忽小起伏幾次。例如 $440\\text{Hz}$ 與 $442\\text{Hz}$ 同時發聲，每秒便會產生 $2$ 次音量拍頻脈動。
+> 💡 **聽覺與視覺連結**：這種忽大忽小、像呼吸一般的規律起伏，就是我們在耳機中聽見的「拍頻（Beats）」現象！藉由親眼觀察兩波的重合與錯位，不需背繁瑣公式，即可秒懂發聲物理本質。
       `,
       tasks: [
         "【和諧比例初探】：開啟 Desmos 範本第 1 個資料夾【和諧音】，拉動比例滑桿 a（範圍 1 到 4），聆聽雙音 tone([220, 220a]) 何時融為一體、何時最為純淨和諧。",
