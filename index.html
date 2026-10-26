@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎵 音符中的數學 - 課程研發與實作平台</title>
+
+  <!-- KaTeX 數學公式排版函式庫 (CDN) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+
+  <!-- 課程網站專用樣式 -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- 頂部功能導覽列 -->
+  <header class="navbar">
+    <div class="nav-left">
+      <button class="btn-sidebar-toggle" id="btn-toggle-sidebar" title="收合或展開單元選單">
+        <span>☰</span>
+        <span style="font-size: 0.85rem;">單元目錄</span>
+      </button>
+      <div class="brand-title">
+        <span>🎵</span>
+        <span>音符中的數學</span>
+        <span class="brand-subtitle">高中跨領域選修</span>
+      </div>
+    </div>
+    <div class="nav-right">
+      <button class="btn-font-toggle" id="btn-font-toggle" title="切換字體大小（大字投影模式）">
+        <span id="font-icon">A+</span>
+      </button>
+      <button class="btn-theme-toggle" id="btn-theme-toggle" title="切換和紙素雅 / 深夜素墨">
+        <span id="theme-icon">🌙</span>
+      </button>
+      <a href="https://www.desmos.com/calculator" target="_blank" rel="noopener noreferrer" class="btn-desmos-jump" title="另開分頁登入 Desmos 雲端個人存檔">
+        <span>Desmos 官方頁面 ↗</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- 應用程式容器 -->
+  <div class="app-container">
+    
+    <!-- 側邊欄導航 (章節目錄) -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div style="font-weight: 700; font-size: 0.95rem; color: var(--accent-sage);">課程目錄</div>
+      </div>
+      <nav id="sidebar-nav">
+        <!-- 由 js/app.js 讀取 js/config.js 自動生成 -->
+      </nav>
+    </aside>
+
+    <!-- 主要教學內容區 -->
+    <main class="main-content" id="main-content">
+      <!-- 由 js/app.js 動態渲染單元內容 -->
+    </main>
+
+  </div>
+
+  <!-- 複製成功的氣泡提示 -->
+  <div class="toast-msg" id="toast-msg">算式已複製！</div>
+
+  <!-- 資料與核心模組載入 -->
+  <script src="js/config.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>
