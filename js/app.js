@@ -363,17 +363,19 @@ document.addEventListener('DOMContentLoaded', () => {
             ${questionsHtml}
           </div>
 
-          <!-- 個人 Desmos 實驗存檔連結 (選填) -->
-          <div class="ws-desmos-share-box">
-            <div class="ws-desmos-share-title">
-              <span>🔗</span>
-              <span>個人 Desmos 實驗作品存檔連結（選填）</span>
+          <!-- 個人 Desmos 實驗存檔連結 (僅在指定需要繳交存檔的單元顯示) -->
+          ${ws.requireDesmosLink ? `
+            <div class="ws-desmos-share-box">
+              <div class="ws-desmos-share-title">
+                <span>🔗</span>
+                <span>個人 Desmos 實驗作品存檔連結</span>
+              </div>
+              <p class="ws-desmos-share-desc">
+                在右側 Desmos 點擊右上角「儲存（Save）」，並點擊分享按鈕複製作品短網址貼於此處：
+              </p>
+              <input type="url" class="ws-text-input ws-desmos-input" id="ws-desmos-link-${unit.id}" placeholder="https://www.desmos.com/calculator/..." data-qid="desmos_link">
             </div>
-            <p class="ws-desmos-share-desc">
-              在右側 Desmos 點擊右上角「儲存（Save）」，並點擊分享按鈕複製作品短網址（例如：<code>https://www.desmos.com/calculator/xxxxxx</code>）貼於此處：
-            </p>
-            <input type="url" class="ws-text-input ws-desmos-input" id="ws-desmos-link-${unit.id}" placeholder="https://www.desmos.com/calculator/..." data-qid="desmos_link">
-          </div>
+          ` : ''}
 
           <!-- 底部功能按鈕 -->
           <div class="ws-toolbar">
@@ -551,17 +553,15 @@ document.addEventListener('DOMContentLoaded', () => {
           });
         }
 
-        // Desmos 作品存檔連結
-        const desmosLink = answers['desmos_link'] || document.getElementById(`ws-desmos-link-${unit.id}`)?.value?.trim() || '';
-        lines.push(`【課堂 Desmos 實作存檔與作品連結】`);
-        if (desmosLink) {
-          lines.push(`• 我的 Desmos 專案存檔網址：${desmosLink}`);
-          lines.push(`• 實作成果驗證：已成功儲存於個人 Google Desmos 雲端，包含完整參數滑桿與動態模型。`);
-        } else {
-          lines.push(`• 我的 Desmos 專案存檔網址：（本單元以課堂即時調音與聽覺驗證為主，或於 Desmos 儲存後補上）`);
+        // Desmos 作品存檔連結 (僅在指定單元導出)
+        if (unit.worksheet && unit.worksheet.requireDesmosLink) {
+          const desmosLink = answers['desmos_link'] || document.getElementById(`ws-desmos-link-${unit.id}`)?.value?.trim() || '';
+          lines.push(`【課堂 Desmos 實作存檔與作品連結】`);
+          lines.push(`• 我的 Desmos 專案存檔網址：${desmosLink || '（尚未填寫）'}`);
+          lines.push(`----------------------------------------------------------------------`);
         }
         lines.push(`======================================================================`);
-        lines.push(`（本紀錄由《音符中的數學》線上互動講義系統自動匯出・可直接用於 Google 表單/Classroom 繳交或學習歷程檔案）`);
+        lines.push(`（本紀錄由《音符中的數學》線上互動講義系統自動匯出・可直接用於 Google 表單/Classroom 繳交）`);
 
         copyToClipboard(lines.join('\n'));
         showToast('📋 已複製完整作答報告！可直接貼至 Google 表單或 Classroom 繳交');
