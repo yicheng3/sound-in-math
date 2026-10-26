@@ -656,6 +656,19 @@ document.addEventListener('DOMContentLoaded', () => {
         </section>
       ` : ''}
 
+      <!-- 數學原理 / 延伸探究區塊 -->
+      ${unit.mathConcept ? `
+        <section class="teaching-card">
+          <div class="card-header">
+            <span class="card-icon">📐</span>
+            <h2 class="card-title">${unit.mathConceptTitle || '數學原理'}</h2>
+          </div>
+          <div class="card-body">
+            ${parseMarkdown(unit.mathConcept)}
+          </div>
+        </section>
+      ` : ''}
+
       <!-- 課堂實作 -->
       ${unit.tasks && unit.tasks.length ? `
         <section class="teaching-card">
