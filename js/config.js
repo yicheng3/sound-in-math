@@ -277,91 +277,126 @@ $$L = [440, 880, 220, 110, 1760], \\quad t = 1, \\quad \\operatorname{tone}(L[t]
       status: "ready",
       desmosUrl: "https://www.desmos.com/calculator/kklcngvj8a",
       motivation: `
-兩千五百年前，畢達哥拉斯在鐵匠鋪聽到鐵鎚敲擊聲，發現只要長度比例是有理數（2:1 八度、3:2 五度），聲音就無比純淨！
+兩千五百年前，古希臘哲學家畢達哥拉斯發現了聲音與數字間的奧秘：
 
-**為什麼是數字 2 與 3？（週期越短越乾淨）**：
-上一單元我們發現，合成波重複的週期越短，聲音就越乾淨無摩擦：
-- 頻率比 $1:2$（八度）：每 $1$ 圈就完全重複，週期最短、聽感最純淨融為一體！
-- 頻率比 $2:3$（純五度）：每 $2$ 圈就完全重複，週期極短、和諧穩定。
+**一、 為什麼 1:2 最和諧？（週期最短、聽感最純淨）**
+回顧上一單元，我們發現「合成波重複的週期越短，聲音就越乾淨」：
+- 頻率比 **$1:2$**：合成波每 **$1$ 個循環**就完全重合一次。除了同頻率（$1:1$）之外，這是週期最短的比例，兩音融合得天衣無縫，聽起來如同同一個聲音！
 
-畢達哥拉斯正是抓住了週期最短的兩大黃金數字「2」與「3」，訂下兩條簡單的公比數列規則：
-1. **乘 3/2（純五度向上相生）**：頻率乘上 $1.5$。
-2. **大於 2 則除以 2（折回同一個八度內）**：保持在基準音的 1 到 2 倍區間。
-這套規則推導出的五個音，恰好就是東方經典五聲音階「宮、商、角、徵、羽」！
+**二、 定義 1:2 為「高八度」（同一個音）與音階範圍**
+正因為 $1:2$ 的聽感高度融合，音樂上將頻率翻倍視為進入更高循環的「同一個音」（例如中央 $C$ 與高音 $C$）。
+這為我們劃定了一個音階的探索範圍：**所有音符的頻率比都應落在 $[1, 2)$ 之間**。
+若依規則算出的頻率比超過 $2$，就代表它跑進了更高的八度，**必須「除以 2」折回這組八度之內**！
+
+**三、 以 2:3（純五度）向上相生，誕生五聲音階**
+在 $[1, 2)$ 範圍內，下一個週期最短、最和諧的簡單整數比就是 **$2:3$**（頻率乘上 $\\frac{3}{2}$，即純五度，每 $2$ 圈就重複）。
+畢達哥拉斯從基準音出發，反覆執行這項法則：
+1. **每次乘 $\\frac{3}{2}$**（純五度向上相生）。
+2. **大於 2 則除以 2**（折回同一個八度內）。
+
+如此相生五次後，便推導出東方古老的五聲音階「**宮、商、角、徵、羽**」！
       `,
       mathModel: `
-**課堂黑板板書：五度相生律的三行結構**
+**五度相生律推導流程（每次乘 $\\frac{3}{2}$，超過 2 則除以 2）**
 
-<div class="blackboard-container">
-  <svg class="blackboard-svg" viewBox="0 0 780 200" xmlns="http://www.w3.org/2000/svg">
+<div class="scale-derivation-card">
+  <svg class="scale-svg" viewBox="0 0 860 215" xmlns="http://www.w3.org/2000/svg">
     <defs>
-      <marker id="chalk-arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-        <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#f0965d" />
+      <marker id="scale-arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+        <path d="M 1 2 L 7 5 L 1 8 z" fill="#c26d36" />
       </marker>
     </defs>
     
-    <!-- 【上面那行】：兩數之間的弧線與 ×3/2 -->
-    <path d="M 85 70 Q 155 18 220 70" fill="none" stroke="#f0965d" stroke-width="2.4" stroke-linecap="round" marker-end="url(#chalk-arrow)" />
-    <text x="155" y="30" text-anchor="middle" font-size="15" font-weight="bold" fill="#f0965d" font-family="'Courier New', monospace, sans-serif">× 3/2</text>
+    <!-- 頂部相生弧線與 ×3/2 (弧頂與數字保留充裕間距，箭頭不遮字) -->
+    <path d="M 112 52 Q 172 16 232 50" fill="none" stroke="#c26d36" stroke-width="2.2" stroke-linecap="round" marker-end="url(#scale-arrow)" />
+    <text x="172" y="18" text-anchor="middle" font-size="13" font-weight="bold" fill="#c26d36" font-family="'JetBrains Mono', monospace, sans-serif">× 3/2</text>
     
-    <path d="M 250 70 Q 320 18 385 70" fill="none" stroke="#f0965d" stroke-width="2.4" stroke-linecap="round" marker-end="url(#chalk-arrow)" />
-    <text x="320" y="30" text-anchor="middle" font-size="15" font-weight="bold" fill="#f0965d" font-family="'Courier New', monospace, sans-serif">× 3/2</text>
+    <path d="M 288 50 Q 345 16 402 50" fill="none" stroke="#c26d36" stroke-width="2.2" stroke-linecap="round" marker-end="url(#scale-arrow)" />
+    <text x="345" y="18" text-anchor="middle" font-size="13" font-weight="bold" fill="#c26d36" font-family="'JetBrains Mono', monospace, sans-serif">× 3/2</text>
     
-    <path d="M 415 70 Q 485 18 550 70" fill="none" stroke="#f0965d" stroke-width="2.4" stroke-linecap="round" marker-end="url(#chalk-arrow)" />
-    <text x="485" y="30" text-anchor="middle" font-size="15" font-weight="bold" fill="#f0965d" font-family="'Courier New', monospace, sans-serif">× 3/2</text>
+    <path d="M 458 50 Q 515 16 572 50" fill="none" stroke="#c26d36" stroke-width="2.2" stroke-linecap="round" marker-end="url(#scale-arrow)" />
+    <text x="515" y="18" text-anchor="middle" font-size="13" font-weight="bold" fill="#c26d36" font-family="'JetBrains Mono', monospace, sans-serif">× 3/2</text>
     
-    <path d="M 580 70 Q 645 18 710 70" fill="none" stroke="#f0965d" stroke-width="2.4" stroke-linecap="round" marker-end="url(#chalk-arrow)" />
-    <text x="645" y="30" text-anchor="middle" font-size="15" font-weight="bold" fill="#f0965d" font-family="'Courier New', monospace, sans-serif">× 3/2</text>
+    <path d="M 628 50 Q 685 16 742 50" fill="none" stroke="#c26d36" stroke-width="2.2" stroke-linecap="round" marker-end="url(#scale-arrow)" />
+    <text x="685" y="18" text-anchor="middle" font-size="13" font-weight="bold" fill="#c26d36" font-family="'JetBrains Mono', monospace, sans-serif">× 3/2</text>
 
-    <!-- 【中間那行】：1, 3/2, 9/8, 27/16, 81/64 數列與音名 -->
-    <text x="75" y="82" text-anchor="middle" font-size="24" font-weight="bold" fill="#ffffff" font-family="'Courier New', monospace, sans-serif">1</text>
-    <text x="75" y="104" text-anchor="middle" font-size="13" font-weight="500" fill="#9ec5ab">宮 (C)</text>
+    <!-- 中間行：純分數直式排版 (分子、分數線、分母) 與對應音名 -->
+    <!-- 第 1 音：宮 (1) -->
+    <text x="90" y="85" text-anchor="middle" font-size="28" font-weight="bold" fill="#2b2723" font-family="'JetBrains Mono', monospace, sans-serif">1</text>
+    <text x="90" y="112" text-anchor="middle" font-size="15" font-weight="bold" fill="#2e6f40">宮 (C)</text>
+    <line x1="90" y1="124" x2="90" y2="152" stroke="#cbd5e1" stroke-width="1.2" stroke-dasharray="3,2" />
+    <rect class="badge-start" x="40" y="156" width="100" height="26" rx="13" fill="#eef7f2" stroke="#c8e6d4" />
+    <text class="badge-text-start" x="90" y="173" text-anchor="middle" font-size="12" font-weight="600" fill="#2d6a4f">起點 (基準音)</text>
 
-    <text x="238" y="82" text-anchor="middle" font-size="24" font-weight="bold" fill="#ffffff" font-family="'Courier New', monospace, sans-serif">3/2</text>
-    <text x="238" y="104" text-anchor="middle" font-size="13" font-weight="500" fill="#9ec5ab">徵 (G)</text>
+    <!-- 第 2 音：徵 (3/2) -->
+    <text x="260" y="73" text-anchor="middle" font-size="20" font-weight="bold" fill="#2b2723" font-family="'JetBrains Mono', monospace, sans-serif">3</text>
+    <line x1="244" y1="80" x2="276" y2="80" stroke="#2b2723" stroke-width="2.2" stroke-linecap="round" />
+    <text x="260" y="99" text-anchor="middle" font-size="20" font-weight="bold" fill="#2b2723" font-family="'JetBrains Mono', monospace, sans-serif">2</text>
+    <text x="260" y="122" text-anchor="middle" font-size="15" font-weight="bold" fill="#2e6f40">徵 (G)</text>
+    <line x1="260" y1="130" x2="260" y2="152" stroke="#cbd5e1" stroke-width="1.2" stroke-dasharray="3,2" />
+    <rect class="badge-neutral" x="202" y="156" width="116" height="26" rx="13" fill="#f5f4f0" stroke="#e0ded9" />
+    <text class="badge-text-neutral" x="260" y="173" text-anchor="middle" font-size="12" fill="#666">小於 2，直接保留</text>
 
-    <text x="400" y="82" text-anchor="middle" font-size="24" font-weight="bold" fill="#ffffff" font-family="'Courier New', monospace, sans-serif">9/8</text>
-    <text x="400" y="104" text-anchor="middle" font-size="13" font-weight="500" fill="#9ec5ab">商 (D)</text>
+    <!-- 第 3 音：商 (9/8) -->
+    <text x="430" y="73" text-anchor="middle" font-size="20" font-weight="bold" fill="#2b2723" font-family="'JetBrains Mono', monospace, sans-serif">9</text>
+    <line x1="414" y1="80" x2="446" y2="80" stroke="#2b2723" stroke-width="2.2" stroke-linecap="round" />
+    <text x="430" y="99" text-anchor="middle" font-size="20" font-weight="bold" fill="#2b2723" font-family="'JetBrains Mono', monospace, sans-serif">8</text>
+    <text x="430" y="122" text-anchor="middle" font-size="15" font-weight="bold" fill="#2e6f40">商 (D)</text>
+    <line x1="430" y1="130" x2="430" y2="142" stroke="#d97736" stroke-width="1.5" stroke-dasharray="3,2" />
+    <text x="430" y="153" text-anchor="middle" font-size="11" fill="#7d756d" font-family="'JetBrains Mono', monospace">3/2 × 3/2 = 9/4 ＞ 2</text>
+    <rect class="badge-warn" x="338" y="160" width="184" height="26" rx="13" fill="#fef3eb" stroke="#fcd3b8" />
+    <text class="badge-text-warn" x="430" y="177" text-anchor="middle" font-size="12" font-weight="bold" fill="#b85d19">超過 2 所以除以 2 → 9/8</text>
 
-    <text x="565" y="82" text-anchor="middle" font-size="24" font-weight="bold" fill="#ffffff" font-family="'Courier New', monospace, sans-serif">27/16</text>
-    <text x="565" y="104" text-anchor="middle" font-size="13" font-weight="500" fill="#9ec5ab">羽 (A)</text>
+    <!-- 第 4 音：羽 (27/16) -->
+    <text x="600" y="73" text-anchor="middle" font-size="19" font-weight="bold" fill="#2b2723" font-family="'JetBrains Mono', monospace, sans-serif">27</text>
+    <line x1="580" y1="80" x2="620" y2="80" stroke="#2b2723" stroke-width="2.2" stroke-linecap="round" />
+    <text x="600" y="99" text-anchor="middle" font-size="19" font-weight="bold" fill="#2b2723" font-family="'JetBrains Mono', monospace, sans-serif">16</text>
+    <text x="600" y="122" text-anchor="middle" font-size="15" font-weight="bold" fill="#2e6f40">羽 (A)</text>
+    <line x1="600" y1="130" x2="600" y2="152" stroke="#cbd5e1" stroke-width="1.2" stroke-dasharray="3,2" />
+    <rect class="badge-neutral" x="542" y="156" width="116" height="26" rx="13" fill="#f5f4f0" stroke="#e0ded9" />
+    <text class="badge-text-neutral" x="600" y="173" text-anchor="middle" font-size="12" fill="#666">小於 2，直接保留</text>
 
-    <text x="725" y="82" text-anchor="middle" font-size="22" font-weight="bold" fill="#ffffff" font-family="'Courier New', monospace, sans-serif">81/64</text>
-    <text x="725" y="104" text-anchor="middle" font-size="13" font-weight="500" fill="#9ec5ab">角 (E)</text>
-
-    <!-- 【下面那行】：在 9/8 與 81/64 下方標註「超過二所以除二」 -->
-    <line x1="400" y1="114" x2="400" y2="132" stroke="#f0965d" stroke-width="1.8" stroke-dasharray="3,2" />
-    <text x="400" y="150" text-anchor="middle" font-size="12" fill="#c4bdb3">(3/2 × 3/2 = 9/4 &gt; 2)</text>
-    <text x="400" y="172" text-anchor="middle" font-size="13" font-weight="bold" fill="#f0965d">超過二所以除以二 → 9/8</text>
-
-    <line x1="725" y1="114" x2="725" y2="132" stroke="#f0965d" stroke-width="1.8" stroke-dasharray="3,2" />
-    <text x="725" y="150" text-anchor="middle" font-size="12" fill="#c4bdb3">(27/16 × 3/2 = 81/32 &gt; 2)</text>
-    <text x="725" y="172" text-anchor="middle" font-size="13" font-weight="bold" fill="#f0965d">超過二所以除以二 → 81/64</text>
+    <!-- 第 5 音：角 (81/64) -->
+    <text x="770" y="73" text-anchor="middle" font-size="19" font-weight="bold" fill="#2b2723" font-family="'JetBrains Mono', monospace, sans-serif">81</text>
+    <line x1="750" y1="80" x2="790" y2="80" stroke="#2b2723" stroke-width="2.2" stroke-linecap="round" />
+    <text x="770" y="99" text-anchor="middle" font-size="19" font-weight="bold" fill="#2b2723" font-family="'JetBrains Mono', monospace, sans-serif">64</text>
+    <text x="770" y="122" text-anchor="middle" font-size="15" font-weight="bold" fill="#2e6f40">角 (E)</text>
+    <line x1="770" y1="130" x2="770" y2="142" stroke="#d97736" stroke-width="1.5" stroke-dasharray="3,2" />
+    <text x="770" y="153" text-anchor="middle" font-size="11" fill="#7d756d" font-family="'JetBrains Mono', monospace">27/16 × 3/2 = 81/32 ＞ 2</text>
+    <rect class="badge-warn" x="674" y="160" width="192" height="26" rx="13" fill="#fef3eb" stroke="#fcd3b8" />
+    <text class="badge-text-warn" x="770" y="177" text-anchor="middle" font-size="12" font-weight="bold" fill="#b85d19">超過 2 所以除以 2 → 81/64</text>
   </svg>
 </div>
 
-- **上面那行**：在相鄰兩數之間畫弧線，標上 $\\times \\frac{3}{2}$（向上生出純五度）。
-- **中間那行**：依序寫出數列本體 $1, \\; \\frac{3}{2}, \\; \\frac{9}{8}, \\; \\frac{27}{16}, \\; \\frac{81}{64}$（宮、徵、商、羽、角）。
-- **下面那行**：在 $\\frac{9}{8}$ 與 $\\frac{81}{64}$ 的下方標註：$\\frac{9}{4} > 2$ 與 $\\frac{81}{32} > 2$，**「超過二所以除以二」** 折回八度內！
+---
+
+**一、 生律順序（依五度相生先後誕生之順序）**：
+$$
+\\text{宮 }(1) \\;\\xrightarrow{\\times \\frac{3}{2}}\\; \\text{徵 }\\left(\\frac{3}{2}\\right) \\;\\xrightarrow{\\times \\frac{3}{2} \\div 2}\\; \\text{商 }\\left(\\frac{9}{8}\\right) \\;\\xrightarrow{\\times \\frac{3}{2}}\\; \\text{羽 }\\left(\\frac{27}{16}\\right) \\;\\xrightarrow{\\times \\frac{3}{2} \\div 2}\\; \\text{角 }\\left(\\frac{81}{64}\\right)
+$$
+- **相生先後**：宮 $\\to$ 徵 $\\to$ 商 $\\to$ 羽 $\\to$ 角
 
 ---
 
-**重新依音高由低到高排序（音階順序）**：
+**二、 音階順序（重新依音高由低到高排列）**：
+推導完成後，將五個音依照頻率大小由小到大排好，即成五聲音階：
 $$
-\\text{宮 }(1) \\;\\to\\; \\text{商 }\\left(\\frac{9}{8} = 1.125\\right) \\;\\to\\; \\text{角 }\\left(\\frac{81}{64} \\approx 1.266\\right) \\;\\to\\; \\text{徵 }\\left(\\frac{3}{2} = 1.500\\right) \\;\\to\\; \\text{羽 }\\left(\\frac{27}{16} = 1.688\\right) \\;\\to\\; \\text{高音宮 }(2)
+\\text{宮 }(1) \\;<\\; \\text{商 }\\left(\\frac{9}{8}\\right) \\;<\\; \\text{角 }\\left(\\frac{81}{64}\\right) \\;<\\; \\text{徵 }\\left(\\frac{3}{2}\\right) \\;<\\; \\text{羽 }\\left(\\frac{27}{16}\\right) \\;<\\; \\text{高音宮 }(2)
 $$
-*(以基音 $C = 263\\text{Hz}$ 為例，各音頻率即為基準頻率乘上該分數)*
+- **對應五聲音名**：宮 $\\to$ 商 $\\to$ 角 $\\to$ 徵 $\\to$ 羽（高音宮）
+- **對應西洋唱名**：Do $\\to$ Re $\\to$ Mi $\\to$ Sol $\\to$ La（High Do）
+*(以基準音 $C = 263\\text{Hz}$ 為例，各音頻率即為基準頻率乘上該純分數)*
       `,
       tasks: [
-        "【黑板三行結構觀察】：觀察板書/簡報上的三行結構（中間寫 1, 3/2, 9/8, 27/16, 81/64；上面弧線標註 $\\times 3/2$；下方在 9/8 與 81/64 標註「超過二所以除二」），直接掌握五聲分數比例，不被繁瑣通分卡關。",
-        "【在 Desmos 定義音符】：以 C=263 為基準，用分數定義 D, E, G, A 各音，並設定低音變數 A_2 = A/2, G_2 = G/2。",
+        "【生律推導流程觀察】：觀察上方五度相生圖解，確認「生律順序（宮→徵→商→羽→角）」與「音階順序（宮→商→角→徵→羽）」的區別，理解為何大於 2 時要除以 2 折回八度內。",
+        "【在 Desmos 定義音符】：以 C=263 為基準，用純分數定義 D, E, G, A 各音，並設定低音變數 A_2 = A/2, G_2 = G/2。",
         "【《滄海一聲笑》五聲演奏】：輸入樂譜陣列 L = [A, G, E, D, C, C ...]，設定 t=0 按下播放鍵，體驗黃霑大師將五聲音階倒著寫（羽徵角商宮）的武俠名曲！",
         "【即興無地雷挑戰（自由選玩）】：五聲音階完全沒有半音衝突，隨意更換陣列 L 中的音符排列，聽聽看是不是怎麼亂彈都很有仙俠古風？"
       ],
       formula: `// 畢氏五聲音階定義 (C = 263Hz)\nC = 263\nD = 263 \\cdot \\frac{9}{8}\nE = 263 \\cdot \\frac{81}{64}\nG = 263 \\cdot \\frac{3}{2}\nA = 263 \\cdot \\frac{27}{16}\nA_2 = \\frac{A}{2}\nG_2 = \\frac{G}{2}\n\n// 《滄海一聲笑》五聲樂譜 (羽 徵 角 商 宮 倒序開頭)\nL = [A, G, E, D, C, C, 0, 0, E, E, D, C, A_2, G_2, G_2, 0, 0, G_2, A_2, G_2, A_2, C, D, E, G, A, G, E, D, C, C]\nt = 0\n\\operatorname{tone}(L[t])`,
       tips: `
-- **排坑生律 vs 音階順序**：學生容易搞混「生律順序（宮徵商羽角）」與「音階音高順序（宮商角徵羽）」，提醒學生算出後要像排隊一樣按頻率大小重新立正排好。
-- **五聲即興無地雷**：五聲音階沒有相鄰半音（半音程 = 0），任何音符隨意排列組合都不會出現刺耳不和諧，非常適合學生自由即興創作！
+- **生律順序 vs 音階順序**：學生常混淆「生律順序（宮→徵→商→羽→角）」與「音高順序（宮→商→角→徵→羽）」。生律是數學乘法產生的先後歷程，音階則是把頻率由小到大排隊歌唱的結果。
+- **五聲即興無地雷**：五聲音階抽掉了相鄰半音（半音程 = 0），任何音符隨意排列組合都不會出現刺耳摩擦，非常適合學生自由即興創作！
       `,
       worksheet: {
         title: "隨堂學習單 1：五聲音階手算與八度歸一任務",

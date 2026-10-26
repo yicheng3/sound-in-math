@@ -1245,25 +1245,67 @@ body.dark-mode .nav-unit-title {
   transform: translateY(0);
 }
 
-/* 課堂真實黑板數列板書風格 */
-.blackboard-container {
-  margin: 1.25rem 0;
-  background: #172420; /* 沉穩墨綠黑板色 */
-  border: 3.5px solid #334840; /* 黑板邊框 */
+/* 五度相生律生律圖解卡片 (日系和紙雅緻風格) */
+.scale-derivation-card {
+  margin: 1.25rem 0 1.5rem 0;
+  background: #fcfbf9;
+  border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
-  padding: 1.1rem 0.8rem;
+  padding: 1.2rem 0.75rem 0.85rem 0.75rem;
   overflow-x: auto;
-  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.45), 0 4px 14px rgba(0, 0, 0, 0.18);
+  box-shadow: var(--shadow-sm);
   display: flex;
   justify-content: center;
 }
 
-.blackboard-svg {
+body.dark-mode .scale-derivation-card {
+  background: #201e1b;
+  border-color: #38342e;
+}
+
+.scale-svg {
   width: 100%;
-  max-width: 780px;
-  min-width: 660px;
+  max-width: 860px;
+  min-width: 720px;
   height: auto;
   display: block;
+}
+
+body.dark-mode .scale-svg text[fill="#2b2723"] {
+  fill: #e8e6e3;
+}
+body.dark-mode .scale-svg line[stroke="#2b2723"] {
+  stroke: #e8e6e3;
+}
+body.dark-mode .scale-svg text[fill="#2e6f40"] {
+  fill: #74c69d;
+}
+body.dark-mode .scale-svg text[fill="#456854"] {
+  fill: #8cb89c;
+}
+body.dark-mode .scale-svg text[fill="#7d756d"] {
+  fill: #aba398;
+}
+body.dark-mode .scale-svg rect.badge-neutral {
+  fill: #2c2825;
+  stroke: #443f3a;
+}
+body.dark-mode .scale-svg rect.badge-warn {
+  fill: #3d2a1d;
+  stroke: #664126;
+}
+body.dark-mode .scale-svg rect.badge-start {
+  fill: #1f3328;
+  stroke: #2e523e;
+}
+body.dark-mode .scale-svg text.badge-text-neutral {
+  fill: #b3ada4;
+}
+body.dark-mode .scale-svg text.badge-text-warn {
+  fill: #f5a66b;
+}
+body.dark-mode .scale-svg text.badge-text-start {
+  fill: #85d4a4;
 }
 
 /* ==========================================================================
