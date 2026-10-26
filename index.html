@@ -11,16 +11,16 @@
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
 
   <!-- 課程網站專用樣式 -->
-  <link rel="stylesheet" href="css/style.css?v=3.1">
+  <link rel="stylesheet" href="css/style.css?v=3.4">
 </head>
 <body>
 
   <!-- 頂部功能導覽列 -->
   <header class="navbar">
     <div class="nav-left">
-      <button class="btn-sidebar-toggle" id="btn-toggle-sidebar" title="收合或展開單元選單">
-        <span>☰</span>
-        <span style="font-size: 0.85rem;">單元目錄</span>
+      <button class="btn-sidebar-toggle" id="btn-toggle-sidebar" title="收合或展開單元選單" aria-label="收合或展開單元選單">
+        <span class="btn-sidebar-toggle-icon">☰</span>
+        <span class="btn-sidebar-toggle-text">單元目錄</span>
       </button>
       <div class="brand-title">
         <span>🎵</span>
@@ -41,6 +41,9 @@
     </div>
   </header>
 
+  <!-- 行動版側邊欄遮罩 (Backdrop) -->
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
   <!-- 應用程式容器 -->
   <div class="app-container">
     
@@ -48,6 +51,7 @@
     <aside class="sidebar" id="sidebar">
       <div class="sidebar-header">
         <div style="font-weight: 700; font-size: 0.95rem; color: var(--accent-sage);">課程目錄</div>
+        <button class="btn-sidebar-close" id="btn-close-sidebar" title="關閉目錄" aria-label="關閉目錄">✕</button>
       </div>
       <nav id="sidebar-nav">
         <!-- 由 js/app.js 讀取 js/config.js 自動生成 -->
@@ -65,8 +69,8 @@
   <div class="toast-msg" id="toast-msg">算式已複製！</div>
 
   <!-- 資料與核心模組載入 -->
-  <script src="js/config.js?v=3.3"></script>
-  <script src="js/app.js?v=3.3"></script>
+  <script src="js/config.js?v=3.4"></script>
+  <script src="js/app.js?v=3.4"></script>
 
 </body>
 </html>

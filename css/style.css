@@ -244,7 +244,7 @@ body.large-font .katex {
 }
 
 body.large-font .katex-display > .katex {
-  font-size: 1.54em;
+  font-size: 1.28em;
 }
 
 .btn-desmos-jump {
@@ -365,11 +365,29 @@ body.dark-mode .sidebar::-webkit-scrollbar-thumb:hover {
 }
 
 .sidebar-header {
-  padding: 1.15rem 1.25rem;
+  padding: 1rem 1.25rem;
   border-bottom: 1px solid var(--border-color);
   display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btn-sidebar-close {
+  display: none;
+  background: transparent;
+  border: none;
+  font-size: 1.25rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 0.2rem 0.45rem;
+  border-radius: var(--radius-sm);
+  line-height: 1;
+  transition: all 0.2s ease;
+}
+
+.btn-sidebar-close:hover {
+  background: var(--bg-card-hover);
+  color: var(--accent-sage);
 }
 
 .sidebar-summary {
@@ -815,8 +833,8 @@ body.dark-mode .scale-table th {
 .katex-display {
   overflow-x: auto;
   overflow-y: hidden;
-  padding: 0.85rem 0.25rem;
-  margin: 1.15rem 0;
+  padding: 0.55rem 0.25rem;
+  margin: 0.95rem 0;
 }
 
 /* 全域行內數學式字級（適度放大以平衡中文字符之視覺重量） */
@@ -826,10 +844,10 @@ body.dark-mode .scale-table th {
   text-rendering: geometricPrecision;
 }
 
-/* 獨立展示型公式（大卡片視覺核心，字級飽滿大氣） */
+/* 獨立展示型公式（字級與一般行內一致，排版協調不膨脹） */
 .katex-display > .katex {
-  font-size: 1.38em;
-  line-height: 1.45;
+  font-size: 1.18em;
+  line-height: 1.35;
 }
 
 /* 次方與指數 (Exponents & Superscripts) 可讀性重點放大 */
@@ -1264,24 +1282,113 @@ body.dark-mode .nav-unit-title {
   color: #a1c8b0;
 }
 
-/* 雙視窗半屏微調 */
+/* 側邊欄遮罩（預設桌面隱藏） */
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(2px);
+  z-index: 999;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+
+/* 行動版與雙視窗響應式微調（<= 840px） */
 @media (max-width: 840px) {
   :root {
-    --sidebar-width: 270px;
+    --sidebar-width: 280px;
   }
-  
+
+  .navbar {
+    padding: 0 0.85rem;
+    height: var(--header-height);
+  }
+
+  .nav-left {
+    gap: 0.55rem;
+    min-width: 0;
+  }
+
+  .btn-sidebar-toggle {
+    white-space: nowrap;
+    flex-shrink: 0;
+    min-height: 38px;
+    padding: 0.42rem 0.65rem;
+    touch-action: manipulation;
+  }
+
+  .brand-title {
+    font-size: 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .brand-subtitle {
+    display: none !important;
+  }
+
+  .nav-right {
+    gap: 0.45rem;
+  }
+
+  .btn-desmos-jump {
+    display: none; /* 手機頂部空間有限，隱藏過長的外連按鈕，避免擠壓導航列 */
+  }
+
+  .btn-sidebar-close {
+    display: block;
+  }
+
   .sidebar {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    height: 100vh;
+    height: 100dvh;
+    z-index: 1001; /* 位於遮罩與頂部導覽列之上 */
     transform: translateX(-100%);
-    box-shadow: var(--shadow-lg);
+    box-shadow: 4px 0 24px rgba(0, 0, 0, 0.22);
+    transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
   }
   
   .sidebar.mobile-open {
     transform: translateX(0);
   }
+
+  .sidebar-overlay {
+    display: block;
+  }
+
+  .sidebar-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
   
   .main-content {
     margin-left: 0 !important;
-    padding: 1.2rem 1.3rem;
+    padding: 1.2rem 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn-sidebar-toggle-text {
+    display: none; /* 極窄螢幕只顯示 ☰ 圖示，極致清爽好點擊 */
+  }
+
+  .btn-sidebar-toggle {
+    min-width: 40px;
+    padding: 0.42rem 0.55rem;
+    justify-content: center;
+  }
+
+  .brand-title {
+    font-size: 0.92rem;
   }
 }
 

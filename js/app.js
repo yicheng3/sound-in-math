@@ -8,9 +8,38 @@ document.addEventListener('DOMContentLoaded', () => {
   const mainContent = document.getElementById('main-content');
   const sidebar = document.getElementById('sidebar');
   const btnToggleSidebar = document.getElementById('btn-toggle-sidebar');
+  const sidebarOverlay = document.getElementById('sidebar-overlay');
+  const btnCloseSidebar = document.getElementById('btn-close-sidebar');
   const toastMsg = document.getElementById('toast-msg');
 
   let currentUnitId = "1-1";
+
+  // 行動版側邊欄抽屜開關邏輯
+  function openMobileSidebar() {
+    if (!sidebar) return;
+    sidebar.classList.add('mobile-open');
+    if (sidebarOverlay) sidebarOverlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMobileSidebar() {
+    if (!sidebar) return;
+    sidebar.classList.remove('mobile-open');
+    if (sidebarOverlay) sidebarOverlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  function toggleSidebar() {
+    if (window.innerWidth <= 840) {
+      if (sidebar.classList.contains('mobile-open')) {
+        closeMobileSidebar();
+      } else {
+        openMobileSidebar();
+      }
+    } else {
+      sidebar.classList.toggle('collapsed');
+    }
+  }
 
   // 主題切換邏輯 (預設淡雅淺色模式)
   const btnThemeToggle = document.getElementById('btn-theme-toggle');
@@ -111,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
         itemEl.addEventListener('click', () => {
           switchUnit(unitKey);
           if (window.innerWidth <= 840) {
-            sidebar.classList.remove('mobile-open');
+            closeMobileSidebar();
           }
         });
 
@@ -813,16 +842,22 @@ document.addEventListener('DOMContentLoaded', () => {
       .replace(/'/g, "&#039;");
   }
 
-  // 7. 綁定側邊欄開關
+  // 7. 綁定側邊欄開關、遮罩與關閉按鈕
   if (btnToggleSidebar) {
-    btnToggleSidebar.addEventListener('click', () => {
-      if (window.innerWidth <= 840) {
-        sidebar.classList.toggle('mobile-open');
-      } else {
-        sidebar.classList.toggle('collapsed');
-      }
-    });
+    btnToggleSidebar.addEventListener('click', toggleSidebar);
   }
+  if (sidebarOverlay) {
+    sidebarOverlay.addEventListener('click', closeMobileSidebar);
+  }
+  if (btnCloseSidebar) {
+    btnCloseSidebar.addEventListener('click', closeMobileSidebar);
+  }
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 840) {
+      closeMobileSidebar();
+    }
+  });
 
   // 8. 監聽 Hash 改變（支援上一頁/下一頁與直達連結）
   window.addEventListener('hashchange', () => {
