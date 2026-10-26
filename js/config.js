@@ -482,10 +482,7 @@ $$
 **一、 用相同的規則繼續算下去（造出十二律）**
 如果我們把這個規則一直做下去（可以按計算機），依序算出的數字為：
 $$
-\\begin{aligned}
-&1, \\quad \\dfrac{3}{2}, \\quad \\dfrac{9}{8}, \\quad \\dfrac{27}{16}, \\quad \\dfrac{81}{64}, \\quad \\dfrac{243}{128}, \\quad \\dfrac{729}{512}, \\\\[6pt]
-&\\dfrac{2187}{2048}, \\quad \\dfrac{6561}{4096}, \\quad \\dfrac{19683}{16384}, \\quad \\dfrac{59049}{32768}, \\quad \\dfrac{177147}{131072}, \\quad \\mathbf{\\dfrac{531441}{524288}}
-\\end{aligned}
+1, \\quad \\dfrac{3}{2}, \\quad \\dfrac{9}{8}, \\quad \\dfrac{27}{16}, \\quad \\dfrac{81}{64}, \\quad \\dfrac{243}{128}, \\quad \\dfrac{729}{512}, \\quad \\dfrac{2187}{2048}, \\quad \\dfrac{6561}{4096}, \\quad \\dfrac{19683}{16384}, \\quad \\dfrac{59049}{32768}, \\quad \\dfrac{177147}{131072}, \\quad \\mathbf{\\dfrac{531441}{524288}}
 $$
 
 請看第 12 次算出來的數字：
@@ -498,10 +495,7 @@ $$
 **二、 同樣由小到大排序後（畢氏十二律音階）：**
 將這 12 個分數在 1 ~ 2 之間由小到大排好（最後補上高八度 2）：
 $$
-\\begin{aligned}
-&1, \\quad \\dfrac{2187}{2048}, \\quad \\dfrac{9}{8}, \\quad \\dfrac{19683}{16384}, \\quad \\dfrac{81}{64}, \\quad \\dfrac{177147}{131072}, \\\\[6pt]
-&\\dfrac{729}{512}, \\quad \\dfrac{3}{2}, \\quad \\dfrac{6561}{4096}, \\quad \\dfrac{27}{16}, \\quad \\dfrac{59049}{32768}, \\quad \\dfrac{243}{128}, \\quad 2
-\\end{aligned}
+1, \\quad \\dfrac{2187}{2048}, \\quad \\dfrac{9}{8}, \\quad \\dfrac{19683}{16384}, \\quad \\dfrac{81}{64}, \\quad \\dfrac{177147}{131072}, \\quad \\dfrac{729}{512}, \\quad \\dfrac{3}{2}, \\quad \\dfrac{6561}{4096}, \\quad \\dfrac{27}{16}, \\quad \\dfrac{59049}{32768}, \\quad \\dfrac{243}{128}, \\quad 2
 $$
 
 **三、 圓永遠關不上（畢達哥拉斯音差）**
