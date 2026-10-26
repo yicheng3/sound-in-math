@@ -520,8 +520,6 @@ body.dark-mode .unit-item.active .unit-item-row .unit-id,
 body.dark-mode .unit-item.active .unit-item-row .unit-title {
   color: #a1c8b0;
 }
-  color: #a1c8b0;
-}
 
 .badge {
   font-size: 0.68rem;
@@ -555,9 +553,11 @@ body.dark-mode .badge.special {
 /* 主內容區 */
 .main-content {
   flex: 1;
+  min-width: 0;
+  width: 100%;
+  max-width: 960px;
   margin-left: var(--sidebar-width);
   padding: 1.85rem 2.25rem;
-  max-width: 960px;
   transition: margin-left 0.28s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -567,6 +567,8 @@ body.dark-mode .badge.special {
 
 /* 單元頂部資訊橫幅 (純和紙卡片) */
 .unit-banner {
+  width: 100%;
+  min-width: 0;
   background: #ffffff;
   border: 1px solid var(--border-color);
   border-radius: var(--radius-lg);
@@ -627,6 +629,8 @@ body.dark-mode .banner-unit-id {
 
 /* 四層教學資訊卡片 (柔光紙張質感) */
 .teaching-card {
+  width: 100%;
+  min-width: 0;
   background: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
@@ -634,6 +638,7 @@ body.dark-mode .banner-unit-id {
   margin-bottom: 1.4rem;
   box-shadow: var(--shadow-sm);
   transition: border-color 0.2s, box-shadow 0.2s;
+  overflow: hidden;
 }
 
 .teaching-card:hover {
