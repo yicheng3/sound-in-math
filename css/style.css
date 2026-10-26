@@ -749,6 +749,58 @@ body.dark-mode .card-divider {
   border-top-color: rgba(255, 255, 255, 0.12);
 }
 
+/* 橫式音階與音名對照表 (和風素雅風格) */
+.scale-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  margin: 1.35rem 0;
+}
+
+.scale-table {
+  width: 100%;
+  min-width: 540px;
+  border-collapse: collapse;
+  text-align: center;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.scale-table th,
+.scale-table td {
+  padding: 0.85rem 0.6rem;
+  border: 1px solid var(--border-color);
+  font-size: 1.05rem;
+  vertical-align: middle;
+}
+
+.scale-table th {
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  font-weight: 600;
+  width: 16%;
+  white-space: nowrap;
+}
+
+.scale-table td {
+  color: var(--text-main);
+}
+
+.scale-table tr.scale-name-row td {
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--accent-sage);
+}
+
+body.dark-mode .scale-table {
+  background: var(--bg-card);
+}
+
+body.dark-mode .scale-table th {
+  background: rgba(255, 255, 255, 0.05);
+}
+
 /* ========================================================
  * KaTeX 數學公式排版升級（特別優化分數與次方可讀性）
  * ======================================================== */
