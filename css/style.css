@@ -737,6 +737,18 @@ body.dark-mode .card-body blockquote {
   color: #fed7aa;
 }
 
+/* 卡片內部輕量分隔線 (和風素雅風格) */
+.card-divider {
+  border: none;
+  border-top: 1px solid var(--border-color);
+  margin: 1.6rem 0;
+  opacity: 0.85;
+}
+
+body.dark-mode .card-divider {
+  border-top-color: rgba(255, 255, 255, 0.12);
+}
+
 /* ========================================================
  * KaTeX 數學公式排版升級（特別優化分數與次方可讀性）
  * ======================================================== */

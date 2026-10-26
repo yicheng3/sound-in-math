@@ -154,6 +154,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // 4. 處理行內樣式
     // 加粗 **text**
     text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+    // 斜體 *text* (避免影響公式中的符號，先過濾加粗後再轉換)
+    text = text.replace(/(^|[^*])\*([^*\n]+?)\*([^*]|$)/g, '$1<em>$2</em>$3');
     // 反引號 `code`
     text = text.replace(/`([^`]+)`/g, '<code>$1</code>');
 
@@ -173,8 +175,18 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      // 若遇到已抽取保護之區塊（HTML 或 Display Math）或 blockquote
-      if (trimmed.startsWith('@@HTML_BLOCK_') || trimmed.startsWith('@@DISPLAY_MATH_') || trimmed.startsWith('<blockquote>') || trimmed.startsWith('<div')) {
+      // 水平分隔線 (--- 或 ***)
+      if (trimmed === '---' || trimmed === '***') {
+        if (inList) {
+          result.push(`</${listType}>`);
+          inList = false;
+        }
+        result.push('<hr class="card-divider">');
+        return;
+      }
+
+      // 若遇到已抽取保護之區塊（HTML 或 Display Math）或 blockquote 或 hr
+      if (trimmed.startsWith('@@HTML_BLOCK_') || trimmed.startsWith('@@DISPLAY_MATH_') || trimmed.startsWith('<blockquote>') || trimmed.startsWith('<div') || trimmed.startsWith('<hr')) {
         if (inList) {
           result.push(`</${listType}>`);
           inList = false;
