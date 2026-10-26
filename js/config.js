@@ -370,11 +370,11 @@ $$L = [440, 880, 220, 110, 1760], \\quad t = 1, \\quad \\operatorname{tone}(L[t]
 
 ---
 
-**一、 原始推導順序（生律順序：每次乘 $\frac{3}{2}$，超過 2 則除以 2）**：
+**一、 原始推導順序（生律順序：每次乘 $\\frac{3}{2}$，超過 2 則除以 2）**：
 $$
-1 \;\xrightarrow{\times \frac{3}{2}}\; \frac{3}{2} \;\xrightarrow{\times \frac{3}{2} \div 2}\; \frac{9}{8} \;\xrightarrow{\times \frac{3}{2}}\; \frac{27}{16} \;\xrightarrow{\times \frac{3}{2} \div 2}\; \frac{81}{64}
+1 \\;\\xrightarrow{\\times \\frac{3}{2}}\\; \\frac{3}{2} \\;\\xrightarrow{\\times \\frac{3}{2} \\div 2}\\; \\frac{9}{8} \\;\\xrightarrow{\\times \\frac{3}{2}}\\; \\frac{27}{16} \\;\\xrightarrow{\\times \\frac{3}{2} \\div 2}\\; \\frac{81}{64}
 $$
-- 按照相生先後算出的 5 個分數依序為：**$1, \;\frac{3}{2}, \;\frac{9}{8}, \;\frac{27}{16}, \;\frac{81}{64}$**。
+- 按照相生先後算出的 5 個分數依序為：**$1, \\;\\frac{3}{2}, \\;\\frac{9}{8}, \\;\\frac{27}{16}, \\;\\frac{81}{64}$**。
 - 觀察可以發現：這是數學計算產生的順序，數字忽大忽小，尚未依照音高高低排列。
 
 ---
