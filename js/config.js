@@ -284,17 +284,17 @@ $$L = [440, 880, 220, 110, 1760], \\quad t = 1, \\quad \\operatorname{tone}(L[t]
 - 頻率比 **$1:2$**：合成波每 **$1$ 個循環**就完全重合一次。除了同頻率（$1:1$）之外，這是週期最短的比例，兩音融合得天衣無縫，聽起來如同同一個聲音！
 
 **二、 定義 1:2 為「高八度」（同一個音）與音階範圍**
-正因為 $1:2$ 的聽感高度融合，音樂上將頻率翻倍視為進入更高循環的「同一個音」（例如中央 $C$ 與高音 $C$）。
+正因為 $1:2$ 的聽感高度融合，音樂上將頻率翻倍視為進入更高循環的「同一個音」（例如中央音與高八度的音）。
 這為我們劃定了一個音階的探索範圍：**所有音符的頻率比都應落在 $[1, 2)$ 之間**。
 若依規則算出的頻率比超過 $2$，就代表它跑進了更高的八度，**必須「除以 2」折回這組八度之內**！
 
-**三、 以 2:3（純五度）向上相生，誕生五聲音階**
+**三、 以 2:3（純五度）向上相生，推導五個和諧音**
 在 $[1, 2)$ 範圍內，下一個週期最短、最和諧的簡單整數比就是 **$2:3$**（頻率乘上 $\\frac{3}{2}$，即純五度，每 $2$ 圈就重複）。
-畢達哥拉斯從基準音出發，反覆執行這項法則：
+畢達哥拉斯從基準音 $1$ 出發，反覆執行這項法則：
 1. **每次乘 $\\frac{3}{2}$**（純五度向上相生）。
 2. **大於 2 則除以 2**（折回同一個八度內）。
 
-如此相生五次後，便推導出東方古老的五聲音階「**宮、商、角、徵、羽**」！
+如此相生五次後，便推導出了 5 個純淨和諧的頻率比例！
       `,
       mathModel: `
 **五度相生律推導流程（每次乘 $\\frac{3}{2}$，超過 2 則除以 2）**
@@ -320,47 +320,47 @@ $$L = [440, 880, 220, 110, 1760], \\quad t = 1, \\quad \\operatorname{tone}(L[t]
     <path d="M 628 50 Q 685 16 742 50" fill="none" stroke="#c26d36" stroke-width="2.2" stroke-linecap="round" marker-end="url(#scale-arrow)" />
     <text x="685" y="18" text-anchor="middle" font-size="13" font-weight="bold" fill="#c26d36" font-family="'JetBrains Mono', monospace, sans-serif">× 3/2</text>
 
-    <!-- 中間行：純分數直式排版 (分子、分數線、分母) 與對應音名 -->
-    <!-- 第 1 音：宮 (1) -->
+    <!-- 中間行：純分數直式排版 (分子、分數線、分母) 與推導順序 (排序前不出現音名) -->
+    <!-- 第 1 音 -->
     <text x="90" y="85" text-anchor="middle" font-size="28" font-weight="bold" fill="#2b2723" font-family="'JetBrains Mono', monospace, sans-serif">1</text>
-    <text x="90" y="112" text-anchor="middle" font-size="15" font-weight="bold" fill="#2e6f40">宮 (C)</text>
+    <text x="90" y="114" text-anchor="middle" font-size="13" font-weight="600" fill="#456854">第 1 音</text>
     <line x1="90" y1="124" x2="90" y2="152" stroke="#cbd5e1" stroke-width="1.2" stroke-dasharray="3,2" />
     <rect class="badge-start" x="40" y="156" width="100" height="26" rx="13" fill="#eef7f2" stroke="#c8e6d4" />
     <text class="badge-text-start" x="90" y="173" text-anchor="middle" font-size="12" font-weight="600" fill="#2d6a4f">起點 (基準音)</text>
 
-    <!-- 第 2 音：徵 (3/2) -->
+    <!-- 第 2 音 -->
     <text x="260" y="73" text-anchor="middle" font-size="20" font-weight="bold" fill="#2b2723" font-family="'JetBrains Mono', monospace, sans-serif">3</text>
     <line x1="244" y1="80" x2="276" y2="80" stroke="#2b2723" stroke-width="2.2" stroke-linecap="round" />
     <text x="260" y="99" text-anchor="middle" font-size="20" font-weight="bold" fill="#2b2723" font-family="'JetBrains Mono', monospace, sans-serif">2</text>
-    <text x="260" y="122" text-anchor="middle" font-size="15" font-weight="bold" fill="#2e6f40">徵 (G)</text>
+    <text x="260" y="122" text-anchor="middle" font-size="13" font-weight="600" fill="#456854">第 2 音</text>
     <line x1="260" y1="130" x2="260" y2="152" stroke="#cbd5e1" stroke-width="1.2" stroke-dasharray="3,2" />
     <rect class="badge-neutral" x="202" y="156" width="116" height="26" rx="13" fill="#f5f4f0" stroke="#e0ded9" />
     <text class="badge-text-neutral" x="260" y="173" text-anchor="middle" font-size="12" fill="#666">小於 2，直接保留</text>
 
-    <!-- 第 3 音：商 (9/8) -->
+    <!-- 第 3 音 -->
     <text x="430" y="73" text-anchor="middle" font-size="20" font-weight="bold" fill="#2b2723" font-family="'JetBrains Mono', monospace, sans-serif">9</text>
     <line x1="414" y1="80" x2="446" y2="80" stroke="#2b2723" stroke-width="2.2" stroke-linecap="round" />
     <text x="430" y="99" text-anchor="middle" font-size="20" font-weight="bold" fill="#2b2723" font-family="'JetBrains Mono', monospace, sans-serif">8</text>
-    <text x="430" y="122" text-anchor="middle" font-size="15" font-weight="bold" fill="#2e6f40">商 (D)</text>
+    <text x="430" y="122" text-anchor="middle" font-size="13" font-weight="600" fill="#456854">第 3 音</text>
     <line x1="430" y1="130" x2="430" y2="142" stroke="#d97736" stroke-width="1.5" stroke-dasharray="3,2" />
     <text x="430" y="153" text-anchor="middle" font-size="11" fill="#7d756d" font-family="'JetBrains Mono', monospace">3/2 × 3/2 = 9/4 ＞ 2</text>
     <rect class="badge-warn" x="338" y="160" width="184" height="26" rx="13" fill="#fef3eb" stroke="#fcd3b8" />
     <text class="badge-text-warn" x="430" y="177" text-anchor="middle" font-size="12" font-weight="bold" fill="#b85d19">超過 2 所以除以 2 → 9/8</text>
 
-    <!-- 第 4 音：羽 (27/16) -->
+    <!-- 第 4 音 -->
     <text x="600" y="73" text-anchor="middle" font-size="19" font-weight="bold" fill="#2b2723" font-family="'JetBrains Mono', monospace, sans-serif">27</text>
     <line x1="580" y1="80" x2="620" y2="80" stroke="#2b2723" stroke-width="2.2" stroke-linecap="round" />
     <text x="600" y="99" text-anchor="middle" font-size="19" font-weight="bold" fill="#2b2723" font-family="'JetBrains Mono', monospace, sans-serif">16</text>
-    <text x="600" y="122" text-anchor="middle" font-size="15" font-weight="bold" fill="#2e6f40">羽 (A)</text>
+    <text x="600" y="122" text-anchor="middle" font-size="13" font-weight="600" fill="#456854">第 4 音</text>
     <line x1="600" y1="130" x2="600" y2="152" stroke="#cbd5e1" stroke-width="1.2" stroke-dasharray="3,2" />
     <rect class="badge-neutral" x="542" y="156" width="116" height="26" rx="13" fill="#f5f4f0" stroke="#e0ded9" />
     <text class="badge-text-neutral" x="600" y="173" text-anchor="middle" font-size="12" fill="#666">小於 2，直接保留</text>
 
-    <!-- 第 5 音：角 (81/64) -->
+    <!-- 第 5 音 -->
     <text x="770" y="73" text-anchor="middle" font-size="19" font-weight="bold" fill="#2b2723" font-family="'JetBrains Mono', monospace, sans-serif">81</text>
     <line x1="750" y1="80" x2="790" y2="80" stroke="#2b2723" stroke-width="2.2" stroke-linecap="round" />
     <text x="770" y="99" text-anchor="middle" font-size="19" font-weight="bold" fill="#2b2723" font-family="'JetBrains Mono', monospace, sans-serif">64</text>
-    <text x="770" y="122" text-anchor="middle" font-size="15" font-weight="bold" fill="#2e6f40">角 (E)</text>
+    <text x="770" y="122" text-anchor="middle" font-size="13" font-weight="600" fill="#456854">第 5 音</text>
     <line x1="770" y1="130" x2="770" y2="142" stroke="#d97736" stroke-width="1.5" stroke-dasharray="3,2" />
     <text x="770" y="153" text-anchor="middle" font-size="11" fill="#7d756d" font-family="'JetBrains Mono', monospace">27/16 × 3/2 = 81/32 ＞ 2</text>
     <rect class="badge-warn" x="674" y="160" width="192" height="26" rx="13" fill="#fef3eb" stroke="#fcd3b8" />
@@ -370,33 +370,71 @@ $$L = [440, 880, 220, 110, 1760], \\quad t = 1, \\quad \\operatorname{tone}(L[t]
 
 ---
 
-**一、 生律順序（依五度相生先後誕生之順序）**：
+**一、 原始推導順序（生律順序：每次乘 $\frac{3}{2}$，超過 2 則除以 2）**：
 $$
-\\text{宮 }(1) \\;\\xrightarrow{\\times \\frac{3}{2}}\\; \\text{徵 }\\left(\\frac{3}{2}\\right) \\;\\xrightarrow{\\times \\frac{3}{2} \\div 2}\\; \\text{商 }\\left(\\frac{9}{8}\\right) \\;\\xrightarrow{\\times \\frac{3}{2}}\\; \\text{羽 }\\left(\\frac{27}{16}\\right) \\;\\xrightarrow{\\times \\frac{3}{2} \\div 2}\\; \\text{角 }\\left(\\frac{81}{64}\\right)
+1 \;\xrightarrow{\times \frac{3}{2}}\; \frac{3}{2} \;\xrightarrow{\times \frac{3}{2} \div 2}\; \frac{9}{8} \;\xrightarrow{\times \frac{3}{2}}\; \frac{27}{16} \;\xrightarrow{\times \frac{3}{2} \div 2}\; \frac{81}{64}
 $$
-- **相生先後**：宮 $\\to$ 徵 $\\to$ 商 $\\to$ 羽 $\\to$ 角
+- 按照相生先後算出的 5 個分數依序為：**$1, \;\frac{3}{2}, \;\frac{9}{8}, \;\frac{27}{16}, \;\frac{81}{64}$**。
+- 觀察可以發現：這是數學計算產生的順序，數字忽大忽小，尚未依照音高高低排列。
 
 ---
 
 **二、 音階順序（重新依音高由低到高排列）**：
-推導完成後，將五個音依照頻率大小由小到大排好，即成五聲音階：
+
+**1. 原始推導數列（生律順序）**：
 $$
-\\text{宮 }(1) \\;<\\; \\text{商 }\\left(\\frac{9}{8}\\right) \\;<\\; \\text{角 }\\left(\\frac{81}{64}\\right) \\;<\\; \\text{徵 }\\left(\\frac{3}{2}\\right) \\;<\\; \\text{羽 }\\left(\\frac{27}{16}\\right) \\;<\\; \\text{高音宮 }(2)
+1, \quad \frac{3}{2}, \quad \frac{9}{8}, \quad \frac{27}{16}, \quad \frac{81}{64}
 $$
-- **對應五聲音名**：宮 $\\to$ 商 $\\to$ 角 $\\to$ 徵 $\\to$ 羽（高音宮）
-- **對應西洋唱名**：Do $\\to$ Re $\\to$ Mi $\\to$ Sol $\\to$ La（High Do）
-*(以基準音 $C = 263\\text{Hz}$ 為例，各音頻率即為基準頻率乘上該純分數)*
+
+**2. 重新依數值大小排列（由低到高排隊）**：
+將這五個分數像學生排隊一樣，由小到大立正排好：
+$$
+1 \;<\; \frac{9}{8} \;<\; \frac{81}{64} \;<\; \frac{3}{2} \;<\; \frac{27}{16} \;<\; 2
+$$
+*（最後補上高八度 $2$，構成完整的一組八度音階區間）*
+
+**3. 賦予音名（東方五聲音階誕生！）**：
+排好順序後，古人為這五個由低到高的音賦予了專屬名稱：
+- $1 \;\longrightarrow\;$ **宮**（起點基準音）
+- $\frac{9}{8} \;\longrightarrow\;$ **商**
+- $\frac{81}{64} \;\longrightarrow\;$ **角**
+- $\frac{3}{2} \;\longrightarrow\;$ **徵**
+- $\frac{27}{16} \;\longrightarrow\;$ **羽**
+- $2 \;\longrightarrow\;$ **高音宮**（高八度）
+
+這就是名揚千古的中國傳統五聲音階：**「宮、商、角、徵、羽」**！
+*(以基準音 $263\\text{Hz}$ 為例，各音頻率即為基準頻率乘上該純分數，全以有理數真分數表示，無任何小數近似誤差)*
       `,
       tasks: [
-        "【生律推導流程觀察】：觀察上方五度相生圖解，確認「生律順序（宮→徵→商→羽→角）」與「音階順序（宮→商→角→徵→羽）」的區別，理解為何大於 2 時要除以 2 折回八度內。",
-        "【在 Desmos 定義音符】：以 C=263 為基準，用純分數定義 D, E, G, A 各音，並設定低音變數 A_2 = A/2, G_2 = G/2。",
-        "【《滄海一聲笑》五聲演奏】：輸入樂譜陣列 L = [A, G, E, D, C, C ...]，設定 t=0 按下播放鍵，體驗黃霑大師將五聲音階倒著寫（羽徵角商宮）的武俠名曲！",
-        "【即興無地雷挑戰（自由選玩）】：五聲音階完全沒有半音衝突，隨意更換陣列 L 中的音符排列，聽聽看是不是怎麼亂彈都很有仙俠古風？"
+        "【生律推導流程觀察】：觀察上方生律圖解，理解每次乘 3/2、超過 2 則除以 2 的運算規則，並體會「原始推導順序（1, 3/2, 9/8...）」與「由小到大音階順序（1 < 9/8 < 81/64...）」的差別。",
+        "【聆聽五聲音階階梯】：開啟 Desmos 範本第一資料夾，基準音設定為 263Hz。依序播放五個分數比值 tone(263 * 1)、tone(263 * 9/8)、tone(263 * 81/64)、tone(263 * 3/2)、tone(263 * 27/16)，親耳感受由低到高逐級上升的五聲音階（宮、商、角、徵、羽）。",
+        "【《滄海一聲笑》五聲演奏】：因為 Desmos 變數僅支援英文字母，範本第二資料夾暫時借用五個英文代號代表五個音（宮=C, 商=D, 角=E, 徵=G, 羽=A）。拉動滑桿 t=0 播放陣列 L，體驗黃霑大師將五聲音階由高到低倒著唱（羽 徵 角 商 宮）的武俠名曲！",
+        "【即興無地雷挑戰（自由選玩）】：五聲音階沒有相鄰緊挨的音，隨意更換陣列 L 中的音符排列，聽聽看是不是怎麼亂彈都充滿仙俠古風？"
       ],
-      formula: `// 畢氏五聲音階定義 (C = 263Hz)\nC = 263\nD = 263 \\cdot \\frac{9}{8}\nE = 263 \\cdot \\frac{81}{64}\nG = 263 \\cdot \\frac{3}{2}\nA = 263 \\cdot \\frac{27}{16}\nA_2 = \\frac{A}{2}\nG_2 = \\frac{G}{2}\n\n// 《滄海一聲笑》五聲樂譜 (羽 徵 角 商 宮 倒序開頭)\nL = [A, G, E, D, C, C, 0, 0, E, E, D, C, A_2, G_2, G_2, 0, 0, G_2, A_2, G_2, A_2, C, D, E, G, A, G, E, D, C, C]\nt = 0\n\\operatorname{tone}(L[t])`,
+      formula: `// 1. 五聲音階純分數發聲 (以基準音 263Hz 為例，由低到高排列)
+\\operatorname{tone}(263 \\cdot 1)            // 宮 (基準音 1)
+\\operatorname{tone}(263 \\cdot \\frac{9}{8})        // 商 (9/8)
+\\operatorname{tone}(263 \\cdot \\frac{81}{64})      // 角 (81/64)
+\\operatorname{tone}(263 \\cdot \\frac{3}{2})        // 徵 (3/2)
+\\operatorname{tone}(263 \\cdot \\frac{27}{16})      // 羽 (27/16)
+
+// 2. Desmos 樂曲變數設定 (因 Desmos 僅支援英文變數，暫借代號表示五聲)
+C = 263                  // 宮 (基準音)
+D = 263 \\cdot \\frac{9}{8}       // 商
+E = 263 \\cdot \\frac{81}{64}     // 角
+G = 263 \\cdot \\frac{3}{2}       // 徵
+A = 263 \\cdot \\frac{27}{16}     // 羽
+A_2 = \\frac{A}{2}              // 低音羽 (A/2)
+G_2 = \\frac{G}{2}              // 低音徵 (G/2)
+
+// 3. 《滄海一聲笑》五聲樂譜 (羽 徵 角 商 宮 倒序開頭)
+L = [A, G, E, D, C, C, 0, 0, E, E, D, C, A_2, G_2, G_2, 0, 0, G_2, A_2, G_2, A_2, C, D, E, G, A, G, E, D, C, C]
+t = 0
+\\operatorname{tone}(L[t])`,
       tips: `
-- **生律順序 vs 音階順序**：學生常混淆「生律順序（宮→徵→商→羽→角）」與「音高順序（宮→商→角→徵→羽）」。生律是數學乘法產生的先後歷程，音階則是把頻率由小到大排隊歌唱的結果。
-- **五聲即興無地雷**：五聲音階抽掉了相鄰半音（半音程 = 0），任何音符隨意排列組合都不會出現刺耳摩擦，非常適合學生自由即興創作！
+- **為什麼用 C, D, E, G, A？**：本單元學生尚未學到西洋音名與琴鍵結構，在 Desmos 中使用 C, D, E, G, A 只是因為軟體變數只接受英文字母，用來對應「宮、商、角、徵、羽」。後續單元（2-4）才會正式介紹西洋十二平均律與音名系統。
+- **生律順序 vs 音階順序**：生律順序是數學乘法產生的歷史先後（$1 \\to 3/2 \\to 9/8 \\to 27/16 \\to 81/64$），音階順序則是把頻率由小到大排隊歌唱的結果（$1 < 9/8 < 81/64 < 3/2 < 27/16 < 2$）。
+- **五聲即興無地雷**：五聲音階抽掉了相鄰緊挨的音，音距寬闊，且彼此比例源自純五度相生，因此隨意排列組合都不會刺耳撞音！
       `,
       worksheet: {
         title: "隨堂學習單 1：五聲音階手算與八度歸一任務",
@@ -405,20 +443,20 @@ $$
             id: "q4_pentatonic",
             title: "五度相生律之八度折半推導計算",
             type: "text",
-            prompt: "畢達哥拉斯音律遵循兩大規則：① 從 1 開始每次乘以 3/2（純五度）；② 若大於 2 則除以 2（折回同一個八度內）。請在草稿紙依序寫出前 5 個音的推導步驟，並由小到大排列五聲音階頻率比（寫成分數比值）：",
+            prompt: "畢達哥拉斯音律遵循兩大規則：① 從 1 開始每次乘以 3/2；② 若大於 2 則除以 2（折回八度內）。請在草稿紙寫出前 5 個音的推導步驟，並將這 5 個分數由小到大排列（寫成分數比值）：",
             placeholder: "請填入 5 個分數比值，例如：1 : 9/8 : 81/64 : 3/2 : 27/16",
             expected: "1 : 9/8 : 81/64 : 3/2 : 27/16 | 1:9/8:81/64:3/2:27/16",
-            solution: "推導過程全記錄：\n1. 第 1 個音：$1$（起點：宮）\n2. 第 2 個音：$1 \\times \\frac{3}{2} = \\frac{3}{2}$（徵，小於 2 保留）\n3. 第 3 個音：$\\frac{3}{2} \\times \\frac{3}{2} = \\frac{9}{4} > 2$，除以 2 折回八度 $\\to \\frac{9}{8}$（商）\n4. 第 4 個音：$\\frac{9}{8} \\times \\frac{3}{2} = \\frac{27}{16}$（羽，小於 2 保留）\n5. 第 5 個音：$\\frac{27}{16} \\times \\frac{3}{2} = \\frac{81}{32} > 2$，除以 2 折回八度 $\\to \\frac{81}{64}$（角）\n**由小排到大**：$1 : \\frac{9}{8} : \\frac{81}{64} : \\frac{3}{2} : \\frac{27}{16}$！",
-            formatAnswer: (ans) => `五聲音階推導步驟：\n1. 第 1 音（宮）：1\n2. 第 2 音（徵）：1 × (3/2) = 3/2（小於 2 保留）\n3. 第 3 音（商）：(3/2) × (3/2) = 9/4 > 2，除以 2 得 9/8\n4. 第 4 音（羽）：(9/8) × (3/2) = 27/16（小於 2 保留）\n5. 第 5 音（角）：(27/16) × (3/2) = 81/32 > 2，除以 2 得 81/64\n\n由小到大排序結果：\n學生填答：${ans}\n標準比例：1 : 9/8 : 81/64 : 3/2 : 27/16（對應宮、商、角、徵、羽）`
+            solution: "推導過程全記錄：\n1. 第 1 個音：$1$\n2. 第 2 個音：$1 \\times \\frac{3}{2} = \\frac{3}{2}$（小於 2，保留）\n3. 第 3 個音：$\\frac{3}{2} \\times \\frac{3}{2} = \\frac{9}{4} > 2$，除以 2 折回 $\\to \\frac{9}{8}$\n4. 第 4 個音：$\\frac{9}{8} \\times \\frac{3}{2} = \\frac{27}{16}$（小於 2，保留）\n5. 第 5 個音：$\\frac{27}{16} \\times \\frac{3}{2} = \\frac{81}{32} > 2$，除以 2 折回 $\\to \\frac{81}{64}$\n\n**由小到大排隊**：$1 : \\frac{9}{8} : \\frac{81}{64} : \\frac{3}{2} : \\frac{27}{16}$（依序對應宮、商、角、徵、羽）！",
+            formatAnswer: (ans) => `五度相生推導步驟：\n1. 第 1 音：1\n2. 第 2 音：1 × (3/2) = 3/2（小於 2 保留）\n3. 第 3 音：(3/2) × (3/2) = 9/4 > 2，除以 2 得 9/8\n4. 第 4 音：(9/8) × (3/2) = 27/16（小於 2 保留）\n5. 第 5 音：(27/16) × (3/2) = 81/32 > 2，除以 2 得 81/64\n\n由小到大排序結果：\n學生填答：${ans}\n標準比例：1 : 9/8 : 81/64 : 3/2 : 27/16（依序對應宮、商、角、徵、羽）`
           },
           {
             id: "q5_penta_reflection",
             title: "《滄海一聲笑》五聲音階與無地雷即興心得",
             type: "textarea",
-            prompt: "黃霑的《滄海一聲笑》以五聲音階倒著唱（羽徵角商宮）開頭，體現「大樂必易」。請說明為什麼五聲音階隨意彈奏都不會撞音難聽？",
-            placeholder: "例如：因為抽掉了相鄰半音，相鄰音符至少相距全音以上，不會產生刺耳摩擦...",
-            solution: "五聲音階抽掉了相鄰半音（半音程 = 0），完全沒有小二度的刺耳摩擦；音與音之間至少相距大二度（全音）或小三度，因此在任何音高組合下都不會產生狼音碰撞，是隨機創作也不會踩雷的完美音階。",
-            formatAnswer: (ans) => `心得與樂理解析：\n${ans}\n\n（樂理核心：五聲音階抽掉了相鄰半音（半音程 = 0），完全沒有小二度的刺耳摩擦；音與音之間至少相距大二度（全音）或小三度，因此在任何音高組合下都不會產生狼音碰撞，是隨機創作也不會踩雷的完美音階。）`
+            prompt: "黃霑的《滄海一聲笑》將五聲音階由高到低倒著彈（羽、徵、角、商、宮）成為傳世名曲。在課堂嘗試隨意排列這五個音時，也完全不會刺耳難聽。請用自己的話說說看：為什麼這五個音怎麼隨便彈都很和諧？",
+            placeholder: "例如：因為這五個音都是用好聽的 3/2 生出來的，而且音跟音之間的距離拉開了，沒有緊挨著擠在一起打架的雜音...",
+            solution: "五聲音階之所以怎麼彈都好聽，主要有兩個直觀原因：\n1. 【血緣親近】：五個音都是從最和諧的 3/2（純五度）相生而來，彼此比例自然融洽。\n2. 【音距拉開】：五聲音階只有 5 個音，音與音之間的距離拉得很開，沒有緊挨在一起擠著打架的音，所以不會產生刺耳的摩擦感，怎麼彈都自帶優美古風！",
+            formatAnswer: (ans) => `心得與觀察：\n${ans}\n\n（核心概念：五音源自最和諧的 3/2 相生，且音距寬闊、沒有相鄰擠壓打架的刺耳雜音，因此隨意排列組合都很優美。）`
           }
         ]
       }
