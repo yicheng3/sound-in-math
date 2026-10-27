@@ -679,8 +679,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <span class="banner-module-tag">${unit.moduleName}</span>
           ${hasDesmosUrl ? `
             <a href="${desmosTarget}" target="_blank" rel="noopener noreferrer" class="btn-banner-desmos" title="另開分頁開啟此單元 Desmos 互動教材">
-              <span>🎛️</span>
-              <span>開啟 Desmos 範本 ↗</span>
+              開啟 Desmos 範本 ↗
             </a>
           ` : `
             <span class="btn-desmos-pending" title="教師專屬範本製作中">
@@ -693,35 +692,6 @@ document.addEventListener('DOMContentLoaded', () => {
           <h1 class="banner-title">${unit.title}</h1>
         </div>
       </section>
-
-      <!-- Desmos 互動教材專屬引導卡片 (桌機與手機皆清晰顯眼) -->
-      ${hasDesmosUrl ? `
-        <section class="desmos-launcher-card">
-          <div class="desmos-launcher-info">
-            <div class="desmos-launcher-title">🎯 本單元專屬 Desmos 互動教材</div>
-            <div class="desmos-launcher-desc">
-              強烈建議點擊開啟！配合講義一邊聆聽真實音效、一邊調整滑桿觀察幾何波形。
-            </div>
-          </div>
-          <a href="${unit.desmosUrl}" target="_blank" rel="noopener noreferrer" class="btn-desmos-launch">
-            <span class="desmos-launch-icon">🎛️</span>
-            <span>另開分頁開啟 Desmos 範本 ↗</span>
-          </a>
-        </section>
-      ` : `
-        <section class="desmos-launcher-card pending-card">
-          <div class="desmos-launcher-info">
-            <div class="desmos-launcher-title">⏳ 本單元 Desmos 專屬範本製作中</div>
-            <div class="desmos-launcher-desc">
-              老師正在打磨本單元專屬幾何樂譜。同學亦可先開啟空白 Desmos 計算機，自行輸入公式實驗！
-            </div>
-          </div>
-          <a href="https://www.desmos.com/calculator" target="_blank" rel="noopener noreferrer" class="btn-desmos-launch btn-desmos-blank">
-            <span class="desmos-launch-icon">🎛️</span>
-            <span>開啟空白 Desmos 計算機 ↗</span>
-          </a>
-        </section>
-      `}
 
       <!-- 觀念說明區塊 -->
       ${unit.motivation ? `
@@ -842,19 +812,19 @@ document.addEventListener('DOMContentLoaded', () => {
   function renderHome() {
     document.title = '音符中的數學 | 課程首頁與使用導引';
 
-    // 模組簡介描述表
+    // 模組白話介紹表（不堆砌難懂數學名詞，讓學生直觀知道要做什麼）
     const moduleDescriptions = {
-      "module-1": "探索聲波頻率與振動物理，認識人耳等響度曲線，掌握 Desmos 發聲核心函數 <code>tone(f)</code>。",
-      "module-2": "從畢達哥拉斯弦長比、純律大三度自然泛音，推導至十二平均律對數尺度與 440Hz 國際標準音。",
-      "module-3": "建立音名指數函數，使用陣列列表儲存《小星星》旋律，透過向量運算完成一秒全曲移調。",
-      "module-4": "運用高斯底數鋸齒波與分段討論函數製作斷音時值遮罩，並設計敲擊樂器等比阻尼衰減與電玩音效。",
-      "module-5": "深入駐波倍頻物理，利用正弦三角函數傅立葉級數疊加方波、鋸齒波，合成豐富樂器音色。",
-      "module-6": "三和弦向量矩陣、差頻干涉拍頻模型與平均律 vs 純律和聲純度物理檢驗。",
-      "module-7": "李薩如幾何示波器、多聲部卡農延遲模型與 Desmos 畢業音樂專案獨立發表。"
+      "module-1": "從電腦如何發出聲音開始，認識聲音的音高與頻率，在 Desmos 寫下你的第一行發聲指令。",
+      "module-2": "為什麼某些音合在一起特別和諧？探索古希臘音階的秘密，了解鋼琴鍵盤上的音是怎麼算出來的。",
+      "module-3": "用一串數字當作樂譜，在 Desmos 演奏第一首曲子《小星星》，還能一秒鐘完成全曲移調！",
+      "module-4": "如何做出音符的斷音效果？如何模擬鋼琴敲擊後的自然餘音，甚至做出復古遊戲機的跳躍音效？",
+      "module-5": "為什麼鋼琴和吉他彈同一個音，聽起來完全不同？認識聲波疊加，用數學畫出不同樂器的音色。",
+      "module-6": "把兩個以上的音同時彈出來，聽聽看和弦的共鳴，感受奇妙的「拍頻」呼吸感。",
+      "module-7": "讓聲音變成跳動的幾何圖形，設計動態下落音遊，最後完成專屬於你的音樂畢業專案！"
     };
 
     let modulesHtml = COURSE_CONFIG.modules.map(mod => {
-      const desc = moduleDescriptions[mod.id] || "涵蓋扎實的數學模型推導與 Desmos 課堂實作實驗。";
+      const desc = moduleDescriptions[mod.id] || "涵蓋循序漸進的課堂實作與 Desmos 實驗。";
       const unitPills = mod.units.map(unitKey => {
         const u = COURSE_CONFIG.units[unitKey];
         if (!u) return '';
@@ -884,24 +854,22 @@ document.addEventListener('DOMContentLoaded', () => {
       <div class="home-container">
         <!-- 首頁大橫幅 (Hero Banner) -->
         <header class="home-hero">
-          <div class="hero-badge">高中跨領域創新選修課程</div>
+          <div class="hero-badge">高中跨領域選修課程</div>
           <h1 class="hero-title">🎵 音符中的數學</h1>
           <div class="hero-subtitle-en">Math in Musical Notes</div>
           <p class="hero-desc">
-            數學不只是黑板上的公式推導，聲音也不只是空氣中的振動。<br>
-            當高中數學的<strong>等比數列、對數尺度、高斯函數、週期函數、三角正弦波與傅立葉疊加</strong>，代入 Desmos 的 <code>tone(...)</code> 發聲引擎，每一道幾何算式都將化作真實可聽的動人樂章。
+            大家都聽過音樂，也都在學校學過數學。<br>
+            但你可能沒想過——數學公式其實「聽得見」，而音樂裡的音符，背後藏著一個個規律的幾何形狀。<br><br>
+            在這門課裡，我們不做繁瑣的紙上計算，而是打開 Desmos 圖形計算機，讓數學直接發出聲音！
+            從最簡單的一個單音、一段旋律，到多個音符組成的和弦，只要改寫算式中的數字，電腦就會立刻把旋律演奏給你看，也演奏給你聽。
           </p>
-          <div class="hero-author-box">
-            <span class="author-label">課程研發與設計</span>
-            <span class="author-name">國立臺灣師範大學數學系 賴奕成 老師</span>
-          </div>
           <div class="hero-cta-group">
             <a href="#1-1" class="btn-hero-start">
-              <span>🚀 立即啟程：探索第 1 單元</span>
+              <span>🚀 開始第 1 單元：頻率與音高</span>
               <span class="hero-arrow">→</span>
             </a>
             <a href="#home-guide" class="btn-hero-guide" id="btn-scroll-guide">
-              <span>📖 查看使用指南與視窗設定</span>
+              <span>📖 查看上課方式與用法說明</span>
             </a>
           </div>
         </header>
@@ -909,30 +877,30 @@ document.addEventListener('DOMContentLoaded', () => {
         <!-- 關鍵提醒卡：為什麼一定要開啟 Desmos 範本？ -->
         <section class="home-alert-card" id="home-guide">
           <div class="alert-card-header">
-            <span class="alert-card-icon">⚡</span>
-            <h2 class="alert-card-title">核心提醒：為什麼每單元都一定要點開【Desmos 範本】？</h2>
+            <span class="alert-card-icon">💡</span>
+            <h2 class="alert-card-title">上課小提醒：每單元右上角的【開啟 Desmos 範本 ↗】</h2>
           </div>
           <div class="alert-card-body">
             <div class="alert-points-grid">
               <div class="alert-point-item">
                 <div class="point-num">01</div>
                 <div class="point-content">
-                  <h3>這是一門「邊聽邊算」的實驗課</h3>
-                  <p>光看講義上的文字公式，就像「看著樂譜卻不發出聲音」，會錯過 80% 最精彩的聽覺震撼。老師為每個單元都親手製作了專屬的 Desmos 幾何樂譜與動態音訊範本！</p>
+                  <h3>這是一門邊聽邊動手的課</h3>
+                  <p>光看講義上的文字，就像看樂譜卻不彈樂器一樣。每單元右上角都有準備好的 Desmos 檔案，一定要點開跟著操作！</p>
                 </div>
               </div>
               <div class="alert-point-item">
                 <div class="point-num">02</div>
                 <div class="point-content">
-                  <h3>按播放鍵聽旋律，拉滑桿看波形</h3>
-                  <p>點擊單元中的<strong>【開啟 Desmos 範本 ↗】</strong>，按下時間變數 $t$ 的播放鍵 ▶ 就能聽見音符；拖動滑桿更能親眼看見波形幾何收縮、倍頻諧波疊加的即時動態反饋。</p>
+                  <h3>按播放鍵聽聲音，拉滑桿看圖形</h3>
+                  <p>點開範本後，只要按一下變數 $t$ 旁邊的播放鍵 ▶ 就會開始發聲；拉動畫面的滑桿，就能親眼看到圖形跟著聲音一起變化。</p>
                 </div>
               </div>
               <div class="alert-point-item">
                 <div class="point-num">03</div>
                 <div class="point-content">
-                  <h3>在真實畫布上調整公式與創作</h3>
-                  <p>每個範本都是現成的數學實驗場。同學可以直接在畫布上改寫頻率數列、替換包絡衰減函數、甚至合成自己的專屬和弦，把數學變成你的樂器！</p>
+                  <h3>在畫布上自由改寫與實驗</h3>
+                  <p>範本裡的數字都可以自己修改，試著填入不同的數字或旋律，把數學公式變成你自己的樂器！</p>
                 </div>
               </div>
             </div>
@@ -943,60 +911,60 @@ document.addEventListener('DOMContentLoaded', () => {
         <section class="home-section">
           <div class="section-title-wrap">
             <span class="section-icon">💻</span>
-            <h2 class="section-title">建議學習模式：雙重視窗操作指南</h2>
+            <h2 class="section-title">建議上課方式：雙視窗操作</h2>
           </div>
           <div class="split-screen-card">
             <div class="split-screen-visual">
               <div class="split-pane pane-left">
-                <div class="pane-header">📄 左側：本課程講義平台 (50%)</div>
+                <div class="pane-header">📄 左邊：講義與線上學習單 (50%)</div>
                 <div class="pane-body">
                   <ul>
-                    <li>📖 閱讀核心原理與幾何模型推導</li>
-                    <li>🎯 循序完成課堂動手操作清單</li>
-                    <li>📝 即時填寫線上互動學習單與核對</li>
+                    <li>📖 閱讀觀念說明與操作步驟</li>
+                    <li>🎯 跟著任務清單一步一步動手做</li>
+                    <li>📝 在頁尾填寫學習單並即時核對答案</li>
                   </ul>
                 </div>
               </div>
               <div class="split-divider">⇋</div>
               <div class="split-pane pane-right">
-                <div class="pane-header">🎛️ 右側：Desmos 繪圖計算機 (50%)</div>
+                <div class="pane-header">🎛️ 右邊：Desmos 圖形計算機 (50%)</div>
                 <div class="pane-body">
                   <ul>
-                    <li>🎵 點開專屬教材範本，按下播放鍵發聲</li>
-                    <li>🎚️ 拖曳參數滑桿，直觀體會聲波變化</li>
-                    <li>💾 點擊右上角 Save / Share 複製成果短網址</li>
+                    <li>🎵 點開教材範本，按播放鍵聽旋律</li>
+                    <li>🎚️ 拖曳滑桿，看波形隨聲音跳動</li>
+                    <li>💾 完成後點右上角複製你的作品存檔網址</li>
                   </ul>
                 </div>
               </div>
             </div>
             <div class="split-screen-tips">
-              <strong>💡 行動裝置（手機 / 平板）小撇步：</strong>
-              點擊單元中的「開啟 Desmos 範本 ↗」會在瀏覽器新分頁中載入繪圖機。建議在閱讀講義與操作計算機兩分頁間自由切換；若手機支援「分割畫面」，亦可將講義與 Desmos 上下並排操作！
+              <strong>💡 手機或平板同學：</strong>
+              點擊「開啟 Desmos 範本 ↗」會在瀏覽器新分頁中開啟，隨時在講義與計算機兩個分頁切換查看即可；若手機支援分割畫面，也可以上下並排操作。
             </div>
           </div>
         </section>
 
-        <!-- 平台三大互動功能說明 -->
+        <!-- 平台功能說明 -->
         <section class="home-section">
           <div class="section-title-wrap">
             <span class="section-icon">🛠️</span>
-            <h2 class="section-title">講義平台三大功能操作指南</h2>
+            <h2 class="section-title">講義功能說明</h2>
           </div>
           <div class="features-grid">
             <div class="feature-card">
               <div class="feature-icon">🎯</div>
-              <h3 class="feature-title">1. 課堂動手操作清單</h3>
-              <p class="feature-desc">每個單元精心設計 3~4 個具體步驟。輸入算式、調整參數、勾選核對，一步一步累積手感，絕不迷航。</p>
+              <h3 class="feature-title">課堂任務打勾清單</h3>
+              <p class="feature-desc">每個單元有 3~4 個具體步驟，完成一項就打勾一項，跟著做就不會迷路。</p>
             </div>
             <div class="feature-card">
               <div class="feature-icon">📝</div>
-              <h3 class="feature-title">2. 隨堂線上互動學習單</h3>
-              <p class="feature-desc">非開放式題目均附有「防呆即時核對」；卡關時可展開「老師詳細解析」了解解題思維，且作答提示絕不提前破梗！</p>
+              <h3 class="feature-title">線上學習單與即時核對</h3>
+              <p class="feature-desc">填完答案後可以按「核對答案」自我檢查；如果卡關，可以點開折疊框看解題步驟。</p>
             </div>
             <div class="feature-card">
               <div class="feature-icon">💾</div>
-              <h3 class="feature-title">3. 作品短網址與一鍵成果複製</h3>
-              <p class="feature-desc">在學習單底部貼上個人的 Desmos 存檔短網址，點擊「一鍵複製學習單成果」，能把所有作答整齊排版，直接貼到作業區繳交！</p>
+              <h3 class="feature-title">作品存檔與一鍵複製繳交</h3>
+              <p class="feature-desc">把你在 Desmos 的作品短網址貼進學習單，按下「一鍵複製學習單成果」，就能把完整作答直接貼到作業區繳交。</p>
             </div>
           </div>
         </section>
@@ -1005,7 +973,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <section class="home-section">
           <div class="section-title-wrap">
             <span class="section-icon">🗺️</span>
-            <h2 class="section-title">全課程七大模組學習藍圖</h2>
+            <h2 class="section-title">課程章節總覽</h2>
           </div>
           <div class="curriculum-grid">
             ${modulesHtml}
@@ -1016,7 +984,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <footer class="home-footer-cta">
           <div class="footer-cta-text">準備好讓數學發出聲音了嗎？</div>
           <a href="#1-1" class="btn-hero-start btn-footer-start">
-            <span>🚀 開始探索第一單元：頻率與音高 →</span>
+            <span>🚀 前往第 1 單元：頻率與音高 →</span>
           </a>
         </footer>
       </div>
