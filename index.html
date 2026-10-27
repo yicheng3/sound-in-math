@@ -11,7 +11,7 @@
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
 
   <!-- 課程網站專用樣式 -->
-  <link rel="stylesheet" href="css/style.css?v=4.0">
+  <link rel="stylesheet" href="css/style.css?v=5.9">
 </head>
 <body>
 
@@ -22,11 +22,13 @@
         <span class="btn-sidebar-toggle-icon">☰</span>
         <span class="btn-sidebar-toggle-text">單元目錄</span>
       </button>
-      <div class="brand-title">
-        <span>🎵</span>
-        <span>音符中的數學</span>
-        <span class="brand-subtitle">高中跨領域選修</span>
-      </div>
+      <a href="#home" class="brand-link" title="回課程首頁與使用導引">
+        <div class="brand-title">
+          <span>🎵</span>
+          <span>音符中的數學</span>
+          <span class="brand-subtitle">高中跨領域選修</span>
+        </div>
+      </a>
     </div>
     <div class="nav-right">
       <button class="btn-font-toggle" id="btn-font-toggle" title="切換字體大小（大字投影模式）">
@@ -35,8 +37,9 @@
       <button class="btn-theme-toggle" id="btn-theme-toggle" title="切換和紙素雅 / 深夜素墨">
         <span id="theme-icon">🌙</span>
       </button>
-      <a href="https://www.desmos.com/calculator" target="_blank" rel="noopener noreferrer" class="btn-desmos-jump" title="另開分頁開啟 Desmos 空白計算機">
-        <span>Desmos 官方網站 ↗</span>
+      <a href="https://www.desmos.com/calculator" target="_blank" rel="noopener noreferrer" class="btn-nav-desmos" title="另開分頁開啟 Desmos 空白計算機">
+        <span class="nav-desmos-icon">🎛️</span>
+        <span class="nav-desmos-text">Desmos ↗</span>
       </a>
     </div>
   </header>
@@ -69,8 +72,8 @@
   <div class="toast-msg" id="toast-msg">算式已複製！</div>
 
   <!-- 資料與核心模組載入 -->
-  <script src="js/config.js?v=5.8"></script>
-  <script src="js/app.js?v=5.8"></script>
+  <script src="js/config.js?v=5.9"></script>
+  <script src="js/app.js?v=5.9"></script>
 
 </body>
 </html>

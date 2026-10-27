@@ -102,6 +102,26 @@ document.addEventListener('DOMContentLoaded', () => {
   function initSidebar() {
     sidebarNav.innerHTML = '';
 
+    // 側邊欄頂部：課程首頁按鈕
+    const homeEl = document.createElement('div');
+    homeEl.className = `sidebar-home-item ${currentUnitId === 'home' ? 'active' : ''}`;
+    homeEl.id = 'nav-item-home';
+    homeEl.innerHTML = `
+      <span class="sidebar-home-icon">🏠</span>
+      <span class="sidebar-home-text">課程首頁與使用導引</span>
+    `;
+    homeEl.addEventListener('click', () => {
+      switchUnit('home');
+      if (window.innerWidth <= 840) {
+        closeMobileSidebar();
+      }
+    });
+    sidebarNav.appendChild(homeEl);
+
+    const divider = document.createElement('div');
+    divider.className = 'sidebar-nav-divider';
+    sidebarNav.appendChild(divider);
+
     COURSE_CONFIG.modules.forEach((mod, modIdx) => {
       const groupEl = document.createElement('div');
       groupEl.className = `module-group ${modIdx === 0 ? 'open' : ''}`;
@@ -647,6 +667,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const prevUnit = prevUnitId ? COURSE_CONFIG.units[prevUnitId] : null;
     const nextUnit = nextUnitId ? COURSE_CONFIG.units[nextUnitId] : null;
 
+    document.title = `${unit.id} ${unit.title} | 音符中的數學`;
+
     const hasDesmosUrl = Boolean(unit.desmosUrl && unit.desmosUrl.trim().length > 0);
     const desmosTarget = hasDesmosUrl ? unit.desmosUrl : "https://www.desmos.com/calculator";
 
@@ -656,8 +678,9 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="banner-top-meta">
           <span class="banner-module-tag">${unit.moduleName}</span>
           ${hasDesmosUrl ? `
-            <a href="${desmosTarget}" target="_blank" rel="noopener noreferrer" class="btn-desmos-jump" title="另開分頁開啟此單元 Desmos 互動教材">
-              開啟 Desmos 範本 ↗
+            <a href="${desmosTarget}" target="_blank" rel="noopener noreferrer" class="btn-banner-desmos" title="另開分頁開啟此單元 Desmos 互動教材">
+              <span>🎛️</span>
+              <span>開啟 Desmos 範本 ↗</span>
             </a>
           ` : `
             <span class="btn-desmos-pending" title="教師專屬範本製作中">
@@ -670,6 +693,35 @@ document.addEventListener('DOMContentLoaded', () => {
           <h1 class="banner-title">${unit.title}</h1>
         </div>
       </section>
+
+      <!-- Desmos 互動教材專屬引導卡片 (桌機與手機皆清晰顯眼) -->
+      ${hasDesmosUrl ? `
+        <section class="desmos-launcher-card">
+          <div class="desmos-launcher-info">
+            <div class="desmos-launcher-title">🎯 本單元專屬 Desmos 互動教材</div>
+            <div class="desmos-launcher-desc">
+              強烈建議點擊開啟！配合講義一邊聆聽真實音效、一邊調整滑桿觀察幾何波形。
+            </div>
+          </div>
+          <a href="${unit.desmosUrl}" target="_blank" rel="noopener noreferrer" class="btn-desmos-launch">
+            <span class="desmos-launch-icon">🎛️</span>
+            <span>另開分頁開啟 Desmos 範本 ↗</span>
+          </a>
+        </section>
+      ` : `
+        <section class="desmos-launcher-card pending-card">
+          <div class="desmos-launcher-info">
+            <div class="desmos-launcher-title">⏳ 本單元 Desmos 專屬範本製作中</div>
+            <div class="desmos-launcher-desc">
+              老師正在打磨本單元專屬幾何樂譜。同學亦可先開啟空白 Desmos 計算機，自行輸入公式實驗！
+            </div>
+          </div>
+          <a href="https://www.desmos.com/calculator" target="_blank" rel="noopener noreferrer" class="btn-desmos-launch btn-desmos-blank">
+            <span class="desmos-launch-icon">🎛️</span>
+            <span>開啟空白 Desmos 計算機 ↗</span>
+          </a>
+        </section>
+      `}
 
       <!-- 觀念說明區塊 -->
       ${unit.motivation ? `
@@ -747,7 +799,12 @@ document.addEventListener('DOMContentLoaded', () => {
             <span class="nav-unit-dir">← 上一單元</span>
             <span class="nav-unit-title">${prevUnit.id} ${prevUnit.title}</span>
           </a>
-        ` : `<div class="btn-nav-unit disabled"><span class="nav-unit-dir">已是第一單元</span></div>`}
+        ` : `
+          <a class="btn-nav-unit" href="#home">
+            <span class="nav-unit-dir">← 回課程首頁</span>
+            <span class="nav-unit-title">首頁與使用導引</span>
+          </a>
+        `}
 
         ${nextUnit ? `
           <a class="btn-nav-unit" style="text-align: right;" href="#${nextUnit.id}">
@@ -781,11 +838,229 @@ document.addEventListener('DOMContentLoaded', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
+  // 3.5 渲染課程首頁與使用導引
+  function renderHome() {
+    document.title = '音符中的數學 | 課程首頁與使用導引';
+
+    // 模組簡介描述表
+    const moduleDescriptions = {
+      "module-1": "探索聲波頻率與振動物理，認識人耳等響度曲線，掌握 Desmos 發聲核心函數 <code>tone(f)</code>。",
+      "module-2": "從畢達哥拉斯弦長比、純律大三度自然泛音，推導至十二平均律對數尺度與 440Hz 國際標準音。",
+      "module-3": "建立音名指數函數，使用陣列列表儲存《小星星》旋律，透過向量運算完成一秒全曲移調。",
+      "module-4": "運用高斯底數鋸齒波與分段討論函數製作斷音時值遮罩，並設計敲擊樂器等比阻尼衰減與電玩音效。",
+      "module-5": "深入駐波倍頻物理，利用正弦三角函數傅立葉級數疊加方波、鋸齒波，合成豐富樂器音色。",
+      "module-6": "三和弦向量矩陣、差頻干涉拍頻模型與平均律 vs 純律和聲純度物理檢驗。",
+      "module-7": "李薩如幾何示波器、多聲部卡農延遲模型與 Desmos 畢業音樂專案獨立發表。"
+    };
+
+    let modulesHtml = COURSE_CONFIG.modules.map(mod => {
+      const desc = moduleDescriptions[mod.id] || "涵蓋扎實的數學模型推導與 Desmos 課堂實作實驗。";
+      const unitPills = mod.units.map(unitKey => {
+        const u = COURSE_CONFIG.units[unitKey];
+        if (!u) return '';
+        return `
+          <a href="#${u.id}" class="curriculum-unit-pill" title="${u.title}">
+            <span class="pill-id">${u.id}</span>
+            <span class="pill-title">${u.title.split('（')[0]}</span>
+          </a>
+        `;
+      }).join('');
+
+      return `
+        <div class="curriculum-card">
+          <div class="curriculum-card-header">
+            <h3 class="curriculum-card-title">${mod.title}</h3>
+            <span class="curriculum-badge">${mod.units.length} 個單元</span>
+          </div>
+          <p class="curriculum-desc">${desc}</p>
+          <div class="curriculum-units-list">
+            ${unitPills}
+          </div>
+        </div>
+      `;
+    }).join('');
+
+    let homeHtml = `
+      <div class="home-container">
+        <!-- 首頁大橫幅 (Hero Banner) -->
+        <header class="home-hero">
+          <div class="hero-badge">高中跨領域創新選修課程</div>
+          <h1 class="hero-title">🎵 音符中的數學</h1>
+          <div class="hero-subtitle-en">Math in Musical Notes</div>
+          <p class="hero-desc">
+            數學不只是黑板上的公式推導，聲音也不只是空氣中的振動。<br>
+            當高中數學的<strong>等比數列、對數尺度、高斯函數、週期函數、三角正弦波與傅立葉疊加</strong>，代入 Desmos 的 <code>tone(...)</code> 發聲引擎，每一道幾何算式都將化作真實可聽的動人樂章。
+          </p>
+          <div class="hero-author-box">
+            <span class="author-label">課程研發與設計</span>
+            <span class="author-name">國立臺灣師範大學數學系 賴奕成 老師</span>
+          </div>
+          <div class="hero-cta-group">
+            <a href="#1-1" class="btn-hero-start">
+              <span>🚀 立即啟程：探索第 1 單元</span>
+              <span class="hero-arrow">→</span>
+            </a>
+            <a href="#home-guide" class="btn-hero-guide" id="btn-scroll-guide">
+              <span>📖 查看使用指南與視窗設定</span>
+            </a>
+          </div>
+        </header>
+
+        <!-- 關鍵提醒卡：為什麼一定要開啟 Desmos 範本？ -->
+        <section class="home-alert-card" id="home-guide">
+          <div class="alert-card-header">
+            <span class="alert-card-icon">⚡</span>
+            <h2 class="alert-card-title">核心提醒：為什麼每單元都一定要點開【Desmos 範本】？</h2>
+          </div>
+          <div class="alert-card-body">
+            <div class="alert-points-grid">
+              <div class="alert-point-item">
+                <div class="point-num">01</div>
+                <div class="point-content">
+                  <h3>這是一門「邊聽邊算」的實驗課</h3>
+                  <p>光看講義上的文字公式，就像「看著樂譜卻不發出聲音」，會錯過 80% 最精彩的聽覺震撼。老師為每個單元都親手製作了專屬的 Desmos 幾何樂譜與動態音訊範本！</p>
+                </div>
+              </div>
+              <div class="alert-point-item">
+                <div class="point-num">02</div>
+                <div class="point-content">
+                  <h3>按播放鍵聽旋律，拉滑桿看波形</h3>
+                  <p>點擊單元中的<strong>【開啟 Desmos 範本 ↗】</strong>，按下時間變數 $t$ 的播放鍵 ▶ 就能聽見音符；拖動滑桿更能親眼看見波形幾何收縮、倍頻諧波疊加的即時動態反饋。</p>
+                </div>
+              </div>
+              <div class="alert-point-item">
+                <div class="point-num">03</div>
+                <div class="point-content">
+                  <h3>在真實畫布上調整公式與創作</h3>
+                  <p>每個範本都是現成的數學實驗場。同學可以直接在畫布上改寫頻率數列、替換包絡衰減函數、甚至合成自己的專屬和弦，把數學變成你的樂器！</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 雙重視窗操作指南 -->
+        <section class="home-section">
+          <div class="section-title-wrap">
+            <span class="section-icon">💻</span>
+            <h2 class="section-title">建議學習模式：雙重視窗操作指南</h2>
+          </div>
+          <div class="split-screen-card">
+            <div class="split-screen-visual">
+              <div class="split-pane pane-left">
+                <div class="pane-header">📄 左側：本課程講義平台 (50%)</div>
+                <div class="pane-body">
+                  <ul>
+                    <li>📖 閱讀核心原理與幾何模型推導</li>
+                    <li>🎯 循序完成課堂動手操作清單</li>
+                    <li>📝 即時填寫線上互動學習單與核對</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="split-divider">⇋</div>
+              <div class="split-pane pane-right">
+                <div class="pane-header">🎛️ 右側：Desmos 繪圖計算機 (50%)</div>
+                <div class="pane-body">
+                  <ul>
+                    <li>🎵 點開專屬教材範本，按下播放鍵發聲</li>
+                    <li>🎚️ 拖曳參數滑桿，直觀體會聲波變化</li>
+                    <li>💾 點擊右上角 Save / Share 複製成果短網址</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="split-screen-tips">
+              <strong>💡 行動裝置（手機 / 平板）小撇步：</strong>
+              點擊單元中的「開啟 Desmos 範本 ↗」會在瀏覽器新分頁中載入繪圖機。建議在閱讀講義與操作計算機兩分頁間自由切換；若手機支援「分割畫面」，亦可將講義與 Desmos 上下並排操作！
+            </div>
+          </div>
+        </section>
+
+        <!-- 平台三大互動功能說明 -->
+        <section class="home-section">
+          <div class="section-title-wrap">
+            <span class="section-icon">🛠️</span>
+            <h2 class="section-title">講義平台三大功能操作指南</h2>
+          </div>
+          <div class="features-grid">
+            <div class="feature-card">
+              <div class="feature-icon">🎯</div>
+              <h3 class="feature-title">1. 課堂動手操作清單</h3>
+              <p class="feature-desc">每個單元精心設計 3~4 個具體步驟。輸入算式、調整參數、勾選核對，一步一步累積手感，絕不迷航。</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">📝</div>
+              <h3 class="feature-title">2. 隨堂線上互動學習單</h3>
+              <p class="feature-desc">非開放式題目均附有「防呆即時核對」；卡關時可展開「老師詳細解析」了解解題思維，且作答提示絕不提前破梗！</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">💾</div>
+              <h3 class="feature-title">3. 作品短網址與一鍵成果複製</h3>
+              <p class="feature-desc">在學習單底部貼上個人的 Desmos 存檔短網址，點擊「一鍵複製學習單成果」，能把所有作答整齊排版，直接貼到作業區繳交！</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- 全課程章節藍圖 (7大模組總覽) -->
+        <section class="home-section">
+          <div class="section-title-wrap">
+            <span class="section-icon">🗺️</span>
+            <h2 class="section-title">全課程七大模組學習藍圖</h2>
+          </div>
+          <div class="curriculum-grid">
+            ${modulesHtml}
+          </div>
+        </section>
+
+        <!-- 底部開始探索區塊 -->
+        <footer class="home-footer-cta">
+          <div class="footer-cta-text">準備好讓數學發出聲音了嗎？</div>
+          <a href="#1-1" class="btn-hero-start btn-footer-start">
+            <span>🚀 開始探索第一單元：頻率與音高 →</span>
+          </a>
+        </footer>
+      </div>
+    `;
+
+    mainContent.innerHTML = homeHtml;
+    triggerMathRender(mainContent);
+
+    // 綁定平滑滾動按鈕
+    const btnScroll = document.getElementById('btn-scroll-guide');
+    if (btnScroll) {
+      btnScroll.addEventListener('click', (e) => {
+        e.preventDefault();
+        const guideEl = document.getElementById('home-guide');
+        if (guideEl) guideEl.scrollIntoView({ behavior: 'smooth' });
+      });
+    }
+
+    // 滾動回頂端
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
   // 4. 切換單元
   function switchUnit(unitId) {
+    if (unitId === 'home') {
+      currentUnitId = 'home';
+      window.location.hash = 'home';
+
+      // 更新側邊欄 active 狀態
+      document.querySelectorAll('.unit-item').forEach(el => el.classList.remove('active'));
+      const homeNav = document.getElementById('nav-item-home');
+      if (homeNav) homeNav.classList.add('active');
+
+      renderHome();
+      return;
+    }
+
     if (!COURSE_CONFIG.units[unitId]) return;
     currentUnitId = unitId;
     window.location.hash = unitId;
+
+    // 清除首頁 active 狀態
+    const homeNav = document.getElementById('nav-item-home');
+    if (homeNav) homeNav.classList.remove('active');
 
     // 更新側邊欄 active 狀態
     document.querySelectorAll('.unit-item').forEach(el => el.classList.remove('active'));
@@ -859,10 +1134,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // 8. 監聽 Hash 改變（支援上一頁/下一頁與直達連結）
+  // 8. 監聽 Hash 改變（支援上一頁/下一頁、課程首頁與直達連結）
   window.addEventListener('hashchange', () => {
     const hash = window.location.hash.replace('#', '');
-    if (hash && COURSE_CONFIG.units[hash] && hash !== currentUnitId) {
+    if (hash === 'home' || !hash) {
+      if (currentUnitId !== 'home') switchUnit('home');
+    } else if (COURSE_CONFIG.units[hash] && hash !== currentUnitId) {
       switchUnit(hash);
     }
   });
@@ -872,7 +1149,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const initHash = window.location.hash.replace('#', '');
   if (initHash && COURSE_CONFIG.units[initHash]) {
     switchUnit(initHash);
+  } else if (initHash === 'home') {
+    switchUnit('home');
   } else {
-    switchUnit("1-1");
+    switchUnit('home');
   }
 });
