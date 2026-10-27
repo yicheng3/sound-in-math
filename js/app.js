@@ -377,7 +377,7 @@ document.addEventListener('DOMContentLoaded', () => {
           ${inputFieldHtml}
           ${q.solution ? `
             <details class="ws-solution-details">
-              <summary class="ws-solution-summary">💡 查看參考解析與思考引導</summary>
+              <summary class="ws-solution-summary">💡 查看參考解析</summary>
               <div class="ws-solution-content">${parseMarkdown(q.solution)}</div>
             </details>
           ` : ''}
@@ -539,10 +539,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (isMatched) {
           resEl.className = 'ws-check-result correct';
-          resEl.textContent = '✅ 完全正確！太厲害了！';
+          resEl.textContent = '✅ 完全正確！';
         } else {
           resEl.className = 'ws-check-result try-again';
-          resEl.textContent = '💡 答案很接近囉，再算看看或參考下方解析！';
+          resEl.textContent = '💡 答案不符，請重新檢查或參考下方解析。';
         }
       });
     });
@@ -729,7 +729,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             ${unit.tips ? `
               <div class="teacher-tips-box">
-                <div class="tips-header">💡 課堂叮嚀</div>
+                <div class="tips-header">💡 課堂小提醒</div>
                 <div class="tips-body">${parseMarkdown(unit.tips)}</div>
               </div>
             ` : ''}
