@@ -684,12 +684,12 @@ document.addEventListener('DOMContentLoaded', () => {
         </section>
       ` : ''}
 
-      <!-- Desmos 語法與發聲函數區塊 -->
+      <!-- 數學模型 / 核心原理區塊 -->
       ${unit.mathModel ? `
         <section class="teaching-card">
           <div class="card-header">
             <span class="card-icon">🎛️</span>
-            <h2 class="card-title">${unit.modelTitle || '發聲公式與語法'}</h2>
+            <h2 class="card-title">${unit.modelTitle || '核心原理與數學模型'}</h2>
           </div>
           <div class="card-body">
             ${parseMarkdown(unit.mathModel)}

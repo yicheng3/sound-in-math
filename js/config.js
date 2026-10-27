@@ -279,6 +279,8 @@ $$L = [440, 880, 220, 110, 1760], \\quad t = 1, \\quad \\operatorname{tone}(L[t]
       moduleId: "module-2",
       moduleName: "二、音程與律學",
       title: "畢達哥拉斯五度相生律與五聲音階",
+      conceptTitle: "五度相生律與八度折回",
+      modelTitle: "五度相生推導流程與比例",
       status: "ready",
       desmosUrl: "https://www.desmos.com/calculator/kklcngvj8a",
       motivation: `
@@ -476,6 +478,8 @@ t = 0
       moduleId: "module-2",
       moduleName: "二、音程與律學",
       title: "五度相生到十二律：永遠關不上的圓（畢氏音差）",
+      conceptTitle: "十二律相生與畢氏音差",
+      modelTitle: "畢氏律法問題與轉調限制",
       status: "ready",
       desmosUrl: "https://www.desmos.com/calculator/slaarufxib",
       motivation: `
@@ -603,6 +607,8 @@ $$
       moduleId: "module-2",
       moduleName: "二、音程與律學",
       title: "十二平均律與全學期公版發聲基準",
+      conceptTitle: "朱載堉十二平均律與等比數列",
+      modelTitle: "全學期公版發聲基準函數",
       status: "ready",
       desmosUrl: "https://www.desmos.com/calculator/4actxqj5mj",
       motivation: `
@@ -714,6 +720,8 @@ C_5 = f(3)  // C5 (B-C 無黑鍵，只差 1 半音)
       moduleId: "module-supp",
       moduleName: "課堂補充",
       title: "樂理基礎入門：音名、唱名、全半音與簡譜",
+      conceptTitle: "音樂家的語言系統",
+      modelTitle: "音名、唱名、鍵盤全半音與簡譜",
       status: "ready",
       desmosUrl: "https://www.desmos.com/calculator/4actxqj5mj",
       motivation: `
@@ -886,6 +894,8 @@ C_5 = f(3)  // C5 (B-C 無黑鍵，只差 1 半音)
       moduleId: "module-3",
       moduleName: "三、樂譜與旋律",
       title: "樂譜數據化與音名陣列編碼",
+      conceptTitle: "旋律與音符數據化",
+      modelTitle: "樂譜數據化與陣列編碼",
       status: "ready",
       desmosUrl: "https://www.desmos.com/calculator/4actxqj5mj",
       motivation: `
@@ -931,6 +941,8 @@ t = 0
       moduleId: "module-3",
       moduleName: "三、樂譜與旋律",
       title: "陣列向量化指數運算與全曲移調",
+      conceptTitle: "歌手降 Key 與移調需求",
+      modelTitle: "陣列向量運算與移調模型",
       status: "ready",
       desmosUrl: "https://www.desmos.com/calculator/a0nxj4issv",
       motivation: `
@@ -1007,6 +1019,8 @@ t = 0
       moduleId: "module-4",
       moduleName: "四、節奏與動態",
       title: "高斯取整與小數計時器",
+      conceptTitle: "離散音符與連續時間的衝突",
+      modelTitle: "高斯取整與拍內計時器",
       status: "ready",
       desmosUrl: "https://www.desmos.com/calculator/a0nxj4issv",
       motivation: `
@@ -1040,6 +1054,8 @@ t = 0
       moduleId: "module-4",
       moduleName: "四、節奏與動態",
       title: "斷音與時值遮罩陣列（q, p, s 系統）",
+      conceptTitle: "音符長短與呼吸留白",
+      modelTitle: "時值遮罩與斷音控制",
       status: "ready",
       desmosUrl: "https://www.desmos.com/calculator/jsesxbjozc",
       motivation: `
@@ -1096,6 +1112,8 @@ q_{\\text{gate}} = \\left\\{\\sin(2\\pi t) > a: 1, 0\\right\\}
       moduleId: "module-4",
       moduleName: "四、節奏與動態",
       title: "動態包絡衰減函數（木琴與鋼琴共鳴）",
+      conceptTitle: "真實樂器的發聲衰減（ADSR）",
+      modelTitle: "指數衰減動態包絡模型",
       status: "pending",
       desmosUrl: null, // 空位：待教師製作後填入
       motivation: `
@@ -1127,6 +1145,8 @@ $$E(t) = \\left\\{t - \\operatorname{floor}(t) > 0.85: 0, (0.5)^{k(t - \\operato
       moduleId: "module-4",
       moduleName: "四、節奏與動態",
       title: "8-bit 電玩音效與動態鼓組實驗室（選學）",
+      conceptTitle: "復古電玩音效的物理秘密",
+      modelTitle: "電玩音效與打擊樂合成模型",
       status: "pending",
       desmosUrl: null, // 空位：待教師製作後填入
       motivation: `
@@ -1171,6 +1191,8 @@ $$E(t) = \\left\\{t - \\operatorname{floor}(t) > 0.85: 0, (0.5)^{k(t - \\operato
       moduleId: "module-5",
       moduleName: "五、音色與物理",
       title: "弦上物理駐波與節點幾何",
+      conceptTitle: "琴弦震動與物理駐波",
+      modelTitle: "弦上駐波邊界方程式與幾何模型",
       status: "pending",
       desmosUrl: null, // 空位：待教師製作後填入
       motivation: `
@@ -1215,6 +1237,8 @@ y = \\sin(n \\cdot x) \\cdot \\cos(\\omega \\cdot t) \\{0 \\le x \\le \\pi\\}
       moduleId: "module-5",
       moduleName: "五、音色與物理",
       title: "自然泛音列與樂器音色指紋",
+      conceptTitle: "樂器音色指紋之謎",
+      modelTitle: "自然泛音列與音色疊加配方",
       status: "ready",
       desmosUrl: "https://www.desmos.com/calculator/gkpqdobd4p",
       motivation: `
@@ -1274,6 +1298,8 @@ v_4 = 0.0   // 第四泛音
       moduleId: "module-5",
       moduleName: "五、音色與物理",
       title: "幽靈基音（Missing Fundamental）",
+      conceptTitle: "大腦自己補出來的低音",
+      modelTitle: "幽靈基音之最大公因數模型",
       status: "pending",
       desmosUrl: null, // 空位：待教師製作後填入
       motivation: `
@@ -1306,6 +1332,8 @@ $$f_{\\text{ghost}} = \\gcd(600, 800, 1000) = 200\\text{Hz}$$
       moduleId: "module-5",
       moduleName: "五、音色與物理",
       title: "傅立葉合成三大經典波形",
+      conceptTitle: "用正弦波拼裝所有聲音",
+      modelTitle: "三大經典幾何波形傅立葉級數",
       status: "pending",
       desmosUrl: null, // 空位：待教師製作後填入
       motivation: `
@@ -1339,6 +1367,8 @@ $$f_{\\text{ghost}} = \\gcd(600, 800, 1000) = 200\\text{Hz}$$
       moduleId: "module-6",
       moduleName: "六、和弦與多聲部",
       title: "三和弦密碼與色彩（大三 vs 小三）",
+      conceptTitle: "和聲色彩：光明 vs 憂傷",
+      modelTitle: "三和弦半音向量與情緒色彩",
       status: "pending",
       desmosUrl: null, // 空位：待教師製作後填入
       motivation: `
@@ -1370,6 +1400,8 @@ $$f_{\\text{ghost}} = \\gcd(600, 800, 1000) = 200\\text{Hz}$$
       moduleId: "module-6",
       moduleName: "六、和弦與多聲部",
       title: "流行音樂萬能卡農進行與同餘循環低音",
+      conceptTitle: "流行音樂暢銷金曲公式",
+      modelTitle: "同餘循環查表與和弦進行",
       status: "pending",
       desmosUrl: null, // 空位：待教師製作後填入
       motivation: `
@@ -1402,6 +1434,8 @@ $$B(t) = C_{\\text{bass}}[\\operatorname{mod}(\\lfloor t \\rfloor, 4) + 1]$$
       moduleId: "module-6",
       moduleName: "六、和弦與多聲部",
       title: "多軌分段接力架構（Relay Playback）",
+      conceptTitle: "樂團多聲部與主副歌架構",
+      modelTitle: "多軌時間位移接力模型",
       status: "ready",
       desmosUrl: "https://www.desmos.com/calculator/eodq3asol4",
       motivation: `
@@ -1435,6 +1469,8 @@ $$\\dots$$
       moduleId: "module-6",
       moduleName: "六、和弦與多聲部",
       title: "自動琶音器與空間回音（Echo / Delay）",
+      conceptTitle: "琶音流動與空間殘響",
+      modelTitle: "自動琶音與空間回音模型",
       status: "pending",
       desmosUrl: null, // 空位：待教師製作後填入
       motivation: `
@@ -1467,6 +1503,8 @@ $$V_{\\text{echo}}(t) = \\operatorname{tone}(f(S[t]), 0.5) + \\operatorname{tone
       moduleId: "module-7",
       moduleName: "七、視覺音遊與演算法",
       title: "巴哈《螃蟹卡農》幾何對稱變換",
+      conceptTitle: "音樂中的莫比烏斯環",
+      modelTitle: "旋律幾何對稱變換模型",
       status: "pending",
       desmosUrl: null, // 空位：待教師製作後填入
       motivation: `
@@ -1499,6 +1537,8 @@ $$V_{\\text{echo}}(t) = \\operatorname{tone}(f(S[t]), 0.5) + \\operatorname{tone
       moduleId: "module-7",
       moduleName: "七、視覺音遊與演算法",
       title: "Desmos Audio Trace（Alt + T）視覺聽圖音樂",
+      conceptTitle: "用耳朵「聽」出數學函數圖形",
+      modelTitle: "函數圖像音訊追蹤規約",
       status: "ready",
       desmosUrl: "https://www.desmos.com/calculator/oiamjxssnc",
       motivation: `
@@ -1530,6 +1570,8 @@ $$V_{\\text{echo}}(t) = \\operatorname{tone}(f(S[t]), 0.5) + \\operatorname{tone
       moduleId: "module-7",
       moduleName: "七、視覺音遊與演算法",
       title: "薛帕德無限音階（Shepard Tone）",
+      conceptTitle: "聽覺錯覺：永遠向上爬的音階",
+      modelTitle: "薛帕德音階數學架構",
       status: "pending",
       desmosUrl: null, // 空位：待教師製作後填入
       motivation: `
@@ -1559,6 +1601,8 @@ $$V(X) = e^{-\\frac{(X - 30)^2}{2 \\cdot 12^2}}$$
       moduleId: "module-7",
       moduleName: "七、視覺音遊與演算法",
       title: "演算法自動作曲（隨機與轉移矩陣選學）",
+      conceptTitle: "交給電腦寫歌：隨機與機率",
+      modelTitle: "演算法自動作曲模型",
       status: "pending",
       desmosUrl: null, // 空位：待教師製作後填入
       motivation: `
@@ -1589,6 +1633,8 @@ $$V(X) = e^{-\\frac{(X - 30)^2}{2 \\cdot 12^2}}$$
       moduleId: "module-7",
       moduleName: "七、視覺音遊與演算法",
       title: "對數琴鍵還原與參數式下落音遊【期末大專題】",
+      conceptTitle: "打造屬於你的 Desmos 節奏音遊",
+      modelTitle: "對數琴鍵映射與下落音遊模型",
       status: "ready",
       desmosUrl: "https://www.desmos.com/calculator/lp4hwddbnf",
       motivation: `
