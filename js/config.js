@@ -23,7 +23,7 @@ const COURSE_CONFIG = {
     {
       id: "module-2",
       title: "二、音程與律學",
-      units: ["2-1", "2-2", "2-3", "2-4"]
+      units: ["2-1", "2-2", "2-3", "2-4", "2-5"]
     },
     {
       id: "module-3",
@@ -553,6 +553,175 @@ $$
       id: "2-4",
       moduleId: "module-2",
       moduleName: "二、音程與律學",
+      title: "樂理基礎入門：音名、唱名、全半音與簡譜",
+      status: "ready",
+      desmosUrl: "https://www.desmos.com/calculator/4actxqj5mj",
+      motivation: `
+上一單元我們用五度相生算出了一個八度內的 12 個頻率比值，但古代人算出了這些數字後，在樂器上要怎麼稱呼它們？為什麼現代音樂家不用「頻率 $329.6\\text{Hz}$」來溝通，而是說「這首歌是 E 調、先唱 Mi」？
+
+因為在音樂中，發展出了一套兼顧**「物理客觀標準」**與**「歌唱聽覺感受」**的語言系統：
+1. **音名（絕對身分證）**：代表物理上固定不變的絕對音高。
+2. **唱名（相對聽感）**：代表我們嘴巴唱出來、耳朵聽到的階梯角色。
+3. **簡譜（大眾樂譜）**：用最平易近人的數字 $1 \\sim 7$，任何人都能 3 分鐘看懂旋律！
+      `,
+      mathModel: `
+**一、 音名 vs 唱名：身分證字號 vs 隨境暱稱**
+- **音名（Pitch Names）**：$C, D, E, F, G, A, B$
+  - 代表物理上**固定不變的絕對音高**（例如國際標準音 $A = 440\\text{Hz}$、中央 $C \\approx 261.6\\text{Hz}$）。
+  - 無論唱哪一首歌、換到什麼調，音名的頻率永遠不會改變，就像每個人的身分證字號。
+- **唱名（Solfège）**：$\\text{Do, Re, Mi, Fa, Sol, La, Ti}$
+  - 代表**嘴巴唱出來的發音**與耳朵聽到的相對高低關係。
+  - 在最基礎的 C 大調中：
+    $$C \\to \\text{Do}, \\quad D \\to \\text{Re}, \\quad E \\to \\text{Mi}, \\quad F \\to \\text{Fa}, \\quad G \\to \\text{Sol}, \\quad A \\to \\text{La}, \\quad B \\to \\text{Ti}$$
+
+---
+
+**二、 鋼琴鍵盤上的 12 個音：全音與半音**
+在鍵盤樂器上，一個八度內由 **7 個白鍵** 與 **5 個黑鍵** 構成共 12 個音：
+- **升號（$\\sharp$，Sharp）**：升高一個半音；**降號（$\\flat$，Flat）**：降低一個半音。
+- 例如：$C$ 右邊的黑鍵既可稱作 $C^\\sharp$（升 C），也可稱作 $D^\\flat$（降 D），兩者音高相同（同音異名）。
+
+<div class="piano-card">
+  <svg class="piano-svg" viewBox="0 0 740 250" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <style>
+        .white-key { fill: #ffffff; stroke: #45403a; stroke-width: 1.5; rx: 5; ry: 5; }
+        .black-key { fill: #2b2723; stroke: #1a1816; stroke-width: 1; rx: 4; ry: 4; }
+        .key-pitch { font-size: 18px; font-weight: bold; fill: #2b2723; text-anchor: middle; font-family: -apple-system, sans-serif; }
+        .key-solfege { font-size: 13px; fill: #456854; font-weight: 600; text-anchor: middle; font-family: -apple-system, sans-serif; }
+        .key-num { font-size: 15px; font-weight: bold; fill: #c26d36; text-anchor: middle; font-family: 'JetBrains Mono', monospace; }
+        .black-text-sharp { font-size: 12px; font-weight: bold; fill: #ffffff; text-anchor: middle; font-family: -apple-system, sans-serif; }
+        .black-text-flat { font-size: 10px; fill: #d5cfc7; text-anchor: middle; font-family: -apple-system, sans-serif; }
+        .step-arc { fill: none; stroke: #7d756d; stroke-width: 1.5; }
+        .step-arc-half { fill: none; stroke: #c26d36; stroke-width: 2.2; }
+        .step-badge { font-size: 11px; font-weight: bold; fill: #7d756d; text-anchor: middle; font-family: -apple-system, sans-serif; }
+        .step-badge-half { font-size: 11px; font-weight: bold; fill: #c26d36; text-anchor: middle; font-family: -apple-system, sans-serif; }
+      </style>
+    </defs>
+    <path d="M 124 50 Q 159 34 194 50" class="step-arc" />
+    <text x="159" y="32" class="step-badge">全音 (2)</text>
+    <path d="M 194 50 Q 229 34 264 50" class="step-arc" />
+    <text x="229" y="32" class="step-badge">全音 (2)</text>
+    <path d="M 264 50 Q 299 26 334 50" class="step-arc-half" />
+    <rect x="274" y="14" width="50" height="18" rx="9" fill="#fdf2e9" stroke="#c26d36" stroke-width="1.2" class="step-rect-half" />
+    <text x="299" y="27" class="step-badge-half">半音 (1)</text>
+    <path d="M 334 50 Q 369 34 404 50" class="step-arc" />
+    <text x="369" y="32" class="step-badge">全音 (2)</text>
+    <path d="M 404 50 Q 439 34 474 50" class="step-arc" />
+    <text x="439" y="32" class="step-badge">全音 (2)</text>
+    <path d="M 474 50 Q 509 34 544 50" class="step-arc" />
+    <text x="509" y="32" class="step-badge">全音 (2)</text>
+    <path d="M 544 50 Q 579 26 614 50" class="step-arc-half" />
+    <rect x="554" y="14" width="50" height="18" rx="9" fill="#fdf2e9" stroke="#c26d36" stroke-width="1.2" class="step-rect-half" />
+    <text x="579" y="27" class="step-badge-half">半音 (1)</text>
+    <g transform="translate(90, 58)"><rect class="white-key" x="0" y="0" width="68" height="175" /><text class="key-pitch" x="34" y="125">C</text><text class="key-solfege" x="34" y="145">Do</text><text class="key-num" x="34" y="165">1</text></g>
+    <g transform="translate(160, 58)"><rect class="white-key" x="0" y="0" width="68" height="175" /><text class="key-pitch" x="34" y="125">D</text><text class="key-solfege" x="34" y="145">Re</text><text class="key-num" x="34" y="165">2</text></g>
+    <g transform="translate(230, 58)"><rect class="white-key" x="0" y="0" width="68" height="175" /><text class="key-pitch" x="34" y="125">E</text><text class="key-solfege" x="34" y="145">Mi</text><text class="key-num" x="34" y="165">3</text></g>
+    <g transform="translate(300, 58)"><rect class="white-key" x="0" y="0" width="68" height="175" /><text class="key-pitch" x="34" y="125">F</text><text class="key-solfege" x="34" y="145">Fa</text><text class="key-num" x="34" y="165">4</text></g>
+    <g transform="translate(370, 58)"><rect class="white-key" x="0" y="0" width="68" height="175" /><text class="key-pitch" x="34" y="125">G</text><text class="key-solfege" x="34" y="145">Sol</text><text class="key-num" x="34" y="165">5</text></g>
+    <g transform="translate(440, 58)"><rect class="white-key" x="0" y="0" width="68" height="175" /><text class="key-pitch" x="34" y="125">A</text><text class="key-solfege" x="34" y="145">La</text><text class="key-num" x="34" y="165">6</text></g>
+    <g transform="translate(510, 58)"><rect class="white-key" x="0" y="0" width="68" height="175" /><text class="key-pitch" x="34" y="125">B</text><text class="key-solfege" x="34" y="145">Ti</text><text class="key-num" x="34" y="165">7</text></g>
+    <g transform="translate(580, 58)"><rect class="white-key" x="0" y="0" width="68" height="175" /><text class="key-pitch" x="34" y="125">C</text><text class="key-solfege" x="34" y="145">Do</text><text class="key-num" x="34" y="165">1̇</text></g>
+    <g transform="translate(139, 58)"><rect class="black-key" x="0" y="0" width="42" height="106" /><text class="black-text-sharp" x="21" y="60">C♯</text><text class="black-text-flat" x="21" y="76">D♭</text></g>
+    <g transform="translate(209, 58)"><rect class="black-key" x="0" y="0" width="42" height="106" /><text class="black-text-sharp" x="21" y="60">D♯</text><text class="black-text-flat" x="21" y="76">E♭</text></g>
+    <g transform="translate(349, 58)"><rect class="black-key" x="0" y="0" width="42" height="106" /><text class="black-text-sharp" x="21" y="60">F♯</text><text class="black-text-flat" x="21" y="76">G♭</text></g>
+    <g transform="translate(419, 58)"><rect class="black-key" x="0" y="0" width="42" height="106" /><text class="black-text-sharp" x="21" y="60">G♯</text><text class="black-text-flat" x="21" y="76">A♭</text></g>
+    <g transform="translate(489, 58)"><rect class="black-key" x="0" y="0" width="42" height="106" /><text class="black-text-sharp" x="21" y="60">A♯</text><text class="black-text-flat" x="21" y="76">B♭</text></g>
+  </svg>
+</div>
+
+- **黑鍵「二三規律」與半音秘密**：
+  - 鋼琴黑鍵呈現「兩顆一組、三顆一組」交替排布。
+  - 請特別觀察兩處**完全沒有黑鍵**的縫隙：**E 與 F** 以及 **B 與 C**！
+  - **半音（Half step，1 格）**：鍵盤上緊挨著的相鄰兩鍵（距離最小）。因為沒有黑鍵相隔，$E$ 到 $F$、$B$ 到 $C$ 是天然的**半音**！
+  - **全音（Whole step，2 格）**：相距 2 個半音（中間夾了一顆鍵）。例如 $C$ 到 $D$ 中間夾了 $C^\\sharp$，所以 $C$ 到 $D$ 是**全音**。
+  - **口訣記憶**：**「只有 Mi-Fa 與 Ti-Do 是半音，其他相鄰白鍵都是全音！」**
+
+---
+
+**三、 簡譜記法（Numbered Musical Notation）**
+在後續單元中，我們要將旋律輸入 Desmos 陣列演奏。看懂大眾簡譜能讓你隨時把喜歡的歌變成代碼：
+1. **音符數字**：
+   - $1 = \\text{Do}, \\; 2 = \\text{Re}, \\; 3 = \\text{Mi}, \\; 4 = \\text{Fa}, \\; 5 = \\text{Sol}, \\; 6 = \\text{La}, \\; 7 = \\text{Ti}$
+2. **休止符（靜音）**：
+   - 數字 **0** 代表安靜休息、不發聲（在 Desmos 列表中也是靜音預留位）。
+3. **音高標記（高音點與低音點）**：
+   - 數字上方加一點 $\\dot{1}$：代表高八度（高音 Do）。
+   - 數字下方加一點 $\\text{低音點}$：代表低八度。
+4. **拍子節奏線（時值）**：
+   - **無附加線**（如 $1$）：四分音符（標準 $1$ 拍）。
+   - **增時線（右邊加橫線）**：如 $1 -$ 代表延長一拍（共 $2$ 拍）；$1 - - -$ 代表長音共 $4$ 拍。
+   - **減時線（底下一條橫線）**：如 $\\underline{1}$ 代表音長減半（$0.5$ 拍，八分音符）；$\\underline{1 \\; 2}$ 兩個音合起來剛好走完 $1$ 拍。
+      `,
+      tasks: [
+        "【鍵盤全半音尋寶】：觀察上方鍵盤圖解，找出兩處沒有黑鍵的縫隙（E-F 與 B-C），親眼確認它們只有 1 個半音的最小間距。",
+        "【簡譜與音名快問快答】：隨意指認簡譜數字 1 到 7，在腦海中快速反射出對應的音名字母（C, D, E, F, G, A, B）。",
+        "【小星星簡譜翻譯任務】：閱讀隨堂學習單中的《小星星》簡譜，將數字翻譯為音名陣列，並理解增時線「-」的拍子意涵。"
+      ],
+      formula: `// 1. C 大調簡譜、音名與唱名對照表
+// 簡譜 1 = C (Do)
+// 簡譜 2 = D (Re)
+// 簡譜 3 = E (Mi)
+// 簡譜 4 = F (Fa)  <-- 注意：E 到 F 無黑鍵，只有 1 個半音！
+// 簡譜 5 = G (Sol)
+// 簡譜 6 = A (La)
+// 簡譜 7 = B (Ti)  <-- 注意：B 到 C 無黑鍵，只有 1 個半音！
+
+// 2. 簡譜轉 Desmos 樂曲陣列範例：《小星星》前段
+// 簡譜：1 1 5 5 | 6 6 5 -
+// 陣列：[C, C, G, G, A, A, G, G]  // 延長音以兩拍表現`,
+      tips: `
+- **半音口訣**：只有 **E-F (Mi-Fa)** 與 **B-C (Ti-Do)** 中間沒有黑鍵，相距 1 個半音；其餘白鍵相鄰都相距 2 個半音（全音）。
+- **簡譜休止符**：數字 0 代表停頓留白，能讓旋律更有節奏呼吸感。
+      `,
+      worksheet: {
+        title: "隨堂學習單：樂理基礎、琴鍵全半音與簡譜識譜",
+        questions: [
+          {
+            id: "q1_pitch_solfege",
+            title: "音名與唱名直覺對照",
+            type: "radio",
+            prompt: "在標準 C 大調中，簡譜數字 5 對應的「唱名」與「音名」分別是甚麼？",
+            options: [
+              "唱名為 Sol，音名為 G",
+              "唱名為 Fa，音名為 F",
+              "唱名為 La，音名為 A",
+              "唱名為 Re，音名為 D"
+            ],
+            solution: "在標準 C 大調中，簡譜 1 對應 C (Do)，依序推算：1=C(Do)、2=D(Re)、3=E(Mi)、4=F(Fa)、5=G(Sol)、6=A(La)、7=B(Ti)。因此數字 5 對應的唱名為 Sol，音名為 G！",
+            formatAnswer: (ans) => `音名與唱名直覺對照：\n• 學生選擇：${ans}\n• 解析：在 C 大調中，5 代表 Sol，對應鍵盤上的音名字母 G。音名代表固定不變的物理絕對音高，唱名代表歌唱時聽感上的音級階梯。`
+          },
+          {
+            id: "q2_half_whole_step",
+            title: "鍵盤全音與半音數格子",
+            type: "radio",
+            prompt: "觀察鋼琴鍵盤上相鄰鍵的距離（一個半音 = 前進 1 格；一個全音 = 包含 2 個半音 = 前進 2 格）：\n從白鍵 C 走到白鍵 E 總共跨越了幾個半音？從白鍵 E 走到白鍵 F 又是幾個半音？",
+            options: [
+              "C 到 E 跨越 4 個半音（2 個全音）；E 到 F 跨越 1 個半音",
+              "C 到 E 跨越 2 個半音；E 到 F 跨越 2 個半音",
+              "C 到 E 跨越 3 個半音；E 到 F 跨越 1 個半音",
+              "C 到 E 跨越 4 個半音；E 到 F 跨越 2 個半音"
+            ],
+            solution: "1. 從 C 到 E：中間經過 C#、D、D# 到達 E，每步 1 格，共跨越 4 格（4 個半音 = 2 個全音）。\n2. 從 E 到 F：因為兩者之間「完全沒有黑鍵」，相鄰緊挨著，因此只跨越 1 格（1 個半音）！",
+            formatAnswer: (ans) => `鍵盤全音與半音距離計算：\n• 學生選擇：${ans}\n• 解析：C 到 E 經過 4 格（4 個半音，音樂上稱為大三度）；而 E 到 F 因無黑鍵相隔，距離僅為 1 個半音。`
+          },
+          {
+            id: "q3_score_translation",
+            title: "簡譜旋律轉譯實戰（《小星星》旋律解碼）",
+            type: "textarea",
+            prompt: "請閱讀以下《小星星》經典樂句簡譜：\n`1 1 5 5 | 6 6 5 - | 4 4 3 3 | 2 2 1 -`\n請寫出：\n1. 將這段簡譜翻譯成「音名字母（C, D, E...）」序列。\n2. 在簡譜中，後面的橫線（如 `5 -` 與 `1 -`）代表什麼意思？如果要在 Desmos 中演奏，你會怎麼安排拍子長度？",
+            placeholder: "例如：1. 音名字母為 C C G G | A A G - | F F E E | D D C -。\n2. 橫線代表增時線，將音符延長為兩拍...",
+            solution: "1. 音名序列為：C C G G | A A G - | F F E E | D D C -\n2. 數字後面的橫線 `1 -` 是增時線，代表該音延長一拍（總長度為 2 拍）。在 Desmos 中，可將其視為連續播放 2 個相同的音符（如 `[G, G]`），或延長播放時間以表現長音！",
+            formatAnswer: (ans) => `簡譜旋律解碼與演奏思考：\n${ans}\n\n（核心解析：簡譜 1 到 7 對應音名 C, D, E, F, G, A, B；增時線使音長翻倍為 2 拍。掌握簡譜識譜後，任何人都能將市面上的大眾簡譜輕鬆轉化為 Desmos 樂曲陣列！）`
+          }
+        ]
+      }
+    },
+
+    "2-5": {
+      id: "2-5",
+      moduleId: "module-2",
+      moduleName: "二、音程與律學",
       title: "十二平均律與全學期公版發聲基準",
       status: "ready",
       desmosUrl: "https://www.desmos.com/calculator/4actxqj5mj",
@@ -584,10 +753,14 @@ $$
   - $F_4 = f(-4) \\approx 349.23\\text{Hz}$
   - $G_4 = f(-2) \\approx 392.00\\text{Hz}$
 
-**二、 鋼琴黑鍵「2-3 規律」與無黑鍵縫隙**：
-- 鋼琴上的黑鍵呈現「兩顆一組、三顆一組」交替排布。
-- 在兩組黑鍵之間出現的兩處「沒有黑鍵的斷崖縫隙」，就是 **E 與 F** 以及 **B 與 C**！
-- 因為沒有黑鍵相隔，它們是天生的近鄰，距離只有 **$1$ 個半音**；其他相鄰白鍵之間都有黑鍵夾住，距離為 **$2$ 個半音（全音）**。
+**二、 結合上一單元鍵盤坐標：為什麼中央 C 的半音位移是 $f(-9)$？**：
+在上一單元我們學到「E-F 與 B-C 只有 1 個半音，其餘相鄰白鍵相差 2 個半音」。
+現在以國際標準音 $A_4 = 440\\text{Hz} = f(0)$ 為原點：
+- **向下數半音**：$A(0) \\xrightarrow{-1} G^\\sharp(-1) \\xrightarrow{-1} G(-2) \\xrightarrow{-1} F^\\sharp(-3) \\xrightarrow{-1} F(-4)$
+- 因為 $E$ 到 $F$ 只有 1 個半音，所以 $E$ 位於 $f(-5)$！
+- 繼續向下：$E(-5) \\xrightarrow{-1} D^\\sharp(-6) \\xrightarrow{-1} D(-7) \\xrightarrow{-1} C^\\sharp(-8)$
+- 因為 $C$ 到 $D$ 相差 2 個半音（全音），所以中央 C 就是 $C_4 = f(-9) \\approx 261.63\\text{Hz}$！
+- **向上數半音**：$A(0) \\xrightarrow{+1} A^\\sharp(1) \\xrightarrow{+1} B(2)$；因為 $B$ 到 $C$ 只有 1 個半音，所以高音 C 為 $C_5 = f(3)$！
 
 **三、 妥協的代價與換來的自由**：
 - **八度完全閉環**：$f(x+12) = 440 \\cdot 2^{(x+12)/12} = f(x) \\cdot 2$，誤差恆為 $0$。
@@ -682,7 +855,7 @@ $$\\operatorname{tone}(L[t]), \\quad t = 0$$
 - **時間軸滑桿 $t$**：設定步長為 1，從 0 開始逐拍讀取陣列元素播放（$t=0$ 讀取為靜音預備拍）。
       `,
       tasks: [
-        "【音名變數確認】：在 Desmos 確認 2-4 的公版音名（C, D, E, F, G, A, B）已完成定義。",
+        "【音名變數確認】：在 Desmos 確認 2-5 的公版音名（C, D, E, F, G, A, B）已完成定義。",
         "【小星星全曲組裝】：輸入 42 元素的音名列表 L，在小節停頓處填入 0 作為休止符。",
         "【時間軸循序播放】：設定 t=0 按下播放鍵，聆聽自己在 Desmos 中親手演奏的第一首完整世界名曲！"
       ],

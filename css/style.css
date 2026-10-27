@@ -1480,6 +1480,82 @@ body.dark-mode .scale-svg text.badge-text-start {
 }
 
 /* ==========================================================================
+   鋼琴鍵盤與樂理圖解 (Piano Keyboard & Music Theory SVG Card)
+   ========================================================================== */
+.piano-card {
+  margin: 1.25rem 0 1.5rem 0;
+  background: #fcfbf9;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.2rem 0.75rem 0.85rem 0.75rem;
+  overflow-x: auto;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  justify-content: center;
+}
+
+body.dark-mode .piano-card {
+  background: #201e1b;
+  border-color: #38342e;
+}
+
+.piano-svg {
+  width: 100%;
+  max-width: 760px;
+  min-width: 620px;
+  height: auto;
+  display: block;
+}
+
+body.dark-mode .piano-svg .white-key {
+  fill: #2c2825;
+  stroke: #4a443d;
+}
+
+body.dark-mode .piano-svg .black-key {
+  fill: #161513;
+  stroke: #332f2a;
+}
+
+body.dark-mode .piano-svg .key-pitch {
+  fill: #e8e6e3;
+}
+
+body.dark-mode .piano-svg .key-solfege {
+  fill: #8cb89c;
+}
+
+body.dark-mode .piano-svg .key-num {
+  fill: #e07a3c;
+}
+
+body.dark-mode .piano-svg .black-text-sharp {
+  fill: #ffffff;
+}
+
+body.dark-mode .piano-svg .black-text-flat {
+  fill: #aba398;
+}
+
+body.dark-mode .piano-svg .step-arc {
+  stroke: #aba398;
+}
+
+body.dark-mode .piano-svg .step-badge {
+  fill: #aba398;
+}
+
+body.dark-mode .piano-svg rect.step-rect-half {
+  fill: #3d2a1d;
+  stroke: #e07a3c;
+}
+
+body.dark-mode .piano-svg .step-badge-half {
+  fill: #e07a3c;
+}
+
+
+/* ==========================================================================
    隨堂線上互動學習單 (Interactive In-Page Worksheet)
    ========================================================================== */
 
