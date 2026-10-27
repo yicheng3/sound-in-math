@@ -509,7 +509,7 @@ $$
 
 這 12 個由小到大排隊的音，對應到音樂上就是我們熟悉的十二個半音階梯：
 $$
-\\text{Do} \\to \\text{升Do} \\to \\text{Re} \\to \\text{升Re} \\to \\text{Mi} \\to \\text{Fa} \\to \\text{升Fa} \\to \\text{Sol} \\to \\text{升Sol} \\to \\text{La} \\to \\text{升La} \\to \\text{Ti} \\to \\text{高音Do}
+\\text{Do} \\to \\text{升Do} \\to \\text{Re} \\to \\text{升Re} \\to \\text{Mi} \\to \\text{Fa} \\to \\text{升Fa} \\to \\text{Sol} \\to \\text{升Sol} \\to \\text{La} \\to \\text{升La} \\to \\text{Si/Ti} \\to \\text{高音Do}
 $$
 
 <div class="scale-table-wrap">
@@ -544,7 +544,7 @@ $$
         <td>升Sol</td>
         <td>La</td>
         <td>升La</td>
-        <td>Ti</td>
+        <td>Si / Ti</td>
         <td>高音Do</td>
       </tr>
     </tbody>
@@ -737,10 +737,10 @@ C_5 = f(3)  // C5 (B-C 無黑鍵，只差 1 半音)
 - **音名（Pitch Names）**：$C, D, E, F, G, A, B$
   - 代表物理上**固定不變的絕對音高**（例如國際標準音 $A = 440\\text{Hz}$、中央 $C \\approx 261.6\\text{Hz}$）。
   - 無論唱哪一首歌、換到什麼調，音名的頻率永遠不會改變，就像每個人的身分證字號。
-- **唱名（Solfège）**：$\\text{Do, Re, Mi, Fa, Sol, La, Ti}$
+- **唱名（Solfège）**：$\\text{Do, Re, Mi, Fa, Sol, La, Si/Ti}$（台灣習慣稱 Si，英美教材常標 Ti）
   - 代表**嘴巴唱出來的發音**與耳朵聽到的相對高低關係。
   - 在最基礎的 C 大調中：
-    $$C \\to \\text{Do}, \\quad D \\to \\text{Re}, \\quad E \\to \\text{Mi}, \\quad F \\to \\text{Fa}, \\quad G \\to \\text{Sol}, \\quad A \\to \\text{La}, \\quad B \\to \\text{Ti}$$
+    $$C \\to \\text{Do}, \\quad D \\to \\text{Re}, \\quad E \\to \\text{Mi}, \\quad F \\to \\text{Fa}, \\quad G \\to \\text{Sol}, \\quad A \\to \\text{La}, \\quad B \\to \\text{Si/Ti}$$
 
 ---
 
@@ -788,7 +788,7 @@ C_5 = f(3)  // C5 (B-C 無黑鍵，只差 1 半音)
     <g transform="translate(300, 58)"><rect class="white-key" x="0" y="0" width="68" height="175" /><text class="key-pitch" x="34" y="125">F</text><text class="key-solfege" x="34" y="145">Fa</text><text class="key-num" x="34" y="165">4</text></g>
     <g transform="translate(370, 58)"><rect class="white-key" x="0" y="0" width="68" height="175" /><text class="key-pitch" x="34" y="125">G</text><text class="key-solfege" x="34" y="145">Sol</text><text class="key-num" x="34" y="165">5</text></g>
     <g transform="translate(440, 58)"><rect class="white-key" x="0" y="0" width="68" height="175" /><text class="key-pitch" x="34" y="125">A</text><text class="key-solfege" x="34" y="145">La</text><text class="key-num" x="34" y="165">6</text></g>
-    <g transform="translate(510, 58)"><rect class="white-key" x="0" y="0" width="68" height="175" /><text class="key-pitch" x="34" y="125">B</text><text class="key-solfege" x="34" y="145">Ti</text><text class="key-num" x="34" y="165">7</text></g>
+    <g transform="translate(510, 58)"><rect class="white-key" x="0" y="0" width="68" height="175" /><text class="key-pitch" x="34" y="125">B</text><text class="key-solfege" x="34" y="145">Si/Ti</text><text class="key-num" x="34" y="165">7</text></g>
     <g transform="translate(580, 58)"><rect class="white-key" x="0" y="0" width="68" height="175" /><text class="key-pitch" x="34" y="125">C</text><text class="key-solfege" x="34" y="145">Do</text><text class="key-num" x="34" y="165">1̇</text></g>
     <g transform="translate(139, 58)"><rect class="black-key" x="0" y="0" width="42" height="106" /><text class="black-text-sharp" x="21" y="60">C♯</text><text class="black-text-flat" x="21" y="76">D♭</text></g>
     <g transform="translate(209, 58)"><rect class="black-key" x="0" y="0" width="42" height="106" /><text class="black-text-sharp" x="21" y="60">D♯</text><text class="black-text-flat" x="21" y="76">E♭</text></g>
@@ -803,7 +803,7 @@ C_5 = f(3)  // C5 (B-C 無黑鍵，只差 1 半音)
   - 請特別觀察兩處**完全沒有黑鍵**的縫隙：**E 與 F** 以及 **B 與 C**！
   - **半音（Half step，1 格）**：鍵盤上緊挨著的相鄰兩鍵（距離最小）。因為沒有黑鍵相隔，$E$ 到 $F$、$B$ 到 $C$ 是天然的**半音**！
   - **全音（Whole step，2 格）**：相距 2 個半音（中間夾了一顆鍵）。例如 $C$ 到 $D$ 中間夾了 $C^\\sharp$，所以 $C$ 到 $D$ 是**全音**。
-  - **口訣記憶**：**「只有 Mi-Fa 與 Ti-Do 是半音，其他相鄰白鍵都是全音！」**
+  - **口訣記憶**：**「只有 Mi-Fa 與 Si-Do（Ti-Do）是半音，其他相鄰白鍵都是全音！」**
 
 ---
 
@@ -816,10 +816,10 @@ C_5 = f(3)  // C5 (B-C 無黑鍵，只差 1 半音)
 > **標準工作流：看懂網路簡譜（1 1 5 5） $\\to$ 查表翻譯成音名（C C G G） $\\to$ 寫入 Desmos 陣列播放！**
 
 1. **音符數字**：
-   - $1 = \\text{Do}, \\; 2 = \\text{Re}, \\; 3 = \\text{Mi}, \\; 4 = \\text{Fa}, \\; 5 = \\text{Sol}, \\; 6 = \\text{La}, \\; 7 = \\text{Ti}$
+   - $1 = \\text{Do}, \\; 2 = \\text{Re}, \\; 3 = \\text{Mi}, \\; 4 = \\text{Fa}, \\; 5 = \\text{Sol}, \\; 6 = \\text{La}, \\; 7 = \\text{Si/Ti}$
 2. **升降記號（標於數字的【左上角】）**：
    - **升號（$\\sharp$）**：寫在數字左上角，例如 $^{\\sharp}1$（升 Do）、$^{\\sharp}5$（升 Sol），代表升高半音。
-   - **降號（$\\flat$）**：寫在數字左上角，例如 $^{\\flat}7$（降 Ti）、$^{\\flat}3$（降 Mi），代表降低半音。
+   - **降號（$\\flat$）**：寫在數字左上角，例如 $^{\\flat}7$（降 Si/Ti）、$^{\\flat}3$（降 Mi），代表降低半音。
    - *(為什麼在左上角？因為眼睛由左往右讀譜，先看到左上角的記號，手指才來得及提前反應！但在寫英文音名時習慣放右邊，如 $C^\\sharp$、$B^\\flat$)*
 3. **休止符（靜音）**：
    - 數字 **0** 代表安靜休息、不發聲（在 Desmos 音名列表中對應靜音數字 0）。
@@ -843,14 +843,14 @@ C_5 = f(3)  // C5 (B-C 無黑鍵，只差 1 半音)
 // 簡譜 4 = F (Fa)  <-- 注意：E 到 F 無黑鍵，只有 1 個半音！
 // 簡譜 5 = G (Sol)
 // 簡譜 6 = A (La)
-// 簡譜 7 = B (Ti)  <-- 注意：B 到 C 無黑鍵，只有 1 個半音！
+// 簡譜 7 = B (Si / Ti)  <-- 注意：B 到 C 無黑鍵，只有 1 個半音！
 
 // 2. 簡譜轉音名陣列示範：《小星星》前段
 // 網路找到的簡譜：1 1 5 5 | 6 6 5 -
 // 翻譯後的音名陣列：[C, C, G, G, A, A, G, G]  // 寫入 Desmos 的是音名代碼，切勿直接輸入 [1, 1, 5, 5]！`,
       tips: `
 - **簡譜不等於代碼**：簡譜數字 1~7 只是看譜工具。Desmos 的 tone() 函數只認音名變數（C, D, E...）或頻率數字，千萬別把簡譜 1, 2, 3 直接當成頻率輸入！
-- **半音口訣**：只有 **E-F (Mi-Fa)** 與 **B-C (Ti-Do)** 中間沒有黑鍵，相距 1 個半音；其餘白鍵相鄰都相距 2 個半音（全音）。
+- **半音口訣**：只有 **E-F (Mi-Fa)** 與 **B-C (Si-Do / Ti-Do)** 中間沒有黑鍵，相距 1 個半音；其餘白鍵相鄰都相距 2 個半音（全音）。
 - **簡譜休止符**：數字 0 代表停頓留白，能讓旋律更有節奏呼吸感。
       `,
       worksheet: {
@@ -867,7 +867,7 @@ C_5 = f(3)  // C5 (B-C 無黑鍵，只差 1 半音)
               "唱名為 La，音名為 A",
               "唱名為 Re，音名為 D"
             ],
-            solution: "在標準 C 大調中，簡譜 1 對應 C (Do)，依序推算：1=C(Do)、2=D(Re)、3=E(Mi)、4=F(Fa)、5=G(Sol)、6=A(La)、7=B(Ti)。因此數字 5 對應的唱名為 Sol，音名為 G！",
+            solution: "在標準 C 大調中，簡譜 1 對應 C (Do)，依序推算：1=C(Do)、2=D(Re)、3=E(Mi)、4=F(Fa)、5=G(Sol)、6=A(La)、7=B(Si/Ti)。因此數字 5 對應的唱名為 Sol，音名為 G！",
             formatAnswer: (ans) => `音名與唱名直覺對照：\n• 學生選擇：${ans}\n• 解析：在 C 大調中，5 代表 Sol，對應鍵盤上的音名字母 G。音名代表固定不變的物理絕對音高，唱名代表歌唱時聽感上的音級階梯。`
           },
           {
