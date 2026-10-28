@@ -1063,7 +1063,7 @@ $$S = [0, 0, 7, 7, 9, 9, 7, 0, 5, 5, 4, 4, 2, 2, 0, 0, \\dots]$$
       conceptTitle: "週期函數與構造斷音",
       modelTitle: "如何構造斷音",
       status: "ready",
-      desmosUrl: "https://www.desmos.com/calculator/kfunfzw43y",
+      desmosUrl: "https://www.desmos.com/calculator/l8nygbjy8e",
       motivation: `
 延續 3-1 小星星第一版本的同音黏連問題：如果我們想讓每個音的前 $\\dfrac{1}{6}$（約 $0.167$ 拍的時間）斷音留白、後 $\\dfrac{5}{6}$ 正常發聲，該怎麼做？
 
@@ -1151,7 +1151,7 @@ $$y = \\left\\{x - \\operatorname{floor}(x) \\le 0.2: 0, \\; x - \\operatorname{
 
 **五、 第五步：延伸思考與反三角函數簡介**：
 1. **其他週期函數的可能**：
-   除了 $x - [x]$ 之外，數學上還有許多週期函數（例如正切函數 $\\tan(\\pi x)$ 等），也可以透過適當的分類條件達成重複開關的效果。
+   除了 $x - [x]$ 之外，數學上還有許多週期函數。例如右上角範本中第二個資料夾【tan圖形】，展示了利用正切函數 $y = \\tan\\left(\\pi x - \\frac{\\pi}{2}\\right)$ 與水平門檻線 $y = -1$ 進行分類討論，同樣也能達成週期開關的效果！
 2. **簡要補充：如何用正弦波精確改斷音時間？（反三角函數對應關係）**：
    如果想要使用正弦波來調整任意斷音時間，就需要用到**反三角函數**（如 $\\arcsin$）：
    - **一般三角函數**：輸入「角度」 $\\to$ 輸出「函數值」（例如 $\\sin(30^\\circ) = 0.5$）。
@@ -1168,13 +1168,13 @@ $$y = \\left\\{x - \\operatorname{floor}(x) \\le 0.2: 0, \\; x - \\operatorname{
 3. **樂譜發聲結合**：在 Desmos 發聲函式中加入開關變數 $\\operatorname{tone}(L[t], q)$。當滑桿 $t$ 播放時，每個音符在開頭 $0.2$ 拍自動靜音，解決同音黏連問題。
       `,
       tasks: [
-        "1. 開啟右上角 Desmos 範本 (kfunfzw43y)：觀察 y = sin(2*pi*x + pi/3) 與 y = sqrt(3)/2 的交點，標記 (0, sqrt(3)/2) 與 (1, sqrt(3)/2)，確認週期為 1。",
+        "1. 開啟右上角 Desmos 範本 (l8nygbjy8e)：觀察 y = sin(2*pi*x + pi/3) 與 y = sqrt(3)/2 的交點，標記 (0, sqrt(3)/2) 與 (1, sqrt(3)/2)，確認週期為 1。",
         "2. 觀察分類討論開關：檢視 y = {sin(2*pi*x + pi/3) >= sqrt(3)/2: 0, sin(2*pi*x + pi/3) < sqrt(3)/2: 1} 如何將高於門檻的區域切為 0（靜音），其餘區域切為 1（發聲）。",
         "3. 繪製高斯鋸齒波：輸入 y = x - floor(x)，觀察其每拍從 0 均勻上升至 1 的直線特性。",
         "4. 設定斷音開關：輸入 q = {t - floor(t) <= 0.2: 0, 1}，並體會將 0.2 改為 0.15 或 0.3 時數值直接對應時間比例的便利性。",
         "5. 小星星第三版演奏：將 q 開關乘入發聲算式 tone(L[t], q)，滑桿 t 以 0.1x 播放，驗證前 0.2 拍自動斷音效果。"
       ],
-      formula: `// 1. 正弦波與水平門檻線 (Desmos 範本 kfunfzw43y)
+      formula: `// 1. 正弦波與水平門檻線 (Desmos 範本 l8nygbjy8e)
 y_1 = \\sin\\left(2\\pi x + \\frac{\\pi}{3}\\right)
 y_2 = \\frac{\\sqrt{3}}{2}
 y_3 = \\left\\{\\sin\\left(2\\pi x + \\frac{\\pi}{3}\\right) \\ge \\frac{\\sqrt{3}}{2}: 0, \\; \\sin\\left(2\\pi x + \\frac{\\pi}{3}\\right) < \\frac{\\sqrt{3}}{2}: 1\\right\\}
