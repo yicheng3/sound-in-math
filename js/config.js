@@ -1104,7 +1104,13 @@ $$y = \\begin{cases}
 $$y = \\left\\{\\sin\\left(2\\pi x + \\frac{\\pi}{3}\\right) \\ge \\frac{\\sqrt{3}}{2}: 0, \\; 1\\right\\}$$
 *(也可以完整寫出兩段條件：\`y = {sin(2*pi*x + pi/3) >= sqrt(3)/2: 0, sin(2*pi*x + pi/3) < sqrt(3)/2: 1}\`)*
 
-在 Desmos 畫面中，這條函數呈現週期性的方波：每拍開頭數值為 0（靜音），隨後升至 1（發聲），在每拍開頭切出一小段斷音留白。
+<div class="desmos-embed-container">
+  <iframe src="https://www.desmos.com/calculator/vwuarnrgok?embed" class="desmos-iframe" frameborder="0"></iframe>
+</div>
+
+**圖形線條與觀察重點**：
+- 🟢 **綠色方波**：分類討論開關。當紅色正弦波高於藍色門檻時，數值降為 $0$（靜音）；其餘時間為 $1$（發聲）。
+- 觀察畫面中在每拍開頭切出的 0 值區間，這就是每拍開頭自動留白六分之一拍的斷音效果！
 
 ---
 
