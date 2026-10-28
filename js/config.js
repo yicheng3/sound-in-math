@@ -1059,7 +1059,7 @@ $$S = [0, 0, 7, 7, 9, 9, 7, 0, 5, 5, 4, 4, 2, 2, 0, 0, \\dots]$$
       id: "4-1",
       moduleId: "module-4",
       moduleName: "四、節奏與動態",
-      title: "週期函數與構造斷音（正弦波 vs 高斯鋸齒波）",
+      title: "週期函數與構造斷音",
       conceptTitle: "週期函數與構造斷音",
       modelTitle: "如何構造斷音",
       status: "ready",
