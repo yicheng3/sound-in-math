@@ -68,35 +68,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   initTheme();
 
-  // 字體大小切換邏輯 (支援大字投影/舒適閱讀模式)
-  const btnFontToggle = document.getElementById('btn-font-toggle');
-  const fontIcon = document.getElementById('font-icon');
-
-  function initFontSize() {
-    const savedFontSize = localStorage.getItem('sound_math_font_size');
-    if (savedFontSize === 'large') {
-      document.body.classList.add('large-font');
-      if (fontIcon) fontIcon.textContent = 'A-';
-      if (btnFontToggle) btnFontToggle.title = '切換為標準字體大小';
-    } else {
-      document.body.classList.remove('large-font');
-      if (fontIcon) fontIcon.textContent = 'A+';
-      if (btnFontToggle) btnFontToggle.title = '切換為大字投影模式';
-    }
-  }
-
-  if (btnFontToggle) {
-    btnFontToggle.addEventListener('click', () => {
-      document.body.classList.toggle('large-font');
-      const isLarge = document.body.classList.contains('large-font');
-      localStorage.setItem('sound_math_font_size', isLarge ? 'large' : 'standard');
-      if (fontIcon) fontIcon.textContent = isLarge ? 'A-' : 'A+';
-      if (btnFontToggle) btnFontToggle.title = isLarge ? '切換為標準字體大小' : '切換為大字投影模式';
-      showToast(isLarge ? '已開啟大字投影模式 🔍' : '已恢復標準字體大小');
-    });
-  }
-
-  initFontSize();
+  // 全站預設大字模式（便於投影與舒適閱讀，無需手動切換開關）
+  document.body.classList.add('large-font');
 
   // 1. 初始化側邊欄選單
   function initSidebar() {

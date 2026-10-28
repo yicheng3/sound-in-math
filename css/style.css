@@ -169,32 +169,6 @@ body.dark-mode .navbar {
   gap: 0.65rem;
 }
 
-.btn-font-toggle {
-  background: var(--bg-card);
-  color: var(--text-muted);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-sm);
-  padding: 0.38rem 0.65rem;
-  font-size: 0.88rem;
-  font-weight: 700;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  transition: all 0.2s;
-  user-select: none;
-}
-
-.btn-font-toggle:hover {
-  color: var(--accent-sage);
-  border-color: var(--accent-sage);
-}
-
-body.large-font .btn-font-toggle {
-  background: rgba(69, 104, 84, 0.12);
-  color: var(--accent-sage);
-  border-color: var(--accent-sage);
-}
-
 .btn-theme-toggle {
   background: var(--bg-card);
   color: var(--text-muted);
@@ -213,37 +187,37 @@ body.large-font .btn-font-toggle {
   border-color: var(--border-focus);
 }
 
-/* 大字投影模式 (Large Font / Classroom Projection Mode) */
-body.large-font {
+/* 預設舒適大字模式 (全站預設大字體，利於清晰閱讀與課堂投影) */
+body, body.large-font {
   font-size: 1.08em;
 }
 
-body.large-font .card-body {
+.card-body, body.large-font .card-body {
   font-size: 1.18rem;
   line-height: 1.9;
 }
 
-body.large-font .card-title {
+.card-title, body.large-font .card-title {
   font-size: 1.28rem;
 }
 
-body.large-font .task-text {
+.task-text, body.large-font .task-text {
   font-size: 1.16rem;
 }
 
-body.large-font .ws-q-text {
+.ws-q-text, body.large-font .ws-q-text {
   font-size: 1.18rem;
 }
 
-body.large-font .card-body blockquote {
+.card-body blockquote, body.large-font .card-body blockquote {
   font-size: 1.12rem;
 }
 
-body.large-font .katex {
+.katex, body.large-font .katex {
   font-size: 1.28em;
 }
 
-body.large-font .katex-display > .katex {
+.katex-display > .katex, body.large-font .katex-display > .katex {
   font-size: 1.28em;
 }
 
@@ -1365,13 +1339,9 @@ body.dark-mode .nav-unit-title {
     gap: 0.45rem;
   }
 
-  /* 頂部導航列 Desmos 按鈕在手機版收合文字，僅保留 🎛️ 圖示，避免擠壓導航列 */
-  .btn-nav-desmos .nav-desmos-text {
-    display: none;
-  }
-
   .btn-nav-desmos {
-    padding: 0.42rem 0.65rem;
+    padding: 0.38rem 0.6rem;
+    font-size: 0.82rem;
   }
 
   .btn-sidebar-close {
