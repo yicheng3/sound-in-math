@@ -1063,7 +1063,7 @@ $$S = [0, 0, 7, 7, 9, 9, 7, 0, 5, 5, 4, 4, 2, 2, 0, 0, \\dots]$$
       conceptTitle: "發聲函數的第二個參數",
       modelTitle: "動態音量與波形探索",
       status: "ready",
-      desmosUrl: "https://www.desmos.com/calculator",
+      desmosUrl: null,
       motivation: `
 在第三章中，我們學會了用陣列 $L[t]$ 排出樂譜，讓時間滑桿 $t$ 依序播放每一個音。
 但目前的音樂聽起來每一顆音都一樣大聲，有些單調平板。

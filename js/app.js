@@ -661,7 +661,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       desmosButtonsHtml = `
         <span class="btn-desmos-pending" title="教師專屬範本製作中">
-          ⏳ Desmos 範本製作中
+          Desmos 範本製作中
         </span>
       `;
     }
