@@ -672,20 +672,38 @@ document.addEventListener('DOMContentLoaded', () => {
     const hasDesmosUrl = Boolean(unit.desmosUrl && unit.desmosUrl.trim().length > 0);
     const desmosTarget = hasDesmosUrl ? unit.desmosUrl : "https://www.desmos.com/calculator";
 
+    // 支援單一 desmosUrl 或多個 desmosUrls 範本按鈕
+    let desmosButtonsHtml = '';
+    if (Array.isArray(unit.desmosUrls) && unit.desmosUrls.length > 0) {
+      desmosButtonsHtml = `
+        <div class="banner-desmos-group">
+          ${unit.desmosUrls.map(item => {
+            const url = typeof item === 'string' ? item : item.url;
+            const label = typeof item === 'object' && item.title ? item.title : '開啟 Desmos 範本 ↗';
+            return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="btn-banner-desmos" title="${label}">${label}</a>`;
+          }).join('')}
+        </div>
+      `;
+    } else if (hasDesmosUrl) {
+      desmosButtonsHtml = `
+        <a href="${desmosTarget}" target="_blank" rel="noopener noreferrer" class="btn-banner-desmos" title="另開分頁開啟此單元 Desmos 互動教材">
+          開啟 Desmos 範本 ↗
+        </a>
+      `;
+    } else {
+      desmosButtonsHtml = `
+        <span class="btn-desmos-pending" title="教師專屬範本製作中">
+          ⏳ Desmos 範本製作中
+        </span>
+      `;
+    }
+
     let html = `
       <!-- 單元頂部橫幅 -->
       <section class="unit-banner">
         <div class="banner-top-meta">
           <span class="banner-module-tag">${unit.moduleName}</span>
-          ${hasDesmosUrl ? `
-            <a href="${desmosTarget}" target="_blank" rel="noopener noreferrer" class="btn-banner-desmos" title="另開分頁開啟此單元 Desmos 互動教材">
-              開啟 Desmos 範本 ↗
-            </a>
-          ` : `
-            <span class="btn-desmos-pending" title="教師專屬範本製作中">
-              ⏳ Desmos 範本製作中
-            </span>
-          `}
+          ${desmosButtonsHtml}
         </div>
         <div class="banner-title-group">
           <span class="banner-unit-id">${unit.id}</span>

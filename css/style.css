@@ -630,6 +630,13 @@ body.dark-mode .unit-banner {
   gap: 0.5rem;
 }
 
+.banner-desmos-group {
+  display: inline-flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
 .banner-module-tag {
   font-size: 0.8rem;
   font-weight: 600;
