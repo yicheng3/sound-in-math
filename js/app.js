@@ -80,7 +80,6 @@ document.addEventListener('DOMContentLoaded', () => {
     homeEl.className = `sidebar-home-item ${currentUnitId === 'home' ? 'active' : ''}`;
     homeEl.id = 'nav-item-home';
     homeEl.innerHTML = `
-      <span class="sidebar-home-icon">🏠</span>
       <span class="sidebar-home-text">課程首頁與使用導引</span>
     `;
     homeEl.addEventListener('click', () => {
@@ -370,7 +369,7 @@ document.addEventListener('DOMContentLoaded', () => {
           ${inputFieldHtml}
           ${q.solution ? `
             <details class="ws-solution-details">
-              <summary class="ws-solution-summary">💡 查看參考解析</summary>
+              <summary class="ws-solution-summary">查看參考解析</summary>
               <div class="ws-solution-content">${parseMarkdown(q.solution)}</div>
             </details>
           ` : ''}
@@ -382,12 +381,11 @@ document.addEventListener('DOMContentLoaded', () => {
       <section class="teaching-card worksheet-card" id="worksheet-${unit.id}">
         <div class="card-header worksheet-header">
           <div class="worksheet-title-group">
-            <span class="card-icon">📝</span>
             <h2 class="card-title">${escapeHtml(ws.title || '課堂隨堂互動學習單')}</h2>
             <span class="badge ws-badge">隨堂線上即時填答</span>
           </div>
           <div class="ws-save-status" id="ws-save-status-${unit.id}">
-            <span class="save-icon">💾</span> <span class="save-text">已自動存檔於本機</span>
+            <span class="save-text">已自動存檔於本機</span>
           </div>
         </div>
 
@@ -400,10 +398,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <!-- 個人 Desmos 實驗存檔連結 (僅在指定需要繳交存檔的單元顯示) -->
           ${ws.requireDesmosLink ? `
             <div class="ws-desmos-share-box">
-              <div class="ws-desmos-share-title">
-                <span>🔗</span>
-                <span>個人 Desmos 實驗作品存檔連結</span>
-              </div>
+              <div class="ws-desmos-share-title">個人 Desmos 實驗作品存檔連結</div>
               <p class="ws-desmos-share-desc">
                 在右側 Desmos 點擊右上角「儲存（Save）」，並點擊分享按鈕複製作品短網址貼於此處：
               </p>
@@ -414,10 +409,10 @@ document.addEventListener('DOMContentLoaded', () => {
           <!-- 底部功能按鈕 -->
           <div class="ws-toolbar">
             <button type="button" class="btn-ws-copy" id="btn-ws-copy-${unit.id}">
-              <span>📋 一鍵複製完整作答報告（貼至 Google 表單或 Classroom 繳交）</span>
+              <span>一鍵複製完整作答報告（貼至 Google 表單或 Classroom 繳交）</span>
             </button>
             <button type="button" class="btn-ws-reset" id="btn-ws-reset-${unit.id}">
-              <span>🔄 清空本單元重填</span>
+              <span>清空本單元重填</span>
             </button>
           </div>
         </div>
@@ -688,7 +683,6 @@ document.addEventListener('DOMContentLoaded', () => {
       ${unit.motivation ? `
         <section class="teaching-card">
           <div class="card-header">
-            <span class="card-icon">📖</span>
             <h2 class="card-title">${unit.conceptTitle || '觀念說明'}</h2>
           </div>
           <div class="card-body">
@@ -701,7 +695,6 @@ document.addEventListener('DOMContentLoaded', () => {
       ${unit.mathModel ? `
         <section class="teaching-card">
           <div class="card-header">
-            <span class="card-icon">🎛️</span>
             <h2 class="card-title">${unit.modelTitle || '核心原理與數學模型'}</h2>
           </div>
           <div class="card-body">
@@ -714,7 +707,6 @@ document.addEventListener('DOMContentLoaded', () => {
       ${unit.mathConcept ? `
         <section class="teaching-card">
           <div class="card-header">
-            <span class="card-icon">📐</span>
             <h2 class="card-title">${unit.mathConceptTitle || '數學原理'}</h2>
           </div>
           <div class="card-body">
@@ -727,7 +719,6 @@ document.addEventListener('DOMContentLoaded', () => {
       ${unit.tasks && unit.tasks.length ? `
         <section class="teaching-card">
           <div class="card-header">
-            <span class="card-icon">🎯</span>
             <h2 class="card-title">課堂動手操作</h2>
           </div>
           <div class="card-body">
@@ -742,7 +733,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             ${unit.tips ? `
               <div class="teacher-tips-box">
-                <div class="tips-header">💡 課堂小提醒</div>
+                <div class="tips-header">課堂小提醒</div>
                 <div class="tips-body">${parseMarkdown(unit.tips)}</div>
               </div>
             ` : ''}
@@ -856,11 +847,11 @@ document.addEventListener('DOMContentLoaded', () => {
           </p>
           <div class="hero-cta-group">
             <a href="#1-1" class="btn-hero-start">
-              <span>🚀 開始第 1 單元：頻率與音高</span>
+              <span>開始第 1 單元：頻率與音高</span>
               <span class="hero-arrow">→</span>
             </a>
             <a href="#home-guide" class="btn-hero-guide" id="btn-scroll-guide">
-              <span>📖 查看上課方式與用法說明</span>
+              <span>查看上課方式與用法說明</span>
             </a>
           </div>
         </header>
@@ -868,7 +859,6 @@ document.addEventListener('DOMContentLoaded', () => {
         <!-- 關鍵提醒卡：為什麼一定要開啟 Desmos 範本？ -->
         <section class="home-alert-card" id="home-guide">
           <div class="alert-card-header">
-            <span class="alert-card-icon">💡</span>
             <h2 class="alert-card-title">上課小提醒：每單元右上角的【開啟 Desmos 範本 ↗】</h2>
           </div>
           <div class="alert-card-body">
@@ -901,35 +891,34 @@ document.addEventListener('DOMContentLoaded', () => {
         <!-- 雙重視窗操作指南 -->
         <section class="home-section">
           <div class="section-title-wrap">
-            <span class="section-icon">💻</span>
             <h2 class="section-title">建議上課方式：雙視窗操作</h2>
           </div>
           <div class="split-screen-card">
             <div class="split-screen-visual">
               <div class="split-pane pane-left">
-                <div class="pane-header">📄 左邊：講義與線上學習單 (50%)</div>
+                <div class="pane-header">左邊：講義與線上學習單 (50%)</div>
                 <div class="pane-body">
                   <ul>
-                    <li>📖 閱讀觀念說明與操作步驟</li>
-                    <li>🎯 跟著任務清單一步一步動手做</li>
-                    <li>📝 在頁尾填寫學習單並即時核對答案</li>
+                    <li>閱讀觀念說明與操作步驟</li>
+                    <li>跟著任務清單一步一步動手做</li>
+                    <li>在頁尾填寫學習單並即時核對答案</li>
                   </ul>
                 </div>
               </div>
               <div class="split-divider">⇋</div>
               <div class="split-pane pane-right">
-                <div class="pane-header">🎛️ 右邊：Desmos 圖形計算機 (50%)</div>
+                <div class="pane-header">右邊：Desmos 圖形計算機 (50%)</div>
                 <div class="pane-body">
                   <ul>
-                    <li>🎵 點開教材範本，按播放鍵聽旋律</li>
-                    <li>🎚️ 拖曳滑桿，看波形隨聲音跳動</li>
-                    <li>💾 完成後點右上角複製你的作品存檔網址</li>
+                    <li>點開教材範本，按播放鍵聽旋律</li>
+                    <li>拖曳滑桿，看波形隨聲音跳動</li>
+                    <li>完成後點右上角複製你的作品存檔網址</li>
                   </ul>
                 </div>
               </div>
             </div>
             <div class="split-screen-tips">
-              <strong>💡 手機或平板同學：</strong>
+              <strong>手機或平板同學：</strong>
               點擊「開啟 Desmos 範本 ↗」會在瀏覽器新分頁中開啟，隨時在講義與計算機兩個分頁切換查看即可；若手機支援分割畫面，也可以上下並排操作。
             </div>
           </div>
@@ -938,22 +927,18 @@ document.addEventListener('DOMContentLoaded', () => {
         <!-- 平台功能說明 -->
         <section class="home-section">
           <div class="section-title-wrap">
-            <span class="section-icon">🛠️</span>
             <h2 class="section-title">講義功能說明</h2>
           </div>
           <div class="features-grid">
             <div class="feature-card">
-              <div class="feature-icon">🎯</div>
               <h3 class="feature-title">課堂任務打勾清單</h3>
               <p class="feature-desc">每個單元有 3~4 個具體步驟，完成一項就打勾一項，跟著做就不會迷路。</p>
             </div>
             <div class="feature-card">
-              <div class="feature-icon">📝</div>
               <h3 class="feature-title">線上學習單與即時核對</h3>
               <p class="feature-desc">填完答案後可以按「核對答案」自我檢查；如果卡關，可以點開折疊框看解題步驟。</p>
             </div>
             <div class="feature-card">
-              <div class="feature-icon">💾</div>
               <h3 class="feature-title">作品存檔與一鍵複製繳交</h3>
               <p class="feature-desc">把你在 Desmos 的作品短網址貼進學習單，按下「一鍵複製學習單成果」，就能把完整作答直接貼到作業區繳交。</p>
             </div>
@@ -963,7 +948,6 @@ document.addEventListener('DOMContentLoaded', () => {
         <!-- 全課程章節藍圖 (7大模組總覽) -->
         <section class="home-section">
           <div class="section-title-wrap">
-            <span class="section-icon">🗺️</span>
             <h2 class="section-title">課程章節總覽</h2>
           </div>
           <div class="curriculum-grid">
@@ -975,7 +959,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <footer class="home-footer-cta">
           <div class="footer-cta-text">準備好讓數學發出聲音了嗎？</div>
           <a href="#1-1" class="btn-hero-start btn-footer-start">
-            <span>🚀 前往第 1 單元：頻率與音高 →</span>
+            <span>前往第 1 單元：頻率與音高 →</span>
           </a>
         </footer>
       </div>
