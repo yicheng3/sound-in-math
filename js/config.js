@@ -1101,8 +1101,8 @@ $$y = \\begin{cases}
 \\end{cases}$$
 
 但在 Desmos 裡面因為不能輸入上下兩行大括號，所以寫法改用單行大括號：
-$$y = \\left\\{\\sin\\left(2\\pi x + \\frac{\\pi}{3}\\right) \\ge \\frac{\\sqrt{3}}{2}: 0, \\; 1\\right\\}$$
-*(也可以完整寫出兩段條件：\`y = {sin(2*pi*x + pi/3) >= sqrt(3)/2: 0, sin(2*pi*x + pi/3) < sqrt(3)/2: 1}\`)*
+$$y = \\left\\{\\sin\\left(2\\pi x + \\frac{\\pi}{3}\\right) \\ge \\frac{\\sqrt{3}}{2}: 0, \\; \\sin\\left(2\\pi x + \\frac{\\pi}{3}\\right) < \\frac{\\sqrt{3}}{2}: 1\\right\\}$$
+*(在 Desmos 中也可以簡記為省略第二段條件的寫法：$y = \\left\\{\\sin\\left(2\\pi x + \\frac{\\pi}{3}\\right) \\ge \\frac{\\sqrt{3}}{2}: 0, \\; 1\\right\\}$)*
 
 <div class="desmos-embed-container">
   <iframe src="https://www.desmos.com/calculator/vwuarnrgok?embed" class="desmos-iframe" frameborder="0"></iframe>
@@ -1169,7 +1169,7 @@ $$y = \\left\\{x - \\operatorname{floor}(x) \\le 0.2: 0, \\; x - \\operatorname{
       `,
       tasks: [
         "1. 開啟右上角 Desmos 範本 (kfunfzw43y)：觀察 y = sin(2*pi*x + pi/3) 與 y = sqrt(3)/2 的交點，標記 (0, sqrt(3)/2) 與 (1, sqrt(3)/2)，確認週期為 1。",
-        "2. 觀察分類討論開關：檢視 y = {sin(2*pi*x + pi/3) >= sqrt(3)/2: 0, 1} 如何將高於門檻的區域切為 0（靜音），其餘區域切為 1（發聲）。",
+        "2. 觀察分類討論開關：檢視 y = {sin(2*pi*x + pi/3) >= sqrt(3)/2: 0, sin(2*pi*x + pi/3) < sqrt(3)/2: 1} 如何將高於門檻的區域切為 0（靜音），其餘區域切為 1（發聲）。",
         "3. 繪製高斯鋸齒波：輸入 y = x - floor(x)，觀察其每拍從 0 均勻上升至 1 的直線特性。",
         "4. 設定斷音開關：輸入 q = {t - floor(t) <= 0.2: 0, 1}，並體會將 0.2 改為 0.15 或 0.3 時數值直接對應時間比例的便利性。",
         "5. 小星星第三版演奏：將 q 開關乘入發聲算式 tone(L[t], q)，滑桿 t 以 0.1x 播放，驗證前 0.2 拍自動斷音效果。"
@@ -1177,7 +1177,7 @@ $$y = \\left\\{x - \\operatorname{floor}(x) \\le 0.2: 0, \\; x - \\operatorname{
       formula: `// 1. 正弦波與水平門檻線 (Desmos 範本 kfunfzw43y)
 y_1 = \\sin\\left(2\\pi x + \\frac{\\pi}{3}\\right)
 y_2 = \\frac{\\sqrt{3}}{2}
-y_3 = \\left\\{\\sin\\left(2\\pi x + \\frac{\\pi}{3}\\right) \\ge \\frac{\\sqrt{3}}{2}: 0, 1\\right\\}
+y_3 = \\left\\{\\sin\\left(2\\pi x + \\frac{\\pi}{3}\\right) \\ge \\frac{\\sqrt{3}}{2}: 0, \\; \\sin\\left(2\\pi x + \\frac{\\pi}{3}\\right) < \\frac{\\sqrt{3}}{2}: 1\\right\\}
 
 // 2. 拍內線性進度 (高斯鋸齒波)
 y_4 = x - \\operatorname{floor}(x)
@@ -1208,7 +1208,7 @@ q = \\left\\{t - \\operatorname{floor}(t) \\le 0.2: 0, 1\\right\\}
             id: "q2_gauss_vs_sine",
             title: "正弦波門檻截波 vs 高斯鋸齒波 x - [x] 之幾何與操作比對",
             type: "textarea",
-            prompt: "在課堂中我們探討了兩種產生斷音的方法：\n1. 正弦波門檻截波：$y = \\left\\{\\sin\\left(2\\pi x + \\frac{\\pi}{3}\\right) \\ge \\frac{\\sqrt{3}}{2}: 0, 1\\right\\}$。\n2. 高斯鋸齒波開關：$y = \\{x - [x] \\le 0.2: 0, 1\\}$。\n請說明：為什麼在實務上若想自由調整斷音比例（例如 20% 或 15%），使用 $x - [x]$ 會比正弦波更為直接方便？",
+            prompt: "在課堂中我們探討了兩種產生斷音的方法：\n1. 正弦波門檻截波：$y = \\left\\{\\sin\\left(2\\pi x + \\frac{\\pi}{3}\\right) \\ge \\frac{\\sqrt{3}}{2}: 0, \\; \\sin\\left(2\\pi x + \\frac{\\pi}{3}\\right) < \\frac{\\sqrt{3}}{2}: 1\\right\\}$。\n2. 高斯鋸齒波開關：$y = \\{x - [x] \\le 0.2: 0, 1\\}$。\n請說明：為什麼在實務上若想自由調整斷音比例（例如 20% 或 15%），使用 $x - [x]$ 會比正弦波更為直接方便？",
             placeholder: "請從正弦波調整時需計算角度/門檻，與高斯鋸齒波直接對應小數進度的角度說明...",
             solution: "1. 正弦波是彎曲曲線：若要改變斷音時長，必須重新計算角度、平移量或使用反三角函數（arcsin）求出對應的水平門檻值，計算過程較為繁瑣。\n2. 高斯鋸齒波是一次線性函數：在每一拍內從 0 均勻上升到 1，數值直接等於拍內的時間比例。想要留白 20% 就直接設門檻為 0.2，想要 15% 就直接設 0.15，不需任何角度換算即可精準設定。",
             formatAnswer: (ans) => `正弦波 vs 高斯鋸齒波比對：\n${ans}\n\n（核心解析：正弦波調整斷音需涉及角度與反三角函數換算；高斯鋸齒波每拍均勻上升，數值直觀等於時間比例，可直接填寫小數門檻。）`
