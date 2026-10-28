@@ -1105,7 +1105,7 @@ $$y = \\left\\{\\sin\\left(2\\pi x + \\frac{\\pi}{3}\\right) \\ge \\frac{\\sqrt{
 *(在 Desmos 中也可以簡記為省略第二段條件的寫法：$y = \\left\\{\\sin\\left(2\\pi x + \\frac{\\pi}{3}\\right) \\ge \\frac{\\sqrt{3}}{2}: 0, \\; 1\\right\\}$)*
 
 <div class="desmos-embed-container">
-  <iframe src="https://www.desmos.com/calculator/vwuarnrgok?embed" class="desmos-iframe" frameborder="0"></iframe>
+  <iframe src="https://www.desmos.com/calculator/z2wbideil0?embed" class="desmos-iframe" frameborder="0"></iframe>
 </div>
 
 **圖形線條與觀察重點**：
