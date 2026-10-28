@@ -1075,7 +1075,7 @@ $$S = [0, 0, 7, 7, 9, 9, 7, 0, 5, 5, 4, 4, 2, 2, 0, 0, \\dots]$$
 **一、 第一步：正弦波與水平門檻線（圖形演示）**：
 
 <div class="desmos-embed-container">
-  <iframe src="https://www.desmos.com/calculator/rrqkintrjx?embed" class="desmos-iframe" frameborder="0"></iframe>
+  <iframe src="https://www.desmos.com/calculator/ymeb0xkzsz?embed" class="desmos-iframe" frameborder="0"></iframe>
 </div>
 
 **圖形線條與觀察重點**：
@@ -1105,7 +1105,7 @@ $$y = \\left\\{\\sin\\left(2\\pi x + \\frac{\\pi}{3}\\right) \\ge \\frac{\\sqrt{
 *(在 Desmos 中也可以簡記為省略第二段條件的寫法：$y = \\left\\{\\sin\\left(2\\pi x + \\frac{\\pi}{3}\\right) \\ge \\frac{\\sqrt{3}}{2}: 0, \\; 1\\right\\}$)*
 
 <div class="desmos-embed-container">
-  <iframe src="https://www.desmos.com/calculator/z2wbideil0?embed" class="desmos-iframe" frameborder="0"></iframe>
+  <iframe src="https://www.desmos.com/calculator/exrboynk81?embed" class="desmos-iframe" frameborder="0"></iframe>
 </div>
 
 **圖形線條與觀察重點**：
