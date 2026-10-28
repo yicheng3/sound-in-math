@@ -1114,14 +1114,34 @@ $$\\operatorname{tone}(440, \\; \\sin(2\\pi t) + 1)$$
 
 ---
 
-**2. 高斯鋸齒波 $\\operatorname{tone}(440, \\; t - \\operatorname{floor}(t))$：線性漸強（Crescendo）**
-- **認識高斯取整 $\\operatorname{floor}(t)$**：在 Desmos 中輸入 \`floor(t)\`，代表小學學過的「無條件捨去小數點取整數」（例如 $\\operatorname{floor}(1.3) = 1, \\; \\operatorname{floor}(1.9) = 1$）。
-- **拍內小數進度 $t - \\operatorname{floor}(t)$**：如果用原時間 $t$ 減去整數部分，留下來的永遠就是「小數點後面的部分」：
-  - $t = 1.0 \\implies 1.0 - 1 = 0$
-  - $t = 1.4 \\implies 1.4 - 1 = 0.4$
-  - $t = 1.9 \\implies 1.9 - 1 = 0.9$
-  - 一跨入 $t = 2.0$，整數變成 2，相減又瞬間歸零（$2.0 - 2 = 0$）重新爬升！
-- **聽感體驗**：每一秒內音量從 0 線性爬升到 1（音樂術語中的**漸強 Crescendo**），一到整數秒瞬間歸零，聽起來就像急促的雷達倒數警報聲！
+**2. 高斯鋸齒波 $\\operatorname{tone}(440, \\; t - \\operatorname{floor}(t))$：線性漸強（Crescendo）**：
+
+- **認識高斯取整記號 $[x] = \\operatorname{floor}(x)$**：
+  在 Desmos 中輸入 \`floor(x)\`，代表「不大於 $x$ 的最大整數」，也就是小學學過的「無條件捨去小數點只留整數」：
+  - 例如：$[1.2] = 1, \\; [1.8] = 1, \\; [2.0] = 2, \\; [2.5] = 2$。
+
+<div class="desmos-embed-container">
+  <iframe src="https://www.desmos.com/calculator/2fev0huixj?embed" class="desmos-iframe" frameborder="0"></iframe>
+</div>
+
+**圖形特徵**：呈現一段一段水平跳躍的「整數階梯」。
+
+---
+
+- **原時間減去整數：得到拍內小數鋸齒波 $y = x - \\operatorname{floor}(x)$**：
+  如果用連續時間 $x$，減去只取整數的 $\\operatorname{floor}(x)$，留下來的永遠就是「小數點後面的部分」：
+  - $x = 1.0 \\implies 1.0 - 1 = 0$
+  - $x = 1.4 \\implies 1.4 - 1 = 0.4$
+  - $x = 1.9 \\implies 1.9 - 1 = 0.9$
+  - 一跨入下一拍 $x = 2.0$，整數變成 2，相減又瞬間歸零（$2.0 - 2 = 0$）重新爬升！
+
+<div class="desmos-embed-container">
+  <iframe src="https://www.desmos.com/calculator/dm2eoyoon8?embed" class="desmos-iframe" frameborder="0"></iframe>
+</div>
+
+**圖形特徵與聽感**：
+- **幾何形狀**：每 1 秒重複循環一次，在每一拍內由 0 均勻爬升到 1，是一排整齊的「直角三角形鋸齒波」。
+- **聽感體驗**：輸入 $\\operatorname{tone}(440, \\; t - \\operatorname{floor}(t))$，音量在每一秒內從無聲線性爬升到最大聲（音樂術語中的**漸強 Crescendo**），一到整數秒瞬間歸零，聽起來就像急促的雷達倒數警報聲！
 
 ---
 
