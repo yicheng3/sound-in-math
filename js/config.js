@@ -1749,7 +1749,7 @@ y = \\sin(n \\cdot x) \\cdot \\cos(\\omega \\cdot t) \\{0 \\le x \\le \\pi\\}
       conceptTitle: "什麼是泛音？音色、波形與亮度的關係",
       modelTitle: "樂器音色合成、亮度旋鈕與時間音量合體",
       status: "ready",
-      desmosUrl: "https://www.desmos.com/calculator/ajb6imo6nk",
+      desmosUrl: "https://www.desmos.com/calculator/msxzmo955w",
       motivation: `
 在第一章（1-1）我們提過聲音三要素：音量看振幅、音高看頻率、**音色看波形**。
 但為什麼鋼琴、長笛、豎笛吹彈同一個音高，它們的波形與聽起來的音色會完全不一樣？
@@ -1768,7 +1768,7 @@ y = \\sin(n \\cdot x) \\cdot \\cos(\\omega \\cdot t) \\{0 \\le x \\le \\pi\\}
 
 ---
 
-**二、 真實管樂器音色比對：長笛 vs 豎笛（Desmos 範本 \`ajb6imo6nk\`）**：
+**二、 真實管樂器音色比對：長笛 vs 豎笛（Desmos 範本 \`msxzmo955w\`）**：
 點擊右上角「開啟 Desmos 範本 ↗」，裡面有兩個資料夾，分別對比「單純基音」與「加入前 8 階泛音後的合成音色」：
 
 **1. 📁 資料夾一【長笛】（開管共鳴，$k_1 = 440\\text{Hz}$）**：
@@ -1821,7 +1821,7 @@ $$N = [1 \\dots 8], \\quad \\operatorname{tone}\\left(N \\cdot k, \\; 0.25 \\cdo
         "2. 亮度旋鈕與疊合波形實驗：新增算式 N = [1...8]、tone(N*220, 0.25 * b^(N-1)) 與 y = sum_{n=1}^8 b^(n-1) sin(nx)，拉動滑桿 b（0 到 0.85），同時觀察波形稜角變化與聲音明暗改變。",
         "3. 第四章 × 第五章合體技：在範本中新增時間滑桿 t = 0 與 u = t - floor(t)，將長笛或豎笛的音量乘上指數衰減 tone(F_1, V_1 * (0.5)^(4u))，按下 t 播放，聽聽看管樂器如何一秒變成清脆的敲擊／撥弦樂器！"
       ],
-      formula: `// 1. 長笛 8 階泛音合成 + 3Hz 對稱微差呼吸 (Desmos 範本 ajb6imo6nk)
+      formula: `// 1. 長笛 8 階泛音合成 + 3Hz 對稱微差呼吸 (Desmos 範本 msxzmo955w)
 tone(440, 0.16)   // 對照組：單純 440Hz 基音
 k_1 = 440
 F_1 = [k_1, 2k_1, 3k_1, 4k_1, 5k_1, 6k_1, 7k_1, 8k_1, k_1-3, k_1+3, 2k_1-6, 2k_1+6, 3k_1-9, 3k_1+9]
