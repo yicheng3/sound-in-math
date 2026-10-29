@@ -1662,10 +1662,91 @@ tone(600 + 200 * sin(30u), {u <= 0.3: 0.5, 0})`,
 **一、 雙邊封閉／兩端固定駐波（奇數與偶數泛音皆有）**：
 代表樂器：**吉他弦、鋼琴弦**（兩端釘死），以及兩端狀態對稱的開管樂器如**長笛**。
 設長度為 $\\pi$，左端固定在 $(0, 0)$，右端也固定在 $(\\pi, 0)$。
+
+<div class="piano-card">
+  <svg class="piano-svg" viewBox="0 0 740 355" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <style>
+        .sw-wall { stroke: #45403a; stroke-width: 3; stroke-linecap: round; }
+        .sw-axis { stroke: #b5ada4; stroke-width: 1; stroke-dasharray: 4,4; }
+        .sw-solid { fill: none; stroke: #456854; stroke-width: 2.6; stroke-linecap: round; }
+        .sw-dash { fill: none; stroke: #456854; stroke-width: 2; stroke-dasharray: 6,4; opacity: 0.55; }
+        .sw-lobe { fill: #456854; opacity: 0.08; }
+        .sw-node { fill: #c06933; stroke: #ffffff; stroke-width: 1.5; }
+        .sw-label-l { font-size: 14px; font-weight: 700; fill: #2b2723; font-family: -apple-system, sans-serif; }
+        .sw-label-sub { font-size: 12px; fill: #6e675f; font-family: -apple-system, sans-serif; }
+        .sw-label-r { font-size: 13.5px; font-weight: 700; fill: #456854; font-family: -apple-system, sans-serif; }
+        .sw-tag { font-size: 11px; font-weight: 700; fill: #c06933; text-anchor: middle; font-family: -apple-system, sans-serif; }
+      </style>
+    </defs>
+    <!-- 頂部說明 -->
+    <text x="350" y="20" text-anchor="middle" font-size="13" font-weight="700" fill="#45403a">【物理圖解一】兩端固定（雙邊封閉）駐波：兩端皆為波節 (N)</text>
+    <!-- 左右固定牆壁 -->
+    <line x1="150" y1="30" x2="150" y2="335" class="sw-wall" />
+    <line x1="550" y1="30" x2="550" y2="335" class="sw-wall" />
+    <text x="150" y="350" class="sw-tag">左端固定 x = 0 (波節 N)</text>
+    <text x="550" y="350" class="sw-tag">右端固定 x = π (波節 N)</text>
+
+    <!-- Row 1: n = 1 -->
+    <line x1="150" y1="68" x2="550" y2="68" class="sw-axis" />
+    <path d="M 150 68 C 294 28, 406 28, 550 68 C 406 108, 294 108, 150 68 Z" class="sw-lobe" />
+    <path d="M 150 68 C 294 28, 406 28, 550 68" class="sw-solid" />
+    <path d="M 150 68 C 294 108, 406 108, 550 68" class="sw-dash" />
+    <circle cx="150" cy="68" r="5" class="sw-node" />
+    <circle cx="550" cy="68" r="5" class="sw-node" />
+    <text x="350" y="62" class="sw-tag" fill="#456854">波腹 A</text>
+    <text x="20" y="64" class="sw-label-l">n = 1（基音）</text>
+    <text x="20" y="82" class="sw-label-sub">1 個波包 (½λ)</text>
+    <text x="568" y="73" class="sw-label-r">頻率 1f₀</text>
+
+    <!-- Row 2: n = 2 -->
+    <line x1="150" y1="142" x2="550" y2="142" class="sw-axis" />
+    <path d="M 150 142 C 222 102, 278 102, 350 142 C 422 182, 478 182, 550 142 C 478 102, 422 102, 350 142 C 278 182, 222 182, 150 142 Z" class="sw-lobe" />
+    <path d="M 150 142 C 222 102, 278 102, 350 142 C 422 182, 478 182, 550 142" class="sw-solid" />
+    <path d="M 150 142 C 222 182, 278 182, 350 142 C 422 102, 478 102, 550 142" class="sw-dash" />
+    <circle cx="150" cy="142" r="5" class="sw-node" />
+    <circle cx="350" cy="142" r="5" class="sw-node" />
+    <circle cx="550" cy="142" r="5" class="sw-node" />
+    <text x="350" y="130" class="sw-tag">N</text>
+    <text x="20" y="138" class="sw-label-l">n = 2（偶數泛音）</text>
+    <text x="20" y="156" class="sw-label-sub">2 個波包 (1λ)</text>
+    <text x="568" y="147" class="sw-label-r">頻率 2f₀（八度）</text>
+
+    <!-- Row 3: n = 3 -->
+    <line x1="150" y1="216" x2="550" y2="216" class="sw-axis" />
+    <path d="M 150 216 C 198 176, 235 176, 283.3 216 C 331 256, 369 256, 416.7 216 C 465 176, 502 176, 550 216 C 502 256, 465 256, 416.7 216 C 369 176, 331 176, 283.3 216 C 235 256, 198 256, 150 216 Z" class="sw-lobe" />
+    <path d="M 150 216 C 198 176, 235 176, 283.3 216 C 331 256, 369 256, 416.7 216 C 465 176, 502 176, 550 216" class="sw-solid" />
+    <path d="M 150 216 C 198 256, 235 256, 283.3 216 C 331 176, 369 176, 416.7 216 C 465 256, 502 256, 550 216" class="sw-dash" />
+    <circle cx="150" cy="216" r="5" class="sw-node" />
+    <circle cx="283.3" cy="216" r="5" class="sw-node" />
+    <circle cx="416.7" cy="216" r="5" class="sw-node" />
+    <circle cx="550" cy="216" r="5" class="sw-node" />
+    <text x="283.3" y="204" class="sw-tag">N</text>
+    <text x="416.7" y="204" class="sw-tag">N</text>
+    <text x="20" y="212" class="sw-label-l">n = 3（奇數泛音）</text>
+    <text x="20" y="230" class="sw-label-sub">3 個波包 (³⁄₂λ)</text>
+    <text x="568" y="221" class="sw-label-r">頻率 3f₀</text>
+
+    <!-- Row 4: n = 4 -->
+    <line x1="150" y1="290" x2="550" y2="290" class="sw-axis" />
+    <path d="M 150 290 C 186 250, 214 250, 250 290 C 286 330, 314 330, 350 290 C 386 250, 414 250, 450 290 C 486 330, 514 330, 550 290 C 514 250, 486 250, 450 290 C 414 330, 386 330, 350 290 C 314 250, 286 250, 250 290 C 214 330, 186 330, 150 290 Z" class="sw-lobe" />
+    <path d="M 150 290 C 186 250, 214 250, 250 290 C 286 330, 314 330, 350 290 C 386 250, 414 250, 450 290 C 486 330, 514 330, 550 290" class="sw-solid" />
+    <path d="M 150 290 C 186 330, 214 330, 250 290 C 286 250, 314 250, 350 290 C 386 330, 414 330, 450 290 C 486 250, 514 250, 550 290" class="sw-dash" />
+    <circle cx="150" cy="290" r="5" class="sw-node" />
+    <circle cx="250" cy="290" r="5" class="sw-node" />
+    <circle cx="350" cy="290" r="5" class="sw-node" />
+    <circle cx="450" cy="290" r="5" class="sw-node" />
+    <circle cx="550" cy="290" r="5" class="sw-node" />
+    <text x="20" y="286" class="sw-label-l">n = 4（偶數泛音）</text>
+    <text x="20" y="304" class="sw-label-sub">4 個波包 (2λ)</text>
+    <text x="568" y="295" class="sw-label-r">頻率 4f₀</text>
+  </svg>
+</div>
+
 弦在位置 $x$、時間 $t$ 的駐波方程式為：
 $$y_1 = \\sin(nx) \\cos(\\omega t) \\quad \\{0 \\le x \\le \\pi\\}$$
 
-- **左端點（$x = 0$）**：$\\sin(0) = 0$，恆為靜止不動的**波節（Node）**。
+- **左端點（$x = 0$）**：$\\sin(0) = 0$，恆為靜止不動的**波節（Node, N）**。
 - **右端點（$x = \\pi$）**：因為右端也被固定住，振幅必須恆為 $0$，即必須滿足：
   $$\\sin(n\\pi) = 0$$
   回想正弦函數圖形，$\\sin(\\theta) = 0$ 只發生在角度是 $\\pi$ 的整數倍（$\\pi, 2\\pi, 3\\pi, 4\\pi\\dots$）時！
@@ -1677,8 +1758,90 @@ $$y_1 = \\sin(nx) \\cos(\\omega t) \\quad \\{0 \\le x \\le \\pi\\}$$
 
 **二、 單邊封閉、單邊開放駐波（只留奇數倍泛音！）**：
 代表樂器：**豎笛（單簧管）**、排笛等「一端吹口封閉、另一端喇叭口開放」的閉管樂器。
-- **左端封閉（$x = 0$）**：空氣無法移動，必須是靜止不動的**波節（位移為 $0$）**。
-- **右端開放（$x = \\pi$）**：空氣自由進出、振動最劇烈，必須是振幅最大的**波腹（Antinode，波峰或波谷 $|y| = 1$）**！
+- **左端封閉（$x = 0$）**：空氣被管底擋住無法移動，必須是靜止不動的**波節（N，位移為 $0$）**。
+- **右端開放（$x = \\pi$）**：管口開放讓空氣自由進出、振動最劇烈，必須是上下張到最大的**波腹（A，波峰或波谷 $|y| = 1$）**！
+
+<div class="piano-card">
+  <svg class="piano-svg" viewBox="0 0 740 365" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <style>
+        .cp-pipe { fill: none; stroke: #5a534c; stroke-width: 2.5; stroke-linejoin: round; }
+        .cp-axis { stroke: #b5ada4; stroke-width: 1; stroke-dasharray: 4,4; }
+        .cp-solid { fill: none; stroke: #456854; stroke-width: 2.6; stroke-linecap: round; }
+        .cp-dash { fill: none; stroke: #456854; stroke-width: 2; stroke-dasharray: 6,4; opacity: 0.55; }
+        .cp-lobe { fill: #456854; opacity: 0.08; }
+        .cp-bad-solid { fill: none; stroke: #b85d43; stroke-width: 2.2; stroke-dasharray: 4,3; }
+        .cp-bad-lobe { fill: #b85d43; opacity: 0.06; }
+        .cp-node { fill: #c06933; stroke: #ffffff; stroke-width: 1.5; }
+        .cp-label-l { font-size: 14px; font-weight: 700; fill: #2b2723; font-family: -apple-system, sans-serif; }
+        .cp-label-sub { font-size: 12px; fill: #6e675f; font-family: -apple-system, sans-serif; }
+        .cp-label-ok { font-size: 13.5px; font-weight: 700; fill: #456854; font-family: -apple-system, sans-serif; }
+        .cp-label-ng { font-size: 13.5px; font-weight: 700; fill: #b85d43; font-family: -apple-system, sans-serif; }
+        .cp-tag { font-size: 11px; font-weight: 700; fill: #c06933; text-anchor: middle; font-family: -apple-system, sans-serif; }
+      </style>
+    </defs>
+    <!-- 頂部說明 -->
+    <text x="350" y="20" text-anchor="middle" font-size="13" font-weight="700" fill="#45403a">【物理圖解二】單邊封閉、單邊開放（閉管）駐波：左端波節 (N)、右端開口必為波腹 (A)</text>
+
+    <!-- Row 1: n = 1 (1/4 lambda) -->
+    <path d="M 550 40 L 150 40 L 150 96 L 550 96" class="cp-pipe" />
+    <line x1="150" y1="68" x2="550" y2="68" class="cp-axis" />
+    <path d="M 150 68 C 294 42, 420 42, 550 42 L 550 94 C 420 94, 294 94, 150 68 Z" class="cp-lobe" />
+    <path d="M 150 68 C 294 42, 420 42, 550 42" class="cp-solid" />
+    <path d="M 150 68 C 294 94, 420 94, 550 94" class="cp-dash" />
+    <circle cx="150" cy="68" r="5" class="cp-node" />
+    <text x="542" y="64" class="cp-tag" fill="#456854">波腹 A</text>
+    <text x="20" y="64" class="cp-label-l">n = 1（基音）</text>
+    <text x="20" y="82" class="cp-label-sub">管長 = ¼λ</text>
+    <text x="565" y="73" class="cp-label-ok">✓ 頻率 1f₀（開口為波腹）</text>
+
+    <!-- Row 2: n = 2 (Invalid!) -->
+    <path d="M 550 120 L 150 120 L 150 176 L 550 176" class="cp-pipe" stroke-opacity="0.45" />
+    <line x1="150" y1="148" x2="550" y2="148" class="cp-axis" />
+    <path d="M 150 148 C 294 114, 406 114, 550 148 C 406 182, 294 182, 150 148 Z" class="cp-bad-lobe" />
+    <path d="M 150 148 C 294 114, 406 114, 550 148" class="cp-bad-solid" />
+    <path d="M 150 148 C 294 182, 406 182, 550 148" class="cp-bad-solid" opacity="0.5" />
+    <circle cx="150" cy="148" r="5" class="cp-node" />
+    <circle cx="550" cy="148" r="5" fill="#b85d43" stroke="#fff" stroke-width="1.5" />
+    <text x="20" y="144" class="cp-label-l" fill="#b85d43">n = 2（偶數倍）</text>
+    <text x="20" y="162" class="cp-label-sub">右端變成波節 ✕</text>
+    <text x="565" y="145" class="cp-label-ng">✕ 偶數倍 2f₀ 消失！</text>
+    <text x="565" y="163" class="cp-label-sub">（違反管口波腹條件）</text>
+
+    <!-- Row 3: n = 3 (3/4 lambda) -->
+    <path d="M 550 200 L 150 200 L 150 256 L 550 256" class="cp-pipe" />
+    <line x1="150" y1="228" x2="550" y2="228" class="cp-axis" />
+    <path d="M 150 228 C 246 192, 320 192, 416.7 228 C 465 246, 505 254, 550 254 L 550 202 C 505 202, 465 210, 416.7 228 C 320 264, 246 264, 150 228 Z" class="cp-lobe" />
+    <path d="M 150 228 C 246 192, 320 192, 416.7 228 C 465 246, 505 254, 550 254" class="cp-solid" />
+    <path d="M 150 228 C 246 264, 320 264, 416.7 228 C 465 210, 505 202, 550 202" class="cp-dash" />
+    <circle cx="150" cy="228" r="5" class="cp-node" />
+    <circle cx="416.7" cy="228" r="5" class="cp-node" />
+    <text x="416.7" y="216" class="cp-tag">N</text>
+    <text x="542" y="224" class="cp-tag" fill="#456854">波腹 A</text>
+    <text x="20" y="224" class="cp-label-l">n = 3（奇數泛音）</text>
+    <text x="20" y="242" class="cp-label-sub">管長 = ¾λ</text>
+    <text x="565" y="233" class="cp-label-ok">✓ 頻率 3f₀（奇數存活）</text>
+
+    <!-- Row 4: n = 5 (5/4 lambda) -->
+    <path d="M 550 280 L 150 280 L 150 336 L 550 336" class="cp-pipe" />
+    <line x1="150" y1="308" x2="550" y2="308" class="cp-axis" />
+    <path d="M 150 308 C 208 272, 252 272, 310 308 C 368 344, 412 344, 470 308 C 499 290, 523 282, 550 282 L 550 334 C 523 334, 499 326, 470 308 C 412 272, 368 272, 310 308 C 252 344, 208 344, 150 308 Z" class="cp-lobe" />
+    <path d="M 150 308 C 208 272, 252 272, 310 308 C 368 344, 412 344, 470 308 C 499 290, 523 282, 550 282" class="cp-solid" />
+    <path d="M 150 308 C 208 344, 252 344, 310 308 C 368 272, 412 272, 470 308 C 499 326, 523 334, 550 334" class="cp-dash" />
+    <circle cx="150" cy="308" r="5" class="cp-node" />
+    <circle cx="310" cy="308" r="5" class="cp-node" />
+    <circle cx="470" cy="308" r="5" class="cp-node" />
+    <text x="310" y="296" class="cp-tag">N</text>
+    <text x="470" y="296" class="cp-tag">N</text>
+    <text x="542" y="304" class="cp-tag" fill="#456854">波腹 A</text>
+    <text x="20" y="304" class="cp-label-l">n = 5（奇數泛音）</text>
+    <text x="20" y="322" class="cp-label-sub">管長 = ⁵⁄₄λ</text>
+    <text x="565" y="313" class="cp-label-ok">✓ 頻率 5f₀（奇數存活）</text>
+
+    <text x="150" y="356" class="cp-tag">左端封閉管底 x = 0 (必為波節 N)</text>
+    <text x="530" y="356" class="cp-tag" fill="#456854">右端開放管口 x = π (必為波腹 A)</text>
+  </svg>
+</div>
 
 在左端為波節、右端為波腹的條件下，基音（$n=1$）在管長 $\\pi$ 內剛好走完四分之一波長（從 $0$ 爬到第一個波峰 $\\sin(\\frac{\\pi}{2}) = 1$），因此駐波方程式為：
 $$y_2 = \\sin\\left(\\frac{n}{2}x\\right) \\cos(\\omega t) \\quad \\{0 \\le x \\le \\pi\\}$$
