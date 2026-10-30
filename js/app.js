@@ -162,6 +162,29 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // 2. 簡易 Markdown 轉換器（支援段落、條列、區塊引用、加粗、HTML 與 KaTeX 數學區塊保護）
+  function parseInlineMarkdown(text) {
+    if (!text) return '';
+    let str = text;
+    // 1. 抽取並保護數學公式 $...$ 與 $$...$$（避免公式中的 *、_ 或代碼符號被干擾）
+    const mathTokens = [];
+    str = str.replace(/\$\$([\s\S]*?)\$\$|\$([^$\n]+?)\$/g, (match) => {
+      const token = `@@MATH_INLINE_${mathTokens.length}@@`;
+      mathTokens.push(match);
+      return token;
+    });
+    // 2. 加粗 **text**
+    str = str.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+    // 3. 反引號 `code`
+    str = str.replace(/`([^`]+)`/g, '<code>$1</code>');
+    // 4. 斜體 *text*
+    str = str.replace(/(^|[^*])\*([^*\n]+?)\*([^*]|$)/g, '$1<em>$2</em>$3');
+    // 5. 還原數學公式
+    mathTokens.forEach((m, idx) => {
+      str = str.replace(`@@MATH_INLINE_${idx}@@`, () => m);
+    });
+    return str;
+  }
+
   function parseMarkdown(mdText) {
     if (!mdText) return '';
     let text = mdText.trim();
@@ -353,7 +376,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ${q.options.map((opt, oIdx) => `
               <label class="ws-option-label" for="ws-opt-${unit.id}-${q.id}-${oIdx}">
                 <input type="radio" name="ws-ans-${unit.id}-${q.id}" id="ws-opt-${unit.id}-${q.id}-${oIdx}" value="${escapeHtml(opt)}" class="ws-radio-input" data-qid="${q.id}">
-                <span class="ws-option-text">${escapeHtml(opt)}</span>
+                <span class="ws-option-text">${parseInlineMarkdown(opt)}</span>
               </label>
             `).join('')}
           </div>
@@ -745,7 +768,7 @@ document.addEventListener('DOMContentLoaded', () => {
               ${unit.tasks.map((task, idx) => `
                 <li class="task-checklist-item">
                   <input type="checkbox" id="task-${unit.id}-${idx}" class="task-checkbox">
-                  <label for="task-${unit.id}-${idx}" class="task-text">${task}</label>
+                  <label for="task-${unit.id}-${idx}" class="task-text">${parseInlineMarkdown(task)}</label>
                 </li>
               `).join('')}
             </ul>
