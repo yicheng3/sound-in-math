@@ -881,7 +881,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <h1 class="hero-title">音符中的數學</h1>
           <p class="hero-desc">
             這門課使用 Desmos 圖形計算機作為實驗工具，將高中數學的函數、數列與矩陣直接轉換為聽得見的聲音與看得見的圖形。<br><br>
-            從單音頻率、十二平均律、矩陣列表樂譜，到泛音合成與下落式音遊，每個單元皆搭配對應的 Desmos 線上範本，可以直接打開播放、拉動滑桿並修改算式。
+            從單音頻率、十二平均律、樂譜陣列，到演算法自動作曲與下落式音遊，每個單元皆搭配對應的 Desmos 線上範本，可以直接打開播放、拉動滑桿並修改算式。
           </p>
           <div class="hero-cta-group">
             <a href="#1-1" class="btn-hero-start">
@@ -996,9 +996,9 @@ document.addEventListener('DOMContentLoaded', () => {
           </div>
         </section>
 
-        <!-- 底部開始探索區塊 -->
+        <!-- 底部開始實作區塊 -->
         <footer class="home-footer-cta">
-          <div class="footer-cta-text">準備好讓數學發出聲音了嗎？</div>
+          <div class="footer-cta-text">從第 1 單元開始動手實作</div>
           <a href="#1-1" class="btn-hero-start btn-footer-start">
             <span>前往第 1 單元：頻率與音高 →</span>
           </a>
