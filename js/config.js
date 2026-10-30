@@ -47,6 +47,201 @@ const COURSE_CONFIG = {
     }
   ],
 
+  // 全課程 Desmos 範本總覽清單
+  desmosTemplates: [
+    {
+      category: "一、單音與發聲",
+      items: [
+        {
+          name: "tone函數",
+          unitKey: "1-1",
+          unitLabel: "1-1 聲音三要素與 Desmos 基礎發聲",
+          desc: "tone(頻率, 音量) 基礎發聲語法與範例",
+          url: "https://www.desmos.com/calculator/qc1oj3mnlb"
+        },
+        {
+          name: "變數滑桿",
+          unitKey: "1-1",
+          unitLabel: "1-1 聲音三要素與 Desmos 基礎發聲",
+          desc: "tone(a, b) 雙變數滑桿動態調音實驗",
+          url: "https://www.desmos.com/calculator/nko2nfm41b"
+        },
+        {
+          name: "[Copy of] 音調入門",
+          unitKey: "1-2",
+          unitLabel: "1-2 列表循序播放與音樂演奏原理",
+          desc: "k = 440 與 tone([k, 2k]) 八度雙音同時發聲",
+          url: "https://www.desmos.com/calculator/gkpqdobd4p"
+        },
+        {
+          name: "列表",
+          unitKey: "1-2",
+          unitLabel: "1-2 列表循序播放與音樂演奏原理",
+          desc: "列表同時發聲 vs tone(L[t]) 時間滑桿循序播放旋律",
+          url: "https://www.desmos.com/calculator/gxgub5desf"
+        }
+      ]
+    },
+    {
+      category: "二、音程與律學",
+      items: [
+        {
+          name: "和諧的音",
+          unitKey: "2-1",
+          unitLabel: "2-1 雙音協和、拍頻盲測與行進波干涉",
+          desc: "含三資料夾：1. 和諧音比例 a、2. 人耳聲音分辨度盲測 b、3. 行進波干涉圖",
+          url: "https://www.desmos.com/calculator/qojryca0zr"
+        },
+        {
+          name: "和諧的音（行進波干涉內嵌圖解）",
+          unitKey: "2-1",
+          unitLabel: "2-1 雙音協和、拍頻盲測與行進波干涉",
+          desc: "兩道正弦行進波疊加產生相長與相消（拍頻包絡）視覺化",
+          url: "https://www.desmos.com/calculator/j4sqzyfwfx"
+        },
+        {
+          name: "五聲音階",
+          unitKey: "2-2",
+          unitLabel: "2-2 畢達哥拉斯五度相生律與五聲音階",
+          desc: "畢氏五聲音階（1, 9/8, 81/64, 3/2, 27/16）與《滄海一聲笑》演奏",
+          url: "https://www.desmos.com/calculator/kklcngvj8a"
+        },
+        {
+          name: "畢氏12分律",
+          unitKey: "2-3",
+          unitLabel: "2-3 五度相生到十二律 ／ 補充 2 純律",
+          desc: "五度相生十二律分數、畢氏音差驗算與純律整數比對照",
+          url: "https://www.desmos.com/calculator/slaarufxib"
+        }
+      ]
+    },
+    {
+      category: "三、樂譜與旋律",
+      items: [
+        {
+          name: "小星星",
+          unitKey: "3-1",
+          unitLabel: "2-4 十二平均律 ／ 3-1 樂譜數據化與音名陣列編碼",
+          desc: "十二平均律音名定義 f(x) = 263·2^(x/12) 與《小星星》三版本樂譜",
+          url: "https://www.desmos.com/calculator/4actxqj5mj"
+        },
+        {
+          name: "高斯函數與分類討論",
+          unitKey: "3-2",
+          unitLabel: "3-2 陣列向量化指數運算與全曲移調",
+          desc: "半音位移陣列 S 直接代入 440·2^(S/12) 與高斯取整包絡函數",
+          url: "https://www.desmos.com/calculator/a0nxj4issv"
+        }
+      ]
+    },
+    {
+      category: "四、節奏與動態",
+      items: [
+        {
+          name: "三角函數做斷音（範本一：三角週期開關）",
+          unitKey: "4-2",
+          unitLabel: "4-2 週期函數與構造斷音",
+          desc: "利用正弦波特殊角門檻與正切函數構造週期斷音開關",
+          url: "https://www.desmos.com/calculator/l8nygbjy8e"
+        },
+        {
+          name: "floor函數做斷音（範本二：高斯鋸齒波開關）",
+          unitKey: "4-2",
+          unitLabel: "4-2 週期函數與構造斷音",
+          desc: "利用高斯小數鋸齒波 t - floor(t) 構造任意比例斷音開關 q",
+          url: "https://www.desmos.com/calculator/nvksl0vch6"
+        },
+        {
+          name: "三角函數做斷音（步驟一：正弦波與門檻線圖解）",
+          unitKey: "4-2",
+          unitLabel: "4-2 週期函數與構造斷音",
+          desc: "y = sin(2πx + π/3) 與門檻線 y = √3 / 2 交點圖解",
+          url: "https://www.desmos.com/calculator/ymeb0xkzsz"
+        },
+        {
+          name: "三角函數做斷音（步驟二：分類討論 0/1 開關圖解）",
+          unitKey: "4-2",
+          unitLabel: "4-2 週期函數與構造斷音",
+          desc: "將正弦波高於門檻區間轉為 0（靜音）、其餘轉為 1（發聲）",
+          url: "https://www.desmos.com/calculator/exrboynk81"
+        },
+        {
+          name: "floor函數做斷音（高斯階梯函數 y = floor(x) 圖解）",
+          unitKey: "4-1",
+          unitLabel: "4-1 動態音量",
+          desc: "展示高斯取整函數每滿 1 拍跳升一階的水平階梯圖形",
+          url: "https://www.desmos.com/calculator/2fev0huixj"
+        },
+        {
+          name: "floor函數做斷音（拍內小數鋸齒波 y = x - floor(x) 圖解）",
+          unitKey: "4-1",
+          unitLabel: "4-1 動態音量 ／ 4-2 週期函數與構造斷音",
+          desc: "展示每拍從 0 斜直線爬升到 1 的拍內小數計時器",
+          url: "https://www.desmos.com/calculator/dm2eoyoon8"
+        },
+        {
+          name: "floor函數做斷音（鋸齒波分類討論 0/1 方波開關圖解）",
+          unitKey: "4-2",
+          unitLabel: "4-2 週期函數與構造斷音",
+          desc: "展示 {x - floor(x) <= 0.2: 0, 1} 切出前 20% 靜音的週期方波",
+          url: "https://www.desmos.com/calculator/mq7ka30chq"
+        }
+      ]
+    },
+    {
+      category: "五、音色與物理（含伴奏與長曲接力補充）",
+      items: [
+        {
+          name: "不同音色",
+          unitKey: "5-2",
+          unitLabel: "5-2 自然泛音列與樂器音色合成",
+          desc: "雙資料夾：1. 長笛（奇偶泛音皆強 V_1）vs 2. 豎笛（單邊封閉奇數泛音強 V_2）",
+          url: "https://www.desmos.com/calculator/msxzmo955w"
+        },
+        {
+          name: "傅立葉",
+          unitKey: "5-3",
+          unitLabel: "5-3 傅立葉合成三大經典波形",
+          desc: "共用滑桿 m，含三資料夾：1. 方波、2. 鋸齒波、3. 三角波之級數疊加與發聲",
+          url: "https://www.desmos.com/calculator/i17uj3bcsy"
+        },
+        {
+          name: "春日影(90小節)",
+          unitKey: "supp-relay",
+          unitLabel: "補充 3 循環低音伴奏與長曲分段接力架構",
+          desc: "17 段接力長篇作品（L_111[t], L_112[t-72]...）與對數下落音符",
+          url: "https://www.desmos.com/calculator/eodq3asol4"
+        }
+      ]
+    },
+    {
+      category: "六、視覺音遊與演算法（含完整名曲專題範本）",
+      items: [
+        {
+          name: "聲音基礎(可視化函數)",
+          unitKey: "6-2",
+          unitLabel: "6-2 Desmos Audio Trace（Alt + T）函數圖形音訊追蹤",
+          desc: "Y 軸 0~12 對應 E3~E4 半音階梯函數，按 Alt + T 與 H 直接聽函數圖形唱歌",
+          url: "https://www.desmos.com/calculator/oiamjxssnc"
+        },
+        {
+          name: "rickroll",
+          unitKey: "6-5",
+          unitLabel: "6-5 對數琴鍵映射與參數式下落音遊【期末專題】",
+          desc: "4 段接力（每段 80 拍）與對數琴鍵反函數 24·log2((L+1)/442)+1 下落音遊",
+          url: "https://www.desmos.com/calculator/lp4hwddbnf"
+        },
+        {
+          name: "魷魚魷魚起來",
+          unitKey: "6-5",
+          unitLabel: "6-5 對數琴鍵映射與參數式下落音遊【期末專題】",
+          desc: "10 段接力分塊、q/p/s 時值陣列與對數下落音遊點陣",
+          url: "https://www.desmos.com/calculator/jsesxbjozc"
+        }
+      ]
+    }
+  ],
+
   // 26 個單元的詳細內容資料庫
   units: {
 "1-1": {

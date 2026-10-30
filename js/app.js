@@ -90,6 +90,22 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     sidebarNav.appendChild(homeEl);
 
+    // 側邊欄頂部：Desmos 範本總覽按鈕
+    const templatesEl = document.createElement('div');
+    templatesEl.className = `sidebar-home-item ${currentUnitId === 'templates' ? 'active' : ''}`;
+    templatesEl.id = 'nav-item-templates';
+    templatesEl.style.marginTop = '0.35rem';
+    templatesEl.innerHTML = `
+      <span class="sidebar-home-text">Desmos 範本超連結總覽</span>
+    `;
+    templatesEl.addEventListener('click', () => {
+      switchUnit('templates');
+      if (window.innerWidth <= 840) {
+        closeMobileSidebar();
+      }
+    });
+    sidebarNav.appendChild(templatesEl);
+
     const divider = document.createElement('div');
     divider.className = 'sidebar-nav-divider';
     sidebarNav.appendChild(divider);
@@ -849,6 +865,9 @@ document.addEventListener('DOMContentLoaded', () => {
               <span>開始第 1 單元：頻率與音高</span>
               <span class="hero-arrow">→</span>
             </a>
+            <a href="#templates" class="btn-hero-guide">
+              <span>Desmos 範本超連結總覽</span>
+            </a>
             <a href="#home-guide" class="btn-hero-guide" id="btn-scroll-guide">
               <span>查看上課方式與用法說明</span>
             </a>
@@ -981,18 +1000,113 @@ document.addEventListener('DOMContentLoaded', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
+  // 3.8 渲染全課程 Desmos 範本超連結總覽頁面
+  function renderTemplates() {
+    document.title = 'Desmos 範本超連結總覽 | 音符中的數學';
+
+    const groups = COURSE_CONFIG.desmosTemplates || [];
+    const totalCount = groups.reduce((acc, g) => acc + (g.items ? g.items.length : 0), 0);
+
+    const groupsHtml = groups.map(group => {
+      const rowsHtml = (group.items || []).map((item, idx) => `
+        <div class="template-item-row" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.85rem; padding: 0.95rem 1.15rem; border-bottom: 1px solid var(--border-color); background: var(--bg-card);">
+          <div style="flex: 1 1 320px; min-width: 240px;">
+            <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.55rem; margin-bottom: 0.3rem;">
+              <a href="${item.url}" target="_blank" rel="noopener noreferrer" style="font-size: 1.12rem; font-weight: 700; color: var(--accent-sage); text-decoration: none;">
+                ${idx + 1}. ${escapeHtml(item.name)} ↗
+              </a>
+              ${item.unitKey ? `
+                <a href="#${item.unitKey}" style="font-size: 0.82rem; font-weight: 600; color: var(--text-muted); background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 999px; padding: 0.12rem 0.6rem; text-decoration: none;" title="前往對應講義單元">
+                  對應單元：${escapeHtml(item.unitLabel || item.unitKey)}
+                </a>
+              ` : ''}
+            </div>
+            <div style="font-size: 0.96rem; color: var(--text-muted); line-height: 1.5;">
+              ${escapeHtml(item.desc || '')}
+            </div>
+            <div style="margin-top: 0.25rem; font-family: 'JetBrains Mono', monospace; font-size: 0.84rem;">
+              <a href="${item.url}" target="_blank" rel="noopener noreferrer" style="color: var(--accent-indigo); text-decoration: underline;">
+                ${escapeHtml(item.url)}
+              </a>
+            </div>
+          </div>
+          <div style="flex-shrink: 0;">
+            <a href="${item.url}" target="_blank" rel="noopener noreferrer" class="btn-banner-desmos">
+              開啟 Desmos 範本 ↗
+            </a>
+          </div>
+        </div>
+      `).join('');
+
+      return `
+        <section class="teaching-card" style="padding: 0; overflow: hidden;">
+          <div class="card-header" style="padding: 1rem 1.25rem; background: var(--bg-secondary); border-bottom: 1px solid var(--border-color);">
+            <h2 class="card-title" style="margin: 0; font-size: 1.15rem;">${escapeHtml(group.category)}</h2>
+          </div>
+          <div class="card-body" style="padding: 0;">
+            ${rowsHtml}
+          </div>
+        </section>
+      `;
+    }).join('');
+
+    mainContent.innerHTML = `
+      <section class="unit-banner">
+        <div class="banner-top-meta">
+          <span class="banner-module-tag">全課程教材資源庫（共 ${totalCount} 個 Desmos 專案）</span>
+          <a href="https://www.desmos.com/calculator" target="_blank" rel="noopener noreferrer" class="btn-banner-desmos">
+            開啟空白 Desmos ↗
+          </a>
+        </div>
+        <div class="banner-title-group">
+          <span class="banner-unit-id">範本總覽</span>
+          <h1 class="banner-title">全課程 Desmos 範本超連結總覽</h1>
+        </div>
+      </section>
+
+      ${groupsHtml}
+
+      <nav class="unit-nav-footer">
+        <a class="btn-nav-unit" href="#home">
+          <span class="nav-unit-dir">← 回課程首頁</span>
+          <span class="nav-unit-title">首頁與使用導引</span>
+        </a>
+        <a class="btn-nav-unit" style="text-align: right;" href="#1-1">
+          <span class="nav-unit-dir">前往課程單元 →</span>
+          <span class="nav-unit-title">1-1 聲音三要素與 Desmos 基礎發聲</span>
+        </a>
+      </nav>
+    `;
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
   // 4. 切換單元
   function switchUnit(unitId) {
+    const homeNav = document.getElementById('nav-item-home');
+    const templatesNav = document.getElementById('nav-item-templates');
+
     if (unitId === 'home') {
       currentUnitId = 'home';
       window.location.hash = 'home';
 
-      // 更新側邊欄 active 狀態
       document.querySelectorAll('.unit-item').forEach(el => el.classList.remove('active'));
-      const homeNav = document.getElementById('nav-item-home');
       if (homeNav) homeNav.classList.add('active');
+      if (templatesNav) templatesNav.classList.remove('active');
 
       renderHome();
+      return;
+    }
+
+    if (unitId === 'templates') {
+      currentUnitId = 'templates';
+      window.location.hash = 'templates';
+
+      document.querySelectorAll('.unit-item').forEach(el => el.classList.remove('active'));
+      if (homeNav) homeNav.classList.remove('active');
+      if (templatesNav) templatesNav.classList.add('active');
+
+      renderTemplates();
       return;
     }
 
@@ -1000,9 +1114,9 @@ document.addEventListener('DOMContentLoaded', () => {
     currentUnitId = unitId;
     window.location.hash = unitId;
 
-    // 清除首頁 active 狀態
-    const homeNav = document.getElementById('nav-item-home');
+    // 清除首頁與範本總覽 active 狀態
     if (homeNav) homeNav.classList.remove('active');
+    if (templatesNav) templatesNav.classList.remove('active');
 
     // 更新側邊欄 active 狀態
     document.querySelectorAll('.unit-item').forEach(el => el.classList.remove('active'));
@@ -1076,11 +1190,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // 8. 監聽 Hash 改變（支援上一頁/下一頁、課程首頁與直達連結）
+  // 8. 監聽 Hash 改變（支援上一頁/下一頁、課程首頁、範本總覽與直達連結）
   window.addEventListener('hashchange', () => {
-    const hash = window.location.hash.replace('#', '');
+    const hash = decodeURIComponent(window.location.hash.replace('#', ''));
     if (hash === 'home' || !hash) {
       if (currentUnitId !== 'home') switchUnit('home');
+    } else if (hash === 'templates') {
+      if (currentUnitId !== 'templates') switchUnit('templates');
     } else if (COURSE_CONFIG.units[hash] && hash !== currentUnitId) {
       switchUnit(hash);
     }
@@ -1088,11 +1204,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 啟動應用
   initSidebar();
-  const initHash = window.location.hash.replace('#', '');
-  if (initHash && COURSE_CONFIG.units[initHash]) {
+  const initHash = decodeURIComponent(window.location.hash.replace('#', ''));
+  if (initHash === 'templates') {
+    switchUnit('templates');
+  } else if (initHash && COURSE_CONFIG.units[initHash]) {
     switchUnit(initHash);
-  } else if (initHash === 'home') {
-    switchUnit('home');
   } else {
     switchUnit('home');
   }
