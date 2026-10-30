@@ -747,7 +747,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <!-- 單元前後切換導覽列 -->
       <nav class="unit-nav-footer">
         ${prevUnit ? `
-          <a class="btn-nav-unit" href="#${prevUnit.id}">
+          <a class="btn-nav-unit" href="#${prevUnitId}">
             <span class="nav-unit-dir">← 上一單元</span>
             <span class="nav-unit-title">${prevUnit.id} ${prevUnit.title}</span>
           </a>
@@ -759,7 +759,7 @@ document.addEventListener('DOMContentLoaded', () => {
         `}
 
         ${nextUnit ? `
-          <a class="btn-nav-unit" style="text-align: right;" href="#${nextUnit.id}">
+          <a class="btn-nav-unit" style="text-align: right;" href="#${nextUnitId}">
             <span class="nav-unit-dir">下一單元 →</span>
             <span class="nav-unit-title">${nextUnit.id} ${nextUnit.title}</span>
           </a>
@@ -800,9 +800,8 @@ document.addEventListener('DOMContentLoaded', () => {
       "module-2": "為什麼某些音合在一起特別和諧？探索古希臘音階的秘密，了解鋼琴鍵盤上的音是怎麼算出來的。",
       "module-3": "用一串數字當作樂譜，在 Desmos 演奏第一首曲子《小星星》，還能一秒鐘完成全曲移調！",
       "module-4": "如何做出音符的斷音效果？如何模擬鋼琴敲擊後的自然餘音，甚至做出復古遊戲機的跳躍音效？",
-      "module-5": "為什麼鋼琴和吉他彈同一個音，聽起來完全不同？認識聲波疊加，用數學畫出不同樂器的音色。",
-      "module-6": "把兩個以上的音同時彈出來，聽聽看和弦的共鳴，感受奇妙的「拍頻」呼吸感。",
-      "module-7": "讓聲音變成跳動的幾何圖形，設計動態下落音遊，最後完成專屬於你的音樂畢業專案！"
+      "module-5": "為什麼長笛和豎笛吹同一個音聽起來完全不同？從駐波邊界、泛音合成到傅立葉波形，認識音色與長曲伴奏架構。",
+      "module-6": "讓聲音變成跳動的幾何圖形，設計動態下落音遊，最後完成專屬於你的音樂畢業專案！"
     };
 
     let modulesHtml = COURSE_CONFIG.modules.map(mod => {
@@ -811,7 +810,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const u = COURSE_CONFIG.units[unitKey];
         if (!u) return '';
         return `
-          <a href="#${u.id}" class="curriculum-unit-pill" title="${u.title}">
+          <a href="#${unitKey}" class="curriculum-unit-pill" title="${u.title}">
             <span class="pill-id">${u.id}</span>
             <span class="pill-title">${u.title.split('（')[0]}</span>
           </a>

@@ -38,17 +38,12 @@ const COURSE_CONFIG = {
     {
       id: "module-5",
       title: "五、音色與物理",
-      units: ["5-1", "5-2", "5-3"]
+      units: ["5-1", "5-2", "5-3", "supp-relay"]
     },
     {
       id: "module-6",
-      title: "六、伴奏與長曲架構（補充）",
-      units: ["6-1"]
-    },
-    {
-      id: "module-7",
-      title: "七、視覺音遊與演算法",
-      units: ["7-1", "7-2", "7-3", "7-4", "7-5"]
+      title: "六、視覺音遊與演算法",
+      units: ["6-1", "6-2", "6-3", "6-4", "6-5"]
     }
   ],
 
@@ -2173,14 +2168,11 @@ y_{3}=\\sum_{n=1}^{m}\\frac{\\left(-1\\right)^{n-1}}{\\left(2n-1\\right)^{2}}\\s
       }
     },
 
-// ==========================================
-    // 六、伴奏與長曲架構（補充）
-    // ==========================================
-    "6-1": {
-      id: "6-1",
-      moduleId: "module-6",
-      moduleName: "六、伴奏與長曲架構（補充）",
-      title: "補充：循環低音伴奏與長曲分段接力架構",
+    "supp-relay": {
+      id: "補充 3",
+      moduleId: "module-5",
+      moduleName: "五、音色與物理",
+      title: "循環低音伴奏與長曲分段接力架構",
       conceptTitle: "同餘循環伴奏與多軌大隊接力",
       modelTitle: "同餘查表循環與分段時間位移（Relay Playback）",
       status: "ready",
@@ -2238,12 +2230,12 @@ B=C_{bass}\\left[\\operatorname{mod}\\left(\\operatorname{floor}\\left(t\\right)
     },
 
 // ==========================================
-    // 七、視覺音遊與演算法
+    // 六、視覺音遊與演算法
     // ==========================================
-    "7-1": {
-      id: "7-1",
-      moduleId: "module-7",
-      moduleName: "七、視覺音遊與演算法",
+    "6-1": {
+      id: "6-1",
+      moduleId: "module-6",
+      moduleName: "六、視覺音遊與演算法",
       title: "巴哈《螃蟹卡農》幾何對稱變換",
       conceptTitle: "旋律幾何對稱與對位法",
       modelTitle: "旋律幾何對稱變換模型",
@@ -2273,10 +2265,10 @@ B=C_{bass}\\left[\\operatorname{mod}\\left(\\operatorname{floor}\\left(t\\right)
       `
     },
 
-    "7-2": {
-      id: "7-2",
-      moduleId: "module-7",
-      moduleName: "七、視覺音遊與演算法",
+    "6-2": {
+      id: "6-2",
+      moduleId: "module-6",
+      moduleName: "六、視覺音遊與演算法",
       title: "Desmos Audio Trace（Alt + T）函數圖形音訊追蹤",
       conceptTitle: "函數圖像音訊追蹤",
       modelTitle: "函數圖像音訊追蹤規約",
@@ -2307,10 +2299,10 @@ Desmos 的聽圖音域鎖定在 $E_3 \\sim E_4$。我們把 Y 軸設成 0 到 12
       `
     },
 
-    "7-3": {
-      id: "7-3",
-      moduleId: "module-7",
-      moduleName: "七、視覺音遊與演算法",
+    "6-3": {
+      id: "6-3",
+      moduleId: "module-6",
+      moduleName: "六、視覺音遊與演算法",
       title: "薛帕德無限音階（Shepard Tone）",
       conceptTitle: "聽覺錯覺：連續爬升音階",
       modelTitle: "薛帕德音階數學架構",
@@ -2339,10 +2331,10 @@ $$V(X) = e^{-\\frac{(X - 30)^2}{2 \\cdot 12^2}}$$
       `
     },
 
-    "7-4": {
-      id: "7-4",
-      moduleId: "module-7",
-      moduleName: "七、視覺音遊與演算法",
+    "6-4": {
+      id: "6-4",
+      moduleId: "module-6",
+      moduleName: "六、視覺音遊與演算法",
       title: "演算法自動作曲（隨機取樣與機率轉移）",
       conceptTitle: "演算法自動作曲原理",
       modelTitle: "演算法自動作曲模型",
@@ -2372,10 +2364,10 @@ $$V(X) = e^{-\\frac{(X - 30)^2}{2 \\cdot 12^2}}$$
       `
     },
 
-    "7-5": {
-      id: "7-5",
-      moduleId: "module-7",
-      moduleName: "七、視覺音遊與演算法",
+    "6-5": {
+      id: "6-5",
+      moduleId: "module-6",
+      moduleName: "六、視覺音遊與演算法",
       title: "對數琴鍵映射與參數式下落音遊【期末專題】",
       conceptTitle: "對數坐標映射與節奏遊戲",
       modelTitle: "對數琴鍵映射與下落音遊模型",
