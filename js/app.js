@@ -810,15 +810,15 @@ document.addEventListener('DOMContentLoaded', () => {
   function renderHome() {
     document.title = '音符中的數學 | 課程首頁與使用導引';
 
-    // 模組白話介紹表（不堆砌難懂數學名詞，讓學生直觀知道要做什麼）
+    // 模組白話介紹表
     const moduleDescriptions = {
-      "module-1": "從電腦如何發出聲音開始，認識聲音的音高與頻率，在 Desmos 寫下你的第一行發聲指令。",
-      "module-2": "為什麼某些音合在一起特別和諧？探索古希臘音階的秘密，了解鋼琴鍵盤上的音是怎麼算出來的。",
-      "module-3": "用一串數字當作樂譜，在 Desmos 演奏第一首曲子《小星星》，還能一秒鐘完成全曲移調！",
-      "module-4": "如何做出音符的斷音效果？如何模擬鋼琴敲擊後的自然餘音，甚至做出復古遊戲機的跳躍音效？",
-      "module-5": "為什麼長笛和豎笛吹同一個音聽起來完全不同？從駐波邊界、泛音合成到傅立葉波形，認識樂器音色的物理本質。",
-      "module-6": "讓聲音變成跳動的幾何圖形，設計動態下落音遊，最後完成專屬於你的音樂畢業專案！",
-      "module-supp": "為有興趣深入探索樂理簡譜音名、純律小整數比與長曲分段接力架構的同學提供完整的延伸專題。"
+      "module-1": "認識聲音的音高、頻率與振幅，在 Desmos 寫下第一行發聲指令。",
+      "module-2": "比較三分損益法、畢氏音律與十二平均律，計算八度內 12 個半音的等比頻率。",
+      "module-3": "用數字列表建立樂譜與頻率映射函數，在 Desmos 演奏單音旋律、移調與多軌和弦。",
+      "module-4": "利用高斯取整函數與餘數切分拍子，製作音符斷音、音量衰減包絡線與滑音。",
+      "module-5": "從弦振動與空氣柱駐波認識泛音列，並用正弦波疊加合成不同樂器的波形與音色。",
+      "module-6": "結合線對稱變換、內建音訊追蹤、薛帕德無限音階與轉移矩陣，最後製作對數琴鍵下落音遊。",
+      "module-supp": "整理簡譜與十二半音對照表、純律小整數比和弦，以及超過 80 拍長曲的多段接力寫法。"
     };
 
     let modulesHtml = COURSE_CONFIG.modules.map(mod => {
@@ -852,14 +852,10 @@ document.addEventListener('DOMContentLoaded', () => {
       <div class="home-container">
         <!-- 首頁大橫幅 (Hero Banner) -->
         <header class="home-hero">
-          <div class="hero-badge">高中跨領域選修課程</div>
-          <h1 class="hero-title">🎵 音符中的數學</h1>
-          <div class="hero-subtitle-en">Math in Musical Notes</div>
+          <h1 class="hero-title">音符中的數學</h1>
           <p class="hero-desc">
-            大家都聽過音樂，也都在學校學過數學。<br>
-            但你可能沒想過——數學公式其實「聽得見」，而音樂裡的音符，背後藏著一個個規律的幾何形狀。<br><br>
-            在這門課裡，我們不做繁瑣的紙上計算，而是打開 Desmos 圖形計算機，讓數學直接發出聲音！
-            從最簡單的一個單音、一段旋律，到多個音符組成的和弦，只要改寫算式中的數字，電腦就會立刻把旋律演奏給你看，也演奏給你聽。
+            這門課使用 Desmos 圖形計算機作為實驗工具，將高中數學的函數、數列與矩陣直接轉換為聽得見的聲音與看得見的圖形。<br><br>
+            從單音頻率、十二平均律、矩陣列表樂譜，到泛音合成與下落式音遊，每個單元皆搭配對應的 Desmos 線上範本，可以直接打開播放、拉動滑桿並修改算式。
           </p>
           <div class="hero-cta-group">
             <a href="#1-1" class="btn-hero-start">
