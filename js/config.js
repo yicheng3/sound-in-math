@@ -23,7 +23,7 @@ const COURSE_CONFIG = {
     {
       id: "module-2",
       title: "二、音程與律學",
-      units: ["2-1", "2-2", "2-3", "supp-theory", "supp-just", "2-4"]
+      units: ["2-1", "2-2", "2-3", "2-4"]
     },
     {
       id: "module-3",
@@ -38,12 +38,17 @@ const COURSE_CONFIG = {
     {
       id: "module-5",
       title: "五、音色與物理",
-      units: ["5-1", "5-2", "5-3", "supp-relay"]
+      units: ["5-1", "5-2", "5-3"]
     },
     {
       id: "module-6",
       title: "六、視覺音遊與演算法",
       units: ["6-1", "6-2", "6-3", "6-4", "6-5"]
+    },
+    {
+      id: "module-supp",
+      title: "延伸補充單元",
+      units: ["supp-theory", "supp-just", "supp-relay"]
     }
   ],
 
@@ -189,7 +194,7 @@ const COURSE_CONFIG = {
       ]
     },
     {
-      category: "五、音色與物理（含伴奏與長曲接力補充）",
+      category: "五、音色與物理",
       items: [
         {
           name: "不同音色",
@@ -204,18 +209,11 @@ const COURSE_CONFIG = {
           unitLabel: "5-3 傅立葉合成三大經典波形",
           desc: "共用滑桿 m，含三資料夾：1. 方波、2. 鋸齒波、3. 三角波之級數疊加與發聲",
           url: "https://www.desmos.com/calculator/i17uj3bcsy"
-        },
-        {
-          name: "春日影(90小節)",
-          unitKey: "supp-relay",
-          unitLabel: "補充 3 循環低音伴奏與長曲分段接力架構",
-          desc: "17 段接力長篇作品（L_111[t], L_112[t-72]...）與對數下落音符",
-          url: "https://www.desmos.com/calculator/eodq3asol4"
         }
       ]
     },
     {
-      category: "六、視覺音遊與演算法（含完整名曲專題範本）",
+      category: "六、視覺音遊與演算法",
       items: [
         {
           name: "正反向音樂",
@@ -258,6 +256,25 @@ const COURSE_CONFIG = {
           unitLabel: "6-5 對數琴鍵映射與參數式下落音遊【期末專題】",
           desc: "10 段接力分塊、q/p/s 時值陣列與對數下落音遊點陣",
           url: "https://www.desmos.com/calculator/jsesxbjozc"
+        }
+      ]
+    },
+    {
+      category: "延伸補充單元",
+      items: [
+        {
+          name: "小星星",
+          unitKey: "supp-theory",
+          unitLabel: "補充 1 樂理基礎入門：音名、唱名、全半音與簡譜",
+          desc: "包含 C 大調音符 (C 到 B) 與小星星三版本簡譜轉譯",
+          url: "https://www.desmos.com/calculator/4actxqj5mj"
+        },
+        {
+          name: "春日影(90小節)",
+          unitKey: "supp-relay",
+          unitLabel: "補充 3 循環低音伴奏與長曲分段接力架構",
+          desc: "17 段接力長篇大作（L_111[t], L_112[t-72]...）與同餘循環低音",
+          url: "https://www.desmos.com/calculator/eodq3asol4"
         }
       ]
     }
@@ -723,8 +740,8 @@ $$
 
     "supp-theory": {
       id: "補充 1",
-      moduleId: "module-2",
-      moduleName: "二、音程與律學",
+      moduleId: "module-supp",
+      moduleName: "延伸補充單元",
       title: "樂理基礎入門：音名、唱名、全半音與簡譜",
       conceptTitle: "音樂的表示系統",
       modelTitle: "音名、唱名、鍵盤全半音與簡譜",
@@ -877,8 +894,8 @@ $$
 
     "supp-just": {
       id: "補充 2",
-      moduleId: "module-2",
-      moduleName: "二、音程與律學",
+      moduleId: "module-supp",
+      moduleName: "延伸補充單元",
       title: "純律（Just Intonation）：尋找最純淨的簡單整數比",
       conceptTitle: "畢氏律大三度與純律修正",
       modelTitle: "純律三和弦與轉調限制",
@@ -2386,8 +2403,8 @@ y_{3}=\\sum_{n=1}^{m}\\frac{\\left(-1\\right)^{n-1}}{\\left(2n-1\\right)^{2}}\\s
 
     "supp-relay": {
       id: "補充 3",
-      moduleId: "module-5",
-      moduleName: "五、音色與物理",
+      moduleId: "module-supp",
+      moduleName: "延伸補充單元",
       title: "循環低音伴奏與長曲分段接力架構",
       conceptTitle: "同餘循環伴奏與多軌大隊接力",
       modelTitle: "同餘查表循環與分段時間位移（Relay Playback）",
