@@ -75,7 +75,7 @@ const COURSE_CONFIG = {
           name: "[Copy of] 音調入門",
           unitKey: "1-2",
           unitLabel: "1-2 列表循序播放與音樂演奏原理",
-          desc: "k = 440 與 tone([k, 2k]) 八度雙音同時發聲",
+          desc: "k = 440 與 tone([k, 2k]) 雙音同時發聲",
           url: "https://www.desmos.com/calculator/gkpqdobd4p"
         },
         {
@@ -351,7 +351,7 @@ $$\\operatorname{tone}(\\text{頻率}, \\text{音量})$$
       mathModel: `
 **1. 兩個音同時發聲（和弦）**：
 $$\\operatorname{tone}([440, 880])$$
-- 列表中放入多個頻率，Desmos 就會同時發出 $440\\text{Hz}$ 與 $880\\text{Hz}$（高八度）。
+- 列表中放入多個頻率，Desmos 就會同時發出 $440\\text{Hz}$ 與 $880\\text{Hz}$。
 
 **2. 照順序一個一個發聲（旋律播放）**：
 $$L = [440, 880, 220, 110, 1760], \\quad t = 1, \\quad \\operatorname{tone}(L[t])$$
