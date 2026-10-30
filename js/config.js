@@ -1963,7 +1963,7 @@ S_{3}=12-S_{1}
       status: "ready",
       desmosUrl: "https://www.desmos.com/calculator/oiamjxssnc",
       motivation: `
-前面五章我們都是用 $\\operatorname{tone}(\\text{頻率}, \\text{音量})$ 讓 Desmos 發聲。
+前面各單元我們都是用 $\\operatorname{tone}(\\text{頻率}, \\text{音量})$ 讓 Desmos 發聲。
 除此之外，Desmos 內建了一個為視障學習者設計的無障礙功能——**「聽取圖像（Audio Trace）」**。
 點選任何一條函數算式，按下鍵盤的 **\`Alt + T\`**（Mac 為 **\`Option + T\`**），再按下 **\`H\`**（Hear Graph），Desmos 就會從左到右掃描整條函數曲線，根據 $y$ 坐標的高低發出對應的音高。
 
@@ -2917,7 +2917,7 @@ $$y = \\sum_{n=1}^{8} b^{n-1} \\sin(nx)$$
 
 > **聲音合成的三個基本維度**：
 > 1. **基音頻率 $f_0$（第 1~3 章）**：決定**音高**。
-> 2. **諧音比例 $V$（第 5 章）**：決定**合成波形與音色本質**。
+> 2. **諧音比例 $V$（本附錄）**：決定**合成波形與音色本質**。
 > 3. **時間函數 $E(t)$（第 4 章）**：決定**發聲動態與起音衰減**。
       `,
       tasks: [
