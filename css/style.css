@@ -740,6 +740,23 @@ body.dark-mode .teaching-card:hover {
   list-style-type: disc;
 }
 
+/* Markdown 標題 h3, h4 (和風素雅層級) */
+.card-body .md-h3 {
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: var(--accent-sage);
+  margin: 1.5rem 0 0.75rem 0;
+  padding-bottom: 0.35rem;
+  border-bottom: 1.5px solid var(--border-light);
+}
+
+.card-body .md-h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin: 1.15rem 0 0.5rem 0;
+}
+
 /* 課堂重點筆記區塊 (和風焙茶琥珀色) */
 .card-body blockquote {
   border-left: 3.5px solid var(--accent-tea);

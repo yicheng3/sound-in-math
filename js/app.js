@@ -188,7 +188,10 @@ document.addEventListener('DOMContentLoaded', () => {
       return `\n<blockquote>${lines.join('<br>')}</blockquote>\n`;
     });
 
-    // 4. 處理行內樣式
+    // 4. 處理行內樣式與標題
+    // 標題 ### 與 ####
+    text = text.replace(/^####[ \t]+(.*)$/gm, '<h4 class="md-h4">$1</h4>');
+    text = text.replace(/^###[ \t]+(.*)$/gm, '<h3 class="md-h3">$1</h3>');
     // 加粗 **text**
     text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
     // 斜體 *text* (避免影響公式中的符號，先過濾加粗後再轉換)
@@ -222,8 +225,8 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      // 若遇到已抽取保護之區塊（HTML 或 Display Math）或 blockquote 或 hr
-      if (trimmed.startsWith('@@HTML_BLOCK_') || trimmed.startsWith('@@DISPLAY_MATH_') || trimmed.startsWith('<blockquote>') || trimmed.startsWith('<div') || trimmed.startsWith('<hr')) {
+      // 若遇到已抽取保護之區塊（HTML 或 Display Math）或 blockquote 或 hr 或標題
+      if (trimmed.startsWith('@@HTML_BLOCK_') || trimmed.startsWith('@@DISPLAY_MATH_') || trimmed.startsWith('<blockquote>') || trimmed.startsWith('<div') || trimmed.startsWith('<hr') || trimmed.startsWith('<h3') || trimmed.startsWith('<h4')) {
         if (inList) {
           result.push(`</${listType}>`);
           inList = false;
