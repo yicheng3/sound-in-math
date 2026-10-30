@@ -272,8 +272,8 @@ const COURSE_CONFIG = {
       title: "聲音三要素與 Desmos 基礎發聲",
       conceptTitle: "聲音三要素",
       modelTitle: "Desmos 發聲函數",
-      status: "ready",
-      desmosUrl: "https://www.desmos.com/calculator/qc1oj3mnlb",
+      status: "pending",
+      desmosUrl: null,
       motivation: `
 物理課學過聲音的三種特徵：音量、音調、音色。
 在 Desmos 裡面，這三件事剛好對應三個數學特徵：
@@ -321,8 +321,8 @@ $$\\operatorname{tone}(\\text{頻率}, \\text{音量})$$
       title: "列表循序播放與音樂演奏原理",
       conceptTitle: "音樂演奏原理",
       modelTitle: "列表發聲語法",
-      status: "ready",
-      desmosUrl: "https://www.desmos.com/calculator/gxgub5desf",
+      status: "pending",
+      desmosUrl: null,
       motivation: `
 一個一個音手動拉滑桿太慢了。要讓電腦自己彈出一首歌，我們需要兩樣工具：
 - **列表（List）**：用中括號 [ ] 把一串音符的頻率存起來。
@@ -882,8 +882,8 @@ $$
       title: "純律（Just Intonation）：尋找最純淨的簡單整數比",
       conceptTitle: "畢氏律大三度與純律修正",
       modelTitle: "純律三和弦與轉調限制",
-      status: "ready",
-      desmosUrl: "https://www.desmos.com/calculator",
+      status: "pending",
+      desmosUrl: null,
       readTime: "5 分鐘",
       difficulty: "輕鬆體驗",
       motivation: `
@@ -981,8 +981,8 @@ $$
       title: "十二平均律與全學期公版發聲基準",
       conceptTitle: "數學上完美的音階：連乘約分與公比推導",
       modelTitle: "全學期公版發聲基準函數",
-      status: "ready",
-      desmosUrl: "https://www.desmos.com/calculator/4actxqj5mj",
+      status: "pending",
+      desmosUrl: null,
       motivation: `
 畢氏律和純律在實際演奏時，都有嚴重的「轉調」問題：因為相鄰半音的間距不完全相同，只要升 Key 降 Key 換個調彈，音階比例就跑掉走音了。
 要讓音樂可以在任何調性自由演奏，唯一條件就是：
@@ -1204,8 +1204,8 @@ $$\\operatorname{tone}(L[t]), \\quad t = 0$$
       title: "陣列向量化指數運算與全曲移調",
       conceptTitle: "旋律移調需求與半音向量",
       modelTitle: "陣列向量運算與移調模型",
-      status: "ready",
-      desmosUrl: "https://www.desmos.com/calculator/a0nxj4issv",
+      status: "pending",
+      desmosUrl: null,
       motivation: `
 如果整首歌都用 C, D, E 這些字母寫，想要換調（升降 Key）就得把每個音重新改過，超級麻煩。
 但如果我們把音符改記成『離中央 C 幾個半音』的數字陣列 $S$：
@@ -2391,8 +2391,8 @@ y_{3}=\\sum_{n=1}^{m}\\frac{\\left(-1\\right)^{n-1}}{\\left(2n-1\\right)^{2}}\\s
       title: "循環低音伴奏與長曲分段接力架構",
       conceptTitle: "同餘循環伴奏與多軌大隊接力",
       modelTitle: "同餘查表循環與分段時間位移（Relay Playback）",
-      status: "ready",
-      desmosUrl: "https://www.desmos.com/calculator/eodq3asol4",
+      status: "pending",
+      desmosUrl: null,
       motivation: `
 當學生想在期末專題挑戰自己喜歡的流行歌或動漫名曲（例如長達 90 小節的《春日影》）時，會遇到兩個最常見的實戰問題：
 
@@ -2413,7 +2413,7 @@ $$\\operatorname{tone}\\big(f(B(t)), \\; 0.3\\big)$$
 ---
 
 **二、 長曲多段接力架構（Relay Playback，以《春日影》範本 \`eodq3asol4\` 為例）**：
-點擊右上角「開啟 Desmos 範本 ↗」（\`eodq3asol4\`），打開【聲音】與【上聲調音符】資料夾，可以看到長曲的分段接力寫法：
+以教師 90 小節旗艦長曲《春日影》（\`eodq3asol4\`，可由範本總覽開啟）為例，打開【聲音】與【上聲調音符】資料夾，可以看到長曲的分段接力寫法：
 $$t = 0$$
 $$\\operatorname{tone}\\left(L_{111}[t], \\; T_{111}[t]\\right)$$
 $$\\operatorname{tone}\\left(L_{112}[t - 72], \\; T_{112}[t - 72]\\right)$$
@@ -2427,7 +2427,7 @@ $$\\dots$$
       `,
       tasks: [
         "1. 測試同餘循環伴奏：在空白 Desmos 輸入 C_bass = [-12, -5, -3, -8] 與 B = C_bass[mod(floor(t), 4) + 1]，拉動 t 觀察數值如何在 4 個低音之間無限循環。",
-        "2. 觀摩《春日影》分段接力架構：點擊右上角「開啟 Desmos 範本 ↗」（eodq3asol4），展開【聲音】資料夾，觀察 L_111[t]、L_112[t-72]、L_113[t-144] 的時間偏移規律。",
+        "2. 觀摩《春日影》分段接力架構：在範本總覽開啟《春日影》（eodq3asol4），展開【聲音】資料夾，觀察 L_111[t]、L_112[t-72]、L_113[t-144] 的時間偏移規律。",
         "3. 實戰效能體驗：按下時間 t 播放《春日影》，比較「將音符列表資料夾展開」與「將資料夾全部收合」時的播放順暢度差異。"
       ],
       formula: `t=0
@@ -2918,8 +2918,8 @@ X = \\left[1, 2, 3, 4, 5\\right]
       title: "對數琴鍵映射與參數式下落音遊【期末專題】",
       conceptTitle: "期末大專題：對數反函數、下落式參數點陣與個人音遊創作",
       modelTitle: "對數琴鍵映射反函數、等速時間下落與判定線同步模型",
-      status: "ready",
-      desmosUrl: "https://www.desmos.com/calculator/lp4hwddbnf",
+      status: "pending",
+      desmosUrl: null,
       motivation: `
 經過了一整學期的探索，我們從最單純的單音正弦波、頻率等比數列、十二平均律、樂譜向量移調、節奏高斯取整，一路走到泛音列傅立葉級數與轉移矩陣。
 現在，**我們要將全學期所有的數學工具融會貫通，在 Desmos 裡打造出屬於你自己的「參數式下落音遊（Rhythm Game）」！**
@@ -2932,7 +2932,7 @@ X = \\left[1, 2, 3, 4, 5\\right]
 - **時間端**：用參數式 $\\frac{M - t}{3}$ 調控重力等速下落，讓聲音、畫面與數學在判定線 $Y=0$ 處達成百分之百的奇蹟同步！
       `,
       mathModel: `
-點擊右上角「開啟 Desmos 範本 ↗」（\`lp4hwddbnf\`，標題：**rickroll**，亦可參考另兩大旗艦範本：\`jsesxbjozc\`《**魷魚遊戲**》、\`eodq3asol4\`《**春日影**》）：
+下落音遊可參考教師三大旗艦範本（可由「範本總覽」開啟體驗）：\`lp4hwddbnf\`《**rickroll**》、\`jsesxbjozc\`《**魷魚遊戲**》、\`eodq3asol4\`《**春日影**》。
 
 下落音遊的核心數學架構由三大支柱組成：
 
