@@ -262,17 +262,14 @@ const COURSE_CONFIG = {
       items: [
         {
           name: "春日影",
-          desc: "17 段接力長曲（L_111 ~ L_127），雙軌伴奏與多聲部接力播放完整旗艦大作",
           url: "https://www.desmos.com/calculator/eodq3asol4"
         },
         {
           name: "Rickroll",
-          desc: "4 段接力（每段 80 拍）與對數琴鍵反函數 24·log2((L+1)/442)+1 下落音遊旗艦大作",
           url: "https://www.desmos.com/calculator/lp4hwddbnf"
         },
         {
           name: "Lemon",
-          desc: "米津玄師《Lemon》10 段接力分塊、q/p/s 時值陣列與對數下落音遊點陣旗艦大作",
           url: "https://www.desmos.com/calculator/jsesxbjozc"
         }
       ]

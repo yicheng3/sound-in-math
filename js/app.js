@@ -1048,9 +1048,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 </span>
               `}
             </div>
-            <div style="font-size: 0.96rem; color: var(--text-muted); line-height: 1.5;">
-              ${escapeHtml(item.desc || '')}
-            </div>
+            ${item.desc ? `
+              <div style="font-size: 0.96rem; color: var(--text-muted); line-height: 1.5;">
+                ${escapeHtml(item.desc)}
+              </div>
+            ` : ''}
             <div style="margin-top: 0.25rem; font-family: 'JetBrains Mono', monospace; font-size: 0.84rem;">
               <a href="${item.url}" target="_blank" rel="noopener noreferrer" style="color: var(--accent-indigo); text-decoration: underline;">
                 ${escapeHtml(item.url)}
