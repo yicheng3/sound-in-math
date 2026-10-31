@@ -287,6 +287,10 @@ const COURSE_CONFIG = {
       modelTitle: "Desmos 發聲函數",
       status: "completed",
       desmosUrl: "https://www.desmos.com/calculator/rh5qbkjvj9",
+      desmosUrls: [
+        { title: "範本一：tone 函數 ↗", url: "https://www.desmos.com/calculator/rh5qbkjvj9" },
+        { title: "範本二：變數滑桿 ↗", url: "https://www.desmos.com/calculator/nko2nfm41b" }
+      ],
       motivation: `
 國中理化課學過聲音的三種特徵：音量、音調、音色。
 
