@@ -1042,7 +1042,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 <a href="#${item.unitKey}" style="font-size: 0.82rem; font-weight: 600; color: var(--text-muted); background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 999px; padding: 0.12rem 0.6rem; text-decoration: none;" title="前往對應講義單元">
                   對應單元：${escapeHtml(item.unitLabel || item.unitKey)}
                 </a>
-              ` : ''}
+              ` : `
+                <span style="font-size: 0.82rem; font-weight: 600; color: var(--accent-amber); background: rgba(192, 105, 51, 0.12); border: 1px solid var(--accent-amber); border-radius: 999px; padding: 0.12rem 0.6rem;">
+                  成果展示・觀摩作品
+                </span>
+              `}
             </div>
             <div style="font-size: 0.96rem; color: var(--text-muted); line-height: 1.5;">
               ${escapeHtml(item.desc || '')}
@@ -1055,7 +1059,7 @@ document.addEventListener('DOMContentLoaded', () => {
           </div>
           <div style="flex-shrink: 0;">
             <a href="${item.url}" target="_blank" rel="noopener noreferrer" class="btn-banner-desmos">
-              開啟 Desmos 範本 ↗
+              ${item.unitKey ? '開啟 Desmos 範本 ↗' : '開啟展示作品 ↗'}
             </a>
           </div>
         </div>

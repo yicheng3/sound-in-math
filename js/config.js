@@ -223,20 +223,6 @@ const COURSE_CONFIG = {
           unitLabel: "5-4 演算法自動作曲（隨機取樣與機率轉移）",
           desc: "含兩資料夾：1. 五聲音階隨機作曲（發聲演奏）、2. 五階轉移矩陣（馬可夫鏈演化）",
           url: "https://www.desmos.com/calculator/a2aqrsf1gn"
-        },
-        {
-          name: "rickroll",
-          unitKey: "5-5",
-          unitLabel: "5-5 對數琴鍵映射與參數式下落音遊【期末專題】",
-          desc: "4 段接力（每段 80 拍）與對數琴鍵反函數 24·log2((L+1)/442)+1 下落音遊",
-          url: "https://www.desmos.com/calculator/lp4hwddbnf"
-        },
-        {
-          name: "魷魚魷魚起來",
-          unitKey: "5-5",
-          unitLabel: "5-5 對數琴鍵映射與參數式下落音遊【期末專題】",
-          desc: "10 段接力分塊、q/p/s 時值陣列與對數下落音遊點陣",
-          url: "https://www.desmos.com/calculator/jsesxbjozc"
         }
       ]
     },
@@ -268,13 +254,26 @@ const COURSE_CONFIG = {
           unitLabel: "補充 1 樂理基礎入門：音名、唱名、全半音與簡譜",
           desc: "包含 C 大調音符 (C 到 B) 與小星星三版本簡譜轉譯",
           url: "https://www.desmos.com/calculator/4actxqj5mj"
+        }
+      ]
+    },
+    {
+      category: "音樂作品成果展示（大師觀摩，非課堂範本）",
+      items: [
+        {
+          name: "春日影 (90小節完整伴奏)",
+          desc: "17 段接力長曲（L_111 ~ L_127），雙軌伴奏與多聲部接力播放完整旗艦大作",
+          url: "https://www.desmos.com/calculator/eodq3asol4"
         },
         {
-          name: "春日影(90小節)",
-          unitKey: "supp-relay",
-          unitLabel: "補充 3 循環低音伴奏與長曲分段接力架構",
-          desc: "17 段接力長曲（L_111[t], L_112[t-72]...）與同餘循環低音",
-          url: "https://www.desmos.com/calculator/eodq3asol4"
+          name: "Rickroll (對數琴鍵下落音遊)",
+          desc: "4 段接力（每段 80 拍）與對數琴鍵反函數 24·log2((L+1)/442)+1 下落音遊旗艦大作",
+          url: "https://www.desmos.com/calculator/lp4hwddbnf"
+        },
+        {
+          name: "魷魚遊戲 (下落音遊旗艦版)",
+          desc: "10 段接力分塊、q/p/s 時值陣列與對數下落音遊點陣旗艦大作",
+          url: "https://www.desmos.com/calculator/jsesxbjozc"
         }
       ]
     }
