@@ -258,21 +258,21 @@ const COURSE_CONFIG = {
       ]
     },
     {
-      category: "音樂作品成果展示（大師觀摩，非課堂範本）",
+      category: "音樂作品成果展示",
       items: [
         {
-          name: "春日影 (90小節完整伴奏)",
+          name: "春日影",
           desc: "17 段接力長曲（L_111 ~ L_127），雙軌伴奏與多聲部接力播放完整旗艦大作",
           url: "https://www.desmos.com/calculator/eodq3asol4"
         },
         {
-          name: "Rickroll (對數琴鍵下落音遊)",
+          name: "Rickroll",
           desc: "4 段接力（每段 80 拍）與對數琴鍵反函數 24·log2((L+1)/442)+1 下落音遊旗艦大作",
           url: "https://www.desmos.com/calculator/lp4hwddbnf"
         },
         {
-          name: "魷魚遊戲 (下落音遊旗艦版)",
-          desc: "10 段接力分塊、q/p/s 時值陣列與對數下落音遊點陣旗艦大作",
+          name: "Lemon",
+          desc: "米津玄師《Lemon》10 段接力分塊、q/p/s 時值陣列與對數下落音遊點陣旗艦大作",
           url: "https://www.desmos.com/calculator/jsesxbjozc"
         }
       ]
@@ -2316,7 +2316,7 @@ X = \\left[1, 2, 3, 4, 5\\right]
 - **縱坐標 $Y$**：用參數式 $\\frac{M - t}{3}$ 讓音符隨時間 $t$ 等速往下移動，當音符落到判定線 $Y=0$ 時剛好發聲。
       `,
       mathModel: `
-下落音遊可參考三個範本（可由「範本總覽」開啟）：\`lp4hwddbnf\`《**rickroll**》、\`jsesxbjozc\`《**魷魚遊戲**》、\`eodq3asol4\`《**春日影**》。
+下落音遊可參考三個展示專案（可由「範本總覽」開啟）：\`lp4hwddbnf\`《**Rickroll**》、\`jsesxbjozc\`《**Lemon**》、\`eodq3asol4\`《**春日影**》。
 
 下落音遊的算式分為三個部分：
 
@@ -2361,7 +2361,7 @@ $$\\left(24\\log_{2}\\left(\\frac{L_{4}+1}{440}\\right)+1, \\; \\frac{M-t+240}{3
 透過每段加上 $80$ 的倍數偏移，可以將長曲目分成多段接力顯示與播放。
       `,
       tasks: [
-        "1. 觀察範本：在 Desmos 開啟《rickroll》或《魷魚遊戲》，按播放鍵觀察音符下落與到達 $Y = 0$ 判定線發聲的同步方式。",
+        "1. 觀察作品：在 Desmos 開啟《Rickroll》或《Lemon》，按播放鍵觀察音符下落與到達 $Y = 0$ 判定線發聲的同步方式。",
         "2. 算式拆解：理解對數琴鍵反函數 $24\\log_2\\left(\\frac{L+1}{442}\\right)+1$ 的半音等距性質，以及休止符 $L = 0$ 時加上 $+1$ 避免 $\\log_2(0)$ 無定義的做法。",
         "3. 期末專題實作：挑選一首歌曲，利用下落音遊範本編寫自己的 Desmos 下落式音遊，並將作品連結填入下方學習單。"
       ],

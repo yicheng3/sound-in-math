@@ -1044,7 +1044,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 </a>
               ` : `
                 <span style="font-size: 0.82rem; font-weight: 600; color: var(--accent-amber); background: rgba(192, 105, 51, 0.12); border: 1px solid var(--accent-amber); border-radius: 999px; padding: 0.12rem 0.6rem;">
-                  成果展示・觀摩作品
+                  成果展示
                 </span>
               `}
             </div>
