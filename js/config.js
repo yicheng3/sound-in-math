@@ -62,7 +62,7 @@ const COURSE_CONFIG = {
           unitKey: "1-1",
           unitLabel: "1-1 聲音三要素與 Desmos 基礎發聲",
           desc: "tone(頻率, 音量) 基礎發聲語法與範例",
-          url: "https://www.desmos.com/calculator/qc1oj3mnlb"
+          url: "https://www.desmos.com/calculator/rh5qbkjvj9"
         },
         {
           name: "變數滑桿",
@@ -285,8 +285,8 @@ const COURSE_CONFIG = {
       title: "聲音三要素與 Desmos 基礎發聲",
       conceptTitle: "聲音三要素",
       modelTitle: "Desmos 發聲函數",
-      status: "pending",
-      desmosUrl: null,
+      status: "completed",
+      desmosUrl: "https://www.desmos.com/calculator/rh5qbkjvj9",
       motivation: `
 國中理化課學過聲音的三種特徵：音量、音調、音色。
 
