@@ -95,14 +95,14 @@ const COURSE_CONFIG = {
           unitKey: "2-2",
           unitLabel: "2-2 畢達哥拉斯五度相生律與五聲音階",
           desc: "畢氏五聲音階（1, 9/8, 81/64, 3/2, 27/16）與《滄海一聲笑》演奏",
-          url: "https://www.desmos.com/calculator/cv2v2hnxpq"
+          url: "https://www.desmos.com/calculator/419pj9kl4o"
         },
         {
           name: "畢氏12分律",
           unitKey: "2-3",
           unitLabel: "2-3 五度相生到十二律 ／ 補充 2 純律",
           desc: "五度相生十二律分數、畢氏音差驗算與純律整數比對照",
-          url: "https://www.desmos.com/calculator/hq6j7bvwma"
+          url: "https://www.desmos.com/calculator/vgtujiyifq"
         }
       ]
     },
@@ -113,14 +113,14 @@ const COURSE_CONFIG = {
           name: "小星星",
           unitKey: "3-1",
           unitLabel: "2-4 十二平均律 ／ 3-1 樂譜數據化與音名陣列編碼",
-          desc: "十二平均律音名定義 f(x) = 262·2^(x/12) 與《小星星》三版本樂譜",
-          url: "https://www.desmos.com/calculator/6y7znszfbk"
+          desc: "十二平均律音名定義 f(x) = 261.63·2^(x/12) 與《小星星》三版本樂譜",
+          url: "https://www.desmos.com/calculator/lmkmh10dup"
         },
         {
           name: "高斯函數與分類討論",
           unitKey: "3-2",
           unitLabel: "3-2 陣列向量化指數運算與全曲移調",
-          desc: "半音位移陣列 S 直接代入 262·2^(S/12) 與高斯取整包絡函數",
+          desc: "半音位移陣列 S 直接代入 261.63·2^(S/12) 與高斯取整包絡函數",
           url: "https://www.desmos.com/calculator/a0nxj4issv"
         }
       ]
@@ -239,7 +239,7 @@ const COURSE_CONFIG = {
           unitKey: "supp-theory",
           unitLabel: "補充 1 樂理基礎入門：音名、唱名、全半音與簡譜",
           desc: "包含 C 大調音符 (C 到 B) 與小星星三版本簡譜轉譯",
-          url: "https://www.desmos.com/calculator/6y7znszfbk"
+          url: "https://www.desmos.com/calculator/lmkmh10dup"
         }
       ]
     },
@@ -480,7 +480,7 @@ $$L = [440, 880, 220, 110, 1760], \\quad t = 1, \\quad \\operatorname{tone}(L[t]
       conceptTitle: "五度相生律與八度折回",
       modelTitle: "五度相生推導流程與比例",
       status: "ready",
-      desmosUrl: "https://www.desmos.com/calculator/cv2v2hnxpq",
+      desmosUrl: "https://www.desmos.com/calculator/419pj9kl4o",
       motivation: `
 古希臘的畢達哥拉斯在研究琴弦時發現，把弦長減半（頻率比 $1:2$），兩個音聽起來就像同一個音（高八度），因此找音階的範圍可以鎖定在 $1 \\sim 2$ 之間。
 下一個最簡單的整數比是 **$1:3$**。
@@ -596,15 +596,15 @@ $$
   </table>
 </div>
 
-*(以基準音 $263\\text{Hz}$ 為例，各音頻率即為基準頻率乘上該比例)*
+*(以基準音 $261.63\\text{Hz}$ 為例，各音頻率即為基準頻率乘上該比例)*
       `,
       tasks: [
         "1. 推導流程觀察：觀察上方生律圖解，確認「每次乘 $\\frac{3}{2}$、超過 $2$ 則除以 $2$」的運算步驟，並理解前 5 個音的比例由來（$1, \\frac{3}{2}, \\frac{9}{8}, \\frac{27}{16}, \\frac{81}{64}$）。",
-        "2. 五聲音階階梯播放：開啟 Desmos 範本【資料夾一】（基準音設為 $263\\text{Hz}$）。依序播放五個比值：$\\operatorname{tone}(263 \\cdot 1)$, $\\operatorname{tone}(263 \\cdot \\frac{9}{8})$, $\\operatorname{tone}(263 \\cdot \\frac{81}{64})$, $\\operatorname{tone}(263 \\cdot \\frac{3}{2})$, $\\operatorname{tone}(263 \\cdot \\frac{27}{16})$，聆聽由低到高的五聲音階（宮、商、角、徵、羽）。",
+        "2. 五聲音階階梯播放：開啟 Desmos 範本【資料夾一】（基準音設為 $261.63\\text{Hz}$）。依序播放五個比值：$\\operatorname{tone}(261.63 \\cdot 1)$, $\\operatorname{tone}(261.63 \\cdot \\frac{9}{8})$, $\\operatorname{tone}(261.63 \\cdot \\frac{81}{64})$, $\\operatorname{tone}(261.63 \\cdot \\frac{3}{2})$, $\\operatorname{tone}(261.63 \\cdot \\frac{27}{16})$，聆聽由低到高的五聲音階（宮、商、角、徵、羽）。",
         "3. 《滄海一聲笑》旋律演奏：展開【音符】與【超偷懶樂譜】資料夾，觀察英文變數對應五個音（$C$=宮, $D$=商, $E$=角, $G$=徵, $A$=羽），點亮 $\\operatorname{tone}(L[t])$ 並播放滑桿 $t=0$，聆聽五聲音階由高到低倒序（羽、徵、角、商、宮）的旋律線條。",
         "4. 即興排列測試：隨意調整陣列 $L$ 中的音符順序，觀察五聲音階因避開相鄰半音碰撞，任意組合皆不易刺耳的聽覺特點。"
       ],
-      formula: `// 1. 五聲音階純分數發聲 (以基準音 263Hz 為例，由低到高排列)\n\\operatorname{tone}(263 \\cdot 1)            // 宮 (基準音 1)\n\\operatorname{tone}(263 \\cdot \\frac{9}{8})        // 商 (9/8)\n\\operatorname{tone}(263 \\cdot \\frac{81}{64})      // 角 (81/64)\n\\operatorname{tone}(263 \\cdot \\frac{3}{2})        // 徵 (3/2)\n\\operatorname{tone}(263 \\cdot \\frac{27}{16})      // 羽 (27/16)\n\n// 2. Desmos 樂曲變數設定 (因 Desmos 僅支援英文變數，暫借代號表示五聲)\nC = 263                  // 宮 (基準音)\nD = 263 \\cdot \\frac{9}{8}       // 商\nE = 263 \\cdot \\frac{81}{64}     // 角\nG = 263 \\cdot \\frac{3}{2}       // 徵\nA = 263 \\cdot \\frac{27}{16}     // 羽\nA_2 = \\frac{A}{2}              // 低音羽 (A/2)\nG_2 = \\frac{G}{2}              // 低音徵 (G/2)\n\n// 3. 《滄海一聲笑》五聲樂譜 (羽 徵 角 商 宮 倒序開頭)\nL = [A, G, E, D, C, C, 0, 0, E, E, D, C, A_2, G_2, G_2, 0, 0, G_2, A_2, G_2, A_2, C, D, E, G, A, G, E, D, C, C]\nt = 0\n\\operatorname{tone}(L[t])`,
+      formula: `// 1. 五聲音階純分數發聲 (以基準音 261.63Hz 為例，由低到高排列)\n\\operatorname{tone}(261.63 \\cdot 1)            // 宮 (基準音 1)\n\\operatorname{tone}(261.63 \\cdot \\frac{9}{8})        // 商 (9/8)\n\\operatorname{tone}(261.63 \\cdot \\frac{81}{64})      // 角 (81/64)\n\\operatorname{tone}(261.63 \\cdot \\frac{3}{2})        // 徵 (3/2)\n\\operatorname{tone}(261.63 \\cdot \\frac{27}{16})      // 羽 (27/16)\n\n// 2. Desmos 樂曲變數設定 (因 Desmos 僅支援英文變數，暫借代號表示五聲)\nC = 261.63              // 宮 (基準音)\nD = C \\cdot \\frac{9}{8}        // 商\nE = C \\cdot \\frac{81}{64}      // 角\nG = C \\cdot \\frac{3}{2}        // 徵\nA = C \\cdot \\frac{27}{16}      // 羽\nA_2 = C \\cdot \\frac{27}{32}    // 低音羽\nG_2 = C \\cdot \\frac{3}{4}      // 低音徵\n\n// 3. 《滄海一聲笑》五聲樂譜 (羽 徵 角 商 宮 倒序開頭)\nL = [A, G, E, D, C, C, 0, 0, E, E, D, C, A_2, G_2, G_2, 0, 0, G_2, A_2, G_2, A_2, C, D, E, G, A, G, E, D, C, C]\nt = 0\n\\operatorname{tone}(L[t])`,
       tips: `
 - **變數命名**：Desmos 變數僅支援英文字母，因此暫借 C, D, E, G, A 對應宮、商、角、徵、羽。
 - **生律順序 vs 音階順序**：生律順序是數學計算的先後（$1 \\to 3/2 \\to 9/8 \\to 27/16 \\to 81/64$）；音階順序則是頻率由小到大的排列（$1, 9/8, 81/64, 3/2, 27/16, 2$）。
@@ -644,7 +644,7 @@ $$
       conceptTitle: "十二律相生與畢氏音差",
       modelTitle: "畢氏律法問題與轉調限制",
       status: "ready",
-      desmosUrl: "https://www.desmos.com/calculator/hq6j7bvwma",
+      desmosUrl: "https://www.desmos.com/calculator/vgtujiyifq",
       motivation: `
 如果把「每次乘 $\\dfrac{3}{2}$，大於 2 就除以 2」這套規則繼續算下去，算到第 12 次時會得到：
 $$
@@ -717,7 +717,7 @@ $$
         "2. 十二律音階播放：開啟 Desmos 範本第 1 個資料夾，依序播放推導出的 12 個音階，感受相生音律鋪滿八度空間的音高階梯。",
         "3. 轉調問題思考：若從不同音起音演奏，因相鄰音之間頻率比不均勻，音階便會走音；思考如何讓每個相鄰音的間距完全相同？"
       ],
-      formula: `// 1. 畢達哥拉斯十二律相生音階清單 (範本第一資料夾)\n\\operatorname{tone}(263 \\cdot 1)\n\\operatorname{tone}\\left(263 \\cdot \\frac{2187}{2048}\\right)\n\\operatorname{tone}\\left(263 \\cdot \\frac{9}{8}\\right)\n\\operatorname{tone}\\left(263 \\cdot \\frac{19683}{16384}\\right)\n\\operatorname{tone}\\left(263 \\cdot \\frac{81}{64}\\right)\n\\operatorname{tone}\\left(263 \\cdot \\frac{177147}{131072}\\right)\n\\operatorname{tone}\\left(263 \\cdot \\frac{729}{512}\\right)\n\\operatorname{tone}\\left(263 \\cdot \\frac{3}{2}\\right)\n\\operatorname{tone}\\left(263 \\cdot \\frac{6561}{4096}\\right)\n\\operatorname{tone}\\left(263 \\cdot \\frac{27}{16}\\right)\n\\operatorname{tone}\\left(263 \\cdot \\frac{59049}{32768}\\right)\n\\operatorname{tone}\\left(263 \\cdot \\frac{243}{128}\\right)\n\\operatorname{tone}\\left(263 \\cdot 2\\right)\n\n// 2. 算式驗算\n\\frac{3^{12}}{2^{19}}`,
+      formula: `// 1. 畢達哥拉斯十二律相生音階清單 (範本第一資料夾)\n\\operatorname{tone}(261.63 \\cdot 1)\n\\operatorname{tone}\\left(261.63 \\cdot \\frac{2187}{2048}\\right)\n\\operatorname{tone}\\left(261.63 \\cdot \\frac{9}{8}\\right)\n\\operatorname{tone}\\left(261.63 \\cdot \\frac{19683}{16384}\\right)\n\\operatorname{tone}\\left(261.63 \\cdot \\frac{81}{64}\\right)\n\\operatorname{tone}\\left(261.63 \\cdot \\frac{177147}{131072}\\right)\n\\operatorname{tone}\\left(261.63 \\cdot \\frac{729}{512}\\right)\n\\operatorname{tone}\\left(261.63 \\cdot \\frac{3}{2}\\right)\n\\operatorname{tone}\\left(261.63 \\cdot \\frac{6561}{4096}\\right)\n\\operatorname{tone}\\left(261.63 \\cdot \\frac{27}{16}\\right)\n\\operatorname{tone}\\left(261.63 \\cdot \\frac{59049}{32768}\\right)\n\\operatorname{tone}\\left(261.63 \\cdot \\frac{243}{128}\\right)\n\\operatorname{tone}\\left(261.63 \\cdot 2\\right)\n\n// 2. 算式驗算\n\\frac{3^{12}}{2^{19}}`,
       tips: `
 - **12 的由來**：因為 $3^{12} \\approx 2^{19}$（$\\dfrac{531441}{524288} \\approx 1.0136$），相生到第 12 次時非常逼近起點（誤差約 1.3%），因此各文化普遍採用 12 個音建立律制。
 - **轉調限制**：畢氏十二律相鄰半音比例不均勻，換調演奏時會產生走音。
@@ -732,7 +732,7 @@ $$
       conceptTitle: "音樂的表示系統",
       modelTitle: "音名、唱名、鍵盤全半音與簡譜",
       status: "ready",
-      desmosUrl: "https://www.desmos.com/calculator/6y7znszfbk",
+      desmosUrl: "https://www.desmos.com/calculator/lmkmh10dup",
       motivation: `
 在音樂裡，頻率、音符與琴鍵有三種常用的語言：
 1. **音名**：物理上固定不變的絕對音高（$C, D, E, F, G, A, B$）。
@@ -886,7 +886,7 @@ $$
       conceptTitle: "畢氏律大三度與純律修正",
       modelTitle: "純律三和弦與轉調限制",
       status: "ready",
-      desmosUrl: "https://www.desmos.com/calculator/hq6j7bvwma",
+      desmosUrl: "https://www.desmos.com/calculator/vgtujiyifq",
       readTime: "5 分鐘",
       difficulty: "輕鬆體驗",
       motivation: `
@@ -931,10 +931,10 @@ $$
       `,
       tasks: [
         "1. 觀察純律基礎音：打開範本展開第二個資料夾【純律(只給7個基礎音)】，觀察 $C, D(\\frac{9}{8}), E(\\frac{5}{4}), F(\\frac{4}{3}), G(\\frac{3}{2}), A(\\frac{5}{3}), B(\\frac{15}{8})$ 的簡單整數比定義。",
-        "2. 大三度聽感對比：分別比較第一資料夾的畢氏大三度 $263\\cdot\\frac{81}{64}$ 與第二資料夾的純律大三度 $263\\cdot\\frac{5}{4}$ 與 $263$ 同時播放時的拍頻與融合度。",
-        "3. 4:5:6 和弦與轉調限制討論：試聽純律大三和弦 $[263, 263\\cdot\\frac{5}{4}, 263\\cdot\\frac{3}{2}]$（即 $4:5:6$），並理解純律因存在兩種不同全音間距（$\\frac{9}{8}$ 與 $\\frac{10}{9}$）而無法自由轉調的限制。"
+        "2. 大三度聽感對比：分別比較第一資料夾的畢氏大三度 $261.63\\cdot\\frac{81}{64}$ 與第二資料夾的純律大三度 $261.63\\cdot\\frac{5}{4}$ 與 $261.63$ 同時播放時的拍頻與融合度。",
+        "3. 4:5:6 和弦與轉調限制討論：試聽純律大三和弦 $[261.63, 261.63\\cdot\\frac{5}{4}, 261.63\\cdot\\frac{3}{2}]$（即 $4:5:6$），並理解純律因存在兩種不同全音間距（$\\frac{9}{8}$ 與 $\\frac{10}{9}$）而無法自由轉調的限制。"
       ],
-      formula: `// 1. 基底頻率 (課堂取 C = 263 Hz)\nC = 263\n\n// 2. 畢氏大三度 vs 純律大三度聽覺對比\nE_pyth = 263 * (81 / 64)   // 畢氏大三度 (有微弱拍頻)\nE_just = 263 * (5 / 4)     // 純律大三度 (拍頻消除，融合度高)\n// tone([C, E_pyth])       // 試聽畢氏大三度\n// tone([C, E_just])       // 試聽純律大三度\n\n// 3. 純律 7 個基礎音與 4:5:6 大三和弦 (C - E - G)\n// 1, 9/8, 5/4, 4/3, 3/2, 5/3, 15/8, 2\nG = 263 * (3 / 2)\n// tone([C, E_just, G])    // 試聽 4:5:6 和弦`,
+      formula: `// 1. 基底頻率 (中央 C ≈ 261.63 Hz)\nC = 261.63\n\n// 2. 畢氏大三度 vs 純律大三度聽覺對比\nE_pyth = 261.63 * (81 / 64)   // 畢氏大三度 (有微弱拍頻)\nE_just = 261.63 * (5 / 4)     // 純律大三度 (拍頻消除，融合度高)\n// tone([C, E_pyth])          // 試聽畢氏大三度\n// tone([C, E_just])          // 試聽純律大三度\n\n// 3. 純律 7 個基礎音與 4:5:6 大三和弦 (C - E - G)\n// 1, 9/8, 5/4, 4/3, 3/2, 5/3, 15/8, 2\nG = 261.63 * (3 / 2)\n// tone([C, E_just, G])       // 試聽 4:5:6 和弦`,
       tips: `
 - **比值差異**：畢氏大三度為 $\\dfrac{81}{64} \\approx 1.2656$；純律大三度取鄰近的 $\\dfrac{5}{4} = 1.25$。
 - **大三和弦**：$4 : 5 : 6$ 為純律大三和弦的頻率比。
@@ -1056,34 +1056,34 @@ $$
    $$
 
 2. **課堂編曲發聲函數（以中央 C 為起點 $x = 0$）**：
-   在後續 Desmos 樂譜範本（如 3-1《小星星》）中，為了讓 C 大調的 Do 直接從 $x = 0$ 開始算起，我們將基準點平移至中央 C（$261.63\\text{Hz}$ 四捨五入取整數 $262\\text{Hz}$）：
+   在後續 Desmos 樂譜範本（如 3-1《小星星》）中，為了讓 C 大調的 Do 直接從 $x = 0$ 開始算起，我們將基準點平移至中央 C（理論值取 $261.63\\text{Hz}$）：
    $$
-   f(x) = 262 \\cdot 2^{\\frac{x}{12}}
+   f(x) = 261.63 \\cdot 2^{\\frac{x}{12}}
    $$
    - **往右一格（升高 1 個半音）**：頻率乘上公比 $2^{\\frac{1}{12}}$（自變數 $x + 1$）。
    - **往左一格（降低 1 個半音）**：頻率除以公比 $2^{\\frac{1}{12}}$（自變數 $x - 1$）。
 
 **C 大調七音的半音步數坐標（以中央 $C = f(0)$ 為準）**：
-- $C = f(0) = 262\\text{Hz}$（Do）
+- $C = f(0) = 261.63\\text{Hz}$（Do）
 - $D = f(2)$（Re，與 C 差 2 個半音）
 - $E = f(4)$（Mi，與 D 差 2 個半音）
 - $F = f(5)$（Fa，**注意 E 到 F 無黑鍵，只差 1 個半音**）
 - $G = f(7)$（Sol，與 F 差 2 個半音）
 - $A = f(9)$（La，與 G 差 2 個半音）
 - $B = f(11)$（Si，與 A 差 2 個半音）
-- $\\text{高音}C = f(12) = 524\\text{Hz}$（高音 Do，**B 到 C 無黑鍵，只差 1 個半音**）
+- $\\text{高音}C = f(12) = 523.25\\text{Hz}$（高音 Do，**B 到 C 無黑鍵，只差 1 個半音**）
       `,
       tasks: [
         "1. 連乘約分計算：理解 12 個相鄰音分數相乘等於 $2$ 的過程，掌握 $x^{12} = 2$ 的由來。",
-        "2. 國際標準音反推中央 C：理解國際定義為 $A_4 = 440\\text{Hz}$，並在 Desmos 輸入 `440 * 2^(-9/12)` 驗算中央 C 的理論頻率（約 $261.63\\text{Hz} \\approx 262\\text{Hz}$）。",
-        "3. 建立課堂發聲函數：輸入 `f(x) = 262 * 2^(x/12)`（即 $f(x) = 262 \\cdot 2^{\\frac{x}{12}}$），以中央 C 為 $x = 0$ 起點。",
+        "2. 國際標準音反推中央 C：理解國際定義為 $A_4 = 440\\text{Hz}$，並在 Desmos 輸入 `440 * 2^(-9/12)` 驗算中央 C 的理論頻率（約 $261.63\\text{Hz}$）。",
+        "3. 建立課堂發聲函數：輸入 `f(x) = 261.63 * 2^(x/12)`（即 $f(x) = 261.63 \\cdot 2^{\\frac{x}{12}}$），以中央 C 為 $x = 0$ 起點。",
         "4. 定義七個白鍵音名變數：依序輸入 `C = f(0), D = f(2), E = f(4), F = f(5), G = f(7), A = f(9), B = f(11)`，注意 E-F 與 B-C 的 $1$ 半音步長。",
         "5. 八度與純五度播放：播放 `tone([C, f(12)])` 聆聽兩倍八度音程，並播放 `tone([C, G])` 聆聽十二平均律的五度（$2^{\\frac{7}{12}} \\approx 1.4983$）。"
       ],
-      formula: `// 0. 國際標準音定義：A4 = 440Hz，往左推 9 個半音得中央 C4 ≈ 261.63Hz (四捨五入取 262Hz)\nC_std = 440 \\cdot 2^{\\left(-\\frac{9}{12}\\right)}\n\n// 1. 課堂公版發聲函數 (以中央 C ≈ 262Hz 為 x=0 起點)\nf(x) = 262 \\cdot 2^{\\left(\\frac{x}{12}\\right)}\n\n// 2. 定義七個白鍵音名變數 (對應 3-1 小星星範本)\nC = f(0)    // Do\nD = f(2)    // Re\nE = f(4)    // Mi\nF = f(5)    // Fa (E-F 無黑鍵，只差 1 半音)\nG = f(7)    // Sol\nA = f(9)    // La\nB = f(11)   // Si\n\n// 3. 測試播放八度音程與純五度\n\\operatorname{tone}([C, f(12)])  // 八度翻倍 (f(12) = 2*C)\n\\operatorname{tone}([C, G])      // 十二平均律純五度 (2^(7/12))`,
+      formula: `// 0. 國際標準音定義：A4 = 440Hz，往左推 9 個半音得中央 C4 ≈ 261.63Hz\nC_std = 440 \\cdot 2^{\\left(-\\frac{9}{12}\\right)}\n\n// 1. 課堂公版發聲函數 (以中央 C ≈ 261.63Hz 為 x=0 起點)\nf(x) = 261.63 \\cdot 2^{\\left(\\frac{x}{12}\\right)}\n\n// 2. 定義七個白鍵音名變數 (對應 3-1 小星星範本)\nC = f(0)    // Do\nD = f(2)    // Re\nE = f(4)    // Mi\nF = f(5)    // Fa (E-F 無黑鍵，只差 1 半音)\nG = f(7)    // Sol\nA = f(9)    // La\nB = f(11)   // Si\n\n// 3. 測試播放八度音程與純五度\n\\operatorname{tone}([C, f(12)])  // 八度翻倍 (f(12) = 2*C)\n\\operatorname{tone}([C, G])      // 十二平均律純五度 (2^(7/12))`,
       tips: `
 - **連乘約分原理**：12 個相鄰分數連乘時，中間音符分子分母對角約分消去，只剩下 $(\\text{高音}C)/C = 2$，因此 $x^{12} = 2 \\implies x = 2^{\\frac{1}{12}}$。
-- **國際標準音 vs 課堂起點**：國際標準定義是 $A_4 = 440\\text{Hz}$（中央 C 為 $440 \\cdot 2^{-\\frac{9}{12}} \\approx 261.63\\text{Hz}$）；課堂編曲則將中央 C（四捨五入取 $262\\text{Hz}$）設為 $f(0)$，使 C 大調音階對應正整數 $0, 2, 4, 5, 7, 9, 11, 12$。
+- **國際標準音 vs 課堂起點**：國際標準定義是 $A_4 = 440\\text{Hz}$（中央 C 為 $440 \\cdot 2^{-\\frac{9}{12}} \\approx 261.63\\text{Hz}$）；課堂編曲則將中央 C（$261.63\\text{Hz}$）設為 $f(0)$，使 C 大調音階對應正整數 $0, 2, 4, 5, 7, 9, 11, 12$。
 - **琴鍵位移規律**：往右一格（高半音）就是 $\\times 2^{\\frac{1}{12}}$（指數 $+1$）；往左一格（低半音）就是 $\\div 2^{\\frac{1}{12}}$（指數 $-1$）。
       `,
       worksheet: {
@@ -1102,7 +1102,7 @@ $$
             id: "q2_find_csharp",
             title: "音名坐標計算：升 Do (C♯)",
             type: "text",
-            prompt: "在標準鋼琴鍵盤上，中央 C 的右側緊挨著黑鍵「升 Do（$C^\\sharp$）」。若使用課堂發聲函數 $f(x) = 262 \\cdot 2^{\\frac{x}{12}}$（以中央 $C = f(0)$ 為起點），請寫出：\n1. 升 Do 在函數中的自變數坐標 $x$ 應為多少？即 $C^\\sharp = f(?)$？\n2. 若改以國際標準音 $A_4 = 440\\text{Hz}$ 為原點（此時中央 C 為 $f(-9)$），升 Do 的坐標又會是多少？",
+            prompt: "在標準鋼琴鍵盤上，中央 C 的右側緊挨著黑鍵「升 Do（$C^\\sharp$）」。若使用課堂發聲函數 $f(x) = 261.63 \\cdot 2^{\\frac{x}{12}}$（以中央 $C = f(0)$ 為起點），請寫出：\n1. 升 Do 在函數中的自變數坐標 $x$ 應為多少？即 $C^\\sharp = f(?)$？\n2. 若改以國際標準音 $A_4 = 440\\text{Hz}$ 為原點（此時中央 C 為 $f(-9)$），升 Do 的坐標又會是多少？",
             placeholder: "請填入答案，例如：以 C=f(0) 為準是 f(?)；以 A4=f(0) 為準是 f(?)",
             expected: "1 | f(1) | -8 | f(-8)",
             solution: "1. 以中央 $C = f(0)$ 為起點時，升 Do 為其右側相鄰黑鍵，升高 1 個半音（往右 1 格），故坐標為 $0 + 1 = 1$，即 $C^\\sharp = f(1)$。\n2. 若以國際標準音 $A_4 = 440\\text{Hz} = f(0)$ 為原點，則中央 C 為 $f(-9)$，往右 1 格得 $-9 + 1 = -8$，即 $f(-8)$。",
@@ -1115,7 +1115,7 @@ $$
             prompt: "在演奏旋律時，若需要用到高音區的「高八度 Re（$D_5$）」。已知課堂發聲函數中標準 Re 為 $D = f(2)$：\n1. 請寫出高八度 Re 在函數中的自變數坐標，即 $D_5 = f(?)$？\n2. 它的頻率剛好是標準 $D$ 的幾倍？在數學指數律上如何體現？",
             placeholder: "請填入坐標與倍數，格式範例：f(?)，頻率剛好是幾倍...",
             expected: "14 | f(14) | 5 | f(5)",
-            solution: "1. 高八度 Re 的坐標為 $f(14)$（若以 $A_4=f(0)$ 為準則為 $-7+12=5$，即 $f(5)$）。\n2. 推算方式：高八度即往上移動 12 個半音，故坐標為 $2 + 12 = 14$。\n3. 頻率倍數：$f(14) = 262 \\cdot 2^{\\frac{14}{12}} = 262 \\cdot 2^{\\frac{2+12}{12}} = 262 \\cdot 2^{\\frac{2}{12}} \\cdot 2^1 = f(2) \\cdot 2$，剛好為 2 倍。",
+            solution: "1. 高八度 Re 的坐標為 $f(14)$（若以 $A_4=f(0)$ 為準則為 $-7+12=5$，即 $f(5)$）。\n2. 推算方式：高八度即往上移動 12 個半音，故坐標為 $2 + 12 = 14$。\n3. 頻率倍數：$f(14) = 261.63 \\cdot 2^{\\frac{14}{12}} = 261.63 \\cdot 2^{\\frac{2+12}{12}} = 261.63 \\cdot 2^{\\frac{2}{12}} \\cdot 2^1 = f(2) \\cdot 2$，剛好為 2 倍。",
             formatAnswer: (ans) => `高八度 Re 半音坐標推導：\n• 學生回答：${ans}\n• 正確答案：D5 = f(14)（若以 A4=f(0) 則為 f(5)）。由 D=f(2) 加上八度 12 個半音得 2 + 12 = 14，頻率為原本 D 的 2 倍。`
           }
         ]
@@ -1133,7 +1133,7 @@ $$
       conceptTitle: "旋律與音符數據化",
       modelTitle: "樂譜數據化與陣列編碼",
       status: "ready",
-      desmosUrl: "https://www.desmos.com/calculator/6y7znszfbk",
+      desmosUrl: "https://www.desmos.com/calculator/lmkmh10dup",
       motivation: `
 定義好音名變數之後，就能把簡譜轉換成列表，讓電腦照順序播出一整首歌。
 以《小星星》為例：
@@ -1144,8 +1144,8 @@ $$
       `,
       mathModel: `
 **一、 C 大調音名定義（【C大調音符】資料夾）**：
-在 Desmos 範本第 1 個資料夾【C大調音符】中，以中央 C（取整數 $262\\text{Hz}$）為基準原點：
-$$f(x) = 262 \\cdot 2^{\\frac{x}{12}}$$
+在 Desmos 範本第 1 個資料夾【C大調音符】中，以中央 C（取理論值 $261.63\\text{Hz}$）為基準原點：
+$$f(x) = 261.63 \\cdot 2^{\\frac{x}{12}}$$
 $$C = f(0), \\; D = f(2), \\; E = f(4), \\; F = f(5), \\; G = f(7), \\; A = f(9), \\; B = f(11)$$
 
 ---
@@ -1167,11 +1167,11 @@ $$\\operatorname{tone}(L[t]), \\quad t = 0$$
    這樣雖然能把同音切開，但會讓列表長度暴增一倍、打譜非常累。因此在【第三版本】與第四章中，我們會改用週期函數與分類討論 $q$ 自動做出斷音效果。
       `,
       tasks: [
-        "1. 開啟範本：點擊右上角「開啟 Desmos 範本 ↗」，展開【C大調音符】資料夾，確認 $f(x)=262\\cdot 2^{\\frac{x}{12}}$ 與 $C$ 到 $B$ 各音變數。",
+        "1. 開啟範本：點擊右上角「開啟 Desmos 範本 ↗」，展開【C大調音符】資料夾，確認 $f(x)=261.63\\cdot 2^{\\frac{x}{12}}$ 與 $C$ 到 $B$ 各音變數。",
         "2. 試聽第一版本：展開【小星星第一版本】資料夾，播放時間滑桿 $t$，留意連續播放相同音符（如 C C 或 G G）時黏在一起的現象。",
         "3. 比較第二版本（手動塞 0）：關閉第一版本聲音，展開【小星星第二版本(用0.2倍速播)】開啟 $\\operatorname{tone}(L_2[t])$，觀察手動在每個音後面塞 $0$ 的斷音效果與陣列變長的缺點。"
       ],
-      formula: `// 1. C 大調音名定義 (基準原點 C = 262Hz)\nf(x) = 262 \\cdot 2^{\\left(\\frac{x}{12}\\right)}\nC = f(0); D = f(2); E = f(4); F = f(5); G = f(7); A = f(9); B = f(11)\nt = 0\n\n// 2. 小星星第一版本 (0 為休止符)\nL = [C, C, G, G, A, A, G, 0, F, F, E, E, D, D, C, 0, G, G, F, F, E, E, D, 0, G, G, F, F, E, E, D, 0, C, C, G, G, A, A, G, 0, F, F, E, E, D, D, C]\n\\operatorname{tone}(L[t])\n\n// 3. 小星星第二版本 (手動在每音後塞 0 斷音)\nL_2 = [C, 0, C, 0, G, 0, G, 0, A, 0, A, 0, G, 0, 0, 0, F, 0, F, 0, E, 0, E, 0, D, 0, D, 0, C, 0, 0, 0, G, 0, G, 0, F, 0, F, 0, E, 0, E, 0, D, 0, 0, 0, G, 0, G, 0, F, 0, F, 0, E, 0, E, 0, D, 0, 0, 0, C, 0, C, 0, G, 0, G, 0, A, 0, A, 0, G, 0, 0, 0, F, 0, F, 0, E, 0, E, 0, D, 0, D, 0, C]`,
+      formula: `// 1. C 大調音名定義 (基準原點 C = 261.63Hz)\nf(x) = 261.63 \\cdot 2^{\\left(\\frac{x}{12}\\right)}\nC = f(0); D = f(2); E = f(4); F = f(5); G = f(7); A = f(9); B = f(11)\nt = 0\n\n// 2. 小星星第一版本 (0 為休止符)\nL = [C, C, G, G, A, A, G, 0, F, F, E, E, D, D, C, 0, G, G, F, F, E, E, D, 0, G, G, F, F, E, E, D, 0, C, C, G, G, A, A, G, 0, F, F, E, E, D, D, C]\n\\operatorname{tone}(L[t])\n\n// 3. 小星星第二版本 (手動在每音後塞 0 斷音)\nL_2 = [C, 0, C, 0, G, 0, G, 0, A, 0, A, 0, G, 0, 0, 0, F, 0, F, 0, E, 0, E, 0, D, 0, D, 0, C, 0, 0, 0, G, 0, G, 0, F, 0, F, 0, E, 0, E, 0, D, 0, 0, 0, G, 0, G, 0, F, 0, F, 0, E, 0, E, 0, D, 0, 0, 0, C, 0, C, 0, G, 0, G, 0, A, 0, A, 0, G, 0, 0, 0, F, 0, F, 0, E, 0, E, 0, D, 0, D, 0, C]`,
       tips: `
 - **Desmos 常見報錯檢查**（算式旁出現驚嘆號）：
   1. 陣列 L 還沒定義。
@@ -1219,26 +1219,26 @@ $$\\operatorname{tone}(L[t]), \\quad t = 0$$
 如果整首歌都用 C, D, E 這些字母寫，想要換調（升降 Key）就得把每個音重新改過，比較花時間。
 但如果把音符改記成「離中央 C 相差幾個半音」的數字陣列 $S$：
 中央 C 是 0，D 是 2，E 是 4，F 是 5，G 是 7，A 是 9，B 是 11。
-在 Desmos 裡，整個陣列可以直接放進指數次方計算：$F = 262 \\cdot 2^{\\frac{S}{12}}$。
-如果想升降 Key，只要在次方加上一個滑桿 $k$：$F = 262 \\cdot 2^{\\frac{S+k}{12}}$，就能將整首曲子一起移調。
+在 Desmos 裡，整個陣列可以直接放進指數次方計算：$F = 261.63 \\cdot 2^{\\frac{S}{12}}$。
+如果想升降 Key，只要在次方加上一個滑桿 $k$：$F = 261.63 \\cdot 2^{\\frac{S+k}{12}}$，就能將整首曲子一起移調。
       `,
       mathModel: `
 **向量廣播指數運算與平移移調**：
 $$S = [0, 0, 7, 7, 9, 9, 7, 0, 5, 5, 4, 4, 2, 2, 0, 0, \\dots]$$
 
 - **全曲頻率陣列生成（廣播映射）**：
-  $$F = f_0 \\cdot 2^{\\frac{S}{12}} \\quad (f_0 = 262\\text{Hz})$$
+  $$F = f_0 \\cdot 2^{\\frac{S}{12}} \\quad (f_0 = 261.63\\text{Hz})$$
 - **全曲移調運算（$k$ 為平移半音數）**：
   $$F_{\\text{shift}} = f_0 \\cdot 2^{\\frac{S + k}{12}}, \\quad k \\in [-6, 6]$$
   向量中每個元素同時加上 $k$，各音頻率等比放大 $2^{\\frac{k}{12}}$ 倍。相對音程比例保持不變，達成整體移調。
       `,
       tasks: [
         "1. 半音向量輸入：將《小星星》以半音整數陣列 $S$ 輸入 Desmos（以 $C=0$ 為原點）。",
-        "2. 陣列廣播運算：輸入 `F = 262 * 2^(S/12)`（即 $F = 262 \\cdot 2^{\\frac{S}{12}}$），觀察 Desmos 向量運算直接生成頻率陣列。",
-        "3. 移調滑桿實作：新增滑桿 $k$（範圍 $-6$ 到 $+6$，步長 $1$），輸入 `F = 262 * 2^((S+k)/12)`（即 $F = 262 \\cdot 2^{\\frac{S+k}{12}}$），測試全曲升調與降調效果。",
+        "2. 陣列廣播運算：輸入 `F = 261.63 * 2^(S/12)`（即 $F = 261.63 \\cdot 2^{\\frac{S}{12}}$），觀察 Desmos 向量運算直接生成頻率陣列。",
+        "3. 移調滑桿實作：新增滑桿 $k$（範圍 $-6$ 到 $+6$，步長 $1$），輸入 `F = 261.63 * 2^((S+k)/12)`（即 $F = 261.63 \\cdot 2^{\\frac{S+k}{12}}$），測試全曲升調與降調效果。",
         "4. 移調計算實練：完成隨堂學習單中的移調題目。"
       ],
-      formula: `// 1. 半音位移陣列 S (以中央 C 為 0，0 為休止符)\nS = [0, 0, 7, 7, 9, 9, 7, 0, 5, 5, 4, 4, 2, 2, 0, 0, 7, 7, 5, 5, 4, 4, 2, 0, 7, 7, 5, 5, 4, 4, 2, 0, 0, 0, 7, 7, 9, 9, 7, 0, 5, 5, 4, 4, 2, 2, 0, 0]\n\n// 2. 移調滑桿 k (k=0 原調，k>0 升半音，k<0 降半音)\nk = 0\nf_0 = 262\nF = f_0 \\cdot 2^{\\frac{S + k}{12}}\n\n// 3. 循序播放\nt = 0\n\\operatorname{tone}(F[t])`,
+      formula: `// 1. 半音位移陣列 S (以中央 C 為 0，0 為休止符)\nS = [0, 0, 7, 7, 9, 9, 7, 0, 5, 5, 4, 4, 2, 2, 0, 0, 7, 7, 5, 5, 4, 4, 2, 0, 7, 7, 5, 5, 4, 4, 2, 0, 0, 0, 7, 7, 9, 9, 7, 0, 5, 5, 4, 4, 2, 2, 0, 0]\n\n// 2. 移調滑桿 k (k=0 原調，k>0 升半音，k<0 降半音)\nk = 0\nf_0 = 261.63\nF = f_0 \\cdot 2^{\\frac{S + k}{12}}\n\n// 3. 循序播放\nt = 0\n\\operatorname{tone}(F[t])`,
       tips: `
 - **陣列廣播運算**：在數學與程式中，向量各元素同時進行指數運算稱為廣播（Broadcasting）。向量中每個元素加上 k，相對音程不變，達成整體移調。
 - **平移幾何意義**：滑桿 k 的作用本質上對應一維坐標平移。
