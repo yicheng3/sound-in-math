@@ -72,18 +72,11 @@ const COURSE_CONFIG = {
           url: "https://www.desmos.com/calculator/nko2nfm41b"
         },
         {
-          name: "[Copy of] 音調入門",
-          unitKey: "1-2",
-          unitLabel: "1-2 列表循序播放與音樂演奏原理",
-          desc: "k = 440 與 tone([k, 2k]) 雙音同時發聲",
-          url: "https://www.desmos.com/calculator/gkpqdobd4p"
-        },
-        {
           name: "列表",
           unitKey: "1-2",
           unitLabel: "1-2 列表循序播放與音樂演奏原理",
           desc: "列表同時發聲 vs tone(L[t]) 時間滑桿循序播放旋律",
-          url: "https://www.desmos.com/calculator/gxgub5desf"
+          url: "https://www.desmos.com/calculator/yabsytkkl8"
         }
       ]
     },
@@ -261,15 +254,15 @@ const COURSE_CONFIG = {
       category: "音樂作品成果展示",
       items: [
         {
-          name: "春日影",
+          name: "範本1",
           url: "https://www.desmos.com/calculator/eodq3asol4"
         },
         {
-          name: "Rickroll",
+          name: "範本2",
           url: "https://www.desmos.com/calculator/lp4hwddbnf"
         },
         {
-          name: "Lemon",
+          name: "範本3",
           url: "https://www.desmos.com/calculator/jsesxbjozc"
         }
       ]
@@ -339,8 +332,8 @@ $$\\operatorname{tone}(\\text{頻率}, \\text{音量})$$
       title: "列表循序播放與音樂演奏原理",
       conceptTitle: "音樂演奏原理",
       modelTitle: "列表發聲語法",
-      status: "pending",
-      desmosUrl: null,
+      status: "completed",
+      desmosUrl: "https://www.desmos.com/calculator/yabsytkkl8",
       motivation: `
 一個一個音手動拉滑桿太慢了。要讓電腦自己彈出一首歌，我們需要兩樣工具：
 - **列表（List）**：用中括號 [ ] 把一串音符的頻率存起來。
@@ -349,22 +342,23 @@ $$\\operatorname{tone}(\\text{頻率}, \\text{音量})$$
 另外，如果把多個音同時放在同一個列表裡（例如兩個頻率），電腦就會同時發聲，形成「和弦」。
       `,
       mathModel: `
-**1. 兩個音同時發聲（和弦）**：
-$$\\operatorname{tone}([440, 880])$$
-- 列表中放入多個頻率，Desmos 就會同時發出 $440\\text{Hz}$ 與 $880\\text{Hz}$。
+**1. 多個音同時發聲（和弦）**：
+$$\\operatorname{tone}([440, 880], 1)$$
+- 列表中放入多個頻率，Desmos 就會同時發出這些聲音。
+- 若先定義好列表 $L = [440, 880, 220, 110, 1760]$，直接寫 $\\operatorname{tone}(L)$ 也會把列表中所有音同時播出來。
 
 **2. 照順序一個一個發聲（旋律播放）**：
 $$L = [440, 880, 220, 110, 1760], \\quad t = 1, \\quad \\operatorname{tone}(L[t])$$
-- $L[t]$ 代表指針只讀取列表中「第 $t$ 個音符」。
+- $L[t]$ 代表只輸出列表中「第 $t$ 個音符」。
 - 隨時間滑桿 $t$ 自動往前跑，音符就依序輪流演奏出來。
       `,
       tasks: [
-        "1. 同時播放雙音：輸入 $\\operatorname{tone}([440, 880])$，聽聽看兩個音疊在一起的和聲。",
-        "2. 建立旋律列表：自己輸入一個包含 5 個音的列表 $L = [440, 554, 659, 880, 440]$。",
-        "3. 讓時間當唱針：輸入 $\\operatorname{tone}(L[t])$，新增時間滑桿 $t$（範圍 $1$ 到 $5$，步長 $1$），按下播放鍵聽旋律跑動。",
-        "4. 課堂猜歌：聽老師在課堂播放的 3 首旋律，在下方學習單記錄你猜中幾首。"
+        "1. 同時播放雙音：開啟右上角 Desmos 範本，點亮第一行 $\\operatorname{tone}([440, 880], 1)$，聽聽看兩個音疊在一起的和聲。",
+        "2. 整個列表同時發聲：點亮 $\\operatorname{tone}(L)$，聽聽看列表 $L = [440, 880, 220, 110, 1760]$ 五個音全部同時響起的效果。",
+        "3. 讓時間當唱針循序播放：關閉 $\\operatorname{tone}(L)$，改點亮 $\\operatorname{tone}(L[t])$ 並按下時間滑桿 $t$ 的播放鍵，觀察 $L[t]$ 依序播出單音。",
+        "4. 課堂猜歌：聽「範本總覽」底部的範本 1、2、3（或由老師播放），猜猜看是哪 3 首歌，並在下方學習單記錄你猜中幾首。"
       ],
-      formula: `// 1. 同時播放多個音符 (和弦)\n\\operatorname{tone}([440, 880])\n\n// 2. 列表旋律循序播放 (L[t] 代表只取出第 t 個音符)\nL = [440, 880, 220, 110, 1760]\nt = 1\n\\operatorname{tone}(L[t])`,
+      formula: `// 1. 同時播放多個音符 (和弦)\n\\operatorname{tone}([440, 880], 1)\n\n// 2. 定義列表 L (直接寫 tone(L) 會同時發出全部聲音)\nL = [440, 880, 220, 110, 1760]\n\\operatorname{tone}(L)\n\n// 3. 列表旋律循序播放 (L[t] 代表只輸出列表中第 t 個音符)\nt = 1\n\\operatorname{tone}(L[t])`,
       tips: `
 - **滑桿速度**：點時間滑桿 t 左邊的設定，可以調整播放速度（慢速 0.5x 或快速 2x）。
 - **列表索引**：Desmos 列表第一個音是從 1 開始算；若 t 超過列表長度，電腦就會安靜無聲。
@@ -376,14 +370,14 @@ $$L = [440, 880, 220, 110, 1760], \\quad t = 1, \\quad \\operatorname{tone}(L[t]
             id: "q1_songs",
             title: "問題一：你猜中幾首歌？",
             type: "radio",
-            prompt: "聽老師在課堂投影播放的 3 首旋律，請記錄你猜中了幾首：",
+            prompt: "聽課堂播放的 3 首旋律（範本 1、範本 2、範本 3），請記錄你猜中了幾首：",
             options: [
               "一首都沒有ＱＡＱ",
               "就猜到一首",
               "差一點點，只猜到兩首",
               "我超強，3首都猜中"
             ],
-            solution: "課堂播放的 3 首旋律分別是：《春日影》、《我很好騙》與《Lemon》。\n在 Desmos 裡，只要把頻率存成列表 $L$，配上時間滑桿 $t$ 與 `tone(L[t])`，電腦就能依序讀取頻率，自動播出一整首歌。",
+            solution: "3 首旋律分別是：範本 1《春日影》、範本 2《Rickroll》與範本 3《Lemon》。\n在 Desmos 裡，只要把頻率存成列表 $L$，配上時間滑桿 $t$ 與 `tone(L[t])`，電腦就能依序讀取頻率，自動播出一整首歌。",
             formatAnswer: (ans) => `課堂猜歌成果：【${ans}】。\n解析：在 Desmos 中透過列表 L 與時間變數 t，電腦能依序讀出頻率發聲，自動演奏旋律。`
           },
           {
