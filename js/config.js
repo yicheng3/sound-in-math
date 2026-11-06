@@ -10,7 +10,7 @@ const COURSE_CONFIG = {
   courseSubtitle: "高中跨領域數學與聲音實驗室",
   version: "20261025_1500",
   targetAudience: "高二、高三跨領域選修／加深加廣／彈性學習課程",
-  workflowTip: "雙視窗工作流：左側課程網站閱讀與複製算式，右側 Desmos 登入 Google 帳號實作存檔。",
+  workflowTip: "課堂推薦工作流：在新分頁開啟 Desmos 並登入 Google 帳號實作存檔，隨時與講義分頁切換查看。",
   defaultDesmosUrl: "https://www.desmos.com/calculator",
   
   // 課程章節目錄定義

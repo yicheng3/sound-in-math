@@ -929,42 +929,6 @@ document.addEventListener('DOMContentLoaded', () => {
           </div>
         </section>
 
-        <!-- 雙重視窗操作指南 -->
-        <section class="home-section">
-          <div class="section-title-wrap">
-            <h2 class="section-title">建議上課方式：雙視窗操作</h2>
-          </div>
-          <div class="split-screen-card">
-            <div class="split-screen-visual">
-              <div class="split-pane pane-left">
-                <div class="pane-header">左邊：講義與線上學習單 (50%)</div>
-                <div class="pane-body">
-                  <ul>
-                    <li>閱讀觀念說明與操作步驟</li>
-                    <li>跟著任務清單一步一步動手做</li>
-                    <li>在頁尾填寫學習單並即時核對答案</li>
-                  </ul>
-                </div>
-              </div>
-              <div class="split-divider">⇋</div>
-              <div class="split-pane pane-right">
-                <div class="pane-header">右邊：Desmos 圖形計算機 (50%)</div>
-                <div class="pane-body">
-                  <ul>
-                    <li>點開教材範本，按播放鍵聽旋律</li>
-                    <li>拖曳滑桿，看波形隨聲音跳動</li>
-                    <li>完成後點右上角複製你的作品存檔網址</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="split-screen-tips">
-              <strong>手機或平板同學：</strong>
-              點擊「開啟 Desmos 範本 ↗」會在瀏覽器新分頁中開啟，隨時在講義與計算機兩個分頁切換查看即可；若手機支援分割畫面，也可以上下並排操作。
-            </div>
-          </div>
-        </section>
-
         <!-- 平台功能說明 -->
         <section class="home-section">
           <div class="section-title-wrap">
