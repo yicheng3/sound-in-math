@@ -86,7 +86,7 @@ const COURSE_CONFIG = {
         {
           name: "和諧的音",
           unitKey: "2-1",
-          unitLabel: "2-1 雙音協和與簡單整數比",
+          unitLabel: "2-1 和諧的音",
           desc: "含三資料夾：1. 和諧音比例 a、2. 人耳聲音分辨度盲測 b、3. 行進波干涉圖",
           url: "https://www.desmos.com/calculator/j4sqzyfwfx"
         },
@@ -393,7 +393,7 @@ $$L = [440, 880, 220, 110, 1760], \\quad t = 1, \\quad \\operatorname{tone}(L[t]
       id: "2-1",
       moduleId: "module-2",
       moduleName: "二、音程與律學",
-      title: "雙音協和與簡單整數比",
+      title: "和諧的音",
       conceptTitle: "簡單整數比與和聲共鳴",
       modelTitle: "波形重合週期與協和物理",
       status: "ready",
