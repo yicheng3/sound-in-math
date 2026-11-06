@@ -1023,16 +1023,39 @@ $$
       mathModel: `
 **一、 相鄰音公比推導（連乘約分）**
 
-若任兩個相鄰半音的頻率比都固定為 $x$：
+要讓任何調性自由轉調都不走音，任兩個相鄰半音的頻率比必須固定為相同常數 $x$：
 $$
-\\frac{C^\\sharp}{C} = \\frac{D}{C^\\sharp} = \\frac{D^\\sharp}{D} = \\dots = \\frac{\\text{高音}C}{B} = x
+\\frac{C^\\sharp}{C} = \\frac{D}{C^\\sharp} = \\frac{D^\\sharp}{D} = \\frac{E}{D^\\sharp} = \\frac{F}{E} = \\frac{F^\\sharp}{F} = \\frac{G}{F^\\sharp} = \\frac{G^\\sharp}{G} = \\frac{A}{G^\\sharp} = \\frac{A^\\sharp}{A} = \\frac{B}{A^\\sharp} = \\frac{\\text{高音}C}{B} = x
 $$
 
-將這 12 個相鄰比值連乘，中間音符分子分母對角約分消去，只剩下頭尾的高八度比值：
+將這 12 個相鄰比值真的全部乘起來（連乘）：
 $$
-x^{12} = \\frac{\\text{高音}C}{C} = 2 \\implies x = \\sqrt[12]{2} = 2^{\\frac{1}{12}} \\approx 1.059463
+\\frac{C^\\sharp}{C} \\times \\frac{D}{C^\\sharp} \\times \\frac{D^\\sharp}{D} \\times \\frac{E}{D^\\sharp} \\times \\frac{F}{E} \\times \\frac{F^\\sharp}{F} \\times \\frac{G}{F^\\sharp} \\times \\frac{G^\\sharp}{G} \\times \\frac{A}{G^\\sharp} \\times \\frac{A^\\sharp}{A} \\times \\frac{B}{A^\\sharp} \\times \\frac{\\text{高音}C}{B}
 $$
-每升高一個半音，頻率就乘上 $2^{\\frac{1}{12}} \\approx 1.059463$。這就是**「十二平均律」**。
+
+1. **左邊（12 個 $x$ 連乘）**：
+   每個比值都等於 $x$，因此 12 個分數相乘即為：
+   $$
+   \\underbrace{x \\times x \\times x \\times x \\times x \\times x \\times x \\times x \\times x \\times x \\times x \\times x}_{12 \\text{ 個 } x} = x^{12}
+   $$
+
+2. **右邊（分子分母對角連續約分消去）**：
+   觀察分數相乘時，中間每一個音（$C^\\sharp, D, D^\\sharp, E, F, F^\\sharp, G, G^\\sharp, A, A^\\sharp, B$）都同時出現在前一項的分子與後一項的分母，對角互相約分消去，最後只剩下頭尾的高八度比值：
+   $$
+   = \\frac{\\text{高音}C}{C} = 2
+   $$
+
+兩邊相等，得到方程式：
+$$
+x^{12} = 2 \\implies x = \\sqrt[12]{2} = 2^{\\frac{1}{12}} \\approx \\mathbf{1.059463}
+$$
+
+每升高一個半音，頻率就乘上公比 $2^{\\frac{1}{12}} \\approx 1.059463$。這就是**「十二平均律」**。
+
+從基準音 $C$（比例 $1$）開始，每往右前進一個半音就乘上公比 $2^{\\frac{1}{12}}$，依序生出十二個音：
+$$
+C(1) \\;\\xrightarrow{\\times 2^{\\frac{1}{12}}}\\; C^\\sharp\\left(2^{\\frac{1}{12}}\\right) \\;\\xrightarrow{\\times 2^{\\frac{1}{12}}}\\; D\\left(2^{\\frac{2}{12}}\\right) \\;\\xrightarrow{\\times 2^{\\frac{1}{12}}}\\; \\dots \\;\\xrightarrow{\\times 2^{\\frac{1}{12}}}\\; \\text{高音}C\\left(2^{\\frac{12}{12}} = 2\\right)
+$$
 
 <div class="scale-table-wrap">
   <table class="scale-table">
