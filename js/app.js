@@ -596,7 +596,7 @@ document.addEventListener('DOMContentLoaded', () => {
       btnCopy.addEventListener('click', () => {
         let lines = [
           `======================================================================`,
-          `🎵【音符中的數學・隨堂學習單作答成果】`,
+          `🎵【音符中的數學・學習單作答紀錄】`,
           `======================================================================`,
           `• 課堂單元：【${unit.id}】${unit.title}`,
           `• 填答時間：${new Date().toLocaleString('zh-TW', { hour12: false })}`,
@@ -614,21 +614,21 @@ document.addEventListener('DOMContentLoaded', () => {
             const cleanPrompt = q.prompt.replace(/\*\*/g, '').replace(/\\/g, '');
             lines.push(cleanPrompt);
             lines.push(``);
-            lines.push(`【學生完整作答與推導】：`);
+            lines.push(`【作答內容】：`);
 
             if (q.formatAnswer && typeof q.formatAnswer === 'function' && hasAns) {
               lines.push(q.formatAnswer(rawAns));
             } else if (q.type === 'radio') {
-              lines.push(`我在本題的觀察與選擇是：【${rawAns}】`);
+              lines.push(`選擇：【${rawAns}】`);
             } else {
               lines.push(rawAns);
             }
 
-            // 系統自動檢核狀態
+            // 答案核對結果
             if (q.expected && hasAns) {
               const isMatch = isWorksheetAnswerMatch(q.expected, rawAns);
               lines.push(``);
-              lines.push(`（系統自檢狀態：${isMatch ? '✅ 完全正確' : '💡 建議核對標準推導步驟'}）`);
+              lines.push(`（核對結果：${isMatch ? '✅ 完全正確' : '💡 答案不符，建議查看參考解析'}）`);
             }
 
             lines.push(`----------------------------------------------------------------------`);
@@ -638,12 +638,12 @@ document.addEventListener('DOMContentLoaded', () => {
         // Desmos 作品存檔連結 (僅在指定單元導出)
         if (unit.worksheet && unit.worksheet.requireDesmosLink) {
           const desmosLink = answers['desmos_link'] || document.getElementById(`ws-desmos-link-${unit.id}`)?.value?.trim() || '';
-          lines.push(`【課堂 Desmos 實作存檔與作品連結】`);
-          lines.push(`• 我的 Desmos 專案存檔網址：${desmosLink || '（尚未填寫）'}`);
+          lines.push(`【Desmos 作品連結】`);
+          lines.push(`• Desmos 作品網址：${desmosLink || '（尚未填寫）'}`);
           lines.push(`----------------------------------------------------------------------`);
         }
         lines.push(`======================================================================`);
-        lines.push(`（本紀錄由《音符中的數學》線上互動講義系統自動匯出・可直接用於 Google 表單/Classroom 繳交）`);
+        lines.push(`（由《音符中的數學》線上講義匯出，可直接貼至 Google 表單或 Classroom 繳交）`);
 
         copyToClipboard(lines.join('\n'));
         showToast('📋 已複製完整作答報告！可直接貼至 Google 表單或 Classroom 繳交');
@@ -707,7 +707,7 @@ document.addEventListener('DOMContentLoaded', () => {
       `;
     } else if (hasDesmosUrl) {
       desmosButtonsHtml = `
-        <a href="${desmosTarget}" target="_blank" rel="noopener noreferrer" class="btn-banner-desmos" title="另開分頁開啟此單元 Desmos 互動教材">
+        <a href="${desmosTarget}" target="_blank" rel="noopener noreferrer" class="btn-banner-desmos" title="另開分頁開啟 Desmos 範本">
           開啟 Desmos 範本 ↗
         </a>
       `;
@@ -744,11 +744,11 @@ document.addEventListener('DOMContentLoaded', () => {
         </section>
       ` : ''}
 
-      <!-- 數學模型 / 核心原理區塊 -->
+      <!-- 數學模型 / 原理說明區塊 -->
       ${unit.mathModel ? `
         <section class="teaching-card">
           <div class="card-header">
-            <h2 class="card-title">${unit.modelTitle || '核心原理與數學模型'}</h2>
+            <h2 class="card-title">${unit.modelTitle || '原理與算式說明'}</h2>
           </div>
           <div class="card-body">
             ${parseMarkdown(unit.mathModel)}
@@ -859,7 +859,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     let modulesHtml = COURSE_CONFIG.modules.map(mod => {
-      const desc = moduleDescriptions[mod.id] || "涵蓋循序漸進的課堂實作與 Desmos 實驗。";
+      const desc = moduleDescriptions[mod.id] || "搭配 Desmos 範本邊聽邊做。";
       const unitPills = mod.units.map(unitKey => {
         const u = COURSE_CONFIG.units[unitKey];
         if (!u) return '';
@@ -891,12 +891,12 @@ document.addEventListener('DOMContentLoaded', () => {
         <header class="home-hero">
           <h1 class="hero-title">音符中的數學</h1>
           <p class="hero-desc">
-            這門課使用 Desmos 圖形計算機作為實驗工具，將高中數學的函數、數列與矩陣直接轉換為聽得見的聲音與看得見的圖形。<br><br>
-            從單音頻率、十二平均律、樂譜陣列，到演算法自動作曲與下落式音遊，每個單元皆搭配對應的 Desmos 線上範本，可以直接打開播放、拉動滑桿並修改算式。
+            這門課帶大家用 Desmos 圖形計算機做聲音實驗，把高中數學的函數、數列與矩陣變成聽得見的聲音與看得見的圖形。<br><br>
+            從單音頻率、十二平均律、寫樂譜到自動作曲與下落式音遊，每個單元都有對應的 Desmos 範本，可以直接打開播放、拉滑桿並修改算式。
           </p>
           <div class="hero-cta-group">
             <a href="#1-1" class="btn-hero-start">
-              <span>開始第 1 單元：聲音三要素與基礎發聲</span>
+              <span>開始第 1 單元：聲音三要素與 Desmos 基礎發聲</span>
               <span class="hero-arrow">→</span>
             </a>
             <a href="#templates" class="btn-hero-guide">
@@ -975,7 +975,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <footer class="home-footer-cta">
           <div class="footer-cta-text">從第 1 單元開始動手實作</div>
           <a href="#1-1" class="btn-hero-start btn-footer-start">
-            <span>前往第 1 單元：聲音三要素與基礎發聲 →</span>
+            <span>前往第 1 單元：聲音三要素與 Desmos 基礎發聲 →</span>
           </a>
         </footer>
       </div>
