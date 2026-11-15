@@ -544,6 +544,23 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
+    // 共用答案核對函式（避免輸入單字元如 "f"、"1" 誤判通過）
+    function isWorksheetAnswerMatch(rawExpected, rawUserInput) {
+      const userVal = (rawUserInput || '').trim().toLowerCase().replace(/\s+/g, '');
+      if (!userVal || !rawExpected) return false;
+      const allowed = rawExpected.toLowerCase().split('|').map(s => s.trim().replace(/\s+/g, '')).filter(Boolean);
+      return allowed.some(ans => {
+        if (userVal === ans) return true;
+        // 純整數答案需檢查數字邊界，避免填 "14" 誤中 "1"
+        if (/^-?\d+$/.test(ans)) {
+          const escaped = ans.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+          const boundaryRegex = new RegExp(`(?:^|[^0-9-])${escaped}(?:$|[^0-9])`);
+          return boundaryRegex.test(userVal);
+        }
+        return userVal.includes(ans);
+      });
+    }
+
     // 監聽核對答案按鈕
     const checkBtns = document.querySelectorAll(`#worksheet-${unit.id} .btn-ws-check`);
     checkBtns.forEach(btn => {
@@ -554,7 +571,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const resEl = document.getElementById(resId);
         if (!inputEl || !resEl) return;
 
-        const userVal = inputEl.value.trim().toLowerCase().replace(/\s+/g, '');
+        const userVal = inputEl.value.trim();
         const rawExpected = (inputEl.dataset.expected || '').trim();
 
         if (!userVal) {
@@ -563,11 +580,7 @@ document.addEventListener('DOMContentLoaded', () => {
           return;
         }
 
-        // 支援多種正確格式，例如 "14|f(14)" 或 "1:9/8:81/64:3/2:27/16"
-        const allowed = rawExpected.toLowerCase().split('|').map(s => s.trim().replace(/\s+/g, ''));
-        const isMatched = allowed.some(ans => userVal === ans || userVal.includes(ans) || ans.includes(userVal));
-
-        if (isMatched) {
+        if (isWorksheetAnswerMatch(rawExpected, userVal)) {
           resEl.className = 'ws-check-result correct';
           resEl.textContent = '✅ 完全正確！';
         } else {
@@ -613,9 +626,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // 系統自動檢核狀態
             if (q.expected && hasAns) {
-              const allowed = q.expected.toLowerCase().split('|').map(s => s.trim().replace(/\s+/g, ''));
-              const userVal = rawAns.toLowerCase().replace(/\s+/g, '');
-              const isMatch = allowed.some(a => userVal === a || userVal.includes(a) || a.includes(userVal));
+              const isMatch = isWorksheetAnswerMatch(q.expected, rawAns);
               lines.push(``);
               lines.push(`（系統自檢狀態：${isMatch ? '✅ 完全正確' : '💡 建議核對標準推導步驟'}）`);
             }
@@ -945,7 +956,7 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
             <div class="feature-card">
               <h3 class="feature-title">作品存檔與一鍵複製繳交</h3>
-              <p class="feature-desc">把你在 Desmos 的作品短網址貼進學習單，按下「一鍵複製學習單成果」，就能把完整作答直接貼到作業區繳交。</p>
+              <p class="feature-desc">把你在 Desmos 的作品短網址貼進學習單，按下「一鍵複製完整作答報告」，就能把完整作答直接貼到作業區繳交。</p>
             </div>
           </div>
         </section>
