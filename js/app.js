@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const isDark = document.body.classList.contains('dark-mode');
       localStorage.setItem('sound_math_theme', isDark ? 'dark' : 'light');
       if (themeIcon) themeIcon.textContent = isDark ? '☀️' : '🌙';
-      showToast(isDark ? '已切換為深夜素墨風格' : '已切換為和紙素雅風格');
+      showToast(isDark ? '已切換為深色模式' : '已切換為淺色模式');
     });
   }
 
@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
     templatesEl.id = 'nav-item-templates';
     templatesEl.style.marginTop = '0.35rem';
     templatesEl.innerHTML = `
-      <span class="sidebar-home-text">Desmos 範本超連結總覽</span>
+      <span class="sidebar-home-text">Desmos 範本總覽</span>
     `;
     templatesEl.addEventListener('click', () => {
       switchUnit('templates');
@@ -423,8 +423,8 @@ document.addEventListener('DOMContentLoaded', () => {
       <section class="teaching-card worksheet-card" id="worksheet-${unit.id}">
         <div class="card-header worksheet-header">
           <div class="worksheet-title-group">
-            <h2 class="card-title">${escapeHtml(ws.title || '課堂隨堂互動學習單')}</h2>
-            <span class="badge ws-badge">隨堂線上即時填答</span>
+            <h2 class="card-title">${escapeHtml(ws.title || '課堂學習單')}</h2>
+            <span class="badge ws-badge">線上作答</span>
           </div>
           <div class="ws-save-status" id="ws-save-status-${unit.id}">
             <span class="save-text">已自動存檔於本機</span>
@@ -713,7 +713,7 @@ document.addEventListener('DOMContentLoaded', () => {
       `;
     } else {
       desmosButtonsHtml = `
-        <span class="btn-desmos-pending" title="教師專屬範本製作中">
+        <span class="btn-desmos-pending" title="範本製作中">
           Desmos 範本製作中
         </span>
       `;
@@ -816,7 +816,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <span class="nav-unit-dir">下一單元 →</span>
             <span class="nav-unit-title">${nextUnit.id} ${nextUnit.title}</span>
           </a>
-        ` : `<div class="btn-nav-unit disabled" style="text-align: right;"><span class="nav-unit-dir">全課程圓滿結束</span></div>`}
+        ` : `<div class="btn-nav-unit disabled" style="text-align: right;"><span class="nav-unit-dir">已是最後一個單元</span></div>`}
       </nav>
     `;
 
@@ -849,13 +849,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 模組白話介紹表
     const moduleDescriptions = {
-      "module-1": "認識聲音的音高、頻率與振幅，在 Desmos 寫下第一行發聲指令。",
-      "module-2": "比較三分損益法、畢氏音律與十二平均律，計算八度內 12 個半音的等比頻率。",
-      "module-3": "用數字列表建立樂譜與頻率映射函數，在 Desmos 演奏單音旋律、移調與多軌和弦。",
-      "module-4": "利用高斯取整函數與餘數切分拍子，製作音符斷音、音量衰減包絡線與滑音。",
-      "module-5": "結合線對稱變換、內建音訊追蹤、薛帕德無限音階與轉移矩陣，最後製作對數琴鍵下落音遊。",
-      "module-phys": "從弦振動與空氣柱駐波認識泛音列，並用正弦波疊加合成不同樂器的波形與音色。",
-      "module-supp": "整理簡譜與十二半音對照表、純律小整數比和弦，以及超過 80 拍長曲的多段接力寫法。"
+      "module-1": "認識聲音的音高、頻率與振幅，在 Desmos 發出第一個聲音。",
+      "module-2": "從畢達哥拉斯五度相生律到十二平均律，算出一個八度內 12 個半音的頻率。",
+      "module-3": "把簡譜換成數字列表，在 Desmos 播放整首旋律並直接升降 Key 移調。",
+      "module-4": "利用週期函數、高斯取整與指數衰減，做出斷音、鋼琴餘音與復古電玩音效。",
+      "module-5": "結合幾何翻轉、內建聽圖功能、薛帕德無限音階與轉移矩陣，最後做出下落式音遊。",
+      "module-phys": "從弦與空氣柱的駐波認識泛音，並用正弦波疊加合成不同樂器的音色與波形。",
+      "module-supp": "整理簡譜與音名對照表、純律小整數比和弦，以及長曲的分段接力寫法。"
     };
 
     let modulesHtml = COURSE_CONFIG.modules.map(mod => {
@@ -896,11 +896,11 @@ document.addEventListener('DOMContentLoaded', () => {
           </p>
           <div class="hero-cta-group">
             <a href="#1-1" class="btn-hero-start">
-              <span>開始第 1 單元：頻率與音高</span>
+              <span>開始第 1 單元：聲音三要素與基礎發聲</span>
               <span class="hero-arrow">→</span>
             </a>
             <a href="#templates" class="btn-hero-guide">
-              <span>Desmos 範本超連結總覽</span>
+              <span>Desmos 範本總覽</span>
             </a>
             <a href="#home-guide" class="btn-hero-guide" id="btn-scroll-guide">
               <span>查看上課方式與用法說明</span>
@@ -975,7 +975,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <footer class="home-footer-cta">
           <div class="footer-cta-text">從第 1 單元開始動手實作</div>
           <a href="#1-1" class="btn-hero-start btn-footer-start">
-            <span>前往第 1 單元：頻率與音高 →</span>
+            <span>前往第 1 單元：聲音三要素與基礎發聲 →</span>
           </a>
         </footer>
       </div>
@@ -998,9 +998,9 @@ document.addEventListener('DOMContentLoaded', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  // 3.8 渲染全課程 Desmos 範本超連結總覽頁面
+  // 3.8 渲染全課程 Desmos 範本總覽頁面
   function renderTemplates() {
-    document.title = 'Desmos 範本超連結總覽 | 音符中的數學';
+    document.title = 'Desmos 範本總覽 | 音符中的數學';
 
     const groups = COURSE_CONFIG.desmosTemplates || [];
     const totalCount = groups.reduce((acc, g) => acc + (g.items ? g.items.length : 0), 0);
@@ -1057,14 +1057,14 @@ document.addEventListener('DOMContentLoaded', () => {
     mainContent.innerHTML = `
       <section class="unit-banner">
         <div class="banner-top-meta">
-          <span class="banner-module-tag">全課程教材資源庫（共 ${totalCount} 個 Desmos 專案）</span>
+          <span class="banner-module-tag">共 ${totalCount} 個 Desmos 範本與作品</span>
           <a href="https://www.desmos.com/calculator" target="_blank" rel="noopener noreferrer" class="btn-banner-desmos">
             開啟空白 Desmos ↗
           </a>
         </div>
         <div class="banner-title-group">
           <span class="banner-unit-id">範本總覽</span>
-          <h1 class="banner-title">全課程 Desmos 範本超連結總覽</h1>
+          <h1 class="banner-title">Desmos 範本總覽</h1>
         </div>
       </section>
 
