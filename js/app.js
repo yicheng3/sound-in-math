@@ -442,7 +442,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="ws-desmos-share-box">
               <div class="ws-desmos-share-title">個人 Desmos 實驗作品存檔連結</div>
               <p class="ws-desmos-share-desc">
-                在右側 Desmos 點擊右上角「儲存（Save）」，並點擊分享按鈕複製作品短網址貼於此處：
+                在 Desmos 分頁點擊右上角「儲存（Save）」，並點擊分享按鈕複製作品短網址貼於此處：
               </p>
               <input type="url" class="ws-text-input ws-desmos-input" id="ws-desmos-link-${unit.id}" placeholder="https://www.desmos.com/calculator/..." data-qid="desmos_link">
             </div>
@@ -947,7 +947,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="features-grid">
             <div class="feature-card">
               <h3 class="feature-title">課堂操作清單</h3>
-              <p class="feature-desc">每個單元有 3～6 個操作步驟，完成一項就打勾一項，方便對照進度。</p>
+              <p class="feature-desc">每個單元有 3～5 個操作步驟，完成一項就打勾一項，方便對照進度。</p>
             </div>
             <div class="feature-card">
               <h3 class="feature-title">線上學習單與即時核對</h3>
