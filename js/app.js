@@ -596,7 +596,7 @@ document.addEventListener('DOMContentLoaded', () => {
       btnCopy.addEventListener('click', () => {
         let lines = [
           `======================================================================`,
-          `🎵【音符中的數學・學習單作答紀錄】`,
+          `【音符中的數學・學習單作答紀錄】`,
           `======================================================================`,
           `• 課堂單元：【${unit.id}】${unit.title}`,
           `• 填答時間：${new Date().toLocaleString('zh-TW', { hour12: false })}`,
@@ -646,7 +646,7 @@ document.addEventListener('DOMContentLoaded', () => {
         lines.push(`（由《音符中的數學》線上講義匯出，可直接貼至 Google 表單或 Classroom 繳交）`);
 
         copyToClipboard(lines.join('\n'));
-        showToast('📋 已複製完整作答報告！可直接貼至 Google 表單或 Classroom 繳交');
+        showToast('已複製完整作答報告，可直接貼至 Google 表單或 Classroom 繳交');
       });
     }
 
@@ -850,12 +850,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // 模組白話介紹表
     const moduleDescriptions = {
       "module-1": "認識聲音的音高、頻率與振幅，在 Desmos 發出第一個聲音。",
-      "module-2": "從畢達哥拉斯五度相生律到十二平均律，算出一個八度內 12 個半音的頻率。",
+      "module-2": "從畢達哥拉斯五度相生律到十二平均律，算出一個八度內 12 個半音的頻率（含樂理與純律補充）。",
       "module-3": "把簡譜換成數字列表，在 Desmos 播放整首旋律並直接升降 Key 移調。",
       "module-4": "利用週期函數、高斯符號與指數衰減，做出斷音、鋼琴餘音與復古電玩音效。",
-      "module-5": "結合幾何翻轉、內建聽圖功能、薛帕德無限音階與轉移矩陣，最後做出下落式音遊。",
-      "module-phys": "從弦與空氣柱的駐波認識泛音，並用正弦波疊加合成不同樂器的音色與波形。",
-      "module-supp": "整理簡譜與音名對照表、純律小整數比和弦，以及長曲的分段接力寫法。"
+      "module-5": "結合幾何翻轉、內建聽圖功能、薛帕德無限音階、轉移矩陣與分段接力，最後做出下落式音遊。",
+      "module-phys": "從弦與空氣柱的駐波認識泛音，並用正弦波疊加合成不同樂器的音色與波形。"
     };
 
     let modulesHtml = COURSE_CONFIG.modules.map(mod => {
@@ -911,29 +910,29 @@ document.addEventListener('DOMContentLoaded', () => {
         <!-- 關鍵提醒卡：為什麼一定要開啟 Desmos 範本？ -->
         <section class="home-alert-card" id="home-guide">
           <div class="alert-card-header">
-            <h2 class="alert-card-title">上課小提醒：每單元右上角的【開啟 Desmos 範本 ↗】</h2>
+            <h2 class="alert-card-title">上課提醒：每單元右上角的「開啟 Desmos 範本 ↗」</h2>
           </div>
           <div class="alert-card-body">
             <div class="alert-points-grid">
               <div class="alert-point-item">
                 <div class="point-num">01</div>
                 <div class="point-content">
-                  <h3>這是一門邊聽邊動手的課</h3>
-                  <p>光看講義上的文字，就像看樂譜卻不彈樂器一樣。每單元右上角都有準備好的 Desmos 檔案，一定要點開跟著操作！</p>
+                  <h3>邊聽邊操作</h3>
+                  <p>各單元都有準備好的 Desmos 檔案，上課時請點開對應範本跟著操作。</p>
                 </div>
               </div>
               <div class="alert-point-item">
                 <div class="point-num">02</div>
                 <div class="point-content">
                   <h3>按播放鍵聽聲音，拉滑桿看圖形</h3>
-                  <p>點開範本後，只要按一下變數 $t$ 旁邊的播放鍵 ▶ 就會開始發聲；拉動畫面的滑桿，就能親眼看到圖形跟著聲音一起變化。</p>
+                  <p>點開範本後，按變數 $t$ 旁邊的播放鍵 ▶ 就會開始發聲；拉動滑桿可以直接觀察圖形和聲音的變化。</p>
                 </div>
               </div>
               <div class="alert-point-item">
                 <div class="point-num">03</div>
                 <div class="point-content">
-                  <h3>在畫布上自由改寫與實驗</h3>
-                  <p>範本裡的數字都可以自己修改，試著填入不同的數字或旋律，把數學公式變成你自己的樂器！</p>
+                  <h3>直接修改算式做實驗</h3>
+                  <p>範本裡的數字、列表和函數都可以自行改寫，試著換成不同數值或旋律，觀察聲音怎麼變。</p>
                 </div>
               </div>
             </div>
@@ -947,21 +946,21 @@ document.addEventListener('DOMContentLoaded', () => {
           </div>
           <div class="features-grid">
             <div class="feature-card">
-              <h3 class="feature-title">課堂任務打勾清單</h3>
-              <p class="feature-desc">每個單元有 3~4 個具體步驟，完成一項就打勾一項，跟著做就不會迷路。</p>
+              <h3 class="feature-title">課堂操作清單</h3>
+              <p class="feature-desc">每個單元有 3～6 個操作步驟，完成一項就打勾一項，方便對照進度。</p>
             </div>
             <div class="feature-card">
               <h3 class="feature-title">線上學習單與即時核對</h3>
-              <p class="feature-desc">填完答案後可以按「核對答案」自我檢查；如果卡關，可以點開折疊框看解題步驟。</p>
+              <p class="feature-desc">部分單元附有隨堂學習單，填完後可按「核對答案」檢查，或點開折疊框查看參考解析。</p>
             </div>
             <div class="feature-card">
-              <h3 class="feature-title">作品存檔與一鍵複製繳交</h3>
-              <p class="feature-desc">把你在 Desmos 的作品短網址貼進學習單，按下「一鍵複製完整作答報告」，就能把完整作答直接貼到作業區繳交。</p>
+              <h3 class="feature-title">自動存檔與複製繳交</h3>
+              <p class="feature-desc">填答內容會自動保存在目前瀏覽器；寫完後按「一鍵複製完整作答報告」，即可直接貼到 Google 表單或 Classroom 繳交。</p>
             </div>
           </div>
         </section>
 
-        <!-- 全課程章節藍圖 (7大模組總覽) -->
+        <!-- 全課程章節藍圖 -->
         <section class="home-section">
           <div class="section-title-wrap">
             <h2 class="section-title">課程章節總覽</h2>
