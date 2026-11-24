@@ -104,7 +104,7 @@ const COURSE_CONFIG = {
           unitKey: "supp-theory",
           unitLabel: "補充 1 樂理基礎入門：音名、唱名、全半音與簡譜",
           desc: "包含 C 大調音符 (C 到 B) 與小星星兩版本簡譜轉譯",
-          url: "https://www.desmos.com/calculator/ltq8uslysy"
+          url: "https://www.desmos.com/calculator/5vfpqafxt1"
         },
         {
           name: "12平均律",
@@ -123,7 +123,7 @@ const COURSE_CONFIG = {
           unitKey: "3-1",
           unitLabel: "3-1 把簡譜寫成音名列表",
           desc: "十二平均律音名定義 f(x) = 261.63·2^(x/12) 與《小星星》兩版本樂譜",
-          url: "https://www.desmos.com/calculator/ltq8uslysy"
+          url: "https://www.desmos.com/calculator/5vfpqafxt1"
         }
       ]
     },
@@ -905,7 +905,7 @@ $$
       conceptTitle: "音名、唱名與簡譜",
       modelTitle: "音名、唱名、鍵盤全半音與簡譜",
       status: "ready",
-      desmosUrl: "https://www.desmos.com/calculator/ltq8uslysy",
+      desmosUrl: "https://www.desmos.com/calculator/5vfpqafxt1",
       motivation: `
 在音樂裡，頻率、音符與琴鍵有三種常用的語言：
 1. **音名**：物理上固定不變的絕對音高（$C, D, E, F, G, A, B$）。
@@ -1157,48 +1157,93 @@ $$
   </table>
 </div>
 
+<div class="piano-card">
+  <svg class="piano-svg" viewBox="0 0 740 250" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <style>
+        .white-key { fill: #ffffff; stroke: #45403a; stroke-width: 1.5; rx: 5; ry: 5; }
+        .black-key { fill: #2b2723; stroke: #1a1816; stroke-width: 1; rx: 4; ry: 4; }
+        .key-pitch { font-size: 18px; font-weight: bold; fill: #2b2723; text-anchor: middle; font-family: -apple-system, sans-serif; }
+        .key-solfege { font-size: 12.5px; fill: #456854; font-weight: 600; text-anchor: middle; font-family: -apple-system, sans-serif; }
+        .key-num { font-size: 13.5px; font-weight: bold; fill: #c26d36; text-anchor: middle; font-family: 'JetBrains Mono', monospace; }
+        .black-text-sharp { font-size: 12px; font-weight: bold; fill: #ffffff; text-anchor: middle; font-family: -apple-system, sans-serif; }
+        .black-text-flat { font-size: 10.5px; fill: #d5cfc7; text-anchor: middle; font-family: 'JetBrains Mono', monospace; }
+        .step-arc { fill: none; stroke: #7d756d; stroke-width: 1.5; }
+        .step-arc-half { fill: none; stroke: #c26d36; stroke-width: 2.2; }
+        .step-badge { font-size: 11px; font-weight: bold; fill: #7d756d; text-anchor: middle; font-family: -apple-system, sans-serif; }
+        .step-badge-half { font-size: 11px; font-weight: bold; fill: #c26d36; text-anchor: middle; font-family: -apple-system, sans-serif; }
+      </style>
+    </defs>
+    <path d="M 124 50 Q 159 34 194 50" class="step-arc" />
+    <text x="159" y="32" class="step-badge">全音 (2)</text>
+    <path d="M 194 50 Q 229 34 264 50" class="step-arc" />
+    <text x="229" y="32" class="step-badge">全音 (2)</text>
+    <path d="M 264 50 Q 299 26 334 50" class="step-arc-half" />
+    <rect x="274" y="14" width="50" height="18" rx="9" fill="#fdf2e9" stroke="#c26d36" stroke-width="1.2" class="step-rect-half" />
+    <text x="299" y="27" class="step-badge-half">半音 (1)</text>
+    <path d="M 334 50 Q 369 34 404 50" class="step-arc" />
+    <text x="369" y="32" class="step-badge">全音 (2)</text>
+    <path d="M 404 50 Q 439 34 474 50" class="step-arc" />
+    <text x="439" y="32" class="step-badge">全音 (2)</text>
+    <path d="M 474 50 Q 509 34 544 50" class="step-arc" />
+    <text x="509" y="32" class="step-badge">全音 (2)</text>
+    <path d="M 544 50 Q 579 26 614 50" class="step-arc-half" />
+    <rect x="554" y="14" width="50" height="18" rx="9" fill="#fdf2e9" stroke="#c26d36" stroke-width="1.2" class="step-rect-half" />
+    <text x="579" y="27" class="step-badge-half">半音 (1)</text>
+    <g transform="translate(90, 58)"><rect class="white-key" x="0" y="0" width="68" height="175" /><text class="key-pitch" x="34" y="124">C</text><text class="key-solfege" x="34" y="144">Do</text><text class="key-num" x="34" y="165">x=0</text></g>
+    <g transform="translate(160, 58)"><rect class="white-key" x="0" y="0" width="68" height="175" /><text class="key-pitch" x="34" y="124">D</text><text class="key-solfege" x="34" y="144">Re</text><text class="key-num" x="34" y="165">x=2</text></g>
+    <g transform="translate(230, 58)"><rect class="white-key" x="0" y="0" width="68" height="175" /><text class="key-pitch" x="34" y="124">E</text><text class="key-solfege" x="34" y="144">Mi</text><text class="key-num" x="34" y="165">x=4</text></g>
+    <g transform="translate(300, 58)"><rect class="white-key" x="0" y="0" width="68" height="175" /><text class="key-pitch" x="34" y="124">F</text><text class="key-solfege" x="34" y="144">Fa</text><text class="key-num" x="34" y="165">x=5</text></g>
+    <g transform="translate(370, 58)"><rect class="white-key" x="0" y="0" width="68" height="175" /><text class="key-pitch" x="34" y="124">G</text><text class="key-solfege" x="34" y="144">Sol</text><text class="key-num" x="34" y="165">x=7</text></g>
+    <g transform="translate(440, 58)"><rect class="white-key" x="0" y="0" width="68" height="175" /><text class="key-pitch" x="34" y="124">A</text><text class="key-solfege" x="34" y="144">La</text><text class="key-num" x="34" y="165">x=9</text></g>
+    <g transform="translate(510, 58)"><rect class="white-key" x="0" y="0" width="68" height="175" /><text class="key-pitch" x="34" y="124">B</text><text class="key-solfege" x="34" y="144">Si</text><text class="key-num" x="34" y="165">x=11</text></g>
+    <g transform="translate(580, 58)"><rect class="white-key" x="0" y="0" width="68" height="175" /><text class="key-pitch" x="34" y="124">C</text><text class="key-solfege" x="34" y="144">高音 Do</text><text class="key-num" x="34" y="165">x=12</text></g>
+    <g transform="translate(139, 58)"><rect class="black-key" x="0" y="0" width="42" height="106" /><text class="black-text-sharp" x="21" y="54">C♯</text><text class="black-text-flat" x="21" y="74">x=1</text></g>
+    <g transform="translate(209, 58)"><rect class="black-key" x="0" y="0" width="42" height="106" /><text class="black-text-sharp" x="21" y="54">D♯</text><text class="black-text-flat" x="21" y="74">x=3</text></g>
+    <g transform="translate(349, 58)"><rect class="black-key" x="0" y="0" width="42" height="106" /><text class="black-text-sharp" x="21" y="54">F♯</text><text class="black-text-flat" x="21" y="74">x=6</text></g>
+    <g transform="translate(419, 58)"><rect class="black-key" x="0" y="0" width="42" height="106" /><text class="black-text-sharp" x="21" y="54">G♯</text><text class="black-text-flat" x="21" y="74">x=8</text></g>
+    <g transform="translate(489, 58)"><rect class="black-key" x="0" y="0" width="42" height="106" /><text class="black-text-sharp" x="21" y="54">A♯</text><text class="black-text-flat" x="21" y="74">x=10</text></g>
+  </svg>
+</div>
+
+鋼琴上每往右一鍵（包含黑鍵）升高 $1$ 個**半音**，頻率乘以 $2^{\\frac{1}{12}}$；往左一鍵則除以 $2^{\\frac{1}{12}}$。
+注意只有 **E–F** 與 **B–高音 C** 之間沒有黑鍵，相距 $1$ 個半音；其餘相鄰白鍵中間都夾著一個黑鍵，相距 $2$ 個半音（即 $1$ 個**全音**）。
+
 ---
 
-**二、 國際標準音定義（$A_4 = 440\\text{Hz}$）與課堂發聲函數**
+**二、 國際標準音與課堂發聲函數**
 
-1. **國際標準音定義**：
-   現代音樂在國際標準（ISO 16）中，定義**標準音 $A_4$（中央 C 上方的 La）頻率為 $440\\text{Hz}$**。
-   由於中央 Do（$C_4$）位於 $A_4$ 左側 9 個半音，因此中央 C 的理論頻率是由 $440\\text{Hz}$ 反推而來：
-   $$
-   C_4 = 440 \\cdot 2^{-\\frac{9}{12}} \\approx 261.63\\text{Hz}
-   $$
+**1. 從標準音 $A_4 = 440\\text{Hz}$ 反推中央 $C_4$**
+國際標準（ISO 16）規定鋼琴上中央 $C$ 上方的 $A_4$（La）為 $440\\text{Hz}$。對照上方鍵盤，中央 $C_4$ 在 $A_4$ 左側 $9$ 個半音，因此將 $440$ 往左退 $9$ 格（除以 $2^{\\frac{9}{12}}$）：
+$$
+C_4 = 440 \\cdot 2^{-\\frac{9}{12}} \\approx 261.63\\text{Hz}
+$$
 
-2. **課堂編曲發聲函數（以中央 C 為起點 $x = 0$）**：
-   在後續 Desmos 樂譜範本（如 3-1《小星星》）中，為了讓 C 大調的 Do 直接從 $x = 0$ 開始算起，我們統一以中央 C（理論值取 $261.63\\text{Hz}$）作為基準點：
-   $$
-   f(x) = 261.63 \\cdot 2^{\\frac{x}{12}}
-   $$
-   - **往右一格（升高 1 個半音）**：頻率乘上公比 $2^{\\frac{1}{12}}$（自變數 $x + 1$）。
-   - **往左一格（降低 1 個半音）**：頻率除以公比 $2^{\\frac{1}{12}}$（自變數 $x - 1$）。
+**2. 課堂發聲函數（以中央 $C$ 為起點 $x = 0$）**
+為了讓 C 大調的 Do 直接從 $0$ 開始算起，全課程統一以中央 $C$（$261.63\\text{Hz}$）為基準，建立發聲函數：
+$$
+f(x) = 261.63 \\cdot 2^{\\frac{x}{12}}
+$$
+其中 $x$ 代表「距離中央 $C$ 的半音數」：往右移（升高）$x$ 為正，往左移（降低）$x$ 為負。
 
-**C 大調七音的半音步數坐標（以中央 $C = f(0)$ 為準）**：
-- $C = f(0) = 261.63\\text{Hz}$（Do）
-- $D = f(2)$（Re，與 C 差 2 個半音）
-- $E = f(4)$（Mi，與 D 差 2 個半音）
-- $F = f(5)$（Fa，**注意 E 到 F 無黑鍵，只差 1 個半音**）
-- $G = f(7)$（Sol，與 F 差 2 個半音）
-- $A = f(9)$（La，與 G 差 2 個半音）
-- $B = f(11)$（Si，與 A 差 2 個半音）
-- $\\text{高音}C = f(12) = 523.25\\text{Hz}$（高音 Do，**B 到 C 無黑鍵，只差 1 個半音**）
+**3. C 大調白鍵的半音坐標**
+對照上方鍵盤的 $x$ 值，一個八度內的七個白鍵定義為：
+$$
+C = f(0),\\; D = f(2),\\; E = f(4),\\; F = f(5),\\; G = f(7),\\; A = f(9),\\; B = f(11)
+$$
       `,
       tasks: [
-        "1. 連乘約分計算：自己推一次 12 個相鄰音分數相乘等於 $2$ 的過程，算出 $x^{12} = 2$。",
-        "2. 開啟 Desmos 範本並展開【tone函數】：確認 `440 * 2^(-9/12)` 約等於 $261.63$ 與 $f(x) = 261.63 \\cdot 2^{\\frac{x}{12}}$，開啟 `tone(f(t), 1)` 聲音並拖動滑桿 $t$，聽聽看音高一格一格的變化。",
-        "3. 展開【C大調音符(一個八度內)】：對照 `C = f(0)` 到 `B = f(11)` 的自變數數值，留意 E 到 F（$4 \\to 5$）與 B 到高音 C（$11 \\to 12$）之間沒有黑鍵、只差 $1$ 個半音。"
+        "1. 連乘約分：自己推一次 12 個相鄰音分數相乘等於 $2$ 的過程，得出 $x^{12} = 2$。",
+        "2. 試聽半音變化：開啟 Desmos 範本並展開【tone函數】，確認 `440 * 2^(-9/12)` 約為 $261.63$，開啟 `tone(f(t), 1)` 聲音並拖動滑桿 $t$ 聽音高逐格變化。",
+        "3. 對照鍵盤白鍵：展開【C大調音符(一個八度內)】，對照上方鋼琴圖確認 `C = f(0)` 到 `B = f(11)` 每個白鍵的半音步數。"
       ],
       formula: `// 1. tone函數資料夾：A4 = 440Hz 反推中央 C4 ≈ 261.63Hz 與發聲函數\n440 \\cdot 2^{-\\frac{9}{12}}\nf(x) = 261.63 \\cdot 2^{\\left(\\frac{x}{12}\\right)}\nt = 0  // 滑桿範圍 -12 到 12，步長 1\n\\operatorname{tone}(f(t), 1)\n\n// 2. C大調音符(一個八度內)\nC = f(0)    // Do\nD = f(2)    // Re\nE = f(4)    // Mi\nF = f(5)    // Fa (E-F 無黑鍵，只差 1 半音)\nG = f(7)    // Sol\nA = f(9)    // La\nB = f(11)   // Si`,
       tips: `
-- **連乘約分原理**：12 個相鄰分數連乘時，中間音符分子分母對角約分消去，只剩下 $(\\text{高音}C)/C = 2$，因此 $x^{12} = 2 \\implies x = 2^{\\frac{1}{12}}$。
-- **全課程統一以中央 C 為起點**：$A_4 = 440\\text{Hz}$ 是國際標準定義，往左推 9 個半音得中央 $C_4 \\approx 261.63\\text{Hz}$；後續編曲一律設中央 $C = f(0)$，讓 C 大調白鍵對應 $0, 2, 4, 5, 7, 9, 11$。
-- **琴鍵位移規律**：往右一格（高半音）就是 $\\times 2^{\\frac{1}{12}}$（$x + 1$）；往左一格（低半音）就是 $\\div 2^{\\frac{1}{12}}$（$x - 1$）。
+- **連乘約分原理**：12 個相鄰分數連乘時，中間的分子分母會對角消去，只剩下 $(\\text{高音}C)/C = 2$，因此 $x^{12} = 2$。
+- **基準音與起點**：$A_4 = 440\\text{Hz}$ 是國際標準，$261.63\\text{Hz}$ 是往左推 9 個半音算出的近似值；後續單元寫旋律都統一以中央 $C = f(0)$ 起算。
       `,
       worksheet: {
-        title: "隨堂學習單：十二平均律函數與 C 大調白鍵",
+        title: "隨堂學習單：十二平均律發聲函數與轉調原理",
         questions: [
           {
             id: "q1_func_meaning",
@@ -1210,14 +1255,13 @@ $$
             formatAnswer: (ans) => `十二平均律函數意義：\n• 學生回答：${ans}\n• 解析：x 每增加 1 代表音高升高一個半音（頻率乘以 2^(1/12)）；每增加 12 代表升高一個八度（頻率變為 2 倍）。`
           },
           {
-            id: "q2_white_keys_gap",
-            title: "C 大調白鍵的數字規律",
-            type: "text",
-            prompt: "觀察 C 大調白鍵定義：`C = f(0)`、`D = f(2)`、`E = f(4)`、`F = f(5)`、`G = f(7)`、`A = f(9)`、`B = f(11)`：\n1. 為什麼從 C 到 D、D 到 E 都是加 $2$，但從 E 到 F 卻只加 $1$？\n2. 照這個規律，下一個高音 C 應該寫成 $f(?)$？從指數算式上怎麼看出它的頻率剛好是中央 C 的 $2$ 倍？",
-            placeholder: "請說明原因並填入 f(?)...",
-            expected: "12 | f(12)",
-            solution: "1. 因為鋼琴鍵盤上 C–D 與 D–E 之間各有一個黑鍵（相隔全音＝2 個半音），而 **E 與 F 之間沒有黑鍵**（只相隔 1 個半音），所以 $4 + 1 = 5$。\n2. B 與高音 C 之間同樣沒有黑鍵（只差 1 個半音），故高音 $C = f(11 + 1) = f(12)$；代入算式得 $f(12) = 261.63 \\cdot 2^{\\frac{12}{12}} = 261.63 \\cdot 2 = 2 \\cdot f(0)$，剛好為 2 倍。",
-            formatAnswer: (ans) => `C 大調白鍵數字規律：\n• 學生回答：${ans}\n• 正確答案：因 E 與 F（及 B 與高音 C）之間無黑鍵只差 1 個半音；高音 C = f(12)，因 2^(12/12) = 2，頻率剛好為中央 C 的 2 倍。`
+            id: "q2_equal_temperament_ratio",
+            title: "為什麼十二平均律可以自由轉調",
+            type: "textarea",
+            prompt: "在鍵盤上，從 $C$ 到 $D$（Do 到 Re）與從 $G$ 到 $A$（Sol 到 La）都相隔 $1$ 個全音（$2$ 個半音）。\n1. 利用課堂發聲函數 $f(x) = 261.63 \\cdot 2^{\\frac{x}{12}}$，分別算出頻率比 $\\frac{D}{C}$ 與 $\\frac{A}{G}$（以 $2$ 的次方表示）。這兩個比值相等嗎？\n2. 進一步思考：在十二平均律中，任意兩個相距 $d$ 個半音的音，它們的頻率比會跟起點位置有關嗎？這如何解決前面畢氏律與純律「換調會走音」的問題？",
+            placeholder: "例如：D/C = 2^(2/12)，A/G = ...；任意兩音相距 d 個半音時...",
+            solution: "**1.** 對照鍵盤，$C = f(0)$、$D = f(2)$、$G = f(7)$、$A = f(9)$，代入發聲函數相除：\n$$\\frac{D}{C} = \\frac{261.63 \\cdot 2^{\\frac{2}{12}}}{261.63 \\cdot 2^{\\frac{0}{12}}} = 2^{\\frac{2}{12}} = 2^{\\frac{1}{6}}, \\qquad \\frac{A}{G} = \\frac{261.63 \\cdot 2^{\\frac{9}{12}}}{261.63 \\cdot 2^{\\frac{7}{12}}} = 2^{\\frac{9 - 7}{12}} = 2^{\\frac{2}{12}} = 2^{\\frac{1}{6}}$$\n兩者完全相等。\n**2.** 設兩個音的位置分別為 $x$ 與 $x + d$，相除得 $\\frac{f(x + d)}{f(x)} = 2^{\\frac{d}{12}}$，基準值與起點 $x$ 都會約掉，頻率比**只跟相差的半音數 $d$ 有關，與起點位置無關**。因此不管把曲子移到哪個調性，所有音程比例都維持不變，不會走音。",
+            formatAnswer: (ans) => `十二平均律與自由轉調：\n• 學生回答：${ans}\n• 參考解析：D/C = f(2)/f(0) = 2^(2/12) = 2^(1/6)，A/G = f(9)/f(7) = 2^(2/12) = 2^(1/6)，兩者相等；任意相距 d 個半音的兩音頻率比皆為 2^(d/12)，與起點無關，因此移調不會走音。`
           }
         ]
       }
@@ -1234,7 +1278,7 @@ $$
       conceptTitle: "用列表排出旋律",
       modelTitle: "音名定義與《小星星》列表",
       status: "ready",
-      desmosUrl: "https://www.desmos.com/calculator/ltq8uslysy",
+      desmosUrl: "https://www.desmos.com/calculator/5vfpqafxt1",
       motivation: `
 定義好音名變數之後，就能把簡譜轉換成列表，讓電腦照順序播出一整首歌。
 以《小星星》為例：
@@ -1418,15 +1462,6 @@ t = 0
             expected: "f(18), f(21), f(19) | 18, 21, 19 | 8, 11, 9",
             solution: "1. 降兩個半音就是括號內減 2：$f(18), f(21), f(19)$。\n2. 降一個八度就是括號內減 12：$f(8), f(11), f(9)$。\n3. 換成乘法移調：降兩個半音乘上 $2^{-\\frac{2}{12}}$（即 $2^{-\\frac{1}{6}}$）；降一個八度乘上 $2^{-\\frac{12}{12}} = \\frac{1}{2}$。",
             formatAnswer: (ans) => `《煎熬》降 Key 計算：\n• 學生回答：${ans}\n• 正確答案：降兩半音為 f(18), f(21), f(19)（乘上 2^(-2/12)）；降一個八度為 f(8), f(11), f(9)（乘上 1/2）。`
-          },
-          {
-            id: "q5_c_to_d",
-            title: "C 大調升兩個半音與乘法移調",
-            type: "text",
-            prompt: "若有一組 C 大調音階：$[C, D, E, F, G, A, B, C_5]$，在 Desmos 中整體【升兩個半音】（$k = +2$）：\n1. 請問這個音階會轉成什麼調？原本的白鍵裡，哪兩個音會變成黑鍵（升半音）？\n2. 為什麼在 Desmos 寫 `tone(2^(k/12) * L[t], 1)` 就能幫整首歌移調，而且原本列表裡的休止符 `0` 不會跑出聲音？",
-            placeholder: "格式範例：轉為某大調，變成黑鍵的是...，因為...",
-            solution: "1. 整體升高兩個半音（一個全音）後，調性轉為【D 大調】，音階變為 $D, E, F^\\sharp, G, A, B, C^\\sharp, D_5$（原本的 $F$ 與 $C$ 皆升高為黑鍵 $F^\\sharp$ 與 $C^\\sharp$）。\n2. 因為由指數律 $f(x+k) = 2^{\\frac{k}{12}} \\cdot f(x)$，把列表乘上 $2^{\\frac{k}{12}}$ 等同把每個音都移 $k$ 個半音；而休止符原本是 $0$，$2^{\\frac{k}{12}} \\cdot 0 = 0$，所以維持靜音。",
-            formatAnswer: (ans) => `C 大調升兩半音與乘法移調：\n• 學生回答：${ans}\n• 正確答案：轉為 D 大調（D, E, F#, G, A, B, C#, D5）；因 f(x+k) = 2^(k/12)·f(x) 且 2^(k/12)·0 = 0，休止符不受影響。`
           }
         ]
       }
