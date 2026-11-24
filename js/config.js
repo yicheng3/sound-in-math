@@ -124,6 +124,13 @@ const COURSE_CONFIG = {
           unitLabel: "3-1 把簡譜寫成音名列表",
           desc: "十二平均律音名定義 f(x) = 261.63·2^(x/12) 與《小星星》兩版本樂譜",
           url: "https://www.desmos.com/calculator/5vfpqafxt1"
+        },
+        {
+          name: "小星星轉調",
+          unitKey: "3-2",
+          unitLabel: "3-2 全曲移調與升降 Key",
+          desc: "以原調、升 1 半音與滑桿 k 體驗 tone(L[t] · 2^(k/12)) 全曲移調",
+          url: "https://www.desmos.com/calculator/o1afcxggb7"
         }
       ]
     },
@@ -131,60 +138,60 @@ const COURSE_CONFIG = {
       category: "四、節奏與動態",
       items: [
         {
-          name: "三角函數做斷音（範本一：三角週期開關）",
-          unitKey: "4-2",
-          unitLabel: "4-2 週期函數與斷音開關",
+          name: "三角函數做斷音（三角週期開關）",
+          unitKey: "4-1",
+          unitLabel: "4-1 動態音量與三角函數斷音",
           desc: "利用正弦波特殊角門檻與正切函數製作週期斷音開關",
           url: "https://www.desmos.com/calculator/l8nygbjy8e"
         },
         {
-          name: "floor函數做斷音（範本二：高斯鋸齒波開關）",
-          unitKey: "4-2",
-          unitLabel: "4-2 週期函數與斷音開關",
-          desc: "利用高斯小數鋸齒波 t - floor(t) 製作任意比例斷音開關 q",
-          url: "https://www.desmos.com/calculator/nvksl0vch6"
-        },
-        {
-          name: "高斯符號與鋸齒波音量衰減",
-          unitKey: "4-2",
-          unitLabel: "4-2 週期函數與斷音開關",
-          desc: "高斯符號 floor(x) 搭配鋸齒波音量衰減與分段函數範例",
-          url: "https://www.desmos.com/calculator/a0nxj4issv"
-        },
-        {
           name: "三角函數做斷音（步驟一：正弦波與門檻線圖解）",
-          unitKey: "4-2",
-          unitLabel: "4-2 週期函數與斷音開關",
+          unitKey: "4-1",
+          unitLabel: "4-1 動態音量與三角函數斷音",
           desc: "y = sin(2πx + π/3) 與門檻線 y = √3 / 2 交點圖解",
           url: "https://www.desmos.com/calculator/ymeb0xkzsz"
         },
         {
           name: "三角函數做斷音（步驟二：分類討論 0/1 開關圖解）",
-          unitKey: "4-2",
-          unitLabel: "4-2 週期函數與斷音開關",
+          unitKey: "4-1",
+          unitLabel: "4-1 動態音量與三角函數斷音",
           desc: "將正弦波高於門檻區間轉為 0（靜音）、其餘轉為 1（發聲）",
           url: "https://www.desmos.com/calculator/exrboynk81"
         },
         {
+          name: "floor函數做斷音（高斯鋸齒波開關）",
+          unitKey: "4-2",
+          unitLabel: "4-2 高斯符號與鋸齒波斷音",
+          desc: "利用高斯小數鋸齒波 t - floor(t) 製作任意比例斷音開關 q",
+          url: "https://www.desmos.com/calculator/nvksl0vch6"
+        },
+        {
           name: "floor函數做斷音（高斯階梯函數 y = floor(x) 圖解）",
-          unitKey: "4-1",
-          unitLabel: "4-1 動態音量",
+          unitKey: "4-2",
+          unitLabel: "4-2 高斯符號與鋸齒波斷音",
           desc: "展示高斯符號每滿 1 拍跳升一階的水平階梯圖形",
           url: "https://www.desmos.com/calculator/2fev0huixj"
         },
         {
           name: "floor函數做斷音（拍內小數鋸齒波 y = x - floor(x) 圖解）",
-          unitKey: "4-1",
-          unitLabel: "4-1 動態音量 ／ 4-2 週期函數與斷音開關",
+          unitKey: "4-2",
+          unitLabel: "4-2 高斯符號與鋸齒波斷音",
           desc: "展示每拍從 0 斜直線爬升到 1 的拍內小數計時器",
           url: "https://www.desmos.com/calculator/dm2eoyoon8"
         },
         {
           name: "floor函數做斷音（鋸齒波分類討論 0/1 方波開關圖解）",
           unitKey: "4-2",
-          unitLabel: "4-2 週期函數與斷音開關",
+          unitLabel: "4-2 高斯符號與鋸齒波斷音",
           desc: "展示 {x - floor(x) <= 0.2: 0, 1} 切出前 20% 靜音的週期方波",
           url: "https://www.desmos.com/calculator/mq7ka30chq"
+        },
+        {
+          name: "高斯符號與鋸齒波音量衰減",
+          unitKey: "4-2",
+          unitLabel: "4-2 高斯符號與鋸齒波斷音",
+          desc: "高斯符號 floor(x) 搭配鋸齒波音量衰減與分段函數範例",
+          url: "https://www.desmos.com/calculator/a0nxj4issv"
         }
       ]
     },
@@ -1392,17 +1399,17 @@ C_{5r} = f(13) // 高八度升 Do`,
       title: "全曲移調與升降 Key",
       conceptTitle: "用指數律幫整首歌移調",
       modelTitle: "乘法移調算式與滑桿控制",
-      status: "pending",
-      desmosUrl: null,
+      status: "ready",
+      desmosUrl: "https://www.desmos.com/calculator/o1afcxggb7",
       motivation: `
 在 KTV 唱歌太高唱不上去時，按一下降 Key 就能把整首歌一起調低。
-如果已經在 Desmos 寫好音名列表 $L = [C, C, G, G, A, A, G, 0, \\dots]$，要把整首歌升高或降低 $k$ 個半音，不需要重打整份列表，直接用十二平均律的指數律就可以移調。
+如果已經在 Desmos 寫好音名列表 $L = [C, 0, C, 0, G, 0, G, 0, \\dots]$，要把整首歌升高或降低 $k$ 個半音，不需要重打整份列表，直接用十二平均律的指數律就可以移調。
       `,
       mathModel: `
 **一、 移調的指數律推導**
 每個音符原本的頻率是 $f(x) = 261.63 \\cdot 2^{\\frac{x}{12}}$。
 把音高升高 $k$ 個半音（$k > 0$ 升 Key，$k < 0$ 降 Key），就是把自變數從 $x$ 改成 $x + k$：
-$$f(x + k) = 261.63 \\cdot 2^{\\frac{x + k}{12}} = 2^{\\frac{k}{12}} \\cdot \\left(261.63 \\cdot 2^{\\frac{x}{12}}\\right) = 2^{\\frac{k}{12}} \\cdot f(x)$$
+$$f(x + k) = 261.63 \\cdot 2^{\\frac{x + k}{12}} = \\left(261.63 \\cdot 2^{\\frac{x}{12}}\\right) \\cdot 2^{\\frac{k}{12}} = f(x) \\cdot 2^{\\frac{k}{12}}$$
 
 把每個音移動 $k$ 個半音，等於把原本的頻率乘上 $2^{\\frac{k}{12}}$：
 - 升高 $1$ 個半音：頻率乘上 $2^{\\frac{1}{12}}$。
@@ -1413,31 +1420,35 @@ $$f(x + k) = 261.63 \\cdot 2^{\\frac{x + k}{12}} = 2^{\\frac{k}{12}} \\cdot \\le
 ---
 
 **二、 Desmos 全曲移調寫法**
-沿用 3-1 寫好的《小星星》列表 $L$，加上一個整數滑桿 $k$（範圍 $-12$ 到 $12$，步長 $1$），把發聲算式改為：
-$$\\operatorname{tone}\\!\\left(2^{\\frac{k}{12}} \\cdot L[t], \\; 1\\right)$$
+沿用《小星星》列表 $L$，先試著把整首歌升高 $1$ 個半音：
+$$\\operatorname{tone}\\!\\left(L[t] \\cdot 2^{\\frac{1}{12}}\\right)$$
+再把分子的 $1$ 換成整數滑桿 $k$（範圍 $-12$ 到 $12$，步長 $1$），就能隨時升降 Key：
+$$\\operatorname{tone}\\!\\left(L[t] \\cdot 2^{\\frac{k}{12}}\\right)$$
 
 - **音程比例不變**：列表裡每個音都乘上 $2^{\\frac{k}{12}}$，任意兩個音的頻率比相除後會約掉，不會走音。
 - **休止符不受影響**：列表裡的休止符是 $0$，乘上 $2^{\\frac{k}{12}}$ 仍然是 $0$，維持靜音。
       `,
       tasks: [
-        "1. 沿用 3-1 寫好的《小星星》列表 `L` 與時間滑桿 `t`。",
-        "2. 新增滑桿 `k = 0`，將範圍設為 `-12` 到 `12`，步長設為 `1`。",
-        "3. 將原本的 `tone(L[t])` 改成 `tone(2^(k/12) * L[t], 1)`，播放時調整 `k`（例如 `k = 2`、`k = -3`、`k = 12`、`k = -12`），聽聽看整首歌升降 Key 的變化。",
-        "4. 完成下方學習單中的升降音、跨八度與移調計算題。"
+        "1. 開啟 Desmos 範本，點亮 `tone(L[t])` 並播放時間滑桿 `t`，先聽一次原調《小星星》。",
+        "2. 關掉原調聲音，改點亮 `tone(L[t] * 2^(1/12))`，聽看看整首歌升高 1 個半音的效果。",
+        "3. 再改點亮 `tone(L[t] * 2^(k/12))`，播放時拖動滑桿 `k`（`-12` 到 `12`，步長 `1`），分別聽聽 `k = 2`、`k = -3`、`k = 12`、`k = -12` 的變化。",
+        "4. 完成下方學習單中的升降音、跨八度與降 Key 計算題。"
       ],
-      formula: `// 1. 沿用 3-1 的發聲函數、音名與小星星列表 L
+      formula: `// 1. C大調音符資料夾與小星星列表 L
 f(x) = 261.63 \\cdot 2^{\\left(\\frac{x}{12}\\right)}
-// C, D, E, F, G, A, B 與 L = [C, C, G, G, A, A, G, 0, ...]
-
-// 2. 移調滑桿 k（k=0 原調，k>0 升半音，k<0 降半音，步長 1）
-k = 0
+// C, D, E, F, G, A, B 與 L = [C, 0, C, 0, G, 0, G, 0, ...]
 t = 0
 
-// 3. 把頻率乘上 2^(k/12) 移調（休止符 0 乘完仍是 0）
-\\operatorname{tone}\\left(2^{\\frac{k}{12}} \\cdot L[t], \\; 1\\right)`,
+// 2. 原調 vs. 升高 1 個半音
+\\operatorname{tone}(L[t])
+\\operatorname{tone}\\left(L[t] \\cdot 2^{\\frac{1}{12}}\\right)
+
+// 3. 換成滑桿 k（-12 到 12，步長 1）自由升降 Key
+k = 0
+\\operatorname{tone}\\left(L[t] \\cdot 2^{\\frac{k}{12}}\\right)`,
       tips: `
-- 直接乘上 $2^{\\frac{k}{12}}$ 可沿用原本的列表 \`L\`，不用改寫音符，休止符 \`0\` 也不會受影響。
-- 任意兩音移調後的頻率比為 $\\frac{2^{k/12} f(x_2)}{2^{k/12} f(x_1)} = \\frac{f(x_2)}{f(x_1)}$，因此整體音程比例不變。
+- 範本裡有三行 \`tone(...)\`，每次只開其中一個音符圖示即可（同時開兩個會變成兩條旋律一起響）。
+- 直接乘上 $2^{\\frac{k}{12}}$ 可沿用原本的列表 \`L\`，不用改寫音符，休止符 \`0\` 乘完仍是 \`0\`。
 - 滑桿 \`k\` 的步長要設成 \`1\`，否則拉到小數會落在兩個半音之間。
       `,
       worksheet: {
@@ -1457,7 +1468,7 @@ t = 0
             id: "q4_jian_ao",
             title: "《煎熬》唱不上去怎麼降 Key？",
             type: "text",
-            prompt: "李佳薇的《煎熬》副歌第一句「心一跳」飆到超高音：$f(20), f(23), f(21)$。\n1. 如果去 KTV 唱不上去想要【降兩個半音】，這三個音會變成哪三個函數？\n2. 如果要【降一整個八度】才唱得上去，又會變成哪三個函數？\n3. 如果這段旋律已經存成 Desmos 列表 $L$，想用 `tone(倍率 * L[t], 1)` 直接降兩個半音或降一個八度，應該分別乘上什麼倍率？",
+            prompt: "李佳薇的《煎熬》副歌第一句「心一跳」飆到超高音：$f(20), f(23), f(21)$。\n1. 如果去 KTV 唱不上去想要【降兩個半音】，這三個音會變成哪三個函數？\n2. 如果要【降一整個八度】才唱得上去，又會變成哪三個函數？\n3. 如果這段旋律已經存成 Desmos 列表 $L$，想用 `tone(L[t] * 倍率)` 直接降兩個半音或降一個八度，應該分別乘上什麼倍率？",
             placeholder: "請填寫函數與倍率，例如：降兩半音 f(?), f(?), f(?)，乘上...",
             expected: "f(18), f(21), f(19) | 18, 21, 19 | 8, 11, 9",
             solution: "1. 降兩個半音就是括號內減 2：$f(18), f(21), f(19)$。\n2. 降一個八度就是括號內減 12：$f(8), f(11), f(9)$。\n3. 換成乘法移調：降兩個半音乘上 $2^{-\\frac{2}{12}}$（即 $2^{-\\frac{1}{6}}$）；降一個八度乘上 $2^{-\\frac{12}{12}} = \\frac{1}{2}$。",
@@ -1474,201 +1485,166 @@ t = 0
       id: "4-1",
       moduleId: "module-4",
       moduleName: "四、節奏與動態",
-      title: "動態音量",
-      conceptTitle: "發聲函數的第二個參數",
-      modelTitle: "動態音量與波形變化",
-      status: "ready",
-      desmosUrl: null,
-      motivation: `
-在第三章中，我們用列表 $L[t]$ 排出樂譜，讓時間滑桿 $t$ 依序播放每一個音。
-但那樣播出來每一顆音都一樣大聲，比較平淡。
-
-這是因為我們只寫了發聲函數的第一個參數（頻率）：
-$$\\operatorname{tone}(L[t])$$
-回想第一章學過的發聲語法，它包含兩個參數：
-$$\\operatorname{tone}(\\text{頻率}, \\; \\text{音量})$$
-第二個參數控制的是**「音量（大小聲）」**。
-我們先不放樂譜列表，直接用標準 A 音（$440\\text{Hz}$），看看把不同的函數放進第二個位置時，聲音會如何變化。
-      `,
-      mathModel: `
-**一、 從單音 440 開始：正弦波與向上平移**：
-
-**1. 負數音量的靜音現象**：
-在 Desmos 輸入：
-$$\\operatorname{tone}(440, \\; \\sin(t))$$
-建立時間滑桿 $t$（範圍 $0 \\sim 10$）並按下播放（Desmos 預設速度下，$t$ 每走 1 單位大約是 1 秒，也就是 1 拍；調快或調慢滑桿倍速時，每拍的實際時間會跟著改變）。
-- **聽感觀察**：聲音慢慢變大、慢慢變小，接著**有一段約 3 秒多的時間完全沒有聲音**。
-- **圖形對照**：對照 $y = \\sin(t)$ 圖形，正弦波週期約為 $2\\pi \\approx 6.28$ 秒。在前半週期 $0 \\sim \\pi$（約 3.14 秒）數值大於 0，能正常發聲；但在後半週期 $\\pi \\sim 2\\pi$，數值小於 0。
-- **規則**：**音量不能為負值**。當音量小於或等於 0 時，Desmos 會直接將它當作 0（靜音）。
-
----
-
-**2. 消除靜音：向上平移 $+1$**：
-為了不讓聲音在負半週中斷，將整個正弦波向上平移 1 單位：
-$$\\operatorname{tone}(440, \\; \\sin(t) + 1)$$
-- **數值範圍**：原本 $-1 \\le \\sin(t) \\le 1$，加上 1 之後變為：
-  $$0 \\le \\sin(t) + 1 \\le 2$$
-- **聽感效果**：負值消除後，聲音會在 0 到 2 之間連續大小聲起伏，不會再長時間中斷。
-
----
-
-**3. 調整起伏速度：將週期改為 1 秒**：
-$\\sin(t)$ 的週期是 $2\\pi \\approx 6.28$ 秒，變化較慢。如果希望音量「每秒起伏 1 次」，把自變數乘上 $2\\pi$：
-$$\\operatorname{tone}(440, \\; \\sin(2\\pi t) + 1)$$
-此時週期縮短為 $T = \\frac{2\\pi}{2\\pi} = 1$ 秒，聲音會每秒規律起伏一次（音樂上稱為震音 Tremolo）。
-
----
-
-**二、 不同函數的音量變化：正切函數與高斯鋸齒波**：
-
-把不同形狀的函數放進音量參數，可以聽出函數圖形的特徵：
-
-**1. 正切函數 $\\operatorname{tone}(440, \\; \\tan(t))$：漸近線與突然中斷**
-- **聽感**：音量從小慢慢變大，接著迅速衝到很大聲，然後突然切斷變成無聲。
-- **圖形對應**：對應正切函數在 $t = \\frac{\\pi}{2}$（約 $1.57$）的**垂直漸近線**。當 $t$ 接近漸近線時，$\\tan(t) \\to +\\infty$（很大聲），跨過漸近線後跳到 $-\\infty$（小於 0 靜音）。
-
----
-
-**2. 高斯鋸齒波 $\\operatorname{tone}(440, \\; t - \\operatorname{floor}(t))$：線性漸強（Crescendo）**：
-
-- **高斯符號 $[x] = \\operatorname{floor}(x)$**：
-  在 Desmos 中輸入 \`floor(x)\`，代表「不大於 $x$ 的最大整數」（正數時就是無條件捨去小數點，只留整數）：
-  - 例如：$[1.2] = 1, \\; [1.8] = 1, \\; [2.0] = 2, \\; [2.5] = 2$。
-
-<div class="desmos-embed-container">
-  <iframe src="https://www.desmos.com/calculator/2fev0huixj?embed" class="desmos-iframe" frameborder="0"></iframe>
-</div>
-
-**圖形特徵**：一段一段水平跳升的階梯圖形。
-
----
-
-- **原時間減去整數：拍內小數鋸齒波 $y = x - \\operatorname{floor}(x)$**：
-  用時間 $x$ 減去整數部分 $\\operatorname{floor}(x)$，留下來的就是「小數點後面的部分」：
-  - $x = 1.0 \\implies 1.0 - 1 = 0$
-  - $x = 1.4 \\implies 1.4 - 1 = 0.4$
-  - $x = 1.9 \\implies 1.9 - 1 = 0.9$
-  - 到達下一拍 $x = 2.0$ 時，整數變成 2，相減又回到 0（$2.0 - 2 = 0$）重新上升。
-
-<div class="desmos-embed-container">
-  <iframe src="https://www.desmos.com/calculator/dm2eoyoon8?embed" class="desmos-iframe" frameborder="0"></iframe>
-</div>
-
-**圖形特徵與聽感**：
-- **圖形**：每 1 拍（預設約 1 秒）重複一次，在每一拍內由 0 等速上升到 1，形成鋸齒狀圖形。
-- **聽感**：輸入 $\\operatorname{tone}(440, \\; t - \\operatorname{floor}(t))$，音量在每一拍內從無聲逐漸變大（漸強），一到整數拍就歸零重來。
-
----
-
-**三、 套入小星星旋律**：
-接著把單音 440 換成第三章的小星星樂譜列表 $L[t]$：
-$$\\operatorname{tone}(L[t], \\; \\sin(2\\pi t) + 1)$$
-播放時間滑桿 $t$ 時，旋律就會一邊往下播、一邊隨正弦波改變大小聲。
-      `,
-      tasks: [
-        "1. 單音正弦波音量測試：在空白 Desmos 中輸入 $\\operatorname{tone}(440, \\; \\sin(t))$，觀察負值產生的靜音區間；再改為 $\\operatorname{tone}(440, \\; \\sin(t) + 1)$，聽聽看向上平移消除負值後的變化。",
-        "2. 調整起伏週期：輸入 $\\operatorname{tone}(440, \\; \\sin(2\\pi t) + 1)$，播放滑桿 $t$，聽聽看每秒起伏 $1$ 次的音量變化。",
-        "3. 測試正切與高斯鋸齒波：依序輸入 $\\operatorname{tone}(440, \\; \\tan(t))$ 與 $\\operatorname{tone}(440, \\; t - \\operatorname{floor}(t))$，比較兩種函數圖形對應的音量變化。",
-        "4. 套入樂譜：將音量算式套入小星星旋律 $\\operatorname{tone}(L[t], \\; \\sin(2\\pi t) + 1)$，聽聽看整首曲子加上音量起伏的效果。"
-      ],
-      formula: `// 1. 單音正弦波音量變化 (基準音 440 Hz)
-tone(440, sin(t))           // 負半週靜音 (約 3.14 秒無聲)
-tone(440, sin(t) + 1)       // +1 向上平移消除負值
-tone(440, sin(2*pi*t) + 1)  // 週期 1 秒，每秒起伏一次
-
-// 2. 其他函數音量測試
-tone(440, tan(t))           // 正切函數 (漸近線處急遽變大後切斷)
-tone(440, t - floor(t))     // 高斯鋸齒波 (每拍線性漸強)
-
-// 3. 套入小星星樂譜
-// (需搭配小星星樂譜列表 L 與時間滑桿 t)
-tone(L[t], sin(2*pi*t) + 1)`,
-      tips: `
-- **tone 函數的兩個參數**：語法為 $\\operatorname{tone}(\\text{頻率}, \\text{音量})$。第二個參數可以直接放入隨時間變化的函數。
-- **音量數值規則**：音量為 0 時代表無聲，數值越大聲音越大。音量若小於或等於 0，Desmos 會將其視為 0（靜音）。
-- **高斯符號**：$\\operatorname{floor}(t)$ 代表不大於 $t$ 的最大整數，$t - \\operatorname{floor}(t)$ 則是取出小數部分（數值介於 $0 \\le y < 1$）。
-- **震音 (Tremolo)**：讓音量隨時間週期性大小聲變化的效果，在音樂上稱為 Tremolo（震音）。
-      `
-    },
-
-    "4-2": {
-      id: "4-2",
-      moduleId: "module-4",
-      moduleName: "四、節奏與動態",
-      title: "週期函數與斷音開關",
-      conceptTitle: "用函數自動做出斷音",
-      modelTitle: "用正弦波與鋸齒波做斷音",
+      title: "動態音量與三角函數斷音",
+      conceptTitle: "把函數放進音量參數",
+      modelTitle: "正弦波音量與分類討論斷音開關",
       status: "ready",
       desmosUrl: "https://www.desmos.com/calculator/l8nygbjy8e",
-      desmosUrls: [
-        { title: "範本一：三角週期開關 ↗", url: "https://www.desmos.com/calculator/l8nygbjy8e" },
-        { title: "範本二：高斯鋸齒波開關 ↗", url: "https://www.desmos.com/calculator/nvksl0vch6" }
-      ],
       motivation: `
-延續 3-1 小星星第一版本連續同音連在一起的問題：如果我們想讓每個音的前 $\\dfrac{1}{6}$（約 $0.167$ 拍）靜音、後 $\\dfrac{5}{6}$ 正常發聲，該怎麼做？
+3-1《小星星》第一版本中，連續相同的音（例如 $C, C$）會黏在一起；如果像第二版本在每個音後面手動塞 \`0\`，列表長度又會加倍、改譜很麻煩。
 
-如果直接把每一拍拆成 6 格 \`[0, C, C, C, C, C]\` 並用 6 倍速播放，42 拍的樂譜會變成 252 個數字，不僅輸入麻煩，也很容易打錯。
-
-比較省事的做法是利用 $\\operatorname{tone}(\\text{頻率}, \\text{音量})$ 的第二個參數。
-如果我們設計一個開關函數 $q$（需要靜音時數值為 $0$，發聲時數值為 $1$），放進第二個音量參數的位置：
-$$\\operatorname{tone}(L[t], \\; q)$$
-電腦就會在每一拍開頭自動把音量變為 0，做出斷音效果。這會用到**「週期函數」**與**「分類討論函數」**。
+比較省事的做法，是改從發聲函數的第二個參數（音量）下手：
+$$\\operatorname{tone}(\\text{頻率}, \\; \\text{音量})$$
+只要把隨時間 $t$ 週期性變化的函數放進音量位置，讓聲音每 $1$ 拍自動歸零一小段時間，就能把同音切開。
       `,
       mathModel: `
-**一、 正弦波與水平門檻線**：
+**一、 動態音量規則：負數自動靜音**
+
+在 Desmos 中，音量參數為 $0$ 代表靜音；**只要數值小於或等於 $0$，Desmos 都會直接當作靜音**。
+先拿單音 $440\\text{Hz}$ 測試 $\\operatorname{tone}(440, \\; \\sin(t))$，會聽到正弦波在 $x$ 軸上方（$> 0$）發聲、掉到下方（$\\le 0$）無聲。
+
+若將週期縮短為 $1$ 拍（乘上 $2\\pi$）並套進《小星星》第一版列表 $L[t]$：
+$$\\operatorname{tone}\\!\\left(L[t], \\; \\sin(2\\pi t)\\right)$$
+- **前半拍** $\\sin(2\\pi t) > 0$：發聲；**後半拍** $\\sin(2\\pi t) \\le 0$：靜音。
+- 不需要改列表 $L$，同音已經能自動分開。不過這樣發聲時音量一直忽大忽小，而且每拍有一半時間都在靜音。
+
+---
+
+**二、 正弦波與水平門檻線（讓每拍只靜音 $\\frac{1}{6}$ 拍）**
+
+如果希望發聲時音量保持穩定的 $1$，且每拍只在開頭靜音 $\\frac{1}{6}$ 拍（約 $0.167$ 拍），可以先畫出一條週期為 $1$ 的正弦波與水平門檻線：
 
 <div class="desmos-embed-container">
   <iframe src="https://www.desmos.com/calculator/ymeb0xkzsz?embed" class="desmos-iframe" frameborder="0"></iframe>
 </div>
 
-**圖形說明**：
 - 🔴 **紅色曲線**：$y = \\sin\\left(2\\pi x + \\frac{\\pi}{3}\\right)$。
 - 🔵 **藍色水平線**：$y = \\frac{\\sqrt{3}}{2}$。
 - **交點觀察**：
-  - 點 $\\left(0, \\frac{\\sqrt{3}}{2}\\right)$ 與 $\\left(1, \\frac{\\sqrt{3}}{2}\\right)$（以及 $\\left(2, \\frac{\\sqrt{3}}{2}\\right)$）：橫坐標每相差 $1$ 就回到相同位置，代表這個正弦波的**週期為 1**（對應 1 拍）。
-  - 點 $\\left(0, \\frac{\\sqrt{3}}{2}\\right)$ 到 $\\left(\\frac{1}{6}, \\frac{\\sqrt{3}}{2}\\right)$（約 $0.167$）：紅線高於藍線的區間，寬度剛好是 $\\frac{1}{6}$ 拍（對應前面想留白的 1/6 拍靜音長度）。
+  - 點 $\\left(0, \\frac{\\sqrt{3}}{2}\\right)$ 與 $\\left(1, \\frac{\\sqrt{3}}{2}\\right)$：橫坐標每差 $1$ 就重複，代表週期為 $1$ 拍。
+  - 從 $x = 0$ 到 $x = \\frac{1}{6}$：紅線高於藍線的區間寬度剛好是 $\\frac{1}{6}$ 拍。
 
 ---
 
-**二、 利用分類討論函數做成斷音開關**：
+**三、 用分類討論函數做成 0/1 斷音開關**
+
 高一學過的絕對值定義，就是一種**分類討論**：
 $$|x| = \\begin{cases}
 \\ \\ \\ x, & \\text{在 } x \\ge 0 \\text{ 時} \\\\
 -x, & \\text{在 } x < 0 \\text{ 時}
 \\end{cases}$$
 
-現在我們想控制音量：當正弦波大於等於 $\\frac{\\sqrt{3}}{2}$ 時設為 0（靜音），小於 $\\frac{\\sqrt{3}}{2}$ 時設為 1（發聲），寫成數學式也是分類討論：
+同理，我們把「正弦波高於門檻 $\\frac{\\sqrt{3}}{2}$」的區間設為 $0$（靜音），其餘區間設為 $1$（發聲）：
 $$y = \\begin{cases}
 0, & \\text{在 } \\sin\\left(2\\pi x + \\frac{\\pi}{3}\\right) \\ge \\frac{\\sqrt{3}}{2} \\text{ 時（靜音）} \\\\
 1, & \\text{在 } \\sin\\left(2\\pi x + \\frac{\\pi}{3}\\right) < \\frac{\\sqrt{3}}{2} \\text{ 時（發聲）}
 \\end{cases}$$
 
-在 Desmos 裡不能打上下兩行的大括號，所以改寫在同一行：
+在 Desmos 裡改寫成單行大括號語法：
 $$y = \\left\\{\\sin\\left(2\\pi x + \\frac{\\pi}{3}\\right) \\ge \\frac{\\sqrt{3}}{2}: 0, \\; \\sin\\left(2\\pi x + \\frac{\\pi}{3}\\right) < \\frac{\\sqrt{3}}{2}: 1\\right\\}$$
-*(也可以省略第二個條件，簡寫為：$y = \\left\\{\\sin\\left(2\\pi x + \\frac{\\pi}{3}\\right) \\ge \\frac{\\sqrt{3}}{2}: 0, \\; 1\\right\\}$)*
+*(第二個條件可省略簡寫為：$y = \\left\\{\\sin\\left(2\\pi x + \\frac{\\pi}{3}\\right) \\ge \\frac{\\sqrt{3}}{2}: 0, \\; 1\\right\\}$)*
 
 <div class="desmos-embed-container">
   <iframe src="https://www.desmos.com/calculator/exrboynk81?embed" class="desmos-iframe" frameborder="0"></iframe>
 </div>
 
-**圖形觀察**：
-- 🟢 **綠色方波**：當紅色正弦波高於藍色水平線時，數值為 $0$（靜音）；其餘時間為 $1$（發聲）。
-- 這樣每一拍開頭就會自動靜音 $\\frac{1}{6}$ 拍。
+- 🟢 **綠色方波**：每一拍開頭自動靜音 $\\frac{1}{6}$ 拍，後段穩定維持音量 $1$。把這個開關設成變數 $q$ 放進 $\\operatorname{tone}(L[t], \\; q)$，就能做出乾淨的斷音。
 
 ---
 
-**三、 正弦波調整斷音時間的限制**：
-在上面的正弦波中，高於 $\\frac{\\sqrt{3}}{2}$ 的區間剛好是每拍的 $\\frac{1}{6}$。
-如果想改斷音比例，例如改成靜音 $20\\%$（$0.2$ 拍）或 $15\\%$（$0.15$ 拍）：
-- 因為正弦波是彎曲的曲線，要改變區間寬度，就必須重新計算角度、水平線高度與平移量，調整起來比較麻煩。
+**四、 正弦波調整斷音比例的限制與延伸**
+
+**1. 改比例較繁瑣（反三角函數）**：
+上面剛好靠特殊角 $\\frac{\\sqrt{3}}{2}$ 切出 $\\frac{1}{6}$ 拍。如果想改成靜音 $20\\%$（$0.2$ 拍）或 $15\\%$（$0.15$ 拍），因為正弦波是彎曲的曲線，需要重新計算水平門檻與平移角度（會用到反三角函數 $\\arcsin$：輸入比值反查角度，例如 $\\arcsin(0.5) = \\frac{\\pi}{6}$），調整起來比較麻煩。
+
+**2. 其他三角週期函數**：
+右上角範本的第二個資料夾【tan圖形】示範了用正切函數 $y = \\tan\\left(\\pi x - \\frac{\\pi}{2}\\right)$ 搭配門檻 $y = -1$ 做出相同概念的週期開關。
+      `,
+      tasks: [
+        "1. 測試負數靜音：在 Desmos 試聽 `tone(440, sin(t))` 與 `tone(L[t], sin(2πt))`，感受音量小於等於 0 時自動靜音的效果。",
+        "2. 開啟右上角 Desmos 範本（`l8nygbjy8e`）並展開【sin圖形】：觀察 $y = \\sin(2\\pi x + \\frac{\\pi}{3})$ 與 $y = \\frac{\\sqrt{3}}{2}$ 的交點，確認週期為 $1$、高於門檻區間寬度為 $\\frac{1}{6}$。",
+        "3. 觀察分類討論方波：檢視 `y = {sin(2πx + π/3) >= √3/2 : 0, 1}` 如何把彎曲正弦波轉成 0/1 斷音開關，並可展開【tan圖形】看正切函數的做法。",
+        "4. 完成下方隨堂學習單。"
+      ],
+      formula: `// 1. 動態音量與負數靜音體驗
+tone(440, sin(t))
+tone(L[t], sin(2*pi*t))
+
+// 2. 正弦波與水平門檻線 (範本 l8nygbjy8e【sin圖形】)
+y = \\sin\\left(2\\pi x + \\frac{\\pi}{3}\\right)
+y = \\frac{\\sqrt{3}}{2}
+y = \\left\\{\\sin\\left(2\\pi x + \\frac{\\pi}{3}\\right) \\ge \\frac{\\sqrt{3}}{2}: 0, \\; 1\\right\\}
+
+// 3. 正切函數開關 (【tan圖形】)
+y = \\left\\{\\tan\\left(\\pi x - \\frac{\\pi}{2}\\right) \\le -1: 0, \\; 1\\right\\}`,
+      tips: `
+- **音量規則**：\`tone(頻率, 音量)\` 的第二個參數小於或等於 \`0\` 時都會靜音，正常發聲區間為 \`0\` 到 \`1\`。
+- **Desmos 分類討論格式**：語法為 \`{條件: 取值1, 取值2}\`，符合條件時輸出第一個值，不符合時輸出第二個值。
+- **反三角函數**：一般三角函數是「角度 $\\to$ 比值」，反三角函數（如 \`arcsin\`）則是「比值 $\\to$ 角度」。
+      `,
+      worksheet: {
+        title: "隨堂學習單：動態音量與正弦波斷音開關",
+        questions: [
+          {
+            id: "q1_sine_cutoff",
+            title: "負數靜音與分類討論門檻調整",
+            type: "textarea",
+            prompt: "1. 為什麼 `tone(L[t], sin(2πt))` 不用寫分類討論，也能讓《小星星》的連續同音分開？如果把音量改成 `sin(2πt) + 0.5`，每拍的靜音時間會變長還是變短？\n2. 在分類討論開關 `q = {sin(2πt + π/3) >= √3/2 : 0, 1}` 中，如果把水平門檻從 $\\frac{\\sqrt{3}}{2}$ 降成 $0$（也就是 `{sin(2πt + π/3) >= 0 : 0, 1}`），每一拍會變成幾分之幾靜音？",
+            placeholder: "請說明原因、靜音時間變化，以及門檻降成 0 後的靜音比例...",
+            solution: "**1.** 因為正弦波每 $1$ 拍有一半區間小於 $0$，而 Desmos 音量小於等於 $0$ 時會自動靜音，所以同音之間會自然斷開。改成 `sin(2πt) + 0.5` 時，整條曲線向上平移 $0.5$，掉到 $x$ 軸下方的區間變窄，因此靜音時間會**變短**。\n**2.** 門檻降成 $0$ 後，只要正弦波 $\\ge 0$ 就靜音；一個完整週期內正弦波在 $x$ 軸上方與下方各占一半，因此每拍會變成 **$50\\%$（$\\frac{1}{2}$ 拍）靜音**。",
+            formatAnswer: (ans) => `負數靜音與分類討論門檻調整：\n• 學生回答：${ans}\n• 參考解析：sin(2πt) 後半拍小於 0 自動靜音；+0.5 向上平移使負區間變窄，靜音變短；門檻降成 0 時正弦波有一半區間 >= 0，故每拍 1/2（50%）靜音。`
+          }
+        ]
+      }
+    },
+
+    "4-2": {
+      id: "4-2",
+      moduleId: "module-4",
+      moduleName: "四、節奏與動態",
+      title: "高斯符號與鋸齒波斷音",
+      conceptTitle: "用拍內小數直接控制斷音比例",
+      modelTitle: "高斯符號 floor(x) 與鋸齒波開關",
+      status: "ready",
+      desmosUrl: "https://www.desmos.com/calculator/nvksl0vch6",
+      motivation: `
+4-1 用正弦波搭配分類討論雖然做出了斷音，但正弦波是彎曲的曲線，想把靜音長度從 $\\frac{1}{6}$ 拍改成 $20\\%$（$0.2$ 拍）或 $15\\%$（$0.15$ 拍）時，換算角度相當麻煩。
+
+如果有一條週期為 $1$ 拍、在每一拍內從 $0$ **等速上升到 $1$ 的斜直線**，它的高度就直接等於拍內的時間比例，想靜音幾成只要改一個小數即可。這會用到**高斯符號 \`floor(x)\`**。
+      `,
+      mathModel: `
+**一、 高斯符號 $[x] = \\operatorname{floor}(x)$**
+
+在 Desmos 中輸入 \`floor(x)\`，代表「不大於 $x$ 的最大整數」（正數時就是無條件捨去小數點，只留下整數部分）：
+- 例如：$[1.2] = 1, \\; [1.8] = 1, \\; [2.0] = 2, \\; [2.5] = 2$。
+
+<div class="desmos-embed-container">
+  <iframe src="https://www.desmos.com/calculator/2fev0huixj?embed" class="desmos-iframe" frameborder="0"></iframe>
+</div>
+
+圖形是一段一段水平跳升的階梯，每滿 $1$ 拍整數就加 $1$。
 
 ---
 
-**四、 用鋸齒波 $y = x - [x]$ 製作斷音開關**：
+**二、 取出拍內小數：鋸齒波 $y = x - \\operatorname{floor}(x)$**
 
-回想 4-1 學過的小數鋸齒波 $y = x - \\operatorname{floor}(x)$：它的週期為 1，在每一拍內是一條從 $0$ 等速上升到 $1$ 的斜直線，數值直接對應拍內的時間比例（$0 \\sim 1$），完全不用換算角度。
+用原數 $x$ 減去整數部分 $\\operatorname{floor}(x)$，留下來的就是小數點後面的部分（永遠落在 $0$ 到 $1$ 之間）：
+- $x = 1.0 \\implies 1.0 - 1 = 0$
+- $x = 1.4 \\implies 1.4 - 1 = 0.4$
+- $x = 1.9 \\implies 1.9 - 1 = 0.9$
+- 到達下一拍 $x = 2.0$ 時，整數變成 $2$，相減又回到 $0$ 重新上升。
 
-如果想在每拍前 $20\\%$（$0.2$ 拍）靜音，分類討論寫法為：
+<div class="desmos-embed-container">
+  <iframe src="https://www.desmos.com/calculator/dm2eoyoon8?embed" class="desmos-iframe" frameborder="0"></iframe>
+</div>
+
+這條鋸齒波天生週期就是 **1 拍**，不需要乘 $2\\pi$。如果直接放進音量 $\\operatorname{tone}(440, \\; t - \\operatorname{floor}(t))$，會聽到每一拍由無聲均勻漸強到最大聲，一進下一拍立刻歸零重來。
+
+---
+
+**三、 用鋸齒波做出任意比例的斷音開關**
+
+因為 $t - \\operatorname{floor}(t)$ 直接對應拍內進度（$0 \\sim 1$），想在每拍前 $20\\%$（$0.2$ 拍）靜音、後 $80\\%$ 發聲，分類討論只需寫成：
 $$q = \\begin{cases}
 0, & \\text{在 } t - [t] < 0.2 \\text{ 時（靜音）} \\\\
 1, & \\text{在 } t - [t] \\ge 0.2 \\text{ 時（發聲）}
@@ -1676,64 +1652,66 @@ $$q = \\begin{cases}
 
 在 Desmos 裡的單行寫法為：
 $$q = \\left\\{t - \\operatorname{floor}(t) < 0.2: 0, \\; t - \\operatorname{floor}(t) \\ge 0.2: 1\\right\\}$$
-*(同樣可簡寫為：$q = \\left\\{t - \\operatorname{floor}(t) < 0.2: 0, \\; 1\\right\\}$)*
+*(簡寫為：$q = \\left\\{t - \\operatorname{floor}(t) < 0.2: 0, \\; 1\\right\\}$)*
 
 <div class="desmos-embed-container">
   <iframe src="https://www.desmos.com/calculator/mq7ka30chq?embed" class="desmos-iframe" frameborder="0"></iframe>
 </div>
 
-**圖形觀察**：
-- 在每拍開頭小於 $0.2$ 時開關為 0（靜音），大於等於 $0.2$ 時為 1（發聲）。
-- 想改靜音比例時，要靜音 15% 就寫 \`< 0.15\`，要靜音 30% 就寫 \`< 0.3\`，直接改小數即可。
+- 要靜音 $15\\%$ 就改寫成 \`< 0.15\`，要靜音 $30\\%$ 就改寫成 \`< 0.3\`，直接改小數完全不用算角度。
 
 ---
 
-**五、 延伸思考與反三角函數簡介**：
-1. **其他週期函數**：
-   除了 $x - [x]$ 之外，其他週期函數也能做開關。例如右上角範本一的第二個資料夾【tan圖形】，用正切函數 $y = \\tan\\left(\\pi x - \\frac{\\pi}{2}\\right)$ 與水平線 $y = -1$ 做分類討論，也能做出週期開關。
-2. **補充：如何用正弦波改斷音時間？（反三角函數）**：
-   如果一定要用正弦波來設定任意斷音比例，需要用到**反三角函數**（如 $\\arcsin$）：
-   - **一般三角函數**：輸入「角度」 $\\to$ 算出「比值」（例如 $\\sin(30^\\circ) = 0.5$）。
-   - **反三角函數**：輸入「比值」 $\\to$ 反查「角度」（例如 $\\arcsin(0.5) = 30^\\circ$ 或弧度 $\\frac{\\pi}{6}$）。
-   Desmos 內建有 \`arcsin\` 函數，雖然可以反推需要的門檻值與角度，但比直接用 $x - [x]$ 填小數複雜許多。
-
----
-
-**六、 本單元整理**：
+**四、 套入樂譜發聲：本單元整理**
 1. **拍內進度**：用 $t - \\operatorname{floor}(t)$ 產生每一拍從 $0$ 到 $1$ 的小數進度。
-2. **斷音開關**：用分類討論 $q = \\left\\{t - \\operatorname{floor}(t) < 0.2: 0, \\; 1\\right\\}$ 設定何時為 0（靜音）、何時為 1（發聲）。
-3. **套入發聲函數**：
-   將開關 $q$ 放進 $\\operatorname{tone}(\\text{頻率}, \\text{音量})$ 的第二個位置：
+2. **斷音開關**：用 $q = \\left\\{t - \\operatorname{floor}(t) < 0.2: 0, \\; 1\\right\\}$ 設定每拍開頭靜音比例。
+3. **套入旋律**：將開關 $q$ 放進第二個參數：
    $$\\operatorname{tone}(L[t], \\; q)$$
-   - 每拍開頭 $t - [t] < 0.2$ 時，$q = 0$（靜音）。
-   - 拍子後段 $t - [t] \\ge 0.2$ 時，$q = 1$（正常發聲）。
-   這樣連續相同的音符之間就會自動斷開。
+   連續相同的音符之間就會自動切出乾淨的空隙。
       `,
       tasks: [
-        "1. 開啟右上角【範本一：三角週期開關 (l8nygbjy8e)】：觀察 $y = \\sin(2\\pi x + \\frac{\\pi}{3})$ 與 $y = \\frac{\\sqrt{3}}{2}$ 的交點 $(0, \\frac{\\sqrt{3}}{2})$ 與 $(1, \\frac{\\sqrt{3}}{2})$，確認週期為 $1$。",
-        "2. 觀察分類討論開關：檢視 $y = \\{\\sin(2\\pi x + \\frac{\\pi}{3}) \\ge \\frac{\\sqrt{3}}{2}: 0, \\; 1\\}$ 如何將高於門檻的區間設為 $0$、其餘設為 $1$。",
-        "3. 畫出高斯符號與鋸齒波：輸入 $y = \\operatorname{floor}(x)$ 觀察整數階梯，再輸入 $y = x - \\operatorname{floor}(x)$ 觀察每拍從 $0$ 上升到 $1$ 的斜直線。",
-        "4. 開啟右上角【範本二：高斯鋸齒波開關 (nvksl0vch6)】：檢視 $y = \\{x - \\operatorname{floor}(x) \\le 0.2: 0, \\; 1\\}$，並試著把 $0.2$ 改成 $0.15$ 或 $0.3$ 觀察方波寬度變化。",
-        "5. 小星星斷音播放：在發聲算式填入開關 $\\operatorname{tone}(L[t], \\; q)$，播放滑桿 $t$ 聽聽看加上斷音後的效果。"
+        "1. 開啟右上角 Desmos 範本（`nvksl0vch6`）：點亮 `y = floor(x)` 觀察階梯圖形，再看 `y = x - floor(x)` 如何把時間轉成每拍 `0` 到 `1` 的斜直線。",
+        "2. 調整斷音比例：觀察 `y = {x - floor(x) <= 0.2: 0, 1}` 的方波圖形，試著把 `0.2` 改成 `0.15` 或 `0.3`，看看靜音寬度的變化。",
+        "3. 套入《小星星》：拿 3-1 第一版《小星星》列表 `L`，加上開關 `q = {t - floor(t) < 0.2: 0, 1}` 並改寫為 `tone(L[t], q)`，播放滑桿 `t` 試聽自動斷音效果。",
+        "4. 完成下方隨堂學習單的 2 題練習。"
       ],
-      formula: `// 1. 正弦波與水平門檻線 (Desmos 範本 l8nygbjy8e)
-y_1 = \\sin\\left(2\\pi x + \\frac{\\pi}{3}\\right)
-y_2 = \\frac{\\sqrt{3}}{2}
-y_3 = \\left\\{\\sin\\left(2\\pi x + \\frac{\\pi}{3}\\right) \\ge \\frac{\\sqrt{3}}{2}: 0, \\; \\sin\\left(2\\pi x + \\frac{\\pi}{3}\\right) < \\frac{\\sqrt{3}}{2}: 1\\right\\}
+      formula: `// 1. 高斯階梯與拍內小數鋸齒波 (範本 nvksl0vch6)
+y = \\operatorname{floor}(x)
+y = x - \\operatorname{floor}(x)
 
-// 2. 拍內小數進度 (高斯鋸齒波)
-y_4 = x - \\operatorname{floor}(x)
+// 2. 斷音開關 q (每拍前 20% 靜音)
+q = \\left\\{t - \\operatorname{floor}(t) < 0.2: 0, \\; 1\\right\\}
 
-// 3. 斷音開關 q (前 0.2 拍靜音)
-q = \\left\\{t - \\operatorname{floor}(t) \\le 0.2: 0, 1\\right\\}
-
-// 4. 小星星斷音發聲
+// 3. 套入《小星星》第一版列表 L
 \\operatorname{tone}(L[t], q)`,
       tips: `
-- **tone 函數的音量參數**：語法為 $\\operatorname{tone}(\\text{頻率}, \\text{音量})$。將斷音開關 $q$ 放在第二個參數位置，數值 0 即為靜音、1 為正常發聲。
-- **Desmos 分類討論格式**：語法為 \`{條件: 取值1, 取值2}\`，符合條件時輸出第一個值，不符合時輸出第二個值。
-- **斷音比例調整**：在高斯鋸齒波開關中，修改小數即可直接調整斷音比例（例如 0.2 代表每拍前 20% 靜音）。
-      `
+- **高斯符號**：\`floor(t)\` 取出不大於 $t$ 的最大整數，\`t - floor(t)\` 留下小數部分（$0 \\le y < 1$），週期固定為 $1$ 拍。
+- **快速調斷音**：小數門檻值直接等於靜音占一拍的比例（例如 \`0.2\` 就是前 20% 靜音、後 80% 發聲）。
+- **直接聽鋸齒波**：若把 \`t - floor(t)\` 直接放進 \`tone(440, t - floor(t))\`，可以聽到每拍由無聲線性漸強到最大聲。
+      `,
+      worksheet: {
+        title: "隨堂學習單：高斯鋸齒波與斷音開關改寫",
+        questions: [
+          {
+            id: "q1_staccato_tail",
+            title: "調整斷音比例與改成拍尾靜音",
+            type: "textarea",
+            prompt: "已知斷音開關為 `q = {t - floor(t) < 0.2 : 0, 1}`：\n1. 如果希望每拍改為「前 $15\\%$ 靜音、後 $85\\%$ 發聲」，算式要怎麼修改？\n2. 如果想改成「前 $80\\%$ 發聲、**最後 $20\\%$（拍尾）靜音**」，分類討論的條件應該怎麼寫？",
+            placeholder: "例如：1. 把 0.2 改成...  2. {t - floor(t) > ... : 0, 1}",
+            solution: "**1.** 直接把小數門檻改成 `0.15`：`q = {t - floor(t) < 0.15 : 0, 1}`。\n**2.** 前 $80\\%$ 是 $0 \\sim 0.8$，最後 $20\\%$ 是 $0.8 \\sim 1$，因此可寫成 `q = {t - floor(t) > 0.8 : 0, 1}`（或寫成 `{t - floor(t) < 0.8 : 1, 0}`）。",
+            formatAnswer: (ans) => `調整斷音比例與改成拍尾靜音：\n• 學生回答：${ans}\n• 參考解析：前 15% 靜音為 {t - floor(t) < 0.15 : 0, 1}；最後 20% 拍尾靜音為 {t - floor(t) > 0.8 : 0, 1}（或 {t - floor(t) < 0.8 : 1, 0}）。`
+          },
+          {
+            id: "q2_reverse_sawtooth",
+            title: "反轉鋸齒波：從漸強改為漸弱",
+            type: "textarea",
+            prompt: "將 `t - floor(t)` 直接放進音量 `tone(440, t - floor(t))` 時，每一拍音量會從 $0$ 均勻上升到 $1$（線性漸強）。\n如果想反過來，讓每一拍開頭**最大聲（音量為 $1$）**、接著均勻**漸弱**到拍尾無聲（音量為 $0$），可以怎麼改寫 `t - floor(t)`？寫出你的算式，並到 Desmos 畫圖與試聽確認。",
+            placeholder: "例如：1 - (t - floor(t)) ...",
+            solution: "用 $1$ 減去拍內小數，寫成 $1 - (t - \\operatorname{floor}(t))$（展開為 $\\operatorname{floor}(t) + 1 - t$）。當拍內小數由 $0$ 跑到 $1$ 時，這個算式會由 $1$ 均勻降到 $0$，每拍開頭最大聲、接著線性漸弱。",
+            formatAnswer: (ans) => `反轉鋸齒波：\n• 學生回答：${ans}\n• 參考解析：1 - (t - floor(t))（或 floor(t) + 1 - t），每一拍由 1 線性漸弱到 0。`
+          }
+        ]
+      }
     },
     "4-3": {
       id: "4-3",
@@ -1819,7 +1797,7 @@ tone(L[t], E(t))`,
       status: "ready",
       desmosUrl: null,
       motivation: `
-在 4-1 到 4-3 中，我們用拍內小數 $u = t - \\operatorname{floor}(t)$ 控制第二個參數（音量）。
+在 4-2 與 4-3 中，我們用拍內小數 $u = t - \\operatorname{floor}(t)$ 控制第二個參數（音量）。
 如果把 $u$ 也放進**第一個參數（頻率）**裡，讓頻率在每一拍的 $0.2 \\sim 0.3$ 秒內跟著函數快速變化：
 例如沿著二次拋物線上升、沿著指數曲線下降，或是加上正弦波快速震動，就能做出各種復古電玩音效與鼓聲。
       `,
@@ -2781,7 +2759,7 @@ $$y = \\sum_{n=1}^{8} b^{n-1} \\sin(nx)$$
    音量整拍維持定值，模擬管樂器持續吹氣的聲音。
 2. **乘上 4-3 的指數衰減 $\\operatorname{tone}\\left(F_1, \\; V_1 \\cdot (0.5)^{4u}\\right)$**：
    諧音比例完全沒變，但每拍開頭最大聲、隨即快速衰減，聲音立刻從吹奏管樂器轉變成敲擊或撥弦樂器（如鋼琴、古箏）。
-3. **乘上 4-1 的鋸齒波 $\\operatorname{tone}\\left(F_1, \\; V_1 \\cdot u\\right)$**：
+3. **乘上 4-2 的鋸齒波 $\\operatorname{tone}\\left(F_1, \\; V_1 \\cdot u\\right)$**：
    每拍音量從 $0$ 均勻爬升，聽起來像弦樂器由弱漸強（Crescendo）的推拉效果。
 
 > **聲音合成的三個部分**：
