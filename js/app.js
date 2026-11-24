@@ -106,6 +106,22 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     sidebarNav.appendChild(templatesEl);
 
+    // 側邊欄頂部：Desmos 常用操作與錯誤排除按鈕
+    const guideEl = document.createElement('div');
+    guideEl.className = `sidebar-home-item ${currentUnitId === 'desmos-guide' ? 'active' : ''}`;
+    guideEl.id = 'nav-item-desmos-guide';
+    guideEl.style.marginTop = '0.35rem';
+    guideEl.innerHTML = `
+      <span class="sidebar-home-text">Desmos 常用操作</span>
+    `;
+    guideEl.addEventListener('click', () => {
+      switchUnit('desmos-guide');
+      if (window.innerWidth <= 840) {
+        closeMobileSidebar();
+      }
+    });
+    sidebarNav.appendChild(guideEl);
+
     const divider = document.createElement('div');
     divider.className = 'sidebar-nav-divider';
     sidebarNav.appendChild(divider);
@@ -851,7 +867,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const moduleDescriptions = {
       "module-1": "認識聲音的音高、頻率與振幅，在 Desmos 發出第一個聲音。",
       "module-2": "從畢達哥拉斯五度相生律到十二平均律，算出一個八度內 12 個半音的頻率（含樂理與純律補充）。",
-      "module-3": "把簡譜換成數字列表，在 Desmos 播放整首旋律並直接升降 Key 移調。",
+      "module-3": "把簡譜寫成音名列表，熟悉 Desmos 下標與編曲操作技巧，並用指數律完成全曲升降 Key 移調。",
       "module-4": "利用週期函數、高斯符號與指數衰減，做出斷音、鋼琴餘音與復古電玩音效。",
       "module-5": "結合幾何翻轉、內建聽圖功能、薛帕德無限音階與分段接力，完成下落式音遊專題（附演算法自動作曲選學）。",
       "module-phys": "從弦與空氣柱的駐波認識泛音，並用正弦波疊加合成不同樂器的音色與波形。"
@@ -900,6 +916,9 @@ document.addEventListener('DOMContentLoaded', () => {
             </a>
             <a href="#templates" class="btn-hero-guide">
               <span>Desmos 範本總覽</span>
+            </a>
+            <a href="#desmos-guide" class="btn-hero-guide">
+              <span>Desmos 常用操作</span>
             </a>
             <a href="#home-guide" class="btn-hero-guide" id="btn-scroll-guide">
               <span>查看上課方式與用法說明</span>
@@ -1084,10 +1103,88 @@ document.addEventListener('DOMContentLoaded', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
+  // 3.7 渲染「Desmos 常用技巧與語法速查」頁面
+  function renderDesmosGuide() {
+    const guide = COURSE_CONFIG.desmosGuide;
+    if (!guide) return;
+    document.title = `${guide.title} | 音符中的數學`;
+
+    const sectionsHtml = (guide.sections || []).map(sec => `
+      <section class="content-card">
+        <div class="card-header">
+          <h2 class="card-title">${escapeHtml(sec.title)}</h2>
+        </div>
+        <div class="card-body">
+          ${parseMarkdown(sec.body)}
+        </div>
+      </section>
+    `).join('');
+
+    const formulaHtml = guide.formula ? `
+      <section class="content-card">
+        <div class="card-header">
+          <h2 class="card-title">常用語法對照</h2>
+        </div>
+        <div class="card-body">
+          <div class="code-action-content" style="border-radius: var(--radius-md); border: 1px solid var(--border-color);">${escapeHtml(guide.formula)}</div>
+        </div>
+      </section>
+    ` : '';
+
+    mainContent.innerHTML = `
+      <section class="unit-banner">
+        <div class="banner-top-row">
+          <div class="banner-module">課堂操作參考</div>
+          <a href="https://www.desmos.com/calculator" target="_blank" rel="noopener noreferrer" class="btn-banner-desmos">
+            開啟空白 Desmos ↗
+          </a>
+        </div>
+        <div class="banner-title-group">
+          <span class="banner-unit-id">${escapeHtml(guide.badge || '操作參考')}</span>
+          <h1 class="banner-title">${escapeHtml(guide.title)}</h1>
+        </div>
+      </section>
+
+      <section class="content-card">
+        <div class="card-body">
+          ${parseMarkdown(guide.intro)}
+        </div>
+      </section>
+
+      ${sectionsHtml}
+      ${formulaHtml}
+
+      <nav class="unit-nav-footer">
+        <a class="btn-nav-unit" href="#templates">
+          <span class="nav-unit-dir">← 查看範本清單</span>
+          <span class="nav-unit-title">Desmos 範本總覽</span>
+        </a>
+        <a class="btn-nav-unit" style="text-align: right;" href="#1-1">
+          <span class="nav-unit-dir">前往第 1 單元 →</span>
+          <span class="nav-unit-title">1-1 聲音三要素與 Desmos 基礎發聲</span>
+        </a>
+      </nav>
+    `;
+
+    // 觸發 KaTeX 數學式排版
+    if (window.renderMathInElement) {
+      window.renderMathInElement(mainContent, {
+        delimiters: [
+          { left: '$$', right: '$$', display: true },
+          { left: '$', right: '$', display: false }
+        ],
+        throwOnError: false
+      });
+    }
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
   // 4. 切換單元
   function switchUnit(unitId) {
     const homeNav = document.getElementById('nav-item-home');
     const templatesNav = document.getElementById('nav-item-templates');
+    const guideNav = document.getElementById('nav-item-desmos-guide');
 
     if (unitId === 'home') {
       currentUnitId = 'home';
@@ -1096,6 +1193,7 @@ document.addEventListener('DOMContentLoaded', () => {
       document.querySelectorAll('.unit-item').forEach(el => el.classList.remove('active'));
       if (homeNav) homeNav.classList.add('active');
       if (templatesNav) templatesNav.classList.remove('active');
+      if (guideNav) guideNav.classList.remove('active');
 
       renderHome();
       return;
@@ -1108,8 +1206,22 @@ document.addEventListener('DOMContentLoaded', () => {
       document.querySelectorAll('.unit-item').forEach(el => el.classList.remove('active'));
       if (homeNav) homeNav.classList.remove('active');
       if (templatesNav) templatesNav.classList.add('active');
+      if (guideNav) guideNav.classList.remove('active');
 
       renderTemplates();
+      return;
+    }
+
+    if (unitId === 'desmos-guide') {
+      currentUnitId = 'desmos-guide';
+      window.location.hash = 'desmos-guide';
+
+      document.querySelectorAll('.unit-item').forEach(el => el.classList.remove('active'));
+      if (homeNav) homeNav.classList.remove('active');
+      if (templatesNav) templatesNav.classList.remove('active');
+      if (guideNav) guideNav.classList.add('active');
+
+      renderDesmosGuide();
       return;
     }
 
@@ -1117,9 +1229,10 @@ document.addEventListener('DOMContentLoaded', () => {
     currentUnitId = unitId;
     window.location.hash = unitId;
 
-    // 清除首頁與範本總覽 active 狀態
+    // 清除首頁、範本總覽與常用技巧 active 狀態
     if (homeNav) homeNav.classList.remove('active');
     if (templatesNav) templatesNav.classList.remove('active');
+    if (guideNav) guideNav.classList.remove('active');
 
     // 更新側邊欄 active 狀態
     document.querySelectorAll('.unit-item').forEach(el => el.classList.remove('active'));
@@ -1193,13 +1306,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // 8. 監聽 Hash 改變（支援上一頁/下一頁、課程首頁、範本總覽與直達連結）
+  // 8. 監聽 Hash 改變（支援上一頁/下一頁、課程首頁、範本總覽、常用技巧與直達連結）
   window.addEventListener('hashchange', () => {
     const hash = decodeURIComponent(window.location.hash.replace('#', ''));
     if (hash === 'home' || !hash) {
       if (currentUnitId !== 'home') switchUnit('home');
     } else if (hash === 'templates') {
       if (currentUnitId !== 'templates') switchUnit('templates');
+    } else if (hash === 'desmos-guide') {
+      if (currentUnitId !== 'desmos-guide') switchUnit('desmos-guide');
     } else if (COURSE_CONFIG.units[hash] && hash !== currentUnitId) {
       switchUnit(hash);
     }
@@ -1210,6 +1325,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const initHash = decodeURIComponent(window.location.hash.replace('#', ''));
   if (initHash === 'templates') {
     switchUnit('templates');
+  } else if (initHash === 'desmos-guide') {
+    switchUnit('desmos-guide');
   } else if (initHash && COURSE_CONFIG.units[initHash]) {
     switchUnit(initHash);
   } else {
