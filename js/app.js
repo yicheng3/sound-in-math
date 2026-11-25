@@ -688,6 +688,33 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // 3. 渲染指定單元
+  function renderSupplementalVideos(unit) {
+    if (!unit.videos || !unit.videos.length) return '';
+    const itemsHtml = unit.videos.map(v => `
+      <a class="video-ref-item" href="${escapeHtml(v.url)}" target="_blank" rel="noopener noreferrer">
+        <div class="video-ref-info">
+          <div class="video-ref-title-row">
+            <span class="video-ref-title">${escapeHtml(v.title)}</span>
+            ${(v.channel || v.duration) ? `<span class="video-ref-meta">${escapeHtml([v.channel, v.duration].filter(Boolean).join(' · '))}</span>` : ''}
+          </div>
+          ${v.note ? `<div class="video-ref-note">${parseInlineMarkdown(v.note)}</div>` : ''}
+        </div>
+        <span class="video-ref-action">前往觀看 ↗</span>
+      </a>
+    `).join('');
+
+    return `
+      <section class="teaching-card video-ref-card">
+        <div class="card-header">
+          <h2 class="card-title">補充參考影片</h2>
+        </div>
+        <div class="card-body">
+          <div class="video-ref-list">${itemsHtml}</div>
+        </div>
+      </section>
+    `;
+  }
+
   function renderUnit(unitId) {
     const unit = COURSE_CONFIG.units[unitId];
     if (!unit) {
@@ -812,6 +839,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
       <!-- 隨堂線上互動學習單 -->
       ${renderWorksheet(unit)}
+
+      <!-- 補充參考影片 -->
+      ${renderSupplementalVideos(unit)}
 
       <!-- 單元前後切換導覽列 -->
       <nav class="unit-nav-footer">

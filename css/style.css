@@ -2562,4 +2562,92 @@ body.dark-mode .sidebar-home-item.active {
   }
 }
 
+/* ========================================================
+ * 補充參考影片卡片（外開連結列表，不內嵌播放器）
+ * ======================================================== */
+.video-ref-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.video-ref-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem 1.15rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+  background: var(--bg-main);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.2s, background-color 0.2s, transform 0.15s;
+}
+
+.video-ref-item:hover {
+  border-color: var(--accent-sage);
+  background: rgba(69, 104, 84, 0.05);
+  transform: translateY(-1px);
+}
+
+.video-ref-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  min-width: 0;
+}
+
+.video-ref-title-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.55rem;
+}
+
+.video-ref-title {
+  font-weight: 700;
+  font-size: 1.02rem;
+  color: var(--text-primary);
+}
+
+.video-ref-meta {
+  font-size: 0.82rem;
+  color: var(--accent-sage);
+  font-weight: 600;
+}
+
+.video-ref-note {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+.video-ref-action {
+  flex-shrink: 0;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--accent-sage);
+  padding: 0.32rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid var(--accent-sage);
+  white-space: nowrap;
+}
+
+body.dark-mode .video-ref-item {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+body.dark-mode .video-ref-item:hover {
+  background: rgba(140, 184, 156, 0.09);
+}
+
+@media (max-width: 768px) {
+  .video-ref-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+
 

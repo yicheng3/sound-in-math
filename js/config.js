@@ -1521,11 +1521,84 @@ $$\\operatorname{tone}(440, \\; \\sin(t))$$
 
 為了讓它剛好每 $1$ 拍重複一次，而且只在每一拍開頭安靜一小段（例如 $\\frac{1}{6}$ 拍），範本裡先調好了一條正弦波和一條水平線：
 
-<div class="desmos-embed-container">
-  <iframe src="https://www.desmos.com/calculator/ymeb0xkzsz?embed" class="desmos-iframe" frameborder="0"></iframe>
+<div class="piano-card">
+  <svg class="piano-svg" style="max-width: 780px;" viewBox="0 0 740 272" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <style>
+        .s1-axis { stroke: var(--text-muted, #797169); stroke-width: 1.3; }
+        .s1-grid { stroke: var(--border-color, #d8cfc3); stroke-width: 1.1; stroke-dasharray: 4,4; }
+        .s1-txt { font-size: 12.5px; fill: var(--text-muted, #797169); font-family: inherit; }
+        .s1-leg { font-size: 13px; font-weight: 700; font-family: inherit; }
+        .s1-sin { fill: none; stroke: #c4493b; stroke-width: 2.7; stroke-linecap: round; }
+        .s1-thr { fill: none; stroke: #3b6ea5; stroke-width: 2.2; stroke-dasharray: 7,5; }
+        .s1-cap { fill: rgba(196, 73, 59, 0.22); }
+        .s1-band { fill: rgba(196, 73, 59, 0.08); }
+        .s1-ann { font-size: 12px; font-weight: 700; fill: #c4493b; font-family: inherit; }
+        .s1-per { font-size: 12px; font-weight: 700; fill: #3b6ea5; font-family: inherit; }
+      </style>
+    </defs>
+
+    <!-- 頂部圖例 -->
+    <line x1="74" y1="22" x2="104" y2="22" class="s1-sin" />
+    <text x="111" y="27" class="s1-leg" style="fill: #c4493b;">y = sin(2πx + π/3)（週期為 1）</text>
+    <line x1="382" y1="22" x2="412" y2="22" class="s1-thr" />
+    <text x="419" y="27" class="s1-leg" style="fill: #3b6ea5;">門檻線 y = √3 / 2 ≈ 0.87</text>
+
+    <!-- 高於門檻的靜音區間直條底色 -->
+    <rect x="72.0" y="62" width="45.9" height="164" class="s1-band" />
+    <rect x="347.6" y="62" width="45.9" height="164" class="s1-band" />
+    <rect x="623.1" y="62" width="45.9" height="164" class="s1-band" />
+
+    <!-- 格線與座標軸 -->
+    <line x1="72" y1="70.0" x2="692" y2="70.0" class="s1-grid" />
+    <line x1="72" y1="218.0" x2="692" y2="218.0" class="s1-grid" />
+    <line x1="347.6" y1="62" x2="347.6" y2="228" class="s1-grid" />
+    <line x1="623.1" y1="62" x2="623.1" y2="228" class="s1-grid" />
+    <line x1="72" y1="54" x2="72" y2="232" class="s1-axis" />
+    <line x1="72" y1="144.0" x2="702" y2="144.0" class="s1-axis" />
+
+    <!-- 週期 = 1 拍 雙箭頭 -->
+    <line x1="72.0" y1="48" x2="347.6" y2="48" stroke="#3b6ea5" stroke-width="1.5" />
+    <line x1="72.0" y1="43" x2="72.0" y2="53" stroke="#3b6ea5" stroke-width="1.5" />
+    <line x1="347.6" y1="43" x2="347.6" y2="53" stroke="#3b6ea5" stroke-width="1.5" />
+    <text x="209.8" y="44" text-anchor="middle" class="s1-per">週期 = 1 拍</text>
+
+    <!-- 波峰高於門檻的填充陰影 -->
+    <path d="M72.0,79.9 L72.0,79.9 L73.9,78.4 L75.8,76.9 L77.7,75.6 L79.7,74.5 L81.6,73.4 L83.5,72.5 L85.4,71.8 L87.3,71.1 L89.2,70.6 L91.1,70.3 L93.0,70.1 L95.0,70.0 L96.9,70.1 L98.8,70.3 L100.7,70.6 L102.6,71.1 L104.5,71.8 L106.4,72.5 L108.4,73.4 L110.3,74.5 L112.2,75.6 L114.1,76.9 L116.0,78.4 L117.9,79.9 L117.9,79.9 Z" class="s1-cap" />
+    <path d="M347.6,79.9 L347.6,79.9 L349.5,78.4 L351.4,76.9 L353.3,75.6 L355.2,74.5 L357.1,73.4 L359.0,72.5 L361.0,71.8 L362.9,71.1 L364.8,70.6 L366.7,70.3 L368.6,70.1 L370.5,70.0 L372.4,70.1 L374.3,70.3 L376.3,70.6 L378.2,71.1 L380.1,71.8 L382.0,72.5 L383.9,73.4 L385.8,74.5 L387.7,75.6 L389.7,76.9 L391.6,78.4 L393.5,79.9 L393.5,79.9 Z" class="s1-cap" />
+    <path d="M623.1,79.9 L623.1,79.9 L625.0,78.4 L626.9,76.9 L628.9,75.6 L630.8,74.5 L632.7,73.4 L634.6,72.5 L636.5,71.8 L638.4,71.1 L640.3,70.6 L642.2,70.3 L644.2,70.1 L646.1,70.0 L648.0,70.1 L649.9,70.3 L651.8,70.6 L653.7,71.1 L655.6,71.8 L657.6,72.5 L659.5,73.4 L661.4,74.5 L663.3,75.6 L665.2,76.9 L667.1,78.4 L669.0,79.9 L669.0,79.9 Z" class="s1-cap" />
+
+    <!-- 門檻線與正弦波 -->
+    <line x1="72" y1="79.9" x2="692" y2="79.9" class="s1-thr" />
+    <path d="M72.0,79.9 L74.8,77.7 L77.6,75.7 L80.5,74.0 L83.3,72.6 L86.1,71.5 L88.9,70.7 L91.7,70.2 L94.5,70.0 L97.4,70.1 L100.2,70.5 L103.0,71.2 L105.8,72.3 L108.6,73.6 L111.5,75.2 L114.3,77.1 L117.1,79.2 L119.9,81.7 L122.7,84.3 L125.5,87.3 L128.4,90.4 L131.2,93.8 L134.0,97.4 L136.8,101.2 L139.6,105.2 L142.5,109.3 L145.3,113.6 L148.1,118.0 L150.9,122.5 L153.7,127.1 L156.5,131.7 L159.4,136.4 L162.2,141.2 L165.0,145.9 L167.8,150.7 L170.6,155.4 L173.5,160.1 L176.3,164.7 L179.1,169.2 L181.9,173.6 L184.7,177.9 L187.5,182.1 L190.4,186.1 L193.2,189.9 L196.0,193.5 L198.8,196.9 L201.6,200.2 L204.5,203.1 L207.3,205.9 L210.1,208.3 L212.9,210.6 L215.7,212.5 L218.5,214.2 L221.4,215.5 L224.2,216.6 L227.0,217.4 L229.8,217.8 L232.6,218.0 L235.5,217.9 L238.3,217.4 L241.1,216.7 L243.9,215.6 L246.7,214.3 L249.5,212.6 L252.4,210.7 L255.2,208.5 L258.0,206.1 L260.8,203.3 L263.6,200.4 L266.5,197.2 L269.3,193.8 L272.1,190.2 L274.9,186.3 L277.7,182.4 L280.5,178.2 L283.4,173.9 L286.2,169.5 L289.0,165.0 L291.8,160.4 L294.6,155.8 L297.5,151.0 L300.3,146.3 L303.1,141.5 L305.9,136.8 L308.7,132.1 L311.5,127.4 L314.4,122.8 L317.2,118.3 L320.0,113.9 L322.8,109.6 L325.6,105.5 L328.5,101.5 L331.3,97.7 L334.1,94.1 L336.9,90.7 L339.7,87.5 L342.5,84.5 L345.4,81.8 L348.2,79.4 L351.0,77.2 L353.8,75.3 L356.6,73.7 L359.5,72.3 L362.3,71.3 L365.1,70.6 L367.9,70.1 L370.7,70.0 L373.5,70.2 L376.4,70.7 L379.2,71.4 L382.0,72.5 L384.8,73.9 L387.6,75.6 L390.5,77.5 L393.3,79.7 L396.1,82.2 L398.9,85.0 L401.7,88.0 L404.5,91.2 L407.4,94.6 L410.2,98.3 L413.0,102.1 L415.8,106.1 L418.6,110.2 L421.5,114.5 L424.3,119.0 L427.1,123.5 L429.9,128.1 L432.7,132.8 L435.5,137.5 L438.4,142.2 L441.2,147.0 L444.0,151.7 L446.8,156.4 L449.6,161.1 L452.5,165.7 L455.3,170.2 L458.1,174.6 L460.9,178.8 L463.7,183.0 L466.5,186.9 L469.4,190.7 L472.2,194.3 L475.0,197.7 L477.8,200.8 L480.6,203.8 L483.5,206.4 L486.3,208.9 L489.1,211.0 L491.9,212.9 L494.7,214.5 L497.5,215.8 L500.4,216.8 L503.2,217.5 L506.0,217.9 L508.8,218.0 L511.6,217.8 L514.5,217.3 L517.3,216.5 L520.1,215.3 L522.9,213.9 L525.7,212.2 L528.5,210.3 L531.4,208.0 L534.2,205.5 L537.0,202.7 L539.8,199.7 L542.6,196.5 L545.5,193.0 L548.3,189.3 L551.1,185.5 L553.9,181.5 L556.7,177.3 L559.5,173.0 L562.4,168.5 L565.2,164.0 L568.0,159.4 L570.8,154.7 L573.6,150.0 L576.5,145.2 L579.3,140.5 L582.1,135.7 L584.9,131.0 L587.7,126.4 L590.5,121.8 L593.4,117.3 L596.2,112.9 L599.0,108.7 L601.8,104.6 L604.6,100.6 L607.5,96.9 L610.3,93.3 L613.1,90.0 L615.9,86.8 L618.7,83.9 L621.5,81.3 L624.4,78.9 L627.2,76.8 L630.0,74.9 L632.8,73.4 L635.6,72.1 L638.5,71.1 L641.3,70.4 L644.1,70.1 L646.9,70.0 L649.7,70.3 L652.5,70.8 L655.4,71.7 L658.2,72.8 L661.0,74.2 L663.8,76.0 L666.6,78.0 L669.5,80.3 L672.3,82.8 L675.1,85.6 L677.9,88.7 L680.7,91.9 L683.5,95.4 L686.4,99.1 L689.2,103.0 L692.0,107.0" class="s1-sin" />
+
+    <!-- 交點標記 -->
+    <circle cx="72.0" cy="79.9" r="4" fill="#3b6ea5" />
+    <circle cx="117.9" cy="79.9" r="4" fill="#3b6ea5" />
+    <circle cx="347.6" cy="79.9" r="4" fill="#3b6ea5" />
+    <circle cx="393.5" cy="79.9" r="4" fill="#3b6ea5" />
+    <circle cx="623.1" cy="79.9" r="4" fill="#3b6ea5" />
+
+    <!-- 1/6 拍寬度標註 -->
+    <text x="95.0" y="114" text-anchor="middle" class="s1-ann">1/6 拍</text>
+    <text x="370.5" y="114" text-anchor="middle" class="s1-ann">1/6 拍</text>
+
+    <!-- Y 軸刻度 -->
+    <text x="63" y="74.0" text-anchor="end" class="s1-txt">1</text>
+    <text x="63" y="83.9" text-anchor="end" class="s1-per" style="font-size: 11.5px;">√3/2</text>
+    <text x="63" y="148.0" text-anchor="end" class="s1-txt">0</text>
+    <text x="63" y="222.0" text-anchor="end" class="s1-txt">−1</text>
+
+    <!-- X 軸刻度 -->
+    <text x="72.0" y="252" text-anchor="middle" class="s1-txt">0</text>
+    <text x="117.9" y="252" text-anchor="middle" class="s1-ann">1/6</text>
+    <text x="347.6" y="252" text-anchor="middle" class="s1-txt">1</text>
+    <text x="393.5" y="252" text-anchor="middle" class="s1-ann">7/6</text>
+    <text x="623.1" y="252" text-anchor="middle" class="s1-txt">2</text>
+  </svg>
 </div>
 
-- 🔴 **紅色曲線**：$y = \\sin\\left(2\\pi x + \\frac{\\pi}{3}\\right)$。
+- 🔴 **紅色曲線**：$y = \\sin\\left(2\\pi x + \\frac{\\pi}{3}\\right)$（**週期為 $1$**，代表每 $1$ 拍重複一次完整波形）。
 - 🔵 **藍色水平線**：$y = \\frac{\\sqrt{3}}{2}$。
 - **從圖上的交點直接觀察**：
   - 點 $\\left(0, \\frac{\\sqrt{3}}{2}\\right)$ 與 $\\left(1, \\frac{\\sqrt{3}}{2}\\right)$：橫坐標每差 $1$ 就回到相同位置，剛好對齊每 $1$ 拍重複一次。
@@ -1543,16 +1616,95 @@ $$|x| = \\begin{cases}
 
 同理，我們把「正弦波高於門檻 $\\frac{\\sqrt{3}}{2}$」的那一小段設為 $0$（安靜），其餘時間一律設為 $1$（穩定發聲）：
 $$y = \\begin{cases}
-0, & \\text{在 } \\sin\\left(2\\pi x + \\frac{\\pi}{3}\\right) \\ge \\frac{\\sqrt{3}}{2} \\text{ 時（靜音）} \\\\
-1, & \\text{在 } \\sin\\left(2\\pi x + \\frac{\\pi}{3}\\right) < \\frac{\\sqrt{3}}{2} \\text{ 時（發聲）}
+0, & \\text{在 } \\sin\\left(2\\pi x + \\frac{\\pi}{3}\\right) \\ge \\frac{\\sqrt{3}}{2} \\text{ 時，（音量 0（靜音））} \\\\
+1, & \\text{在 } \\sin\\left(2\\pi x + \\frac{\\pi}{3}\\right) < \\frac{\\sqrt{3}}{2} \\text{ 時，（音量 1（有聲音））}
 \\end{cases}$$
 
 在 Desmos 裡改寫成單行大括號語法：
 $$y = \\left\\{\\sin\\left(2\\pi x + \\frac{\\pi}{3}\\right) \\ge \\frac{\\sqrt{3}}{2}: 0, \\; \\sin\\left(2\\pi x + \\frac{\\pi}{3}\\right) < \\frac{\\sqrt{3}}{2}: 1\\right\\}$$
 *(第二個條件可省略簡寫為：$y = \\left\\{\\sin\\left(2\\pi x + \\frac{\\pi}{3}\\right) \\ge \\frac{\\sqrt{3}}{2}: 0, \\; 1\\right\\}$)*
 
-<div class="desmos-embed-container">
-  <iframe src="https://www.desmos.com/calculator/exrboynk81?embed" class="desmos-iframe" frameborder="0"></iframe>
+<div class="piano-card">
+  <svg class="piano-svg" style="max-width: 780px;" viewBox="0 0 740 272" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <style>
+        .s2-axis { stroke: var(--text-muted, #797169); stroke-width: 1.3; }
+        .s2-grid { stroke: var(--border-color, #d8cfc3); stroke-width: 1.1; stroke-dasharray: 4,4; }
+        .s2-txt { font-size: 12.5px; fill: var(--text-muted, #797169); font-family: inherit; }
+        .s2-leg { font-size: 13px; font-weight: 700; font-family: inherit; }
+        .s2-sin-bg { fill: none; stroke: rgba(196, 73, 59, 0.32); stroke-width: 1.7; stroke-dasharray: 4,4; }
+        .s2-thr-bg { fill: none; stroke: rgba(59, 110, 165, 0.4); stroke-width: 1.5; stroke-dasharray: 5,5; }
+        .s2-sq { fill: none; stroke: #2f855a; stroke-width: 3.4; stroke-linecap: round; }
+        .s2-mute { fill: none; stroke: #c26d36; stroke-width: 3.4; stroke-linecap: round; }
+        .s2-band { fill: rgba(194, 109, 54, 0.12); }
+        .s2-lbl-g { font-size: 12px; font-weight: 700; fill: #2f855a; font-family: inherit; }
+        .s2-lbl-o { font-size: 12px; font-weight: 700; fill: #c26d36; font-family: inherit; }
+      </style>
+    </defs>
+
+    <!-- 圖例 -->
+    <line x1="74" y1="22" x2="104" y2="22" class="s2-sq" />
+    <text x="111" y="27" class="s2-leg" style="fill: #2f855a;">發聲區間 y = 1（5/6 拍）</text>
+    <line x1="322" y1="22" x2="352" y2="22" class="s2-mute" />
+    <text x="359" y="27" class="s2-leg" style="fill: #c26d36;">靜音區間 y = 0（1/6 拍）</text>
+    <text x="692" y="27" text-anchor="end" class="s2-txt" style="font-size: 11.5px;">虛線：原正弦波與門檻</text>
+
+    <!-- 靜音底色區 -->
+    <rect x="72.0" y="58" width="45.9" height="168" class="s2-band" />
+    <rect x="347.6" y="58" width="45.9" height="168" class="s2-band" />
+    <rect x="623.1" y="58" width="45.9" height="168" class="s2-band" />
+
+    <!-- 格線與座標軸 -->
+    <line x1="72" y1="70.0" x2="692" y2="70.0" class="s2-grid" />
+    <line x1="72" y1="218.0" x2="692" y2="218.0" class="s2-grid" />
+    <line x1="347.6" y1="58" x2="347.6" y2="228" class="s2-grid" />
+    <line x1="623.1" y1="58" x2="623.1" y2="228" class="s2-grid" />
+    <line x1="72" y1="50" x2="72" y2="232" class="s2-axis" />
+    <line x1="72" y1="144.0" x2="702" y2="144.0" class="s2-axis" />
+
+    <!-- 淡化背景正弦波與門檻線 -->
+    <line x1="72" y1="79.9" x2="692" y2="79.9" class="s2-thr-bg" />
+    <path d="M72.0,79.9 L74.8,77.7 L77.6,75.7 L80.5,74.0 L83.3,72.6 L86.1,71.5 L88.9,70.7 L91.7,70.2 L94.5,70.0 L97.4,70.1 L100.2,70.5 L103.0,71.2 L105.8,72.3 L108.6,73.6 L111.5,75.2 L114.3,77.1 L117.1,79.2 L119.9,81.7 L122.7,84.3 L125.5,87.3 L128.4,90.4 L131.2,93.8 L134.0,97.4 L136.8,101.2 L139.6,105.2 L142.5,109.3 L145.3,113.6 L148.1,118.0 L150.9,122.5 L153.7,127.1 L156.5,131.7 L159.4,136.4 L162.2,141.2 L165.0,145.9 L167.8,150.7 L170.6,155.4 L173.5,160.1 L176.3,164.7 L179.1,169.2 L181.9,173.6 L184.7,177.9 L187.5,182.1 L190.4,186.1 L193.2,189.9 L196.0,193.5 L198.8,196.9 L201.6,200.2 L204.5,203.1 L207.3,205.9 L210.1,208.3 L212.9,210.6 L215.7,212.5 L218.5,214.2 L221.4,215.5 L224.2,216.6 L227.0,217.4 L229.8,217.8 L232.6,218.0 L235.5,217.9 L238.3,217.4 L241.1,216.7 L243.9,215.6 L246.7,214.3 L249.5,212.6 L252.4,210.7 L255.2,208.5 L258.0,206.1 L260.8,203.3 L263.6,200.4 L266.5,197.2 L269.3,193.8 L272.1,190.2 L274.9,186.3 L277.7,182.4 L280.5,178.2 L283.4,173.9 L286.2,169.5 L289.0,165.0 L291.8,160.4 L294.6,155.8 L297.5,151.0 L300.3,146.3 L303.1,141.5 L305.9,136.8 L308.7,132.1 L311.5,127.4 L314.4,122.8 L317.2,118.3 L320.0,113.9 L322.8,109.6 L325.6,105.5 L328.5,101.5 L331.3,97.7 L334.1,94.1 L336.9,90.7 L339.7,87.5 L342.5,84.5 L345.4,81.8 L348.2,79.4 L351.0,77.2 L353.8,75.3 L356.6,73.7 L359.5,72.3 L362.3,71.3 L365.1,70.6 L367.9,70.1 L370.7,70.0 L373.5,70.2 L376.4,70.7 L379.2,71.4 L382.0,72.5 L384.8,73.9 L387.6,75.6 L390.5,77.5 L393.3,79.7 L396.1,82.2 L398.9,85.0 L401.7,88.0 L404.5,91.2 L407.4,94.6 L410.2,98.3 L413.0,102.1 L415.8,106.1 L418.6,110.2 L421.5,114.5 L424.3,119.0 L427.1,123.5 L429.9,128.1 L432.7,132.8 L435.5,137.5 L438.4,142.2 L441.2,147.0 L444.0,151.7 L446.8,156.4 L449.6,161.1 L452.5,165.7 L455.3,170.2 L458.1,174.6 L460.9,178.8 L463.7,183.0 L466.5,186.9 L469.4,190.7 L472.2,194.3 L475.0,197.7 L477.8,200.8 L480.6,203.8 L483.5,206.4 L486.3,208.9 L489.1,211.0 L491.9,212.9 L494.7,214.5 L497.5,215.8 L500.4,216.8 L503.2,217.5 L506.0,217.9 L508.8,218.0 L511.6,217.8 L514.5,217.3 L517.3,216.5 L520.1,215.3 L522.9,213.9 L525.7,212.2 L528.5,210.3 L531.4,208.0 L534.2,205.5 L537.0,202.7 L539.8,199.7 L542.6,196.5 L545.5,193.0 L548.3,189.3 L551.1,185.5 L553.9,181.5 L556.7,177.3 L559.5,173.0 L562.4,168.5 L565.2,164.0 L568.0,159.4 L570.8,154.7 L573.6,150.0 L576.5,145.2 L579.3,140.5 L582.1,135.7 L584.9,131.0 L587.7,126.4 L590.5,121.8 L593.4,117.3 L596.2,112.9 L599.0,108.7 L601.8,104.6 L604.6,100.6 L607.5,96.9 L610.3,93.3 L613.1,90.0 L615.9,86.8 L618.7,83.9 L621.5,81.3 L624.4,78.9 L627.2,76.8 L630.0,74.9 L632.8,73.4 L635.6,72.1 L638.5,71.1 L641.3,70.4 L644.1,70.1 L646.9,70.0 L649.7,70.3 L652.5,70.8 L655.4,71.7 L658.2,72.8 L661.0,74.2 L663.8,76.0 L666.6,78.0 L669.5,80.3 L672.3,82.8 L675.1,85.6 L677.9,88.7 L680.7,91.9 L683.5,95.4 L686.4,99.1 L689.2,103.0 L692.0,107.0" class="s2-sin-bg" />
+
+    <!-- 綠色方波 (y=1) 與 橘色靜音段 (y=0) -->
+    <line x1="72.0" y1="144.0" x2="117.9" y2="144.0" class="s2-mute" />
+    <line x1="117.9" y1="70.0" x2="347.6" y2="70.0" class="s2-sq" />
+    <line x1="347.6" y1="144.0" x2="393.5" y2="144.0" class="s2-mute" />
+    <line x1="393.5" y1="70.0" x2="623.1" y2="70.0" class="s2-sq" />
+    <line x1="623.1" y1="144.0" x2="669.0" y2="144.0" class="s2-mute" />
+    <line x1="669.0" y1="70.0" x2="692.0" y2="70.0" class="s2-sq" />
+
+    <!-- 實心與空心端點 -->
+    <circle cx="72.0" cy="144.0" r="3.8" fill="#c26d36" />
+    <circle cx="117.9" cy="144.0" r="3.8" fill="#c26d36" />
+    <circle cx="117.9" cy="70.0" r="3.8" fill="#ffffff" stroke="#2f855a" stroke-width="2" />
+    <circle cx="347.6" cy="70.0" r="3.8" fill="#ffffff" stroke="#2f855a" stroke-width="2" />
+    <circle cx="347.6" cy="144.0" r="3.8" fill="#c26d36" />
+    <circle cx="393.5" cy="144.0" r="3.8" fill="#c26d36" />
+    <circle cx="393.5" cy="70.0" r="3.8" fill="#ffffff" stroke="#2f855a" stroke-width="2" />
+    <circle cx="623.1" cy="70.0" r="3.8" fill="#ffffff" stroke="#2f855a" stroke-width="2" />
+    <circle cx="623.1" cy="144.0" r="3.8" fill="#c26d36" />
+    <circle cx="669.0" cy="144.0" r="3.8" fill="#c26d36" />
+    <circle cx="669.0" cy="70.0" r="3.8" fill="#ffffff" stroke="#2f855a" stroke-width="2" />
+
+    <!-- 區塊中文註解 -->
+    <text x="232.7" y="58.0" text-anchor="middle" class="s2-lbl-g">發聲（y = 1）</text>
+    <text x="508.3" y="58.0" text-anchor="middle" class="s2-lbl-g">發聲（y = 1）</text>
+    <text x="95.0" y="166.0" text-anchor="middle" class="s2-lbl-o">靜音</text>
+    <text x="370.5" y="166.0" text-anchor="middle" class="s2-lbl-o">靜音</text>
+
+    <!-- Y 軸刻度 -->
+    <text x="63" y="74.0" text-anchor="end" class="s2-lbl-g">1</text>
+    <text x="63" y="148.0" text-anchor="end" class="s2-lbl-o">0</text>
+    <text x="63" y="222.0" text-anchor="end" class="s2-txt">−1</text>
+
+    <!-- X 軸刻度 -->
+    <text x="72.0" y="252" text-anchor="middle" class="s2-txt">0</text>
+    <text x="117.9" y="252" text-anchor="middle" class="s2-lbl-o">1/6</text>
+    <text x="347.6" y="252" text-anchor="middle" class="s2-txt">1</text>
+    <text x="393.5" y="252" text-anchor="middle" class="s2-lbl-o">7/6</text>
+    <text x="623.1" y="252" text-anchor="middle" class="s2-txt">2</text>
+  </svg>
 </div>
 
 - 🟢 **綠色方波**：每一拍開頭自動安靜 $\\frac{1}{6}$ 拍（音量 $0$），後面 $\\frac{5}{6}$ 拍穩定維持音量 $1$，正好就是一開始想要的重複圖形。把這個開關設成變數 $q$ 放進 $\\operatorname{tone}(L[t], \\; q)$，就能做出乾淨的斷音。
@@ -1623,8 +1775,59 @@ y = \\left\\{\\tan\\left(\\pi x - \\frac{\\pi}{2}\\right) \\le -1: 0, \\; 1\\rig
 在 Desmos 中輸入 \`floor(x)\`，代表「不大於 $x$ 的最大整數」（正數時就是無條件捨去小數點，只留下整數部分）：
 - 例如：$[1.2] = 1, \\; [1.8] = 1, \\; [2.0] = 2, \\; [2.5] = 2$。
 
-<div class="desmos-embed-container">
-  <iframe src="https://www.desmos.com/calculator/2fev0huixj?embed" class="desmos-iframe" frameborder="0"></iframe>
+<div class="piano-card">
+  <svg class="piano-svg" style="max-width: 780px;" viewBox="0 0 740 242" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <style>
+        .fl-axis { stroke: var(--text-muted, #797169); stroke-width: 1.3; }
+        .fl-grid { stroke: var(--border-color, #d8cfc3); stroke-width: 1.1; stroke-dasharray: 4,4; }
+        .fl-txt { font-size: 12.5px; fill: var(--text-muted, #797169); font-family: inherit; }
+        .fl-line { stroke: #3d8b5e; stroke-width: 3.2; stroke-linecap: round; }
+        .fl-ann { font-size: 12px; font-weight: 700; fill: #c26d36; font-family: inherit; }
+        .fl-head { font-size: 13.5px; font-weight: 700; fill: #3d8b5e; font-family: inherit; }
+      </style>
+    </defs>
+
+    <!-- 標題 -->
+    <text x="75" y="26" class="fl-head">高斯階梯函數 y = floor(x)（捨去小數點，只留整數）</text>
+    <text x="683" y="26" text-anchor="end" class="fl-txt" style="font-size: 11.5px;">● 包含　○ 不包含</text>
+
+    <!-- 格線 -->
+    <line x1="75" y1="156.0" x2="683" y2="156.0" class="fl-grid" />
+    <line x1="75" y1="112.0" x2="683" y2="112.0" class="fl-grid" />
+    <line x1="75" y1="68.0" x2="683" y2="68.0" class="fl-grid" />
+    <line x1="227.0" y1="54" x2="227.0" y2="200.0" class="fl-grid" />
+    <line x1="379.0" y1="54" x2="379.0" y2="200.0" class="fl-grid" />
+    <line x1="531.0" y1="54" x2="531.0" y2="200.0" class="fl-grid" />
+
+    <!-- 軸線 -->
+    <line x1="75" y1="48" x2="75" y2="200.0" class="fl-axis" />
+    <line x1="75" y1="200.0" x2="696" y2="200.0" class="fl-axis" />
+
+    <!-- 階梯線與端點 -->
+    <line x1="75.0" y1="200.0" x2="227.0" y2="200.0" class="fl-line" /><line x1="227.0" y1="156.0" x2="379.0" y2="156.0" class="fl-line" /><line x1="379.0" y1="112.0" x2="531.0" y2="112.0" class="fl-line" /><line x1="531.0" y1="68.0" x2="683.0" y2="68.0" class="fl-line" />
+    <circle cx="75.0" cy="200.0" r="4.2" fill="#3d8b5e" /><circle cx="227.0" cy="200.0" r="4.2" fill="#ffffff" stroke="#3d8b5e" stroke-width="2" /><circle cx="227.0" cy="156.0" r="4.2" fill="#3d8b5e" /><circle cx="379.0" cy="156.0" r="4.2" fill="#ffffff" stroke="#3d8b5e" stroke-width="2" /><circle cx="379.0" cy="112.0" r="4.2" fill="#3d8b5e" /><circle cx="531.0" cy="112.0" r="4.2" fill="#ffffff" stroke="#3d8b5e" stroke-width="2" /><circle cx="531.0" cy="68.0" r="4.2" fill="#3d8b5e" /><circle cx="683.0" cy="68.0" r="4.2" fill="#ffffff" stroke="#3d8b5e" stroke-width="2" />
+
+    <!-- 正文舉例標記：[1.2]=1, [1.8]=1 -->
+    <line x1="257.4" y1="156.0" x2="257.4" y2="200.0" stroke="#c26d36" stroke-width="1.3" stroke-dasharray="3,3" />
+    <circle cx="257.4" cy="156.0" r="3.6" fill="#c26d36" />
+    <text x="257.4" y="146.0" text-anchor="middle" class="fl-ann">[1.2] = 1</text>
+
+    <line x1="348.6" y1="156.0" x2="348.6" y2="200.0" stroke="#c26d36" stroke-width="1.3" stroke-dasharray="3,3" />
+    <circle cx="348.6" cy="156.0" r="3.6" fill="#c26d36" />
+    <text x="348.6" y="146.0" text-anchor="middle" class="fl-ann">[1.8] = 1</text>
+
+    <!-- 刻度 -->
+    <text x="64" y="72.0" text-anchor="end" class="fl-txt">3</text>
+    <text x="64" y="116.0" text-anchor="end" class="fl-txt">2</text>
+    <text x="64" y="160.0" text-anchor="end" class="fl-txt">1</text>
+    <text x="64" y="204.0" text-anchor="end" class="fl-txt">0</text>
+    <text x="75.0" y="222" text-anchor="middle" class="fl-txt">0</text>
+    <text x="227.0" y="222" text-anchor="middle" class="fl-txt">1</text>
+    <text x="379.0" y="222" text-anchor="middle" class="fl-txt">2</text>
+    <text x="531.0" y="222" text-anchor="middle" class="fl-txt">3</text>
+    <text x="683.0" y="222" text-anchor="middle" class="fl-txt">4</text>
+  </svg>
 </div>
 
 圖形是一段一段水平跳升的階梯，每滿 $1$ 拍整數就加 $1$。
@@ -1639,8 +1842,52 @@ y = \\left\\{\\tan\\left(\\pi x - \\frac{\\pi}{2}\\right) \\le -1: 0, \\; 1\\rig
 - $x = 1.9 \\implies 1.9 - 1 = 0.9$
 - 到達下一拍 $x = 2.0$ 時，整數變成 $2$，相減又回到 $0$ 重新上升。
 
-<div class="desmos-embed-container">
-  <iframe src="https://www.desmos.com/calculator/dm2eoyoon8?embed" class="desmos-iframe" frameborder="0"></iframe>
+<div class="piano-card">
+  <svg class="piano-svg" style="max-width: 780px;" viewBox="0 0 740 242" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <style>
+        .sw-axis { stroke: var(--text-muted, #797169); stroke-width: 1.3; }
+        .sw-grid { stroke: var(--border-color, #d8cfc3); stroke-width: 1.1; stroke-dasharray: 4,4; }
+        .sw-txt { font-size: 12.5px; fill: var(--text-muted, #797169); font-family: inherit; }
+        .sw-head { font-size: 13.5px; font-weight: 700; fill: #3d8b5e; font-family: inherit; }
+        .sw-line { stroke: #3d8b5e; stroke-width: 3; stroke-linecap: round; }
+        .sw-drop { stroke: rgba(61, 139, 94, 0.35); stroke-width: 1.4; stroke-dasharray: 3,3; }
+        .sw-ann { font-size: 12px; font-weight: 700; fill: #c26d36; font-family: inherit; }
+      </style>
+    </defs>
+
+    <!-- 標題 -->
+    <text x="75" y="26" class="sw-head">拍內小數鋸齒波 y = x − floor(x)</text>
+    <text x="687" y="26" text-anchor="end" class="sw-txt" style="font-weight: 600;">每拍由 0 等速上升到 1（週期 = 1 拍）</text>
+
+    <!-- 輔助線 -->
+    <line x1="75" y1="58.0" x2="687" y2="58.0" class="sw-grid" />
+    <line x1="75" y1="128.0" x2="687" y2="128.0" class="sw-grid" />
+    <line x1="75" y1="46" x2="75" y2="198.0" class="sw-axis" />
+    <line x1="75" y1="198.0" x2="700" y2="198.0" class="sw-axis" />
+
+    <!-- 鋸齒波與端點 -->
+    <line x1="75.0" y1="198.0" x2="279.0" y2="58.0" class="sw-line" /><line x1="279.0" y1="58.0" x2="279.0" y2="198.0" class="sw-drop" /><line x1="279.0" y1="198.0" x2="483.0" y2="58.0" class="sw-line" /><line x1="483.0" y1="58.0" x2="483.0" y2="198.0" class="sw-drop" /><line x1="483.0" y1="198.0" x2="687.0" y2="58.0" class="sw-line" />
+    <circle cx="75.0" cy="198.0" r="4" fill="#3d8b5e" /><circle cx="279.0" cy="58.0" r="4" fill="#ffffff" stroke="#3d8b5e" stroke-width="2" /><circle cx="279.0" cy="198.0" r="4" fill="#3d8b5e" /><circle cx="483.0" cy="58.0" r="4" fill="#ffffff" stroke="#3d8b5e" stroke-width="2" /><circle cx="483.0" cy="198.0" r="4" fill="#3d8b5e" /><circle cx="687.0" cy="58.0" r="4" fill="#ffffff" stroke="#3d8b5e" stroke-width="2" />
+
+    <!-- 正文舉例點：(1.4, 0.4) 與 (1.9, 0.9) -->
+    <line x1="360.6" y1="142.0" x2="360.6" y2="198.0" stroke="#c26d36" stroke-width="1.3" stroke-dasharray="3,3" />
+    <circle cx="360.6" cy="142.0" r="3.8" fill="#c26d36" />
+    <text x="352.6" y="134.0" text-anchor="end" class="sw-ann">(1.4, 0.4)</text>
+
+    <line x1="462.6" y1="72.0" x2="462.6" y2="198.0" stroke="#c26d36" stroke-width="1.3" stroke-dasharray="3,3" />
+    <circle cx="462.6" cy="72.0" r="3.8" fill="#c26d36" />
+    <text x="452.6" y="70.0" text-anchor="end" class="sw-ann">(1.9, 0.9)</text>
+
+    <!-- 刻度 -->
+    <text x="64" y="62.0" text-anchor="end" class="sw-txt">1.0</text>
+    <text x="64" y="132.0" text-anchor="end" class="sw-txt">0.5</text>
+    <text x="64" y="202.0" text-anchor="end" class="sw-txt">0</text>
+    <text x="75.0" y="220" text-anchor="middle" class="sw-txt">0（第 1 拍）</text>
+    <text x="279.0" y="220" text-anchor="middle" class="sw-txt">1（第 2 拍）</text>
+    <text x="483.0" y="220" text-anchor="middle" class="sw-txt">2（第 3 拍）</text>
+    <text x="687.0" y="220" text-anchor="middle" class="sw-txt">3</text>
+  </svg>
 </div>
 
 這條鋸齒波天生週期就是 **1 拍**，不需要乘 $2\\pi$。如果直接放進音量 $\\operatorname{tone}(440, \\; t - \\operatorname{floor}(t))$，會聽到每一拍由無聲均勻漸強到最大聲，一進下一拍立刻歸零重來。
@@ -1651,16 +1898,89 @@ y = \\left\\{\\tan\\left(\\pi x - \\frac{\\pi}{2}\\right) \\le -1: 0, \\; 1\\rig
 
 因為 $t - \\operatorname{floor}(t)$ 直接對應拍內進度（$0 \\sim 1$），想在每拍前 $20\\%$（$0.2$ 拍）靜音、後 $80\\%$ 發聲，分類討論只需寫成：
 $$q = \\begin{cases}
-0, & \\text{在 } t - [t] < 0.2 \\text{ 時（靜音）} \\\\
-1, & \\text{在 } t - [t] \\ge 0.2 \\text{ 時（發聲）}
+0, & \\text{在 } t - [t] < 0.2 \\text{ 時，（音量 0（靜音））} \\\\
+1, & \\text{在 } t - [t] \\ge 0.2 \\text{ 時，（音量 1（有聲音））}
 \\end{cases}$$
 
 在 Desmos 裡的單行寫法為：
 $$q = \\left\\{t - \\operatorname{floor}(t) < 0.2: 0, \\; t - \\operatorname{floor}(t) \\ge 0.2: 1\\right\\}$$
 *(簡寫為：$q = \\left\\{t - \\operatorname{floor}(t) < 0.2: 0, \\; 1\\right\\}$)*
 
-<div class="desmos-embed-container">
-  <iframe src="https://www.desmos.com/calculator/mq7ka30chq?embed" class="desmos-iframe" frameborder="0"></iframe>
+<div class="piano-card">
+  <svg class="piano-svg" style="max-width: 780px;" viewBox="0 0 740 228" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <style>
+        .q-axis { stroke: var(--text-muted, #797169); stroke-width: 1.3; }
+        .q-grid { stroke: var(--border-color, #d8cfc3); stroke-width: 1.1; stroke-dasharray: 4,4; }
+        .q-txt { font-size: 12.5px; fill: var(--text-muted, #797169); font-family: inherit; }
+        .q-leg { font-size: 13px; font-weight: 700; font-family: inherit; }
+        .q-saw-bg { stroke: rgba(121, 113, 105, 0.42); stroke-width: 1.8; stroke-dasharray: 5,4; }
+        .q-thr { stroke: #3b6ea5; stroke-width: 1.6; stroke-dasharray: 6,4; }
+        .q-band { fill: rgba(194, 109, 54, 0.13); }
+        .q-mute { stroke: #c26d36; stroke-width: 3.5; stroke-linecap: round; }
+        .q-on { stroke: #2f855a; stroke-width: 3.5; stroke-linecap: round; }
+        .q-lbl-o { font-size: 12px; font-weight: 700; fill: #c26d36; font-family: inherit; }
+        .q-lbl-g { font-size: 12px; font-weight: 700; fill: #2f855a; font-family: inherit; }
+        .q-lbl-b { font-size: 11.5px; font-weight: 700; fill: #3b6ea5; font-family: inherit; }
+      </style>
+    </defs>
+
+    <!-- 圖例 -->
+    <line x1="75" y1="22" x2="105" y2="22" class="q-mute" />
+    <text x="112" y="27" class="q-leg" style="fill: #c26d36;">前 20% 靜音（q = 0）</text>
+    <line x1="295" y1="22" x2="325" y2="22" class="q-on" />
+    <text x="332" y="27" class="q-leg" style="fill: #2f855a;">後 80% 發聲（q = 1）</text>
+    <text x="695" y="27" text-anchor="end" class="q-txt" style="font-size: 11.5px;">虛線：鋸齒波與門檻 0.2</text>
+
+    <!-- 前 20% 靜音底色區 -->
+    <rect x="75.0" y="52.0" width="62.0" height="134.0" class="q-band" />
+    <rect x="385.0" y="52.0" width="62.0" height="134.0" class="q-band" />
+
+    <!-- 輔助格線與座標軸 -->
+    <line x1="75" y1="52.0" x2="695" y2="52.0" class="q-grid" />
+    <line x1="385.0" y1="52.0" x2="385.0" y2="186.0" class="q-grid" />
+    <line x1="75" y1="42" x2="75" y2="186.0" class="q-axis" />
+    <line x1="75" y1="186.0" x2="706" y2="186.0" class="q-axis" />
+
+    <!-- 淡化原鋸齒波與 y = 0.2 水平門檻線 -->
+    <line x1="75.0" y1="186.0" x2="385.0" y2="52.0" class="q-saw-bg" />
+    <line x1="385.0" y1="186.0" x2="695.0" y2="52.0" class="q-saw-bg" />
+    <line x1="75" y1="159.2" x2="695" y2="159.2" class="q-thr" />
+    <circle cx="137.0" cy="159.2" r="3.5" fill="#3b6ea5" />
+    <circle cx="447.0" cy="159.2" r="3.5" fill="#3b6ea5" />
+
+    <!-- 0/1 方波線段 -->
+    <line x1="75.0" y1="186.0" x2="137.0" y2="186.0" class="q-mute" />
+    <line x1="137.0" y1="52.0" x2="385.0" y2="52.0" class="q-on" />
+    <line x1="385.0" y1="186.0" x2="447.0" y2="186.0" class="q-mute" />
+    <line x1="447.0" y1="52.0" x2="695.0" y2="52.0" class="q-on" />
+
+    <!-- 端點：< 0.2 為 0，>= 0.2 為 1 -->
+    <circle cx="75.0" cy="186.0" r="3.8" fill="#c26d36" />
+    <circle cx="137.0" cy="186.0" r="3.8" fill="#ffffff" stroke="#c26d36" stroke-width="2" />
+    <circle cx="137.0" cy="52.0" r="3.8" fill="#2f855a" />
+    <circle cx="385.0" cy="52.0" r="3.8" fill="#ffffff" stroke="#2f855a" stroke-width="2" />
+    <circle cx="385.0" cy="186.0" r="3.8" fill="#c26d36" />
+    <circle cx="447.0" cy="186.0" r="3.8" fill="#ffffff" stroke="#c26d36" stroke-width="2" />
+    <circle cx="447.0" cy="52.0" r="3.8" fill="#2f855a" />
+    <circle cx="695.0" cy="52.0" r="3.8" fill="#ffffff" stroke="#2f855a" stroke-width="2" />
+
+    <!-- 區塊文字 -->
+    <text x="261.0" y="42.0" text-anchor="middle" class="q-lbl-g">發聲（0.8 拍）</text>
+    <text x="571.0" y="42.0" text-anchor="middle" class="q-lbl-g">發聲（0.8 拍）</text>
+    <text x="106.0" y="112.3" text-anchor="middle" class="q-lbl-o">靜音</text>
+    <text x="416.0" y="112.3" text-anchor="middle" class="q-lbl-o">靜音</text>
+
+    <!-- 刻度 -->
+    <text x="64" y="56.0" text-anchor="end" class="q-lbl-g">1.0</text>
+    <text x="64" y="163.2" text-anchor="end" class="q-lbl-b">0.2</text>
+    <text x="64" y="190.0" text-anchor="end" class="q-lbl-o">0</text>
+    <text x="75.0" y="208" text-anchor="middle" class="q-txt">0</text>
+    <text x="137.0" y="208" text-anchor="middle" class="q-lbl-o">0.2</text>
+    <text x="385.0" y="208" text-anchor="middle" class="q-txt">1</text>
+    <text x="447.0" y="208" text-anchor="middle" class="q-lbl-o">1.2</text>
+    <text x="695.0" y="208" text-anchor="middle" class="q-txt">2</text>
+  </svg>
 </div>
 
 - 要靜音 $15\\%$ 就改寫成 \`< 0.15\`，要靜音 $30\\%$ 就改寫成 \`< 0.3\`，直接改小數完全不用算角度。
@@ -1722,74 +2042,213 @@ q = \\left\\{t - \\operatorname{floor}(t) < 0.2: 0, \\; 1\\right\\}
       id: "4-3",
       moduleId: "module-4",
       moduleName: "四、節奏與動態",
-      title: "音量控制與指數衰減（模擬鋼琴與打擊樂）",
-      conceptTitle: "真實樂器的音量衰減",
-      modelTitle: "指數衰減音量算式",
+      title: "音量控制與指數衰減（模擬敲擊與餘音）",
+      conceptTitle: "改變音量變化做出敲擊感與餘音",
+      modelTitle: "線性漸弱、指數衰減與拍尾留白",
       status: "ready",
       desmosUrl: null,
       motivation: `
-在 4-2 中，我們把斷音開關 $q$ 放在 $\\operatorname{tone}(\\text{頻率}, \\text{音量})$ 的第二個參數位置，讓同音之間可以分開。
-但因為開關只有 0 跟 1，每個音在響的時候音量都固定不變，聽起來比較像電子蜂鳴器。
+在 4-2 中，我們用斷音開關 $q$ 把連續同音分開了。但因為開關只有 $0$ 和 $1$，每個音在響的時候音量都固定不動，聽起來比較像電子蜂鳴器或按住不放的風琴。
 
-真實的敲擊或撥弦樂器（如鋼琴、木琴、吉他）在剛彈下去的瞬間音量最大，接著聲音會慢慢變小（衰減）。
-既然我們已經有每一拍從 0 跑到 1 的拍內小數 $u = t - \\operatorname{floor}(t)$，
-只要把第二個音量參數換成「隨時間遞減的函數」，就能做出類似鋼琴或木琴的餘音效果。
+真實的敲擊或撥弦樂器（例如木琴、音叉、鋼琴、吉他），能量是在剛彈下去的那一瞬間給出的，所以**拍頭音量最大，接著隨時間慢慢衰減**。
+就算 Desmos 預設只有單純正弦波、還沒改變波形音色，只要把「音量隨時間變化的曲線」從平的方波改成迅速遞減的曲線，耳朵馬上就能聽出敲下去的顆粒感與餘音。
+
+這一節繼續使用每一拍從 $0$ 跑到 $1$ 的拍內小數 $u = t - \\operatorname{floor}(t)$，把第二個參數換成隨時間遞減的函數。
       `,
       mathModel: `
-**一、 一次函數線性漸弱（直線下降）**：
-令拍內小數進度 $u = t - \\operatorname{floor}(t) \\in [0, 1)$。
-若想讓每一拍的音量從 $1$ 等速降到 $0.5$：
-$$g(t) = 1 - 0.5(t - \\operatorname{floor}(t))$$
-- **拍頭** $u = 0 \\implies g(t) = 1$。
-- **拍尾** $u = 1 \\implies g(t) = 0.5$。
-- **聽感**：音量按直線等速變小，聽起來比較生硬，不太像真實樂器敲擊的聲音。
+**一、 先試一次函數線性漸弱（直線下降）**
+令拍內小數進度 $u = t - \\operatorname{floor}(t) \\in [0, 1)$。沿用 4-2 學習單反轉鋸齒波的做法，讓音量在每一拍內由 $1$ 均勻降到 $0$：
+$$g(t) = 1 - (t - \\operatorname{floor}(t))$$
+- 拍頭 $u = 0$ 時音量為 $1$，拍尾接近 $u = 1$ 時音量降到 $0$。
+- 音量按直線等速變小，雖然有漸弱效果，但消散過程比較生硬，不太像真實樂器敲下去的手感。
 
 ---
 
-**二、 指數等比衰減（單音敲擊測試）**：
-在物理上，琴弦或木片振動的能量損耗屬於「等比衰減」（每經過固定時間乘上固定比例）：
+**二、 改成指數等比衰減（單音敲擊測試）**
+真實的琴弦或木片被敲擊後，振動能量會按固定比例遞減（等比衰減），可以用底數為 $0.5$ 的指數函數來模擬：
 $$E(t) = (0.5)^{k(t - \\operatorname{floor}(t))}$$
 先用單音 $440\\text{Hz}$ 測試：
-$$\\operatorname{tone}(440, \\; (0.5)^{k(t - \\operatorname{floor}(t))})$$
-調整**衰減係數滑桿 $k$**，比較不同 $k$ 值的聲音差異：
-- **$k = 8 \\sim 12$**：聲音掉得很快，短促清脆，接近木琴或撥弦。
-- **$k = 2 \\sim 3$**：聲音消散較慢，餘音較長，接近鋼琴。
+$$\\operatorname{tone}\\!\\left(440, \\; (0.5)^{k(t - \\operatorname{floor}(t))}\\right)$$
+調整**衰減係數滑桿 $k$**，比較不同 $k$ 值的曲線陡峭度與聽感：
+- **$k = 8 \\sim 12$**：曲線掉得很快，聲音短促清脆，接近木琴或撥弦。
+- **$k = 2 \\sim 3$**：曲線下降較緩，餘音較長，接近鋼琴。
+
+<div class="piano-card">
+  <svg class="piano-svg" style="max-width: 780px;" viewBox="0 0 740 248" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <style>
+        .dc-axis { stroke: var(--text-muted, #797169); stroke-width: 1.3; }
+        .dc-grid { stroke: var(--border-color, #d8cfc3); stroke-width: 1.1; stroke-dasharray: 4,4; }
+        .dc-txt { font-size: 12.5px; fill: var(--text-muted, #797169); font-family: inherit; }
+        .dc-leg { font-size: 13px; font-weight: 700; font-family: inherit; }
+        .dc-lin { fill: none; stroke: #8d847a; stroke-width: 2; stroke-dasharray: 6,5; }
+        .dc-k25 { fill: none; stroke: #3d8b5e; stroke-width: 2.8; stroke-linecap: round; }
+        .dc-k10 { fill: none; stroke: #c26d36; stroke-width: 2.8; stroke-linecap: round; }
+      </style>
+    </defs>
+
+    <!-- 頂部圖例 -->
+    <line x1="78" y1="24" x2="108" y2="24" class="dc-lin" />
+    <text x="115" y="29" class="dc-leg" style="fill: var(--text-muted, #797169);">直線漸弱 1 − u</text>
+
+    <line x1="258" y1="24" x2="288" y2="24" class="dc-k25" />
+    <text x="295" y="29" class="dc-leg" style="fill: #3d8b5e;">k = 2.5（餘音長）</text>
+
+    <line x1="468" y1="24" x2="498" y2="24" class="dc-k10" />
+    <text x="505" y="29" class="dc-leg" style="fill: #c26d36;">k = 10（短促木琴）</text>
+
+    <!-- 輔助格線與座標軸 -->
+    <line x1="75" y1="58.0" x2="695" y2="58.0" class="dc-grid" />
+    <line x1="75" y1="133.0" x2="695" y2="133.0" class="dc-grid" />
+    <line x1="385.0" y1="48" x2="385.0" y2="208.0" class="dc-grid" />
+    <line x1="75" y1="46" x2="75" y2="208.0" class="dc-axis" />
+    <line x1="75" y1="208.0" x2="705" y2="208.0" class="dc-axis" />
+
+    <!-- 刻度標籤 -->
+    <text x="64" y="62.0" text-anchor="end" class="dc-txt">1.0</text>
+    <text x="64" y="137.0" text-anchor="end" class="dc-txt">0.5</text>
+    <text x="64" y="212.0" text-anchor="end" class="dc-txt">0</text>
+    <text x="75.0" y="229" text-anchor="middle" class="dc-txt">0（第 1 拍）</text>
+    <text x="230.0" y="229" text-anchor="middle" class="dc-txt">0.5</text>
+    <text x="385.0" y="229" text-anchor="middle" class="dc-txt">1（第 2 拍）</text>
+    <text x="540.0" y="229" text-anchor="middle" class="dc-txt">1.5</text>
+    <text x="695.0" y="229" text-anchor="middle" class="dc-txt">2</text>
+
+    <!-- 三條衰減曲線 -->
+    <path d="M75.0,58.0 L385.0,208.0 M385.0,58.0 L695.0,208.0" class="dc-lin" />
+    <path d="M75.0,58.0 L82.8,64.4 L90.5,70.4 L98.2,76.3 L106.0,81.9 L113.8,87.2 L121.5,92.3 L129.2,97.2 L137.0,101.9 L144.8,106.4 L152.5,110.7 L160.2,114.9 L168.0,118.8 L175.8,122.6 L183.5,126.2 L191.2,129.7 L199.0,133.0 L206.8,136.2 L214.5,139.2 L222.2,142.1 L230.0,144.9 L237.8,147.6 L245.5,150.2 L253.2,152.6 L261.0,155.0 L268.8,157.2 L276.5,159.4 L284.2,161.4 L292.0,163.4 L299.8,165.3 L307.5,167.1 L315.2,168.8 L323.0,170.5 L330.8,172.1 L338.5,173.6 L346.2,175.1 L354.0,176.5 L361.8,177.8 L369.5,179.1 L377.2,180.3 L385.0,181.5 M385.0,58.0 L392.8,64.4 L400.5,70.4 L408.2,76.3 L416.0,81.9 L423.8,87.2 L431.5,92.3 L439.2,97.2 L447.0,101.9 L454.8,106.4 L462.5,110.7 L470.2,114.9 L478.0,118.8 L485.8,122.6 L493.5,126.2 L501.2,129.7 L509.0,133.0 L516.8,136.2 L524.5,139.2 L532.2,142.1 L540.0,144.9 L547.8,147.6 L555.5,150.2 L563.2,152.6 L571.0,155.0 L578.8,157.2 L586.5,159.4 L594.2,161.4 L602.0,163.4 L609.8,165.3 L617.5,167.1 L625.2,168.8 L633.0,170.5 L640.8,172.1 L648.5,173.6 L656.2,175.1 L664.0,176.5 L671.8,177.8 L679.5,179.1 L687.2,180.3 L695.0,181.5" class="dc-k25" />
+    <path d="M75.0,58.0 L82.8,81.9 L90.5,101.9 L98.2,118.8 L106.0,133.0 L113.8,144.9 L121.5,155.0 L129.2,163.4 L137.0,170.5 L144.8,176.5 L152.5,181.5 L160.2,185.7 L168.0,189.2 L175.8,192.2 L183.5,194.7 L191.2,196.9 L199.0,198.6 L206.8,200.1 L214.5,201.4 L222.2,202.4 L230.0,203.3 L237.8,204.1 L245.5,204.7 L253.2,205.2 L261.0,205.7 L268.8,206.0 L276.5,206.3 L284.2,206.6 L292.0,206.8 L299.8,207.0 L307.5,207.2 L315.2,207.3 L323.0,207.4 L330.8,207.5 L338.5,207.6 L346.2,207.7 L354.0,207.7 L361.8,207.8 L369.5,207.8 L377.2,207.8 L385.0,207.9 M385.0,58.0 L392.8,81.9 L400.5,101.9 L408.2,118.8 L416.0,133.0 L423.8,144.9 L431.5,155.0 L439.2,163.4 L447.0,170.5 L454.8,176.5 L462.5,181.5 L470.2,185.7 L478.0,189.2 L485.8,192.2 L493.5,194.7 L501.2,196.9 L509.0,198.6 L516.8,200.1 L524.5,201.4 L532.2,202.4 L540.0,203.3 L547.8,204.1 L555.5,204.7 L563.2,205.2 L571.0,205.7 L578.8,206.0 L586.5,206.3 L594.2,206.6 L602.0,206.8 L609.8,207.0 L617.5,207.2 L625.2,207.3 L633.0,207.4 L640.8,207.5 L648.5,207.6 L656.2,207.7 L664.0,207.7 L671.8,207.8 L679.5,207.8 L687.2,207.8 L695.0,207.9" class="dc-k10" />
+
+    <!-- 拍頭實心點 (u=0 皆為 1) -->
+    <circle cx="75.0" cy="58.0" r="4" fill="#3d8b5e" />
+    <circle cx="385.0" cy="58.0" r="4" fill="#3d8b5e" />
+  </svg>
+</div>
 
 ---
 
-**三、 套入小星星樂譜**：
-接著把指數衰減函數放進小星星的發聲算式中：
+**三、 套入《小星星》樂譜**
+把單音 $440$ 換成 3-1 第一版《小星星》列表 $L[t]$：
 $$\\operatorname{tone}(L[t], \\; E(t))$$
-可以比較看看它跟 3-1（從頭到尾一樣大聲、沒有斷開）、4-2（方波斷音）聽起來有什麼不同。
+可以比較它跟 3-1（同音黏在一起）、4-2（方波斷音）聽起來的差別。
 
 ---
 
-**四、 拍尾 15% 靜音處理**：
-當 $k$ 設得比較小（如 $k=2$）時，到拍子結尾處還有約 $25\\%$ 的音量。為了避免跟下一拍的開頭混在一起，可以結合 4-2 的分類討論，在每拍最後 15% 將音量設為 0：
+**四、 拍尾 15% 靜音處理**
+當 $k$ 設得比較小（如 $k = 2$）時，到拍尾 $u \\to 1$ 還剩下約 $25\\%$ 的音量。為了避免餘音跟下一拍開頭混在一起，可以搭配 4-2 的分類討論，在每拍最後 $15\\%$ 把音量設為 $0$：
 $$E(t) = \\left\\{t - \\operatorname{floor}(t) > 0.85: 0, \\; (0.5)^{k(t - \\operatorname{floor}(t))}\\right\\}$$
-注意這裡的靜音切在**拍尾（\`> 0.85\`）**，跟 4-2 切在**拍頭（\`< 0.2\`）**剛好相反：因為敲擊樂器在剛彈下去的拍頭（$u = 0$）最大聲，不能切掉拍頭，只能在拍子結尾留一點空隙，讓下一拍開頭更清楚。
+這裡的靜音切在**拍尾（\`> 0.85\`）**，跟 4-2 切在**拍頭（\`< 0.2\`）**剛好相反：因為敲擊樂器在剛彈下去的拍頭（$u = 0$）音量最大，不能切掉拍頭，只能在拍子結尾留一小段空隙，讓下一拍開頭更清楚。
+
+<div class="piano-card">
+  <svg class="piano-svg" style="max-width: 780px;" viewBox="0 0 740 218" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <style>
+        .tc-axis { stroke: var(--text-muted, #797169); stroke-width: 1.3; }
+        .tc-grid { stroke: var(--border-color, #d8cfc3); stroke-width: 1.1; stroke-dasharray: 4,4; }
+        .tc-txt { font-size: 12.5px; fill: var(--text-muted, #797169); font-family: inherit; }
+        .tc-mute-bg { fill: rgba(194, 109, 54, 0.14); }
+        .tc-mute-lbl { font-size: 12px; font-weight: 700; fill: #c26d36; font-family: inherit; }
+        .tc-active { fill: none; stroke: #3d8b5e; stroke-width: 2.8; stroke-linecap: round; }
+        .tc-ghost { fill: none; stroke: #9b9288; stroke-width: 1.8; stroke-dasharray: 4,4; }
+        .tc-zero { fill: none; stroke: #c26d36; stroke-width: 3.2; stroke-linecap: round; }
+      </style>
+    </defs>
+
+    <!-- 標題列 -->
+    <text x="75" y="24" class="tc-txt" style="font-weight: 700; font-size: 13px; fill: #3d8b5e;">k = 2 加上拍尾靜音（u &gt; 0.85 設為 0）</text>
+    <text x="695" y="24" text-anchor="end" class="tc-mute-lbl">橘色區：拍尾留白 15%</text>
+
+    <!-- 拍尾靜音底色區 (0.85~1, 1.85~2) -->
+    <rect x="338.5" y="46.0" width="46.5" height="132.0" class="tc-mute-bg" />
+    <rect x="648.5" y="46.0" width="46.5" height="132.0" class="tc-mute-bg" />
+
+    <!-- 輔助格線與軸線 -->
+    <line x1="75" y1="46.0" x2="695" y2="46.0" class="tc-grid" />
+    <line x1="75" y1="145.0" x2="695" y2="145.0" class="tc-grid" />
+    <line x1="385.0" y1="46.0" x2="385.0" y2="178.0" class="tc-grid" />
+    <line x1="75" y1="36" x2="75" y2="178.0" class="tc-axis" />
+    <line x1="75" y1="178.0" x2="705" y2="178.0" class="tc-axis" />
+
+    <!-- 刻度標籤 -->
+    <text x="64" y="50.0" text-anchor="end" class="tc-txt">1.0</text>
+    <text x="64" y="149.0" text-anchor="end" class="tc-txt">0.25</text>
+    <text x="64" y="182.0" text-anchor="end" class="tc-txt">0</text>
+    <text x="75.0" y="199" text-anchor="middle" class="tc-txt">0</text>
+    <text x="338.5" y="199" text-anchor="middle" class="tc-mute-lbl">0.85</text>
+    <text x="385.0" y="199" text-anchor="middle" class="tc-txt">1</text>
+    <text x="648.5" y="199" text-anchor="middle" class="tc-mute-lbl">1.85</text>
+    <text x="695.0" y="199" text-anchor="middle" class="tc-txt">2</text>
+
+    <!-- 曲線 -->
+    <path d="M338.5,137.4 L343.7,138.3 L348.8,139.2 L354.0,140.1 L359.2,141.0 L364.3,141.8 L369.5,142.6 L374.7,143.4 L379.8,144.2 L385.0,145.0 M648.5,137.4 L653.7,138.3 L658.8,139.2 L664.0,140.1 L669.2,141.0 L674.3,141.8 L679.5,142.6 L684.7,143.4 L689.8,144.2 L695.0,145.0" class="tc-ghost" />
+    <path d="M75.0,46.0 L82.8,50.5 L90.5,54.8 L98.2,59.0 L106.0,63.1 L113.8,67.0 L121.5,70.8 L129.2,74.4 L137.0,78.0 L144.8,81.4 L152.5,84.7 L160.2,87.8 L168.0,90.9 L175.8,93.9 L183.5,96.7 L191.2,99.5 L199.0,102.2 L206.8,104.8 L214.5,107.3 L222.2,109.7 L230.0,112.0 L237.7,114.2 L245.5,116.4 L253.3,118.5 L261.0,120.5 L268.8,122.5 L276.5,124.4 L284.2,126.2 L292.0,128.0 L299.8,129.7 L307.5,131.3 L315.2,132.9 L323.0,134.5 L330.8,135.9 L338.5,137.4 M385.0,46.0 L392.8,50.5 L400.5,54.8 L408.2,59.0 L416.0,63.1 L423.8,67.0 L431.5,70.8 L439.2,74.4 L447.0,78.0 L454.8,81.4 L462.5,84.7 L470.2,87.8 L478.0,90.9 L485.8,93.9 L493.5,96.7 L501.2,99.5 L509.0,102.2 L516.8,104.8 L524.5,107.3 L532.2,109.7 L540.0,112.0 L547.8,114.2 L555.5,116.4 L563.2,118.5 L571.0,120.5 L578.8,122.5 L586.5,124.4 L594.2,126.2 L602.0,128.0 L609.8,129.7 L617.5,131.3 L625.2,132.9 L633.0,134.5 L640.8,135.9 L648.5,137.4" class="tc-active" />
+    <path d="M338.5,178.0 L385.0,178.0 M648.5,178.0 L695.0,178.0" class="tc-zero" />
+
+    <!-- 註解：切掉原本的 0.25 尾巴 -->
+    <text x="332.3" y="137.0" text-anchor="end" class="tc-txt" style="font-size: 11.5px;">原本到拍尾還剩 0.25</text>
+    <circle cx="338.5" cy="137.4" r="3.5" fill="#ffffff" stroke="#3d8b5e" stroke-width="2" />
+    <circle cx="338.5" cy="178.0" r="3.5" fill="#c26d36" />
+    <circle cx="648.5" cy="137.4" r="3.5" fill="#ffffff" stroke="#3d8b5e" stroke-width="2" />
+    <circle cx="648.5" cy="178.0" r="3.5" fill="#c26d36" />
+  </svg>
+</div>
       `,
       tasks: [
-        "1. 單音敲擊測試：在 Desmos 輸入 $\\operatorname{tone}\\left(440, \\; (0.5)^{k(t - \\operatorname{floor}(t))}\\right)$，建立滑桿 $k$（範圍 $1$ 到 $15$，步長 $0.5$），比較 $k=10$ 與 $k=2.5$ 的餘音長短。",
-        "2. 套入小星星樂譜：將指數衰減套入小星星樂譜 $\\operatorname{tone}(L[t], \\; E(t))$ 播放聽聽看。",
-        "3. 加入拍尾靜音：將算式改為 $E(t) = \\{t - \\operatorname{floor}(t) > 0.85: 0, \\; (0.5)^{k(t - \\operatorname{floor}(t))}\\}$，聽聽看拍尾留白的效果。"
+        "1. 比較直線與指數衰減：在 Desmos 試聽 `tone(440, 1 - (t - floor(t)))` 與 `tone(440, (0.5)^(k * (t - floor(t))))`，建立滑桿 $k$（範圍 $1$ 到 $15$，步長 $0.5$），比較 $k=10$ 與 $k=2.5$ 的餘音長短。",
+        "2. 套入《小星星》：將指數衰減套入第一版《小星星》列表 `tone(L[t], E(t))`，比較它跟 4-2 方波斷音的聽感差異。",
+        "3. 加入拍尾靜音：將算式改為 `E(t) = {t - floor(t) > 0.85: 0, (0.5)^(k * (t - floor(t)))}`，聽看看拍尾留白後每拍開頭是不是更清楚。",
+        "4. 完成下方隨堂學習單的 2 題練習。"
       ],
       formula: `// 1. 拍內小數進度 (0 跑到 1)
 u = t - floor(t)
 
-// 2. 單音敲擊測試 (440Hz，拉動 k 比較餘音長短)
+// 2. 直線漸弱 vs. 指數衰減 (440Hz 單音測試)
+tone(440, 1 - u)
 k = 3
 tone(440, (0.5)^(k * u))
 
 // 3. 指數衰減函數 (加入拍尾 15% 靜音)
 E(t) = {t - floor(t) > 0.85: 0, (0.5)^(k * (t - floor(t)))}
 
-// 4. 套入小星星樂譜 (需搭配樂譜列表 L)
+// 4. 套入《小星星》第一版列表 L
 tone(L[t], E(t))`,
       tips: `
 - **係數 $k$ 與曲線斜率**：底數為 $0.5 < 1$ 時，次方係數 $k$ 越大，指數曲線下降越快，聲音越短促；$k$ 越小，曲線越平緩，餘音越長。
 - **拍尾歸零**：加上 \`{t - floor(t) > 0.85: 0}\` 可在每拍結束前先把音量歸零，讓下一拍開頭更清楚。
-      `
+- **合成器概念對照**：這裡做的音量隨時間遞減，就是電子合成器音量包絡線（ADSR）裡的衰減（Decay）概念。
+      `,
+      worksheet: {
+        title: "隨堂學習單：指數衰減係數與拍尾靜音",
+        questions: [
+          {
+            id: "q1_decay_k",
+            title: "衰減係數 $k$ 與剩餘音量計算",
+            type: "textarea",
+            prompt: "在指數衰減函數 $E(t) = (0.5)^{k(t - \\operatorname{floor}(t))}$ 中：\n1. 想模擬短促的木琴與餘音較長的鋼琴，滑桿 $k$ 分別要調大還是調小？\n2. 當 $k = 2$ 時，在一拍剛過一半（$t - \\operatorname{floor}(t) = 0.5$）以及接近拍尾（$t - \\operatorname{floor}(t) = 1$）時，音量分別剩下原來的幾分之幾？",
+            placeholder: "例如：1. 木琴 k 要調...，鋼琴要調...  2. 過一半剩...，拍尾剩...",
+            solution: "**1.** 底數 $0.5 < 1$，指數係數 $k$ 越大下降越快，因此**木琴要調大 $k$**（如 $k = 8 \\sim 12$），**鋼琴要調小 $k$**（如 $k = 2 \\sim 3$）。\n**2.** 代入 $k = 2$：\n- 過一半（$u = 0.5$）：$(0.5)^{2 \\times 0.5} = (0.5)^1 = 0.5$（剩下原本的 $\\frac{1}{2}$）。\n- 接近拍尾（$u \\to 1$）：$(0.5)^{2 \\times 1} = (0.5)^2 = 0.25$（還剩下原本的 $\\frac{1}{4}$，約 $25\\%$）。",
+            formatAnswer: (ans) => `衰減係數 k 與剩餘音量計算：\n• 學生回答：${ans}\n• 參考解析：木琴 k 調大、鋼琴 k 調小；k=2 時過一半剩 0.5（1/2）、拍尾接近 0.25（1/4）。`
+          },
+          {
+            id: "q2_tail_vs_head",
+            title: "為什麼這單元把靜音切在拍尾？",
+            type: "textarea",
+            prompt: "4-2 做斷音開關時把靜音切在拍頭（`t - floor(t) < 0.2`），但 4-3 模擬鋼琴與木琴時卻改切在拍尾（`t - floor(t) > 0.85`）。\n如果在 4-3 一樣把靜音切在拍頭（`t - floor(t) < 0.2`），聽起來會出現什麼問題？",
+            placeholder: "想想看敲擊樂器在 u = 0（剛敲下去）跟 u = 0.2 時音量分別是多少...",
+            solution: "敲擊與撥弦樂器在拍頭 $u = 0$（剛敲下去的瞬間）音量最大、最有顆粒感；如果切掉拍頭 $0 \\sim 0.2$，等於把整顆音最響亮的起音部分砍掉，只剩下後面已經變小的餘音，聲音會變糊、失去敲擊感。",
+            formatAnswer: (ans) => `拍尾靜音原因：\n• 學生回答：${ans}\n• 參考解析：敲擊樂器在拍頭 u=0 音量最大，切掉拍頭會砍掉最響亮的起音，失去打擊感，故改切在拍尾。`
+          }
+        ]
+      },
+      videos: [
+        {
+          title: "用合成器，做出頭腦裡的任何聲音（音色設計基礎）",
+          channel: "好和弦 NiceChord+",
+          duration: "13 分鐘",
+          url: "https://www.youtube.com/watch?v=RmplmZKrGbg",
+          note: "可對照 0:39～6:40 的音量變化曲線，特別是 5:02 實作撥弦樂器快速衰減的效果。"
+        }
+      ]
     },
 
     "4-4": {
@@ -1835,11 +2294,13 @@ tone(L[t], E(t))`,
 
 ---
 
-**四、 吃金幣 / 道具音效 Power-up（正弦波改變頻率）**：
-- **原理**：在固定頻率上加上快速震盪的正弦波。
-- **算式**：
+**四、 吃金幣 / 道具音效 Power-up 與顫音（正弦波改變頻率）**：
+- **原理**：在固定頻率上加上週期震盪的正弦波。
+- **短促道具音效**：
   $$\\operatorname{tone}\\left(600 + 200\\sin(30u), \\; \\{u \\le 0.3: 0.5, \\; 0\\}\\right)$$
-  - 頻率在 $400 \\sim 800\\text{Hz}$ 之間快速上下震動。
+  頻率在 $400 \\sim 800\\text{Hz}$ 之間快速上下震動。
+- **持續顫音 / 幽靈音效（LFO 音高震盪）**：
+  拿掉發聲時間限制並縮小震幅，寫成 $\\operatorname{tone}(440 + 20\\sin(25t), \\; 0.5)$，音高會持續規律晃動，接近合成器裡用低頻振盪器（LFO）做出的抖音或幽靈音效。
 
 ---
 
@@ -1878,13 +2339,23 @@ tone(400 + 800 * u^2, {u <= 0.3: 0.5, 0})
 // 4. 雷射音效 (頻率指數下降)
 tone(1500 * (0.5)^(10u), {u <= 0.4: 0.5, 0})
 
-// 5. 道具音效 (正弦波改變頻率)
-tone(600 + 200 * sin(30u), {u <= 0.3: 0.5, 0})`,
+// 5. 道具音效與持續顫音 (正弦波改變頻率)
+tone(600 + 200 * sin(30u), {u <= 0.3: 0.5, 0})
+tone(440 + 20 * sin(25t), 0.5)`,
       tips: `
 - **鼓聲的組成**：鼓聲通常在 $0.1 \\sim 0.3$ 秒內完成，特徵是「頻率快速下降」加上「音量指數衰減」。
 - **拋物線正負號**：二次項係數為正時（$+800u^2$），開口向上，音高往上跑；係數為負時（$-800u^2$），開口向下，音高往下掉。
 - **時間門檻位置**：把發聲時間條件寫在第二個音量參數 \`{u <= 0.3: 0.5, 0}\`，超過時間自動設為靜音 0。
-      `
+      `,
+      videos: [
+        {
+          title: "用合成器，做出頭腦裡的任何聲音（音色設計基礎）",
+          channel: "好和弦 NiceChord+",
+          duration: "13 分鐘",
+          url: "https://www.youtube.com/watch?v=RmplmZKrGbg",
+          note: "可對照 6:42～8:40：用 LFO 讓音高持續晃動（鬼要出來的音色）與音高上滑效果。"
+        }
+      ]
     },
 
 // ==========================================
@@ -2046,7 +2517,8 @@ a=\\left[3,t,5,t,8,t,5,t,12,12,12,t,12,12,12,10,10,t,t,t,t,3,t,5,t,8,t,5,t,10,10
       status: "ready",
       desmosUrl: "https://www.desmos.com/calculator/mgwmtlv53l",
       motivation: `
-在電影《全面啟動》、《敦克爾克大行動》或《超級瑪利歐 64》的無盡樓梯場景中，常使用一種聽起來不斷往上升高、卻不會超出音域上限的背景音效。
+在電影《全面啟動》、《敦克爾克大行動》或《超級瑪利歐 64》的無盡樓梯場景中，常使用一種聽起來不斷往上升高（或不斷往下掉）、卻不會超出音域上下限的背景音效。
+視覺上很像傳統理髮廳門口的旋轉燈柱：紅白藍斜條紋看起來一直往上移動，但實際上只是在固定高度的圓柱內循環滑動。
 
 這種聽覺錯覺稱為**「薛帕德音階（Shepard Tone）」**，做法如下：
 1. 用列表同時建立 $6$ 個相隔八度的音，隨時間一起往上移動。
@@ -2097,7 +2569,46 @@ X_{2}=\\operatorname{mod}\\left(\\operatorname{floor}\\left(t\right)+12\\cdot K,
       tips: `
 - **滑桿循環方向設定**：在 Desmos 播放時間滑桿 $t$ 時，請確認滑桿左側圖示為「單向循環（向右箭頭 →）」，且範圍上限設為 72 的整數倍（如 72 或 720），才能維持連續循環播放。
 - **錯覺產生的原因**：人耳對中間頻率（音量最大處）最敏感；由於各個音相隔八度，聽起來會融合成同一個音色，因此注意力會集中在中間正在上升的音，而不會注意到兩端低音量處的折返。
-      `
+      `,
+      worksheet: {
+        title: "隨堂學習單：薛帕德無限音階原理實驗",
+        questions: [
+          {
+            id: "q1_reverse_shepard",
+            title: "改寫成「永無止境往下掉」",
+            type: "textarea",
+            prompt: "範本中【上升滑音】的橫坐標公式為 `X_1 = mod(t + 12 * K, 72)`，播放時 6 顆點會一直往右移、音高不斷上升。\n如果想改成「永無止境往下掉」，應該怎麼修改 `X_1` 的算式？在 Desmos 改寫並播放確認。",
+            placeholder: "例如：把 t 改成 -t，寫成 mod(-t + 12 * K, 72)...",
+            solution: "將 `t` 改為 `-t`，寫成 `X_1 = mod(-t + 12 * K, 72)`（或 `mod(72 - t + 12 * K, 72)`）。當 `t` 增加時，6 顆點會一起往左移動，最低音在左側歸零後從右側無聲補進來，聽起來就會不斷往下掉。",
+            formatAnswer: (ans) => `改寫成無限下降：\n• 學生回答：${ans}\n• 參考解析：mod(-t + 12 * K, 72)（或 mod(72 - t + 12 * K, 72)），使 6 顆點向左循環移動。`
+          },
+          {
+            id: "q2_remove_bell",
+            title: "拿掉鐘形音量曲線會發生什麼事？",
+            type: "textarea",
+            prompt: "如果把發聲算式裡的鐘形音量曲線 `g(X_1)` 拿掉，全部改成固定音量 `0.2`（即 `tone(55 * 2^(X_1 / 12), 0.2)`），試著在 Desmos 改寫聽看看：無限上升的錯覺還在嗎？為什麼？",
+            placeholder: "請描述聽到的變化與原因...",
+            solution: "錯覺會立刻破功。因為沒有鐘形曲線在兩端（$x=0$ 與 $x=72$）把音量漸弱到接近 $0$，每當最右側的高音透過 `mod` 折返到最左側的低音時，耳朵會清楚聽見高音突然斷掉、低音突然冒出來的跳接感。",
+            formatAnswer: (ans) => `拿掉鐘形曲線的變化：\n• 學生回答：${ans}\n• 參考解析：錯覺會破功，因兩端沒有淡入淡出，高音折返低音時會明顯聽出跳接感。`
+          }
+        ]
+      },
+      videos: [
+        {
+          title: "永無止境往下掉的聲音",
+          channel: "好和弦 NiceChord+",
+          duration: "6 分鐘",
+          url: "https://www.youtube.com/watch?v=miLrgBrj96Q",
+          note: "專篇介紹薛帕德音階（Shepard Tone），包含理髮廳旋轉燈柱類比與電影遊戲應用。"
+        },
+        {
+          title: "蛤？永無止境加快的節奏？偽裝成低音的高音？",
+          channel: "好和弦 NiceChord+",
+          duration: "8 分半",
+          url: "https://www.youtube.com/watch?v=6s2R-x6FIKs",
+          note: "延伸觀看同原理的「永無止境加快的節奏（Risset Rhythm）」與其他聽覺錯覺。"
+        }
+      ]
     },
 
     "5-4": {
@@ -2765,17 +3276,30 @@ $$y = \\sum_{n=1}^{8} b^{n-1} \\sin(nx)$$
 2. **乘上 4-3 的指數衰減 $\\operatorname{tone}\\left(F_1, \\; V_1 \\cdot (0.5)^{4u}\\right)$**：
    諧音比例完全沒變，但每拍開頭最大聲、隨即快速衰減，聲音立刻從吹奏管樂器轉變成敲擊或撥弦樂器（如鋼琴、古箏）。
 3. **乘上 4-2 的鋸齒波 $\\operatorname{tone}\\left(F_1, \\; V_1 \\cdot u\\right)$**：
-   每拍音量從 $0$ 均勻爬升，聽起來像弦樂器由弱漸強（Crescendo）的推拉效果。
+   每拍音量從 $0$ 均勻爬升（漸強），到拍尾瞬間歸零，聽起來像倒放音效。
 
 > **聲音合成的三個部分**：
 > 1. **基音頻率 $f_0$（第 1~3 章）**：決定**音高**。
 > 2. **諧音比例 $V$（本附錄）**：決定**波形與音色**。
 > 3. **時間函數 $E(t)$（第 4 章）**：決定**音量的起音與衰減**。
+
+---
+
+### 四、 延伸實驗：消失的基礎音（幽靈基音）
+既然樂器的音高是由「一整組整數倍諧音」共同構成的，如果我們把**基音 $f_0$ 刻意拿掉**，只播放高次諧音，大腦會聽到什麼音高？
+
+在 Desmos 輸入以下兩行算式，輪流點開喇叭比較音高：
+$$\\operatorname{tone}(200, \\; 0.3)$$
+$$\\operatorname{tone}\\left([600, \\; 800, \\; 1000], \\; 0.15\\right)$$
+- 第二行裡完全沒有 $200\\text{Hz}$，只有 $3f_0, 4f_0, 5f_0$ 三個高音。
+- 但耳朵聽起來的音高竟然和第一行的 $200\\text{Hz}$ 一樣低，因為大腦會自動依這些頻率的最大公因數 $\\gcd(600, 800, 1000) = 200$，在腦中補出原本不存在的基音（稱為**消失的基礎音 Missing Fundamental**）。
+- 手機或藍牙小喇叭受限於體積、物理上發不出很低的基頻，就是靠多補幾組高頻諧音，讓大腦自己聽出重低音。
       `,
       tasks: [
         "1. 長笛與豎笛諧音對照：點擊右上角「開啟 Desmos 範本 ↗」，分別在【長笛】與【豎笛】資料夾中對照單純基音與多諧音合成的音色，並觀察 $V_1$（偶數諧音較大）與 $V_2$（偶數諧音接近 $0$）的數值差別。",
         "2. 高次諧音強弱實驗：在 Desmos 輸入 $N = [1\\dots 8]$、$\\operatorname{tone}\\left(N \\cdot 220, \\; 0.25 \\cdot b^{N-1}\\right)$ 與 $y = \\sum_{n=1}^8 b^{n-1}\\sin(nx)$，拉動滑桿 $b$（$0$ 到 $0.85$），觀察波形陡峭度與聲音明暗變化。",
-        "3. 時間音量函數疊加：在範本中新增時間滑桿 $t = 0$ 與 $u = t - \\operatorname{floor}(t)$，將長笛音量列表乘上指數衰減 $\\operatorname{tone}\\left(F_1, \\; V_1 \\cdot (0.5)^{4u}\\right)$，聽聽看管樂音色怎麼變成撥弦或敲擊的感覺。"
+        "3. 時間音量函數疊加：在範本中新增時間滑桿 $t = 0$ 與 $u = t - \\operatorname{floor}(t)$，將長笛音量列表乘上指數衰減 $\\operatorname{tone}\\left(F_1, \\; V_1 \\cdot (0.5)^{4u}\\right)$，聽聽看管樂音色怎麼變成撥弦或敲擊的感覺。",
+        "4. 幽靈基音實測：在 Desmos 輪流試聽 `tone(200, 0.3)` 與 `tone([600, 800, 1000], 0.15)`，驗證沒有 $200\\text{Hz}$ 卻依然聽出低音的現象。"
       ],
       formula: `// 1. 長笛全諧音合成：奇數與偶數諧音皆明顯 (Desmos 範本 msxzmo955w)
 tone(440, 0.16)   // 單純 440Hz 基音
@@ -2799,11 +3323,31 @@ tone(N * 220, 0.25 * b^(N - 1))
 // 4. 結合第四章指數衰減
 t = 0
 u = t - floor(t)
-tone(F_1, V_1 * (0.5)^(4 * u))`,
+tone(F_1, V_1 * (0.5)^(4 * u))
+
+// 5. 消失的基礎音 (幽靈基音，gcd(600, 800, 1000) = 200)
+tone(200, 0.3)
+tone([600, 800, 1000], 0.15)`,
       tips: `
 - **附錄 1 與附錄 2 的對應**：長笛為兩端對稱開管，V_1 中包含較強的偶數諧音（如第二諧音 1.00）；豎笛為單邊閉管，V_2 中偶數諧音（0.06, 0.10...）幾乎缺失。
 - **避免太大聲破音**：多個諧音同時發聲時振幅會相加，因此在列表外層乘上 0.16 或 0.18，避免破音也保護耳朵。
-      `
+      `,
+      videos: [
+        {
+          title: "蛤？永無止境加快的節奏？偽裝成低音的高音？",
+          channel: "好和弦 NiceChord+",
+          duration: "8 分半",
+          url: "https://www.youtube.com/watch?v=6s2R-x6FIKs",
+          note: "對照第四節的「消失的基礎音（偽裝成低音的高音）」聽覺錯覺實測。"
+        },
+        {
+          title: "用合成器，做出頭腦裡的任何聲音（音色設計基礎）",
+          channel: "好和弦 NiceChord+",
+          duration: "13 分鐘",
+          url: "https://www.youtube.com/watch?v=RmplmZKrGbg",
+          note: "從實際合成器角度印證本單元整理的三要素：基礎波形、諧音明暗與音量起音衰減。"
+        }
+      ]
     },
 
     "phys-3": {
