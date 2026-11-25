@@ -855,16 +855,22 @@ body.dark-mode .scale-table th {
 .math-display {
   overflow-x: auto;
   overflow-y: hidden;
-  margin: 1.15rem 0;
-  padding: 0.6rem 0.25rem;
+  margin: 0.35rem 0;
+  padding: 0.15rem 0.25rem;
   text-align: center;
 }
 
 .katex-display {
   overflow-x: auto;
   overflow-y: hidden;
-  padding: 0.55rem 0.25rem;
-  margin: 0.95rem 0;
+  padding: 0.1rem 0.25rem;
+  margin: 0.3rem 0;
+  text-align: center;
+}
+
+.math-display .katex-display {
+  margin: 0;
+  padding: 0.1rem 0;
 }
 
 /* 全域行內數學式字級（適度放大以平衡中文字符之視覺重量） */
@@ -878,6 +884,7 @@ body.dark-mode .scale-table th {
 .katex-display > .katex {
   font-size: 1.18em;
   line-height: 1.35;
+  text-align: center;
 }
 
 /* 次方與指數 (Exponents & Superscripts) 可讀性重點放大 */
