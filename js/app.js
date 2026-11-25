@@ -743,21 +743,21 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="banner-desmos-group">
           ${unit.desmosUrls.map(item => {
             const url = typeof item === 'string' ? item : item.url;
-            const label = typeof item === 'object' && item.title ? item.title : '開啟 Desmos 範本 ↗';
+            const label = typeof item === 'object' && item.title ? item.title : `${unit.id} 範本 ↗`;
             return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="btn-banner-desmos" title="${label}">${label}</a>`;
           }).join('')}
         </div>
       `;
     } else if (hasDesmosUrl) {
       desmosButtonsHtml = `
-        <a href="${desmosTarget}" target="_blank" rel="noopener noreferrer" class="btn-banner-desmos" title="另開分頁開啟 Desmos 範本">
-          開啟 Desmos 範本 ↗
+        <a href="${desmosTarget}" target="_blank" rel="noopener noreferrer" class="btn-banner-desmos" title="另開分頁開啟 ${unit.id} 範本">
+          ${unit.id} 範本 ↗
         </a>
       `;
     } else {
       desmosButtonsHtml = `
         <span class="btn-desmos-pending" title="範本製作中">
-          Desmos 範本製作中
+          ${unit.id} 範本製作中
         </span>
       `;
     }
@@ -899,7 +899,7 @@ document.addEventListener('DOMContentLoaded', () => {
       "module-2": "從畢達哥拉斯五度相生律到十二平均律，算出一個八度內 12 個半音的頻率（含樂理與純律補充）。",
       "module-3": "把簡譜寫成音名列表，熟悉 Desmos 下標與編曲操作技巧，並用指數律完成全曲升降 Key 移調。",
       "module-4": "利用週期函數、高斯符號與指數衰減，做出自動斷音、敲擊顆粒感與自然餘音。",
-      "module-5": "結合幾何翻轉、內建聽圖功能、薛帕德無限音階與分段接力，完成下落式音遊專題（附演算法自動作曲選學）。",
+      "module-5": "各自獨立的數學音樂應用：幾何對稱卡農、聽圖發聲、薛帕德無限音階、下落式音遊與自動作曲，可依課堂時間與興趣自由挑選操作。",
       "module-phys": "從弦與空氣柱的駐波認識泛音，並用正弦波疊加合成不同樂器的音色與波形。"
     };
 
@@ -959,7 +959,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <!-- 關鍵提醒卡：為什麼一定要開啟 Desmos 範本？ -->
         <section class="home-alert-card" id="home-guide">
           <div class="alert-card-header">
-            <h2 class="alert-card-title">上課提醒：每單元右上角的「開啟 Desmos 範本 ↗」</h2>
+            <h2 class="alert-card-title">上課提醒：每單元右上角的範本按鈕（如「1-2 範本 ↗」）</h2>
           </div>
           <div class="alert-card-body">
             <div class="alert-points-grid">
