@@ -163,7 +163,7 @@ const COURSE_CONFIG = {
           unitKey: "4-2",
           unitLabel: "4-2 高斯符號與鋸齒波斷音",
           desc: "含 floor(x)、鋸齒波 x - floor(x)、斷音開關 q 與《小星星》套用發聲 tone(L[t], q)",
-          url: "https://www.desmos.com/calculator/9njl1vtnj6"
+          url: "https://www.desmos.com/calculator/yu6kumnn6m"
         },
         {
           name: "floor函數做斷音（高斯階梯函數 y = floor(x) 圖解）",
@@ -1763,7 +1763,7 @@ tone(L[t], q_2)`,
       conceptTitle: "用拍內小數直接控制斷音比例",
       modelTitle: "高斯符號 floor(x) 與鋸齒波開關",
       status: "ready",
-      desmosUrl: "https://www.desmos.com/calculator/9njl1vtnj6",
+      desmosUrl: "https://www.desmos.com/calculator/yu6kumnn6m",
       motivation: `
 4-1 用正弦波搭配分類討論雖然做出了斷音，但正弦波是彎曲的曲線，想把靜音長度從 $\\frac{1}{6}$ 拍改成 $20\\%$（$0.2$ 拍）或 $15\\%$（$0.15$ 拍）時，換算角度相當麻煩。
 
