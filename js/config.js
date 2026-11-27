@@ -138,11 +138,11 @@ const COURSE_CONFIG = {
       category: "四、節奏與動態",
       items: [
         {
-          name: "三角函數做斷音（三角週期開關）",
+          name: "三角函數做斷音（含《小星星》套用）",
           unitKey: "4-1",
           unitLabel: "4-1 動態音量與三角函數斷音",
-          desc: "利用正弦波特殊角門檻與正切函數製作週期斷音開關",
-          url: "https://www.desmos.com/calculator/l8nygbjy8e"
+          desc: "含《小星星》原版 tone(L[t])，以及 sin 開關 q_1、tan 開關 q_2 的圖形與套用發聲對照",
+          url: "https://www.desmos.com/calculator/ctxjd8cgbb"
         },
         {
           name: "三角函數做斷音（步驟一：正弦波與門檻線圖解）",
@@ -159,11 +159,11 @@ const COURSE_CONFIG = {
           url: "https://www.desmos.com/calculator/exrboynk81"
         },
         {
-          name: "floor函數做斷音（高斯鋸齒波開關）",
+          name: "floor函數做斷音（含《小星星》套用）",
           unitKey: "4-2",
           unitLabel: "4-2 高斯符號與鋸齒波斷音",
-          desc: "利用高斯小數鋸齒波 t - floor(t) 製作任意比例斷音開關 q",
-          url: "https://www.desmos.com/calculator/nvksl0vch6"
+          desc: "含 floor(x)、鋸齒波 x - floor(x)、斷音開關 q 與《小星星》套用發聲 tone(L[t], q)",
+          url: "https://www.desmos.com/calculator/9njl1vtnj6"
         },
         {
           name: "floor函數做斷音（高斯階梯函數 y = floor(x) 圖解）",
@@ -1489,7 +1489,7 @@ k = 0
       conceptTitle: "想讓每個音前面都先安靜一下",
       modelTitle: "用正弦波與分類討論做出斷音開關",
       status: "ready",
-      desmosUrl: "https://www.desmos.com/calculator/l8nygbjy8e",
+      desmosUrl: "https://www.desmos.com/calculator/ctxjd8cgbb",
       motivation: `
 3-1《小星星》第一版本中，連續相同的音（例如 $C, C$）會黏在一起；如果像第二版本在每個音後面手動塞 \`0\`，列表長度又會加倍、改譜很麻煩。
 
@@ -1707,7 +1707,7 @@ $$y = \\left\\{\\sin\\left(2\\pi x + \\frac{\\pi}{3}\\right) \\ge \\frac{\\sqrt{
   </svg>
 </div>
 
-- 🟢 **綠色方波**：每一拍開頭自動安靜 $\\frac{1}{6}$ 拍（音量 $0$），後面 $\\frac{5}{6}$ 拍穩定維持音量 $1$，正好就是一開始想要的重複圖形。把這個開關設成變數 $q$ 放進 $\\operatorname{tone}(L[t], \\; q)$，就能做出乾淨的斷音。
+- 🟢 **綠色方波**：每一拍開頭自動安靜 $\\frac{1}{6}$ 拍（音量 $0$），後面 $\\frac{5}{6}$ 拍穩定維持音量 $1$，正好就是一開始想要的重複圖形。在右上角「4-1 範本 ↗」中，把這個開關設成變數 $q_1$ 並套進 $\\operatorname{tone}(L[t], \\; q_1)$，就能對照原本的 $\\operatorname{tone}(L[t])$，直接聽見《小星星》乾淨的斷音效果。
 
 ---
 
@@ -1717,24 +1717,24 @@ $$y = \\left\\{\\sin\\left(2\\pi x + \\frac{\\pi}{3}\\right) \\ge \\frac{\\sqrt{
 上面剛好靠特殊角 $\\frac{\\sqrt{3}}{2}$ 切出 $\\frac{1}{6}$ 拍。如果想改成靜音 $20\\%$（$0.2$ 拍）或 $15\\%$（$0.15$ 拍），因為正弦波是彎曲的曲線，需要重新計算角度、水平線高度與平移量，調整起來比較麻煩。
 
 **2. 其他三角週期函數**：
-右上角範本的第二個資料夾【tan圖形】示範了用正切函數 $y = \\tan\\left(\\pi x - \\frac{\\pi}{2}\\right)$ 搭配門檻 $y = -1$ 做出相同概念的週期開關。
+範本底下的【tan圖形】資料夾示範了用正切函數 $y = \\tan\\left(\\pi x - \\frac{\\pi}{2}\\right)$ 搭配門檻 $y = -1$ 做成開關 $q_2$，同樣可以點亮 $\\operatorname{tone}(L[t], \\; q_2)$ 試聽《小星星》斷音。
       `,
       tasks: [
         "1. 試聽 `tone(440, sin(t))`：在 Desmos 播放滑桿 `t`，感受曲線在 x 軸上方發聲、掉到下方自動靜音的重複效果。",
-        "2. 開啟右上角 Desmos 範本並展開【sin圖形】：觀察 $y = \\sin(2\\pi x + \\frac{\\pi}{3})$ 與 $y = \\frac{\\sqrt{3}}{2}$ 的交點，確認每差 $1$ 拍重複一次，且開頭高於門檻的寬度為 $\\frac{1}{6}$ 拍。",
-        "3. 觀察分類討論方波：檢視 `y = {sin(2πx + π/3) >= √3/2 : 0, 1}` 如何把彎曲正弦波轉成 0/1 斷音開關，並可展開【tan圖形】看正切函數的做法。",
+        "2. 開啟右上角「4-1 範本 ↗」並展開【sin圖形】：觀察 $y = \\sin(2\\pi x + \\frac{\\pi}{3})$ 與 $y = \\frac{\\sqrt{3}}{2}$ 的交點，確認每差 $1$ 拍重複一次，且開頭高於門檻的寬度為 $\\frac{1}{6}$ 拍。",
+        "3. 套入《小星星》對照試聽：先播放 `tone(L[t])` 聽原本黏在一起的《小星星》，再切換點亮 `tone(L[t], q_1)` 聽正弦波斷音，並可切換 `tone(L[t], q_2)` 比較【tan圖形】的斷音效果。",
         "4. 完成下方隨堂學習單。"
       ],
       formula: `// 1. 先試把 sin(t) 放進音量（負數會自動靜音）
 tone(440, sin(t))
 
-// 2. 正弦波與水平門檻線 (【sin圖形】)
-y = \\sin\\left(2\\pi x + \\frac{\\pi}{3}\\right)
-y = \\frac{\\sqrt{3}}{2}
-y = \\left\\{\\sin\\left(2\\pi x + \\frac{\\pi}{3}\\right) \\ge \\frac{\\sqrt{3}}{2}: 0, \\; 1\\right\\}
+// 2. 正弦波斷音開關 q_1 與套用《小星星》（【sin圖形】）
+q_1 = \\left\\{\\sin\\left(2\\pi t + \\frac{\\pi}{3}\\right) \\ge \\frac{\\sqrt{3}}{2}: 0, \\; 1\\right\\}
+tone(L[t], q_1)
 
-// 3. 正切函數開關 (【tan圖形】)
-y = \\left\\{\\tan\\left(\\pi x - \\frac{\\pi}{2}\\right) \\le -1: 0, \\; 1\\right\\}`,
+// 3. 正切函數開關 q_2 與套用《小星星》（【tan圖形】）
+q_2 = \\left\\{\\tan\\left(\\pi t - \\frac{\\pi}{2}\\right) \\le -1: 0, \\; 1\\right\\}
+tone(L[t], q_2)`,
       tips: `
 - **音量規則**：\`tone(頻率, 音量)\` 的第二個參數小於或等於 \`0\` 時都會靜音，正常發聲區間為 \`0\` 到 \`1\`。
 - **Desmos 分類討論格式**：語法為 \`{條件: 取值1, 取值2}\`，符合條件時輸出第一個值，不符合時輸出第二個值。
@@ -1746,7 +1746,7 @@ y = \\left\\{\\tan\\left(\\pi x - \\frac{\\pi}{2}\\right) \\le -1: 0, \\; 1\\rig
             id: "q1_sine_cutoff",
             title: "負數靜音與分類討論門檻調整",
             type: "textarea",
-            prompt: "1. 試聽 `tone(440, sin(t))` 時，為什麼會有一段時間完全沒有聲音？如果改成 `tone(440, sin(t) + 0.5)`，每輪安靜的時間會變長還是變短？\n2. 在範本的分類討論開關 `q = {sin(2πt + π/3) >= √3/2 : 0, 1}` 中，如果把水平門檻從 $\\frac{\\sqrt{3}}{2}$ 降成 $0$（也就是 `{sin(2πt + π/3) >= 0 : 0, 1}`），每一拍會變成幾分之幾靜音？",
+            prompt: "1. 試聽 `tone(440, sin(t))` 時，為什麼會有一段時間完全沒有聲音？如果改成 `tone(440, sin(t) + 0.5)`，每輪安靜的時間會變長還是變短？\n2. 在範本的分類討論開關 `q_1 = {sin(2πt + π/3) >= √3/2 : 0, 1}` 中，如果把水平門檻從 $\\frac{\\sqrt{3}}{2}$ 降成 $0$（也就是 `{sin(2πt + π/3) >= 0 : 0, 1}`），每一拍會變成幾分之幾靜音？",
             placeholder: "請說明靜音原因、+0.5 後的變化，以及門檻降成 0 後的靜音比例...",
             solution: "**1.** 因為 Desmos 在音量小於或等於 $0$ 時會自動靜音，當 $\\sin(t)$ 掉到 $x$ 軸下方（負數）時就會無聲。改成 `sin(t) + 0.5` 時，整條曲線向上平移 $0.5$，掉到 $x$ 軸下方的區間變窄，因此每輪安靜的時間會**變短**。\n**2.** 門檻降成 $0$ 後，只要正弦波 $\\ge 0$ 就靜音；一個完整週期內正弦波在 $x$ 軸上方與下方各占一半，因此每拍會變成 **$50\\%$（$\\frac{1}{2}$ 拍）靜音**。",
             formatAnswer: (ans) => `負數靜音與分類討論門檻調整：\n• 學生回答：${ans}\n• 參考解析：sin(t) 小於等於 0 時自動靜音；+0.5 向上平移使負區間變窄，安靜時間變短；門檻降成 0 時正弦波有一半區間 >= 0，故每拍 1/2（50%）靜音。`
@@ -1763,7 +1763,7 @@ y = \\left\\{\\tan\\left(\\pi x - \\frac{\\pi}{2}\\right) \\le -1: 0, \\; 1\\rig
       conceptTitle: "用拍內小數直接控制斷音比例",
       modelTitle: "高斯符號 floor(x) 與鋸齒波開關",
       status: "ready",
-      desmosUrl: "https://www.desmos.com/calculator/nvksl0vch6",
+      desmosUrl: "https://www.desmos.com/calculator/9njl1vtnj6",
       motivation: `
 4-1 用正弦波搭配分類討論雖然做出了斷音，但正弦波是彎曲的曲線，想把靜音長度從 $\\frac{1}{6}$ 拍改成 $20\\%$（$0.2$ 拍）或 $15\\%$（$0.15$ 拍）時，換算角度相當麻煩。
 
@@ -1995,9 +1995,9 @@ $$q = \\left\\{t - \\operatorname{floor}(t) < 0.2: 0, \\; t - \\operatorname{flo
    連續相同的音符之間就會自動切出乾淨的空隙。
       `,
       tasks: [
-        "1. 開啟右上角 Desmos 範本：點亮 `y = floor(x)` 觀察階梯圖形，再看 `y = x - floor(x)` 如何把時間轉成每拍 `0` 到 `1` 的斜直線。",
+        "1. 開啟右上角「4-2 範本 ↗」：點亮 `y = floor(x)` 觀察階梯圖形，再看 `y = x - floor(x)` 如何把時間轉成每拍 `0` 到 `1` 的斜直線。",
         "2. 調整斷音比例：觀察 `y = {x - floor(x) <= 0.2: 0, 1}` 的方波圖形，試著把 `0.2` 改成 `0.15` 或 `0.3`，看看靜音寬度的變化。",
-        "3. 套入《小星星》：拿 3-1 第一版《小星星》列表 `L`，加上開關 `q = {t - floor(t) < 0.2: 0, 1}` 並改寫為 `tone(L[t], q)`，播放滑桿 `t` 試聽自動斷音效果。",
+        "3. 試聽《小星星》自動斷音：在範本中點亮最下方的 `tone(L[t], q)` 並播放滑桿 `t`，同時調整開關 `q` 的小數門檻（如 `0.15` 或 `0.4`），聽看看斷音長短的變化。",
         "4. 完成下方隨堂學習單的 2 題練習。"
       ],
       formula: `// 1. 高斯階梯與拍內小數鋸齒波
